@@ -212,7 +212,11 @@ section#banner {
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 22px !important; }
+  #footer-logo-container img {
+    width: 50px;
+    height: 50px; }
   #footer-logo-container h3 {
+    font-size: 35px;
     margin: 0px !important;
     margin-left: 12px !important; }
 
