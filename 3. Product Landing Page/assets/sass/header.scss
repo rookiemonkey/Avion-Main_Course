@@ -1,0 +1,137 @@
+#header {
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -moz-justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: default;
+  height: 3.25rem;
+  left: 0;
+  line-height: 3.25rem;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10001; 
+}
+
+#header > #header-logo-container > .logo {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    height: inherit;
+    line-height: inherit;
+    padding: 0 1.25rem;
+    text-decoration: none; 
+}
+
+#header > nav > a {
+color: inherit;
+display: inline-block;
+padding: 0 0.75rem;
+text-decoration: none; 
+}
+
+#header > nav > a:hover {
+    color: #ffffff; 
+}
+
+#header > nav > a[href="#menu"] {
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+}
+
+#header > nav > a[href="#menu"]:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none !important; 
+}
+
+#header > nav > a[href="#menu"]:before {
+    content: '\f0c9';
+    margin: 0 0.5rem 0 0; 
+}
+
+#header > nav > a + a[href="#menu"]:last-child {
+    border-left: solid 1px rgba(255, 255, 255, 0.25);
+    margin-left: 0.5rem;
+    padding-left: 1.25rem; 
+}
+
+#header > nav > a:last-child {
+    padding-right: 1.25rem; 
+}
+
+#header-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 1rem;
+}
+
+a.logo {
+    padding: 0px !important;
+    margin-left: 0.75rem;
+}
+
+#banner {
+    height: 100vh !important;
+}
+
+#banner video {
+    -moz-transform: translateX(50%) translateY(50%);
+    -webkit-transform: translateX(50%) translateY(50%);
+    -ms-transform: translateX(50%) translateY(50%);
+    transform: translateX(50%) translateY(50%);
+    bottom: 50%;
+    height: auto;
+    width: auto; 
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    position: absolute;
+    right: 50%;
+}
+
+@media screen and (max-width: 980px) {
+    body {
+        padding-top: 44px; 
+    }
+
+    #header {
+        height: 44px;
+        line-height: 44px; 
+    } 
+}
+
+@media screen and (max-width: 480px) {
+    #header {
+        min-width: 320px; 
+    } 
+}
+
+@media screen and (max-width: 736px) {
+    #header > nav > a {
+        padding: 0 0.5rem; 
+    }
+
+    #header > nav > a + a[href="#menu"]:last-child {
+        margin-left: 0.25rem;
+        padding-left: 1rem; 
+    }
+
+    #header > nav > a:last-child {
+        padding-right: 1rem; 
+    } 
+}
