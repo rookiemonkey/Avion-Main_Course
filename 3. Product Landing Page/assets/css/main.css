@@ -244,6 +244,47 @@ section#banner {
   #footer {
     padding: 2rem 0 0.1rem 0; } }
 
+#calltoaction {
+  background-color: #ce1b28;
+  color: rgba(255, 255, 255, 0.75);
+  background-attachment: fixed;
+  background-image: url("/assets/images/marketing.jpg");
+  background-color: rgba(0, 0, 0, 0.75);
+  background-blend-mode: overlay;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  z-index: 1; }
+
+#calltoaction h1,
+#calltoaction h2,
+#calltoaction h3,
+#calltoaction h4,
+#calltoaction h5,
+#calltoaction h6 {
+  color: #ffffff; }
+
+#calltoaction .highlights .content {
+  background: #ce1b28;
+  box-shadow: 0px 0px 4px 1px rgba(255, 255, 255, 0.025); }
+
+#calltoaction .testimonials .content {
+  background: #ce1b28;
+  box-shadow: 0px 0px 4px 1px rgba(255, 255, 255, 0.025); }
+
+#calltoaction .testimonials .content .credit strong {
+  color: #ce1b28; }
+
+#calltoaction .inner {
+  position: relative;
+  z-index: 3; }
+
+@media screen and (max-width: 980px) {
+  #calltoaction {
+    background-attachment: scroll; } }
+
 /* Basic */
 @-ms-viewport {
   width: device-width; }
@@ -2500,192 +2541,6 @@ body.is-preload #banner .inner {
 
 body.is-preload #banner:before {
   opacity: 1; }
-
-/* CTA */
-#cta {
-  background-color: #ce1b28;
-  color: rgba(255, 255, 255, 0.75);
-  background-attachment: fixed;
-  background-image: linear-gradient(rgba(206, 27, 40, 0.25), rgba(206, 27, 40, 0.25)), url(../../images/cta01.jpg);
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  text-align: center;
-  z-index: 1; }
-
-#cta input, #cta select, #cta textarea {
-  color: #ffffff; }
-
-#cta a {
-  color: #ffffff; }
-
-#cta strong, #cta b {
-  color: #ffffff; }
-
-#cta h1, #cta h2, #cta h3, #cta h4, #cta h5, #cta h6 {
-  color: #ffffff; }
-
-#cta blockquote {
-  border-left-color: rgba(255, 255, 255, 0.25); }
-
-#cta code {
-  background: rgba(255, 255, 255, 0.075);
-  border-color: rgba(255, 255, 255, 0.25); }
-
-#cta hr {
-  border-bottom-color: rgba(255, 255, 255, 0.25); }
-
-#cta input[type="submit"],
-#cta input[type="reset"],
-#cta input[type="button"],
-#cta button,
-#cta .button {
-  background-color: transparent;
-  box-shadow: inset 0 0 0 1px #ffffff;
-  color: #ffffff !important; }
-
-#cta input[type="submit"]:hover,
-#cta input[type="reset"]:hover,
-#cta input[type="button"]:hover,
-#cta button:hover,
-#cta .button:hover {
-  background-color: rgba(255, 255, 255, 0.1); }
-
-#cta input[type="submit"]:hover:active,
-#cta input[type="reset"]:hover:active,
-#cta input[type="button"]:hover:active,
-#cta button:hover:active,
-#cta .button:hover:active {
-  background-color: rgba(255, 255, 255, 0.25); }
-
-#cta input[type="submit"].primary,
-#cta input[type="reset"].primary,
-#cta input[type="button"].primary,
-#cta button.primary,
-#cta .button.primary {
-  box-shadow: none;
-  background-color: #ffffff;
-  color: #ce1b28 !important; }
-
-#cta input[type="submit"].primary:hover,
-#cta input[type="reset"].primary:hover,
-#cta input[type="button"].primary:hover,
-#cta button.primary:hover,
-#cta .button.primary:hover {
-  background-color: rgba(255, 255, 255, 0.875);
-  box-shadow: none; }
-
-#cta input[type="submit"].primary:hover:active,
-#cta input[type="reset"].primary:hover:active,
-#cta input[type="button"].primary:hover:active,
-#cta button.primary:hover:active,
-#cta .button.primary:hover:active {
-  background-color: rgba(255, 255, 255, 0.5); }
-
-#cta label {
-  color: #ffffff; }
-
-#cta input[type="text"],
-#cta input[type="password"],
-#cta input[type="email"],
-#cta input[type="tel"],
-#cta input[type="search"],
-#cta input[type="url"],
-#cta select,
-#cta textarea {
-  background-color: rgba(255, 255, 255, 0.075);
-  border-color: rgba(255, 255, 255, 0.25); }
-
-#cta input[type="text"]:focus,
-#cta input[type="password"]:focus,
-#cta input[type="email"]:focus,
-#cta input[type="tel"]:focus,
-#cta input[type="search"]:focus,
-#cta input[type="url"]:focus,
-#cta select:focus,
-#cta textarea:focus {
-  border-color: #ffffff;
-  box-shadow: 0 0 0 1px #ffffff; }
-
-#cta select {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='rgba(255, 255, 255, 0.25)' /%3E%3C/svg%3E"); }
-
-#cta select option {
-  color: rgba(255, 255, 255, 0.75);
-  background-color: #ce1b28; }
-
-#cta input[type="checkbox"] + label,
-#cta input[type="radio"] + label {
-  color: rgba(255, 255, 255, 0.75); }
-
-#cta input[type="checkbox"] + label:before,
-#cta input[type="radio"] + label:before {
-  background: rgba(255, 255, 255, 0.075);
-  border-color: rgba(255, 255, 255, 0.25); }
-
-#cta input[type="checkbox"]:checked + label:before,
-#cta input[type="radio"]:checked + label:before {
-  background-color: #ffffff;
-  border-color: #ffffff;
-  color: #ce1b28; }
-
-#cta input[type="checkbox"]:focus + label:before,
-#cta input[type="radio"]:focus + label:before {
-  border-color: #ffffff;
-  box-shadow: 0 0 0 1px #ffffff; }
-
-#cta ::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.4) !important; }
-
-#cta :-moz-placeholder {
-  color: rgba(255, 255, 255, 0.4) !important; }
-
-#cta ::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.4) !important; }
-
-#cta :-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.4) !important; }
-
-#cta ul.alt li {
-  border-top-color: rgba(255, 255, 255, 0.25); }
-
-#cta table tbody tr {
-  border-color: rgba(255, 255, 255, 0.25); }
-
-#cta table tbody tr:nth-child(2n + 1) {
-  background-color: rgba(255, 255, 255, 0.075); }
-
-#cta table th {
-  color: #ffffff; }
-
-#cta table thead {
-  border-bottom-color: rgba(255, 255, 255, 0.25); }
-
-#cta table tfoot {
-  border-top-color: rgba(255, 255, 255, 0.25); }
-
-#cta table.alt tbody tr td {
-  border-color: rgba(255, 255, 255, 0.25); }
-
-#cta .highlights .content {
-  background: #ce1b28;
-  box-shadow: 0px 0px 4px 1px rgba(255, 255, 255, 0.025); }
-
-#cta .testimonials .content {
-  background: #ce1b28;
-  box-shadow: 0px 0px 4px 1px rgba(255, 255, 255, 0.025); }
-
-#cta .testimonials .content .credit strong {
-  color: #ce1b28; }
-
-#cta .inner {
-  position: relative;
-  z-index: 3; }
-
-@media screen and (max-width: 980px) {
-  #cta {
-    background-attachment: scroll; } }
 
 /* Header */
 body {

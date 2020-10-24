@@ -1,0 +1,48 @@
+#calltoaction {
+  background-color: #ce1b28;
+  color: rgba(255, 255, 255, 0.75);
+  background-attachment: fixed;
+  background-image: url("/assets/images/marketing.jpg");
+  background-color: rgba(0, 0, 0, 0.75);
+  background-blend-mode: overlay;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  z-index: 1; 
+}
+
+#calltoaction h1, 
+#calltoaction h2, 
+#calltoaction h3, 
+#calltoaction h4, 
+#calltoaction h5, 
+#calltoaction h6 {
+    color: #ffffff; 
+}
+
+#calltoaction .highlights .content {
+    background: #ce1b28;
+    box-shadow: 0px 0px 4px 1px rgba(255, 255, 255, 0.025); 
+}
+
+#calltoaction .testimonials .content {
+    background: #ce1b28;
+    box-shadow: 0px 0px 4px 1px rgba(255, 255, 255, 0.025); 
+}
+
+#calltoaction .testimonials .content .credit strong {
+    color: #ce1b28; 
+}
+
+#calltoaction .inner {
+    position: relative;
+    z-index: 3; 
+}
+
+@media screen and (max-width: 980px) {
+    #calltoaction {
+      background-attachment: scroll; 
+    } 
+}
