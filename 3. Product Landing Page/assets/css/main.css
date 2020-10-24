@@ -22,7 +22,8 @@
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: 10001; }
+  z-index: 10001;
+  padding: 50px 100px; }
 
 #header > #header-logo-container > .logo {
   color: #ffffff;
@@ -2792,7 +2793,7 @@ body {
 
 body:before {
   content: ' ';
-  background-image: url(../../images/bg.jpg);
+  background-image: url("../images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
