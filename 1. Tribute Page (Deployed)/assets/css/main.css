@@ -1,0 +1,378 @@
+:root {
+  --nav-spacing: 30px;
+  --text-spacing: 30px;
+  --margin-small: 10px;
+  --margin-medium: 15px;
+  --margin-large: 20px;
+  --main-header-text: 5rem;
+  --main-header-text: 5rem;
+  --sub-header-text: 2rem;
+  --timeline-hover-color: #eb4034;
+  --content-width: 60%;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url('../fonts/montserrat.ttf') format('truetype');
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+  scroll-behavior: smooth;
+}
+
+
+
+
+
+
+
+
+
+
+/* NAVIGATION BAR */
+.nav {
+  position: absolute;
+  top: var(--nav-spacing);
+  left: var(--nav-spacing);
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.nav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.nav .icon {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* HEADER WITH THE IMAGE */
+header {
+  background-image: url('/assets/images/stanlee-header.jpg');
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.75);
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+}
+
+.header-outer {
+  width: 100%;
+  height: 100vh;
+}
+
+.header-inner {
+  width: max-content;
+  height: 100vh;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-text {
+  display: inline !important; 
+  color: #ffffff;
+  font-weight: 200;
+}
+
+h6.header-text {
+  margin-top: var(--margin-large);
+  font-size: var(--sub-header-text);
+  letter-spacing: 0.35rem;
+}
+
+small.header-text {
+  margin-bottom: var(--margin-large);
+  font-size: 1.8rem;
+}
+
+.header-text-main {
+  font-weight: 700;
+  font-size: var(--main-header-text);
+  text-transform: uppercase;
+}
+
+
+
+
+
+
+
+/* SECTION HEADERS */
+.article-header {
+  text-align: center;
+}
+
+
+
+
+
+/* SECTION BACKGROUND IMAGES */
+.section-timline {
+  background-image: url('../images/stanlee-decor1.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: 900px;
+}
+
+.section-writer {
+  background-image: url('../images/stanlee-decor2.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 300px;
+}
+
+.section-impact {
+  background-image: url('../images/stanlee-decor3.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: -350px;
+}
+
+
+
+
+
+
+
+
+.timline,
+.writer,
+.impact {
+  margin-top: var(--margin-large) !important;
+  min-height: 100vh;
+}
+
+.timline-container,
+.writer-container,
+.impact-container {
+  margin-top: var(--margin-large) !important;
+  width: var(--content-width);
+  margin: 0px auto;
+}
+
+#timline,
+#writer,
+#impact {
+  margin-top: var(--margin-large) !important;
+  font-size: var(--sub-header-text);
+}
+
+#img-div {
+  margin-top: var(--margin-large) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#img-div > figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#img-div > figure > figcaption {
+  font-size: small;
+  margin-top: var(--margin-medium);
+}
+
+.content {
+  text-align: justify;
+  line-height: var(--text-spacing);
+  margin-top: var(--margin-large) !important;
+}
+
+
+
+
+
+
+/* TIMELINE */
+.timeline {
+  margin: 4em auto;
+  position: relative;
+  max-width: 46em;
+}
+.timeline:before {
+  background-color: black;
+  content: '';
+  margin-left: -1px;
+  position: absolute;
+  top: 0;
+  left: 2em;
+  width: 2px;
+  height: 100%;
+}
+
+.timeline-event {
+  position: relative;
+  list-style-type: none;
+}
+.timeline-event:hover .timeline-event-icon {
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  background-color: var(--timeline-hover-color);
+}
+.timeline-event:hover .timeline-event-thumbnail {
+  -moz-box-shadow: inset 40em 0 0 0 var(--timeline-hover-color);
+  -webkit-box-shadow: inset 40em 0 0 0 var(--timeline-hover-color);
+  box-shadow: inset 40em 0 0 0 var(--timeline-hover-color);
+}
+
+.timeline-event-copy {
+  padding: 2em;
+  position: relative;
+  top: -1.875em;
+  left: 4em;
+  width: 80%;
+}
+.timeline-event-copy h3 {
+  font-size: 1.75em;
+}
+.timeline-event-copy h4 {
+  font-size: 1.2em;
+  margin-bottom: 1.2em;
+}
+.timeline-event-copy strong {
+  font-weight: 700;
+}
+.timeline-event-copy p:not(.timeline-event-thumbnail) {
+  padding-bottom: 1.2em;
+}
+
+.timeline-event-icon {
+  -moz-transition: -moz-transform 0.2s ease-in;
+  -o-transition: -o-transform 0.2s ease-in;
+  -webkit-transition: -webkit-transform 0.2s ease-in;
+  transition: transform 0.2s ease-in;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-color: black;
+  outline: 10px solid white;
+  display: block;
+  margin: 0.5em 0.5em 0.5em -0.5em;
+  position: absolute;
+  top: 0;
+  left: 2em;
+  width: 1em;
+  height: 1em;
+}
+
+.timeline-event-thumbnail {
+  -moz-transition: box-shadow 0.5s ease-in 0.1s;
+  -o-transition: box-shadow 0.5s ease-in 0.1s;
+  -webkit-transition: box-shadow 0.5s ease-in;
+  -webkit-transition-delay: 0.1s;
+  transition: box-shadow 0.5s ease-in 0.1s;
+  color: white;
+  font-size: 0.75em;
+  background-color: black;
+  -moz-box-shadow: inset 0 0 0 0em #ef795a;
+  -webkit-box-shadow: inset 0 0 0 0em #ef795a;
+  box-shadow: inset 0 0 0 0em #ef795a;
+  display: inline-block;
+  margin-bottom: 1.2em;
+  padding: 0.25em 1em 0.2em 1em;
+}
+
+
+
+
+
+
+
+
+/* FOOTER */
+footer {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--content-width);
+  margin: 0px auto;
+}
+
+footer a {
+  text-decoration: none;
+  color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* DECOR 1 */
+.decor-1,
+.decor-2,
+.decor-3 {
+  margin-top: var(--margin-large) !important;
+  background-image: url('../images/decor-1.jpg');
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.60);
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+}
+
+/* DECOR 2 */
+.decor-2 {
+  background-image: url('../images/decor-2.jpg') !important;
+}
+
+/* DECOR 3 */
+.decor-3 {
+  background-image: url('../images/decor-3.jpg') !important;
+  height: 95vh !important;
+}

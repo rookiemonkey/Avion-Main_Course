@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avion Survey Form</title>
+    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <script src="/assets/js/validator.js"></script>
+    <script defer src="/assets/js/validations.js"></script>
+    <script async src="/assets/js/onsubmit.js"></script>
+    <script async src="/assets/js/onload.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- FORM HEADER -->
+        <header class="header">
+            <h1 id="title" class="text-center">
+                <img class="header-logo" alt="Avion Logo" src="/assets/images/avion-logo.png" />
+                Survey Form
+            </h1>
+            <p id="description" class="description text-center">
+                Help us improve our school by anwering a short survey
+            </p>
+        </header>
+
+        <!-- LOADER ANIMATION -->
+        <section class="loader hide">
+            <div class="loader-inner">
+                <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+                    <path fill="#fff"
+                        d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+                            from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                    </path>
+                </svg>
+
+                <small>Please wait...</small>
+            </div>
+        </section>
+
+        <!-- THANK YOU MESSAGE -->
+        <section class="submitted hide">
+            <img class="thankyou" src='/assets/images/thankyou.png' alt="thank you" />
+            <h1 style="text-align: center;">Success! Your Feedback has been sent! &#127881; </h1>
+            <h4 style="text-align: center;">Appreciate your feedback! We will look into your it and email you in regards
+                to its progress. Happy Coding!</h4>
+        </section>
+
+        <form onsubmit="return handleSubmit(event)" id="survey-form">
+
+            <div class="form-group">
+                <label id="name-label" for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name"
+                    autocomplete="off" data-rule="required" />
+            </div>
+
+            <div class="form-group">
+                <label id="email-label" for="email">Email</label>
+                <input name="email" id="email" class="form-control" placeholder="Enter your Email" autocomplete="off"
+                    data-rule="required|email" />
+            </div>
+
+            <div class="form-group">
+                <label id="number-label" for="number">Age<span class="clue">(optional)</span></label>
+                <input type="tel" name="age" id="number" class="form-control" placeholder="Age" autocomplete="off"
+                    data-rule="integer|min-10|max-99" />
+            </div>
+
+            <div class="form-group">
+                <p>Which option best describes your current role?</p>
+                <select id="dropdown" name="role" class="form-control" data-rule="required">
+                    <option disabled selected value>Select current role</option>
+                    <option value="student">Student</option>
+                    <option value="job">Full Time Job</option>
+                    <option value="learner">Full Time Learner</option>
+                    <option value="preferNo">Prefer not to say</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p>Would you recommend Avion to a friend?</p>
+                <div class="input_container p-icon p-curve p-pulse">
+                    <input type="radio" name="user-recommend" value="definitely" type="radio" checked
+                        class="input-radio" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> Definitely </label>
+                    </div>
+                </div>
+
+                <div class="input_container p-icon p-curve p-pulse">
+                    <input type="radio" name="user-recommend" value="maybe" type="radio" class="input-radio" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> Maybe </label>
+                    </div>
+                </div>
+
+                <div class="input_container p-icon p-curve p-pulse">
+                    <input type="radio" name="user-recommend" value="not-sure" type="radio" class="input-radio" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> Not sure </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <p>
+                    What is your favorite feature of Avion?
+                </p>
+                <select id="most-like" name="mostLike" class="form-control" data-rule="required">
+                    <option disabled selected value>Select a feature</option>
+                    <option value="challenges">Challenges</option>
+                    <option value="projects">Projects</option>
+                    <option value="community">Community</option>
+                    <option value="openSource">Open Source</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p>
+                    What would you like to see improved?
+                    <span class="clue">(Check all that apply)</span>
+                </p>
+
+                <div class="input_container p-icon p-curve p-pulse input-checkbox-improvements">
+                    <input type="checkbox" name="prefer" value="front-end-projects" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> Front-end Projects </label>
+                    </div>
+                </div>
+
+                <div class="input_container p-icon p-curve p-pulse input-checkbox-improvements">
+                    <input type="checkbox" name="prefer" value="back-end-projects" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> Back-end Projects </label>
+                    </div>
+                </div>
+
+                <div class="input_container p-icon p-curve p-pulse input-checkbox-improvements">
+                    <input type="checkbox" name="prefer" value="data-visualization" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> Data Visualization </label>
+                    </div>
+                </div>
+
+                <div class="input_container p-icon p-curve p-pulse input-checkbox-improvements">
+                    <input type="checkbox" name="prefer" value="challenges" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> Challenges </label>
+                    </div>
+                </div>
+
+                <div class="input_container p-icon p-curve p-pulse input-checkbox-improvements">
+                    <input type="checkbox" name="prefer" value="open-source-community" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> Open Source Community </label>
+                    </div>
+                </div>
+
+                <div class="input_container p-icon p-curve p-pulse input-checkbox-improvements">
+                    <input type="checkbox" name="prefer" value="gitter-help-rooms" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> Gitter help rooms </label>
+                    </div>
+                </div>
+
+                <div class="input_container p-icon p-curve p-pulse input-checkbox-improvements">
+                    <input type="checkbox" name="prefer" value="videos" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> Videos </label>
+                    </div>
+                </div>
+
+                <div class="input_container p-icon p-curve p-pulse input-checkbox-improvements">
+                    <input type="checkbox" name="prefer" value="city-meetups" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> City Meetups </label>
+                    </div>
+                </div>
+
+                <div class="input_container p-icon p-curve p-pulse input-checkbox-improvements">
+                    <input type="checkbox" name="prefer" value="wiki" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> Wiki </label>
+                    </div>
+                </div>
+
+                <div class="input_container p-icon p-curve p-pulse input-checkbox-improvements">
+                    <input type="checkbox" name="prefer" value="forum" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> Forum </label>
+                    </div>
+                </div>
+
+
+                <div class="input_container p-icon p-curve p-pulse input-checkbox-improvements">
+                    <input type="checkbox" name="prefer" value="additional-courses" />
+                    <div class="state p-info-o">
+                        <i class="icon material-icons">done</i>
+                        <label> Additional Courses </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <p>Any comments or suggestions?</p>
+                <textarea id="comments" class="input-textarea" name="comment"
+                    placeholder="Enter your comment here..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" id="submit" class="submit-button">
+                    Submit
+                </button>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+
+</html>

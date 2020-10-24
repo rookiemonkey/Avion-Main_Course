@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "build": "node build.js",
+    "sass": "node-sass assets/sass/_index.scss assets/css/main.css",
+    "sass-min": "node-sass assets/sass/_index.scss assets/css/main.css --output-style compressed"
+  },
+  "dependencies": {
+    "minify": "^6.0.0",
+    "ncp": "^2.0.0",
+    "node-sass": "^4.14.1"
+  }
+}
