@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/css/main.css" />
+    <script defer src="/assets/js/onload.js"></script>
     <title>Hoster</title>
 </head>
 
@@ -404,6 +405,7 @@
         </div>
     </section>
 
+    <!-- Contact -->
     <section class="wrapper">
         <div class="inner">
             <header class="special" id="contact">
@@ -415,12 +417,38 @@
                     <img src="/assets/images/contact.png" alt="" />
                 </div>
                 <div class="container-contactform">
-                    <form method="post" action="#" id="form">
-                        <input type="text" name="name" id="name" value="" placeholder="Name">
-                        <input type="email" name="email" id="email" value="" placeholder="Email">
-                        <textarea name="textarea" id="textarea" placeholder="Message" rows="6"></textarea>
+                    <form onsubmit="return handleSubmit(event)" id="form">
+                        <input type="text" name="name" id="name" value="" placeholder="Name" data-rule="required">
+                        <input type="email" name="email" id="email" value="" placeholder="Email"
+                            data-rule="required|email">
+                        <textarea name="textarea" id="textarea" placeholder="Message" rows="6"
+                            data-rule="required"></textarea>
                         <input type="submit" id="submit" value="Submit Form" class="primary">
                     </form>
+
+                    <!-- LOADER ANIMATION -->
+                    <section class="loader hide">
+                        <div class="loader-inner">
+                            <svg fill="black" version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+                                enable-background="new 0 0 0 0" xml:space="preserve">
+                                <path fill="black"
+                                    d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                                    <animateTransform attributeName="transform" attributeType="XML" type="rotate"
+                                        dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                                </path>
+                            </svg>
+
+                            <small>Please wait...</small>
+                        </div>
+                    </section>
+
+                    <!-- THANK YOU MESSAGE -->
+                    <section class="submitted hide">
+                        <img class="thankyou" src='/assets/images/thankyou.png' alt="thank you" />
+                        <h4 style="text-align: center;"> Your message has been sent successfully! &#127881;</h4>
+                    </section>
+
                 </div>
             </div>
         </div>
@@ -470,6 +498,9 @@
 
 </body>
 
+<script src="/assets/js/validator.js"></script>
+<script src="/assets/js/validations.js"></script>
+<script src="/assets/js/onsubmit.js"></script>
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/browser.min.js"></script>
 <script src="/assets/js/breakpoints.min.js"></script>

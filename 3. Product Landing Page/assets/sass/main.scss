@@ -5,6 +5,8 @@
 @import './plans.scss';
 @import './marketing.scss';
 @import './contact.scss';
+@import './loader.scss';
+@import './submitted.scss';
 
 /* Basic */
 @-ms-viewport {
@@ -18,6 +20,10 @@ body {
   padding: 0px !important;
   margin: 0px !important;
   -ms-overflow-style: scrollbar; 
+}
+
+.hide {
+  display: none;
 }
 
 @media screen and (max-width: 480px) {

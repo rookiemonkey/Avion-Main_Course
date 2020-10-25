@@ -367,6 +367,35 @@ section#banner .inner h2 {
   .container-contactform {
     width: 100% !important; } }
 
+.loader {
+  padding-top: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+  .loader .loader-inner {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .loader .loader-inner svg {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      display: inline-block; }
+    .loader .loader-inner small {
+      text-align: center; }
+
+.submitted {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.thankyou {
+  width: 100%;
+  height: auto; }
+
 /* Basic */
 @-ms-viewport {
   width: device-width; }
@@ -378,6 +407,9 @@ body {
   padding: 0px !important;
   margin: 0px !important;
   -ms-overflow-style: scrollbar; }
+
+.hide {
+  display: none; }
 
 @media screen and (max-width: 480px) {
   html, body {
