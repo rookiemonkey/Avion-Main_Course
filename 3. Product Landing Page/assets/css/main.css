@@ -248,6 +248,37 @@ section#banner {
   #footer {
     padding: 2rem 0 0.1rem 0; } }
 
+.plans .inner .highlights section div.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  .plans .inner .highlights section div.content .content-header-plan {
+    margin-bottom: 35px; }
+    .plans .inner .highlights section div.content .content-header-plan h3 {
+      margin: 0px; }
+    .plans .inner .highlights section div.content .content-header-plan small {
+      font-size: 0.8rem; }
+  .plans .inner .highlights section div.content .content-price-subtitle {
+    margin-bottom: 10px; }
+    .plans .inner .highlights section div.content .content-price-subtitle .content-price-subtitle-oldprice {
+      text-decoration: line-through;
+      color: gray; }
+    .plans .inner .highlights section div.content .content-price-subtitle .content-price-subtitle-savings {
+      padding: 10px 20px;
+      border-radius: 100px;
+      background-color: #ce1b28; }
+      .plans .inner .highlights section div.content .content-price-subtitle .content-price-subtitle-savings b {
+        color: whitesmoke !important; }
+  .plans .inner .highlights section div.content .content-price {
+    margin-bottom: 35px;
+    font-size: 2rem; }
+    .plans .inner .highlights section div.content .content-price .content-price-amount {
+      font-size: 2.3rem; }
+  .plans .inner .highlights section div.content .content-features .content-features-list {
+    text-align: left; }
+  .plans .inner .highlights section div.content small {
+    color: gray; }
+
 #calltoaction {
   background-color: #ce1b28;
   color: rgba(255, 255, 255, 0.75);
@@ -292,6 +323,9 @@ section#banner {
 /* Basic */
 @-ms-viewport {
   width: device-width; }
+
+* {
+  scroll-behavior: smooth; }
 
 body {
   padding: 0px !important;

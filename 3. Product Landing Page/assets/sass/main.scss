@@ -2,11 +2,16 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600");
 @import './header.scss';
 @import './footer.scss';
+@import './plans.scss';
 @import './marketing.scss';
 
 /* Basic */
 @-ms-viewport {
   width: device-width; }
+
+* {
+  scroll-behavior: smooth;
+}
 
 body {
   padding: 0px !important;
@@ -714,7 +719,7 @@ table.alt tbody tr td {
     height: 100%;
     padding: 3rem;
     text-align: center; }
-    .highlights .content .icon {
+  .highlights .content .icon {
       font-size: 5rem; }
   .highlights > div > :last-child {
     margin-bottom: 0; }
