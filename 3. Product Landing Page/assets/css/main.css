@@ -123,6 +123,8 @@ section#banner .inner h2 {
     min-width: 320px; } }
 
 @media screen and (max-width: 736px) {
+  #header {
+    padding: 50px 60px; }
   #header > nav > a {
     padding: 0 0.5rem; }
   #header > nav > a + a[href="#menu"]:last-child {
@@ -311,7 +313,8 @@ section#banner .inner h2 {
   background-size: cover;
   position: relative;
   text-align: center;
-  z-index: 1; }
+  z-index: 1;
+  padding: 48px 0px; }
 
 #calltoaction h1,
 #calltoaction h2,

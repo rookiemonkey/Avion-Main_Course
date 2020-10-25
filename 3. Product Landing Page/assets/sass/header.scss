@@ -35,10 +35,10 @@
 }
 
 #header > nav > a {
-color: inherit;
-display: inline-block;
-padding: 0 0.75rem;
-text-decoration: none; 
+    color: inherit;
+    display: inline-block;
+    padding: 0 0.75rem;
+    text-decoration: none; 
 }
 
 #header > nav > a:hover {
@@ -148,6 +148,10 @@ section#banner .inner {
 }
 
 @media screen and (max-width: 736px) {
+    #header {
+        padding: 50px 60px;
+    }
+
     #header > nav > a {
         padding: 0 0.5rem; 
     }
