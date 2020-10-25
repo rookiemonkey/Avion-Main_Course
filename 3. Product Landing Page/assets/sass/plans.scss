@@ -56,6 +56,11 @@ $margin: 35px;
                     .content-features {
                         .content-features-list {
                             text-align: left;
+                            list-style-type: none;
+                        }
+
+                        .content-features-item:before {
+                            content: '✔ ' !important;
                         }
                     }
 
