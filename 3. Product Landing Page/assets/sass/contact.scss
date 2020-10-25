@@ -30,6 +30,12 @@ $form-spacing: 10px;
                 resize: vertical;
             }
         }
+
+        .error {
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
 }

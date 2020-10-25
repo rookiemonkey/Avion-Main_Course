@@ -421,7 +421,7 @@
                         <input type="text" name="name" id="name" value="" placeholder="Name" data-rule="required">
                         <input type="email" name="email" id="email" value="" placeholder="Email"
                             data-rule="required|email">
-                        <textarea name="textarea" id="textarea" placeholder="Message" rows="6"
+                        <textarea name="details" id="textarea" placeholder="Message" rows="6"
                             data-rule="required"></textarea>
                         <input type="submit" id="submit" value="Submit Form" class="primary">
                     </form>
@@ -447,6 +447,12 @@
                     <section class="submitted hide">
                         <img class="thankyou" src='/assets/images/thankyou.png' alt="thank you" />
                         <h4 style="text-align: center;"> Your message has been sent successfully! &#127881;</h4>
+                    </section>
+
+                    <!-- ERROR MESSAGE -->
+                    <section class="submitted error hide">
+                        <h4 style="text-align: center;"> Something went wrong upon the message request. Please refresh
+                            the page and try again. </h4>
                     </section>
 
                 </div>
