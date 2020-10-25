@@ -90,6 +90,31 @@ section#banner {
     height: 100vh !important;
 }
 
+section#banner .inner {
+    #banner-logo-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 25px !important;
+
+        img {
+            // width: 75px !important;
+            height: 75px !important;
+        }
+
+        a {
+            margin: 0px;
+            font-weight: 800 !important;
+            font-size: 1.5rem;
+            color: whitesmoke;
+            text-transform: uppercase;
+        }
+    }
+
+    h2 {
+        margin: 0px !important;
+    }
+}
+
 #banner video {
     -moz-transform: translateX(50%) translateY(50%);
     -webkit-transform: translateX(50%) translateY(50%);
