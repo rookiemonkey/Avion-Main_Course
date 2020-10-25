@@ -1,6 +1,7 @@
 **/node_modules
 **/build
 **/instructions.txt
+**/.env
 
 # MISCS
 **/.git
