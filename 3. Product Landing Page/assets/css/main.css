@@ -340,6 +340,30 @@ section#banner .inner h2 {
   #calltoaction {
     background-attachment: scroll; } }
 
+.contact {
+  display: flex;
+  width: 100%;
+  height: max-content; }
+  .contact .container-illustration {
+    width: 50%; }
+    .contact .container-illustration img {
+      width: 75%;
+      height: auto; }
+  .contact .container-contactform {
+    width: 50%; }
+    .contact .container-contactform form input[type='text'],
+    .contact .container-contactform form input[type='email'],
+    .contact .container-contactform form textarea {
+      margin-bottom: 10px; }
+    .contact .container-contactform form textarea {
+      resize: vertical; }
+
+@media screen and (max-width: 736px) {
+  .container-illustration {
+    display: none !important; }
+  .container-contactform {
+    width: 100% !important; } }
+
 /* Basic */
 @-ms-viewport {
   width: device-width; }

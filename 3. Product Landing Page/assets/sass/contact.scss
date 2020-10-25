@@ -1,0 +1,45 @@
+$form-spacing: 10px;
+
+.contact {
+    display: flex;
+    width: 100%;
+    height: max-content;
+
+    // illustration
+    .container-illustration {
+        width: 50%;
+        img {
+            width: 75%;
+            height: auto;
+        }
+    }
+
+    // form
+    .container-contactform {
+        width: 50%;
+
+        form {
+
+            input[type='text'],
+            input[type='email'],
+            textarea {  
+                margin-bottom: $form-spacing;
+            }
+
+            textarea {  
+                resize: vertical;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 736px) {
+    .container-illustration {
+        display: none !important;
+    }
+
+    .container-contactform {
+        width: 100% !important;
+    }
+}

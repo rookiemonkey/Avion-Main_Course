@@ -14,9 +14,9 @@
     <!-- Nav && Right Sidebar -->
     <nav id="menu">
         <ul class="links">
-            <li><a href="#chooseplan">Plans</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="#chooseplan" class="nav-link">Plans</a></li>
+            <li><a href="#contact" class="nav-link">Contact Us</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
         </ul>
     </nav>
 
@@ -26,7 +26,7 @@
         <!-- Header -->
         <header id="header">
             <div id="header-logo-container">
-                <img src="/assets/images/logo.svg" alt='Hoster Logo' />
+                <img src="/assets/images/logo.svg" alt='Hoster Logo' id="header-img" />
                 <a class="logo" href="index.html">Hoster</a>
             </div>
             <nav>
@@ -282,10 +282,10 @@
     <!-- About -->
     <section id="main" class="wrapper" style="padding-bottom: 0px;">
         <div class="inner">
+            <header class="special" id="about">
+                <h2>Who are we?</h2>
+            </header>
             <div class="content" style="margin-bottom: 15px;">
-                <header id="about">
-                    <h2>Who are we?</h2>
-                </header>
                 <p>It all began in 2004 and it's been a crazy ride ever since. The idea was simple - to let you create a
                     website for FREE.
                     With unrestricted PHP and MySQL, easy to use cPanel with no ads you have a complete freedom to
@@ -400,6 +400,28 @@
                         </div>
                     </div>
                 </section>
+            </div>
+        </div>
+    </section>
+
+    <section class="wrapper">
+        <div class="inner">
+            <header class="special" id="contact">
+                <h2>Contact Us</h2>
+                <p>Let us know your thoughts! We will be very much happy about it.</p>
+            </header>
+            <div class="contact">
+                <div class="container-illustration">
+                    <img src="/assets/images/contact.png" alt="" />
+                </div>
+                <div class="container-contactform">
+                    <form method="post" action="#">
+                        <input type="text" name="name" id="name" value="" placeholder="Name">
+                        <input type="email" name="email" id="email" value="" placeholder="Email">
+                        <textarea name="textarea" id="textarea" placeholder="Message" rows="6"></textarea>
+                        <input type="submit" value="Submit Form" class="primary">
+                    </form>
+                </div>
             </div>
         </div>
     </section>
