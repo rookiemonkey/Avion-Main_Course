@@ -2,6 +2,7 @@
 **/build
 **/instructions.txt
 **/.env
+**/.git
 
 # MISCS
 **/.git
