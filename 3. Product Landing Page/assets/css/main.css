@@ -415,6 +415,12 @@ body {
 .hide {
   display: none; }
 
+.text-medium {
+  font-size: 1.25rem; }
+
+.text-larger {
+  font-size: 1.5rem; }
+
 @media screen and (max-width: 480px) {
   html, body {
     min-width: 320px; } }
@@ -3093,3 +3099,8 @@ body {
 
 body.is-menu-visible {
   margin-right: 20rem !important; }
+
+.management-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
