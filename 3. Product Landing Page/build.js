@@ -49,8 +49,8 @@ const outputDir_js = `${outputDir_main}${outputDir_sub}/js`;
  */
 const assets = [
     [`${path.join(__dirname, './index.html')}`, '/index', 'html'],
+    [`${path.join(__dirname, './assets/css/font-awesome.min.css')}`, '/font-awesome.min', 'css'],
     [`${path.join(__dirname, './assets/css/main.css')}`, '/main', 'css'],
-    [`${path.join(__dirname, './assets/css/font-awesome.min.css')}`, '/font-awesome', 'css'],
     [`${path.join(__dirname, './assets/js/breakpoints.min.js')}`, '/breakpoints.min', 'js'],
     [`${path.join(__dirname, './assets/js/browser.min.js')}`, '/browser.min', 'js'],
     [`${path.join(__dirname, './assets/js/jquery.min.js')}`, '/jquery.min', 'js'],
@@ -59,7 +59,7 @@ const assets = [
     [`${path.join(__dirname, './assets/js/onsubmit.js')}`, '/onsubmit', 'js'],
     [`${path.join(__dirname, './assets/js/util.js')}`, '/util', 'js'],
     [`${path.join(__dirname, './assets/js/validations.js')}`, '/validations', 'js'],
-    [`${path.join(__dirname, './assets/js/validator.js')}`, '/validator', 'js']
+    [`${path.join(__dirname, './assets/js/validator.js')}`, '/validator', 'js'],
 ]
 
 
