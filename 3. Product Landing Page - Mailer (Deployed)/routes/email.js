@@ -1,5 +1,6 @@
 const isEmail = require('validator/lib/isEmail');
-const toEmail = require("../utilities/toEmail");
+const toEmailUser = require('../utilities/toEmailUser');
+const toEmailOwner = require("../utilities/toEmailOwner");
 
 const email = async (req, res) => {
     try {
@@ -15,23 +16,23 @@ const email = async (req, res) => {
             throw new Error('Please provide a valid contact email');
         }
 
-        // send an email to company email
-        await toEmail(
+        // send an plaint text email to company email. in prod. a paid STMP service
+        // will be able to track all of the emails, no need of sending to its self
+        await toEmailOwner(
             process.env.COMPANY_EMAIL,
             `Contact Request has been made`,
             `Mr/Mrs ${name} with email ${email} answered the contact form.
-            
+
             Here is the details of his/her contact request:
             ${details}
             `
         )
 
         // send an email to the user
-        await toEmail(
+        await toEmailUser(
             email,
-            `Successful Contact Request has been made`,
-            `Thank you for your time in using the contact form to reach us. We will get back to you as soon as we are able to do something regarding your concern. Have a good day!
-            `
+            `Hoster: Successful Contact Request!`,
+            name
         )
 
         return res
