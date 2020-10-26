@@ -7,8 +7,8 @@ async function handleSubmit(event) {
         const areValid = validator.validate();
 
         if (!areValid) {
-            // halt the function execution, no need of error message
-            throw new Error();
+            // just halt the function execution, no need of error message
+            return null;
         }
 
         // selects the needed DOM elements
