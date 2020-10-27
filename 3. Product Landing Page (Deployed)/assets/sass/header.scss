@@ -17,11 +17,19 @@
   height: 3.25rem;
   left: 0;
   line-height: 3.25rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 10001; 
   padding: 50px 100px;
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
+
+.scrolled {
+    background-color: #ce1b28 !important;
+    padding: 20px 25px !important;
 }
 
 #header > #header-logo-container > .logo {
@@ -88,6 +96,7 @@ a.logo {
 
 section#banner {
     height: 100vh !important;
+    flex-direction: column;
 }
 
 section#banner .inner {
