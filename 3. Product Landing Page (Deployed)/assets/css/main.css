@@ -713,6 +713,21 @@ section#banner .inner h2 {
   width: 100%;
   height: auto; }
 
+section div.inner-flex {
+  display: flex;
+  align-items: center !important; }
+  section div.inner-flex div.inner-flex-content {
+    width: 100%; }
+  section div.inner-flex div.inner-flex-image {
+    width: 100%; }
+    section div.inner-flex div.inner-flex-image img {
+      width: 100%;
+      height: auto; }
+
+@media screen and (max-width: 736px) {
+  section div.inner-flex div.inner-flex-image {
+    display: none; } }
+
 /* Basic */
 @-ms-viewport {
   width: device-width; }

@@ -291,29 +291,36 @@
 
     <!-- About -->
     <section id="main" class="wrapper" style="padding-bottom: 0px;">
-        <div class="inner">
-            <header class="special" id="about">
+        <div id="about" class="inner inner-flex">
+            <div class="inner-flex-content">
                 <h2><b>Who are we?</b></h2>
-            </header>
-            <div class="content" style="margin-bottom: 15px;">
-                <p class="text-medium">It all began in 2004 and it's been a crazy ride ever since. The idea was simple -
-                    to let you create a
-                    website for FREE.
-                    With unrestricted PHP and MySQL, easy to use cPanel with no ads you have a complete freedom to
-                    establish your presence
-                    online.
-                    </br>
-                    </br>
-                    Over 29 million people in 178 countries are using our high-quality web hosting platform. Every day
-                    we receive over 15k
-                    new sign-ups on average - that is exactly a client every 5 seconds! We are proud to have created a
-                    platform for you to
-                    create, learn and grow.
-                    </br>
-                    </br>
-                    We are eternally grateful to all and every one of you for joining us on this thrilling journey and
-                    hope you enjoy
-                    working with us as much we enjoy working with you!</p>
+                <div class="content" style="margin-bottom: 15px;">
+                    <p>It all began in 2004 and it's been a crazy ride ever since. The idea was
+                        simple -
+                        to let you create a
+                        website for FREE.
+                        With unrestricted PHP and MySQL, easy to use cPanel with no ads you have a complete freedom to
+                        establish your presence
+                        online.
+                        </br>
+                        </br>
+                        Over 29 million people in 178 countries are using our high-quality web hosting platform. Every
+                        day
+                        we receive over 15k
+                        new sign-ups on average - that is exactly a client every 5 seconds! We are proud to have created
+                        a
+                        platform for you to
+                        create, learn and grow.
+                        </br>
+                        </br>
+                        We are eternally grateful to all and every one of you for joining us on this thrilling journey
+                        and
+                        hope you enjoy
+                        working with us as much we enjoy working with you!</p>
+                </div>
+            </div>
+            <div class="inner-flex-image">
+                <img src="/assets/images/people.png" alt="" />
             </div>
         </div>
     </section>
@@ -453,7 +460,10 @@
                                 data-rule="required"></textarea>
                         </div>
                         <div class="form-field">
-                            <input type="submit" id="submit" value="Submit Form" class="primary">
+                            <button type="submit" class="button primary">
+                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                &nbsp; Send Message
+                            </button>
                         </div>
                     </form>
 
