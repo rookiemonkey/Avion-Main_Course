@@ -440,12 +440,20 @@
                 </div>
                 <div class="container-contactform">
                     <form onsubmit="return handleSubmit(event)" id="form">
-                        <input type="text" name="name" id="name" value="" placeholder="Name" data-rule="required">
-                        <input type="email" name="email" id="email" value="" placeholder="Email"
-                            data-rule="required|email">
-                        <textarea name="details" id="textarea" placeholder="Message" rows="6"
-                            data-rule="required"></textarea>
-                        <input type="submit" id="submit" value="Submit Form" class="primary">
+                        <div class="form-field">
+                            <input type="text" name="name" id="name" value="" placeholder="Name" data-rule="required">
+                        </div>
+                        <div class="form-field">
+                            <input type="email" name="email" id="email" value="" placeholder="Email"
+                                data-rule="required|email">
+                        </div>
+                        <div class="form-field">
+                            <textarea name="details" id="textarea" placeholder="Message" rows="6"
+                                data-rule="required"></textarea>
+                        </div>
+                        <div class="form-field">
+                            <input type="submit" id="submit" value="Submit Form" class="primary">
+                        </div>
                     </form>
 
                     <!-- LOADER ANIMATION -->
