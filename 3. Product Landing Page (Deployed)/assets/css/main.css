@@ -592,6 +592,17 @@ section#banner .inner h2 {
   .plans .inner .highlights section div.content small {
     color: gray; }
 
+@media screen and (max-width: 980px) {
+  .plans .inner .highlights {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .plans .inner .highlights section {
+      padding: 15px 0px !important; }
+      .plans .inner .highlights section div.content {
+        width: 100% !important; } }
+
 #calltoaction {
   background-color: #ce1b28;
   color: rgba(255, 255, 255, 0.75);
@@ -724,7 +735,9 @@ section div.inner-flex {
       width: 100%;
       height: auto; }
 
-@media screen and (max-width: 736px) {
+@media screen and (max-width: 980px) {
+  section div.inner-flex div.inner-flex-content h2 {
+    text-align: center; }
   section div.inner-flex div.inner-flex-image {
     display: none; } }
 

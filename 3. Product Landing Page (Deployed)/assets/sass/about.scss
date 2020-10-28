@@ -18,9 +18,14 @@ section {
     }
 }
 
-@media screen and (max-width: 736px) {
+@media screen and (max-width: 980px) {
     section {
         div.inner-flex {
+            div.inner-flex-content {
+                h2 {
+                    text-align: center;
+                }
+            }
             div.inner-flex-image {
                 display: none;
             }

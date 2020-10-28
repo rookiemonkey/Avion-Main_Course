@@ -73,3 +73,25 @@ $margin: 35px;
         }
     }
 }
+
+@media screen and (max-width: 980px) {
+    .plans {
+        .inner {
+            .highlights {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                section {
+
+                    padding: 15px 0px !important;
+
+                    div.content {
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+}
