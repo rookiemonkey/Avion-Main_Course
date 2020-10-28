@@ -762,16 +762,6 @@ html {
 body {
   background: #ffffff; }
 
-body.is-preload *, body.is-preload *:before, body.is-preload *:after {
-  -moz-animation: none !important;
-  -webkit-animation: none !important;
-  -ms-animation: none !important;
-  animation: none !important;
-  -moz-transition: none !important;
-  -webkit-transition: none !important;
-  -ms-transition: none !important;
-  transition: none !important; }
-
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -2719,10 +2709,6 @@ ul.icons li .icon:before {
   -webkit-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
-  background-image: url("../../images/banner.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-top: 0;
   display: -ms-flexbox;
   height: 35rem !important;
@@ -2986,16 +2972,6 @@ ul.icons li .icon:before {
 @media screen and (max-width: 480px) {
   #banner p {
     font-size: 1rem; } }
-
-body.is-preload #banner .inner {
-  -moz-transform: scale(0.99);
-  -webkit-transform: scale(0.99);
-  -ms-transform: scale(0.99);
-  transform: scale(0.99);
-  opacity: 0; }
-
-body.is-preload #banner:before {
-  opacity: 1; }
 
 /* Header */
 body {
