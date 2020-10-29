@@ -2299,12 +2299,12 @@ body.is-menu-visible #menu {
   box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
   visibility: visible; }
 
-  body{
-    transition:  margin-right 0.5s ease !important;
+  main#main_content {
+    transition: transform 500ms ease !important;
   }
 
-  body.is-menu-visible {
-    margin-right: 20rem !important;
+  main.shifted_to_left {
+    transform: translateX(-20rem);
   }
 
 .management-card {
