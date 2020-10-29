@@ -469,7 +469,7 @@
                         <img src="/assets/images/contact.png" alt="" />
                     </div>
                     <div class="container-contactform">
-                        <form onsubmit="return handleSubmit(event)" id="form">
+                        <form id="form" method="POST">
                             <div class="form-field">
                                 <input type="text" name="name" id="name" value="" placeholder="Name"
                                     data-rule="required">
@@ -483,7 +483,7 @@
                                     data-rule="required"></textarea>
                             </div>
                             <div class="form-field">
-                                <button onclick="return true;" type="submit" class="button primary">
+                                <button onclick="return handleSubmit(event)" type="button" class="button primary">
                                     <!-- onclick return true prevents refreshing of the page just for this button, aside from the event.preventDefault() from the onsubmit.js-->
                                     <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
                                     &nbsp; Send Message
