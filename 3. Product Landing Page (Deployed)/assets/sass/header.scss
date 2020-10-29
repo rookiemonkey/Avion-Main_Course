@@ -163,6 +163,16 @@ section#banner .inner {
   visibility: hidden;
   width: 20rem;
   z-index: 10002; 
+
+  .close_sidebar_btn_container {
+      margin-bottom: 20px;
+    #close_sidebar_btn {
+        
+        cursor: pointer;
+        color: white;
+        float: right;
+    }
+  }
 }
 
 #menu > ul {

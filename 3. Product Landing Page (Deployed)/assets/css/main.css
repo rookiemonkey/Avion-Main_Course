@@ -341,6 +341,12 @@ section#banner .inner h2 {
   visibility: hidden;
   width: 20rem;
   z-index: 10002; }
+  #menu .close_sidebar_btn_container {
+    margin-bottom: 20px; }
+    #menu .close_sidebar_btn_container #close_sidebar_btn {
+      cursor: pointer;
+      color: white;
+      float: right; }
 
 #menu > ul {
   margin: 0 0 1rem 0; }
