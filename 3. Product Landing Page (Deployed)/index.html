@@ -483,7 +483,8 @@
                                     data-rule="required"></textarea>
                             </div>
                             <div class="form-field">
-                                <button type="submit" class="button primary">
+                                <button onclick="return true;" type="submit" class="button primary">
+                                    <!-- onclick return true prevents refreshing of the page just for this button, aside from the event.preventDefault() from the onsubmit.js-->
                                     <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
                                     &nbsp; Send Message
                                 </button>

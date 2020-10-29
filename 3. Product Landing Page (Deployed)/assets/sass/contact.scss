@@ -3,11 +3,16 @@ $form-spacing: 10px;
 .contact {
     display: flex;
     width: 100%;
+    justify-content: center;
+    align-items: center;
     height: max-content;
 
     // illustration
     .container-illustration {
         width: 50%;
+        display: flex;
+        justify-content: center;
+
         img {
             width: 75%;
             height: auto;

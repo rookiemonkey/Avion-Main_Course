@@ -654,9 +654,13 @@ section#banner .inner h2 {
 .contact {
   display: flex;
   width: 100%;
+  justify-content: center;
+  align-items: center;
   height: max-content; }
   .contact .container-illustration {
-    width: 50%; }
+    width: 50%;
+    display: flex;
+    justify-content: center; }
     .contact .container-illustration img {
       width: 75%;
       height: auto; }
