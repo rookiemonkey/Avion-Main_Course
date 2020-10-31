@@ -4,8 +4,11 @@ $blue2: #5FA8D3; // Carolina Blue
 $blue3: #62B6CB; // Maximum Blue
 $blue4: #BEE9E8; // Powder Blue
 
-$width-global: 90vw;
-
+$width-global: 75vw; // width of each section, with margin auto
+$spacing: 20px;
+$margin-sm: 7.5px;
+$margin-md: 15px;
+$margin-lg: 25px;
 
 @font-face {
   font-family: 'Montserrat';
@@ -35,6 +38,14 @@ a {
 
 p {
     font-size: 1.25rem;
+    line-height: 30px;
+}
+
+#navigation,
+#how {
+    width: $width-global;
+    padding: 50px 0px;
+    margin: 0px auto;
 }
 
 .hover_button_clear_bg:hover {
