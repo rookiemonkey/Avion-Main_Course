@@ -1,0 +1,116 @@
+#contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+
+    h2 {
+        text-align: center;
+        color: $blue3;
+        font-size: $font-size-section-header;
+        font-weight: 700;
+    }
+
+    .contact-container {
+        display: flex;
+        width: 100%;
+
+        .contact-cards-container {
+            width: 100%;
+            padding: $spacing;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .contact-card {
+                width: 300px;
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: $margin-md 0px;
+                border: 1px solid $theme-background-color;
+                box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3);
+
+                .contact-icons {
+                    font-size: 2.5rem;
+                }
+
+                .special {
+                    font-size: 4.5rem !important;
+                }
+
+                h3 {
+                    color: $blue3;
+                }
+            }
+        }
+
+        .contact-form-container {
+            width: 100%;
+            padding: $spacing;
+
+            p {
+                margin-bottom: $margin-lg;
+            }
+
+            form {
+                width: 100%;
+
+                .field-container {
+                    margin-bottom: $margin-lg;
+                }
+
+                .field-container,
+                input,
+                textarea {
+                    width: 100%;
+                }
+
+                input,
+                textarea,
+                button {
+                    padding: $spacing 5px;
+                }
+
+                input,
+                textarea {
+                    border: none;
+                    background-color: $theme-background-color;
+                    border-bottom: 2px solid $blue3;
+                    font-size: 1rem;
+                    color: $theme-text-color;
+
+                    &:focus {
+                        outline: none;
+                        box-shadow: none;
+                    }
+                }
+
+                input {
+                    height: 40px;
+                }
+                
+                textarea {
+                    resize: vertical;
+                }
+
+                button {
+                    min-width: 175px;
+                    cursor: pointer;
+                    font-weight: 700;
+                    border-radius: 35px;
+                    text-transform: uppercase;
+                    color:  $theme-text-color;
+                    border: 1px solid $theme-text-color;
+                    background-color: $theme-background-color;
+                    transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+                }
+            }
+        }
+    }
+}

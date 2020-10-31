@@ -25,12 +25,16 @@ p {
   font-size: 1.25rem;
   line-height: 30px; }
 
+::placeholder {
+  color: #62B6CB; }
+
 #navigation,
 #how,
 #process,
 #learn,
 #testimonial-ceo,
-#testimonial-students {
+#testimonial-students,
+#contact {
   width: 75vw;
   padding: 50px 0px;
   margin: 0px auto; }
@@ -316,3 +320,83 @@ header.header {
           border-color: #969696; }
         #testimonial-students .testimonials-container .student-container .student-profile .student-title h3 {
           font-weight: 700; }
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; }
+  #contact h2 {
+    text-align: center;
+    color: #62B6CB;
+    font-size: 2.5rem;
+    font-weight: 700; }
+  #contact .contact-container {
+    display: flex;
+    width: 100%; }
+    #contact .contact-container .contact-cards-container {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      #contact .contact-container .contact-cards-container .contact-card {
+        width: 300px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 15px 0px;
+        border: 1px solid #1b4965;
+        box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3); }
+        #contact .contact-container .contact-cards-container .contact-card .contact-icons {
+          font-size: 2.5rem; }
+        #contact .contact-container .contact-cards-container .contact-card .special {
+          font-size: 4.5rem !important; }
+        #contact .contact-container .contact-cards-container .contact-card h3 {
+          color: #62B6CB; }
+    #contact .contact-container .contact-form-container {
+      width: 100%;
+      padding: 20px; }
+      #contact .contact-container .contact-form-container p {
+        margin-bottom: 25px; }
+      #contact .contact-container .contact-form-container form {
+        width: 100%; }
+        #contact .contact-container .contact-form-container form .field-container {
+          margin-bottom: 25px; }
+        #contact .contact-container .contact-form-container form .field-container,
+        #contact .contact-container .contact-form-container form input,
+        #contact .contact-container .contact-form-container form textarea {
+          width: 100%; }
+        #contact .contact-container .contact-form-container form input,
+        #contact .contact-container .contact-form-container form textarea,
+        #contact .contact-container .contact-form-container form button {
+          padding: 20px 5px; }
+        #contact .contact-container .contact-form-container form input,
+        #contact .contact-container .contact-form-container form textarea {
+          border: none;
+          background-color: #1b4965;
+          border-bottom: 2px solid #62B6CB;
+          font-size: 1rem;
+          color: #CAE9FF; }
+          #contact .contact-container .contact-form-container form input:focus,
+          #contact .contact-container .contact-form-container form textarea:focus {
+            outline: none;
+            box-shadow: none; }
+        #contact .contact-container .contact-form-container form input {
+          height: 40px; }
+        #contact .contact-container .contact-form-container form textarea {
+          resize: vertical; }
+        #contact .contact-container .contact-form-container form button {
+          min-width: 175px;
+          cursor: pointer;
+          font-weight: 700;
+          border-radius: 35px;
+          text-transform: uppercase;
+          color: #CAE9FF;
+          border: 1px solid #CAE9FF;
+          background-color: #1b4965;
+          transition: background-color 500ms ease-in-out, color 500ms ease-in-out; }

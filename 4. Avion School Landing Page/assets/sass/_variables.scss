@@ -42,12 +42,17 @@ p {
     line-height: 30px;
 }
 
+::placeholder {
+    color: $blue3;
+}
+
 #navigation,
 #how,
 #process,
 #learn,
 #testimonial-ceo,
-#testimonial-students {
+#testimonial-students,
+#contact {
     width: $width-global;
     padding: 50px 0px;
     margin: 0px auto;
