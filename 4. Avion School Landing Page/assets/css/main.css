@@ -13,7 +13,7 @@
   font-family: 'Montserrat'; }
 
 body {
-  background-color: #1B4965;
+  background-color: #1b4965;
   color: #CAE9FF;
   font-family: 'Montserrat'; }
 
@@ -29,14 +29,15 @@ p {
 #how,
 #process,
 #learn,
-#testimonial-ceo {
+#testimonial-ceo,
+#testimonial-students {
   width: 75vw;
   padding: 50px 0px;
   margin: 0px auto; }
 
 .hover_button_clear_bg:hover {
   background-color: #CAE9FF !important;
-  color: #1B4965 !important;
+  color: #1b4965 !important;
   transition: all 500ms ease-in-out; }
 
 /* Icons for FONTAWESOME, instead of class 'fa' */
@@ -135,7 +136,7 @@ p {
   z-index: 1; }
 
 #banner:after {
-  background: linear-gradient(135deg, #1B4965 5%, #111111 100%);
+  background: linear-gradient(135deg, #1b4965 5%, #111111 100%);
   content: ' ';
   display: block;
   height: 100vh;
@@ -231,7 +232,7 @@ header.header {
   #process .process-card {
     width: 30%;
     padding: 20px;
-    border: 1px solid #1B4965;
+    border: 1px solid #1b4965;
     text-align: center;
     box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3); }
     #process .process-card .process-card-icon-container {
@@ -244,7 +245,7 @@ header.header {
       font-size: 1.75rem;
       font-weight: 700; }
     #process .process-card p {
-      font-size: 1rem; }
+      font-size: 1.25rem; }
 
 #learn {
   display: flex;
@@ -258,7 +259,6 @@ header.header {
     font-weight: 700; }
   #learn .learn-row {
     display: flex;
-    flex-direction: row;
     margin: 25px 0px; }
     #learn .learn-row img.learn-row-icon {
       width: 100px;
@@ -279,3 +279,40 @@ header.header {
   min-height: 100vh; }
   #testimonial-ceo blockquote {
     width: 75vw; }
+
+#testimonial-students {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; }
+  #testimonial-students h2 {
+    text-align: center;
+    color: #62B6CB;
+    font-size: 2.5rem;
+    font-weight: 700; }
+  #testimonial-students .testimonials-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0px; }
+    #testimonial-students .testimonials-container .student-container {
+      padding: 20px;
+      border: 1px solid #1b4965;
+      width: 45%;
+      box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3); }
+      #testimonial-students .testimonials-container .student-container p {
+        text-align: justify;
+        font-style: italic; }
+      #testimonial-students .testimonials-container .student-container .student-profile {
+        display: flex;
+        align-items: flex-start;
+        margin: 25px 0px; }
+        #testimonial-students .testimonials-container .student-container .student-profile img {
+          border-radius: 50%;
+          width: 72px;
+          margin-right: 16px;
+          border: 1px;
+          border-style: solid;
+          border-color: #969696; }
+        #testimonial-students .testimonials-container .student-container .student-profile .student-title h3 {
+          font-weight: 700; }
