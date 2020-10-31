@@ -1,0 +1,45 @@
+footer {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100vh;
+    // put a background image w/ overlay here
+    background-color: black; // temporary
+
+    #call-to-action,
+    #copyright-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #call-to-action {
+        width: 100%;
+        height: 92.5%;
+
+        h3 {
+            font-size: 3.5rem;
+            margin-bottom: $margin-lg;
+        }
+
+        button {
+            font-size: 1.25rem;
+            padding: $spacing 15px;
+            min-width: 210px;
+            cursor: pointer;
+            font-weight: 700;
+            border-radius: 35px;
+            text-transform: uppercase;
+            color:  $theme-text-color;
+            border: 1px solid $theme-text-color;
+            background-color: transparent;
+            transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+        }
+    }
+
+    #copyright-container {
+        width: 100%;
+        height: 7.5%;
+    }
+}
