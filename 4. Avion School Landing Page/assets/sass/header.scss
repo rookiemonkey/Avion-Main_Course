@@ -1,0 +1,121 @@
+$spacing: 20px;
+
+#banner {
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-top: 0;
+    display: -ms-flexbox;
+    height: 100vh !important;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 100%; 
+}
+
+#banner:before {
+    -moz-transition: opacity 3s ease;
+    -webkit-transition: opacity 3s ease;
+    -ms-transition: opacity 3s ease;
+    transition: opacity 3s ease;
+    -moz-transition-delay: 1.25s;
+    -webkit-transition-delay: 1.25s;
+    -ms-transition-delay: 1.25s;
+    transition-delay: 1.25s;
+    background: #111111;
+    content: '';
+    display: block;
+    height: 100vh;
+    left: 0;
+    opacity: 0.45;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1; 
+}
+
+#banner:after {
+    background: linear-gradient(135deg, $theme-background-color 5%, #111111 100%);
+    content: ' ';
+    display: block;
+    height: 100vh;
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1; 
+}
+
+#banner video {
+    -moz-transform: translateX(50%) translateY(50%);
+    -webkit-transform: translateX(50%) translateY(50%);
+    -ms-transform: translateX(50%) translateY(50%);
+    transform: translateX(50%) translateY(50%);
+    bottom: 50%;
+    height: auto;
+    width: auto; 
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    position: absolute;
+    right: 50%;
+}
+
+header.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1000;
+    max-width: 65%;
+    height: 100%;
+
+    .header-meta-content-container,
+    .header-meta-button-container,
+    .header-meta-title-container {
+        margin: $spacing 0px;
+    }
+
+    .header-meta-title-container {
+        h3 {
+            font-size: 3.75rem;
+        }
+
+        small {
+            font-size: 1.75rem;
+            color: $blue3;
+        }
+
+    }
+
+    .header-meta-button-container {
+        .header-meta-button {
+            text-transform: uppercase;
+            vertical-align: baseline;
+            appearance: none;
+            border: 1px solid $theme-text-color;
+            border-radius: 35px;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 600;
+            height: 3.25rem;
+            line-height: 3.25rem;
+            padding: 0 1.75rem;
+            text-align: center;
+            white-space: nowrap;
+            text-decoration: none;
+            box-shadow: none;
+            background-color: transparent;
+            color: $theme-text-color;
+            margin-bottom: 0;
+            transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+        }
+    }
+}

@@ -1,0 +1,176 @@
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url("../fonts/montserrat.ttf") format("truetype"); }
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Montserrat'; }
+
+body {
+  background-color: #1B4965;
+  color: #CAE9FF;
+  font-family: 'Montserrat'; }
+
+a {
+  text-decoration: none;
+  color: #CAE9FF; }
+
+p {
+  font-size: 1.25rem; }
+
+.hover_button_clear_bg:hover {
+  background-color: #CAE9FF !important;
+  color: #1B4965 !important;
+  transition: all 500ms ease-in-out; }
+
+#navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 0px;
+  width: 90vw;
+  margin: 0px auto;
+  z-index: 1000; }
+  #navigation .container-brand {
+    display: flex;
+    align-items: center; }
+    #navigation .container-brand img {
+      width: 35px;
+      height: 35px;
+      margin-right: 5px; }
+  #navigation .container-nav-items {
+    display: flex;
+    align-items: center; }
+    #navigation .container-nav-items ul {
+      display: flex;
+      list-style-type: none; }
+      #navigation .container-nav-items ul li {
+        min-width: 120px; }
+        #navigation .container-nav-items ul li a {
+          vertical-align: baseline;
+          appearance: none;
+          border-radius: 35px;
+          cursor: pointer;
+          display: inline-block;
+          font-weight: 600;
+          height: 3.25rem;
+          line-height: 3.25rem;
+          padding: 0 1.75rem;
+          text-align: center;
+          white-space: nowrap;
+          text-decoration: none;
+          box-shadow: none;
+          background-color: transparent;
+          color: #CAE9FF;
+          margin-bottom: 0; }
+        #navigation .container-nav-items ul li a.special_button {
+          text-transform: uppercase;
+          border: 1px solid #CAE9FF;
+          margin-left: 15px;
+          transition: background-color 500ms ease-in-out, color 500ms ease-in-out; }
+
+#banner {
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -moz-align-items: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-top: 0;
+  display: -ms-flexbox;
+  height: 100vh !important;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%; }
+
+#banner:before {
+  -moz-transition: opacity 3s ease;
+  -webkit-transition: opacity 3s ease;
+  -ms-transition: opacity 3s ease;
+  transition: opacity 3s ease;
+  -moz-transition-delay: 1.25s;
+  -webkit-transition-delay: 1.25s;
+  -ms-transition-delay: 1.25s;
+  transition-delay: 1.25s;
+  background: #111111;
+  content: '';
+  display: block;
+  height: 100vh;
+  left: 0;
+  opacity: 0.45;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1; }
+
+#banner:after {
+  background: linear-gradient(135deg, #1B4965 5%, #111111 100%);
+  content: ' ';
+  display: block;
+  height: 100vh;
+  left: 0;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1; }
+
+#banner video {
+  -moz-transform: translateX(50%) translateY(50%);
+  -webkit-transform: translateX(50%) translateY(50%);
+  -ms-transform: translateX(50%) translateY(50%);
+  transform: translateX(50%) translateY(50%);
+  bottom: 50%;
+  height: auto;
+  width: auto;
+  min-height: 100%;
+  min-width: 100%;
+  overflow: hidden;
+  position: absolute;
+  right: 50%; }
+
+header.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1000;
+  max-width: 65%;
+  height: 100%; }
+  header.header .header-meta-content-container,
+  header.header .header-meta-button-container,
+  header.header .header-meta-title-container {
+    margin: 20px 0px; }
+  header.header .header-meta-title-container h3 {
+    font-size: 3.75rem; }
+  header.header .header-meta-title-container small {
+    font-size: 1.75rem;
+    color: #62B6CB; }
+  header.header .header-meta-button-container .header-meta-button {
+    text-transform: uppercase;
+    vertical-align: baseline;
+    appearance: none;
+    border: 1px solid #CAE9FF;
+    border-radius: 35px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    height: 3.25rem;
+    line-height: 3.25rem;
+    padding: 0 1.75rem;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    box-shadow: none;
+    background-color: transparent;
+    color: #CAE9FF;
+    margin-bottom: 0;
+    transition: background-color 500ms ease-in-out, color 500ms ease-in-out; }

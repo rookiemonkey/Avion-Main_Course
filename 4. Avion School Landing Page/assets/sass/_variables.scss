@@ -1,0 +1,44 @@
+$theme-background-color: #1B4965; // Indigo Dye
+$theme-text-color: #CAE9FF; // Columbia Blue
+$blue2: #5FA8D3; // Carolina Blue
+$blue3: #62B6CB; // Maximum Blue
+$blue4: #BEE9E8; // Powder Blue
+
+$width-global: 90vw;
+
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url('../fonts/montserrat.ttf') format('truetype');
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Montserrat';
+}
+
+body {
+    background-color: $theme-background-color;
+    color: $theme-text-color;
+    font-family: 'Montserrat';
+}
+
+a {
+    text-decoration: none;
+    color: $theme-text-color;
+}
+
+p {
+    font-size: 1.25rem;
+}
+
+.hover_button_clear_bg:hover {
+    background-color: $theme-text-color !important;
+    color: $theme-background-color !important;
+    transition: all 500ms ease-in-out;
+}
