@@ -6,6 +6,7 @@ $blue4: #BEE9E8; // Powder Blue
 
 $width-global: 75vw; // width of each section, with margin auto
 $spacing: 20px;
+$font-size-section-header: 2.5rem;
 $margin-sm: 7.5px;
 $margin-md: 15px;
 $margin-lg: 25px;
@@ -44,6 +45,7 @@ p {
 #navigation,
 #how,
 #process,
+#learn,
 #testimonial-ceo {
     width: $width-global;
     padding: 50px 0px;

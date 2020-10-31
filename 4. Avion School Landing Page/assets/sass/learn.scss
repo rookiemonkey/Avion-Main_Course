@@ -1,0 +1,38 @@
+#learn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: max-content;
+
+    h2 {
+        text-align: center;
+        color: $blue3;
+        font-size: $font-size-section-header;
+        font-weight: 700;
+    }
+
+    .learn-row {
+        display: flex;
+        flex-direction: row;
+        margin: $margin-lg 0px;
+
+        img.learn-row-icon {
+            width: 100px;
+            height: 100px;
+        }
+
+        div.learn-row-content {
+            padding-left: $margin-lg;
+
+            h3 {
+                color: $blue3;
+                margin-bottom: $margin-sm;
+                font-weight: 700;
+            }
+
+            p {
+                text-align: justify;
+            }
+        }
+    }
+}
