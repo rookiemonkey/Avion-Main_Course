@@ -26,7 +26,9 @@ p {
   line-height: 30px; }
 
 #navigation,
-#how {
+#how,
+#process,
+#testimonial-ceo {
   width: 75vw;
   padding: 50px 0px;
   margin: 0px auto; }
@@ -35,6 +37,20 @@ p {
   background-color: #CAE9FF !important;
   color: #1B4965 !important;
   transition: all 500ms ease-in-out; }
+
+/* Icons for FONTAWESOME, instead of class 'fa' */
+.icon {
+  text-decoration: none;
+  border-bottom: none;
+  position: relative; }
+
+.icon:before {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: none !important; }
 
 #navigation {
   display: flex;
@@ -189,6 +205,7 @@ header.header {
   #how .how-contents-container .how-contents-header {
     margin-bottom: 15px; }
     #how .how-contents-container .how-contents-header h3 {
+      color: #62B6CB;
       margin-bottom: 15px;
       font-size: 2.5rem;
       font-weight: 700; }
@@ -204,3 +221,34 @@ header.header {
       #how .how-contents-container .how-contents-list li:before {
         content: '✔  ' !important;
         color: #3ee03e !important; }
+
+#process {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: max-content; }
+  #process .process-card {
+    width: 30%;
+    padding: 20px;
+    border: 1px solid #1B4965;
+    text-align: center;
+    box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3); }
+    #process .process-card .process-card-icon-container {
+      margin-bottom: 15px; }
+      #process .process-card .process-card-icon-container .process-icon {
+        font-size: 5rem; }
+    #process .process-card h3 {
+      color: #62B6CB;
+      margin-bottom: 15px;
+      font-size: 1.75rem;
+      font-weight: 700; }
+    #process .process-card p {
+      font-size: 1rem; }
+
+#testimonial-ceo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; }
+  #testimonial-ceo blockquote {
+    width: 75vw; }

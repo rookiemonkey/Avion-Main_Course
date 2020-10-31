@@ -1,0 +1,33 @@
+#process {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: max-content;
+
+    .process-card {
+        width: 30%;
+        padding: $spacing;
+        border: 1px solid $theme-background-color;
+        text-align: center;
+        box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3);
+
+        .process-card-icon-container {
+            margin-bottom: $margin-md;
+
+            .process-icon {
+                font-size: 5rem;
+            }
+        }
+
+        h3 {
+            color: $blue3;
+            margin-bottom: $margin-md;
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
+}
