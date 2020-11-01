@@ -73,3 +73,28 @@
         }
     }
 }
+
+@media screen and (max-width: 465px) { // MOBILE PHONES *smaller font
+    #how {
+        .how-contents-container {
+            .how-contents-list {
+                li {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) { // MOBILE PHONES
+    #how {
+        .how-image-container {
+            padding: $spacing;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}

@@ -48,3 +48,13 @@ footer {
         height: 7.5%;
     }
 }
+
+@media screen and (max-width: 600px) { // MOBILE PHONES
+    footer {
+        #call-to-action {
+            h3 {
+                font-size: 2.5rem;
+            }
+        }
+    }
+}

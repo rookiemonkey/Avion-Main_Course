@@ -62,3 +62,15 @@ p {
     color: $theme-background-color !important;
     transition: all 500ms ease-in-out;
 }
+
+@media screen and (max-width: 600px) { // MOBILE PHONES
+    #navigation,
+    #how,
+    #process,
+    #learn,
+    #testimonial-students,
+    #contact {
+        width: 100vw;
+        padding: 50px 10px;
+    }
+}

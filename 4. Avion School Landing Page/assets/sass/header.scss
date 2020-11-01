@@ -120,3 +120,17 @@ header.header {
         }
     }
 }
+
+@media screen and (max-width: 600px) { // MOBILE PHONES
+    header.header {
+        .header-meta-title-container {
+            h3 {
+                font-size: 2.5rem;
+            }
+
+            small {
+                font-size: 1rem;
+            }
+        }
+    }
+}
