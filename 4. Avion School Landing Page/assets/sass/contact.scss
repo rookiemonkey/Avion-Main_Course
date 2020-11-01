@@ -114,3 +114,16 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) { // IPAD
+    #contact {
+        .contact-container {
+            flex-direction: column;
+            align-items: center;
+
+            .contact-form-container {
+                margin-top: $margin-lg;
+            }
+        }
+    }
+}

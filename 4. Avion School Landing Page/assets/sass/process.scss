@@ -31,3 +31,18 @@
         }
     }
 }
+
+
+@media screen and (max-width: 768px) { // IPAD
+    #process {
+        flex-direction: column;
+        height: max-content;
+
+        .process-card {
+            width: 100%;
+            margin: $margin-md 0px;
+            padding: 40px;
+            height: max-content;
+        }
+    }
+}

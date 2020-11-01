@@ -47,3 +47,29 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) { // IPAD
+    #how {
+        flex-direction: column;
+        align-items: center;
+
+        .how-image-container {
+            img:first-child {
+                display: none;
+            }
+        }
+
+        .how-contents-container {
+
+            .how-contents-header {
+                h3 {
+                    text-align: center;
+                }
+
+                p {
+                    text-align: justify;
+                }
+            }
+        }
+    }
+}

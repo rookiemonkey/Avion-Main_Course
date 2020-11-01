@@ -235,6 +235,17 @@ header.header {
           content: '✔  ' !important;
           color: #3ee03e !important; }
 
+@media screen and (max-width: 768px) {
+  #how {
+    flex-direction: column;
+    align-items: center; }
+    #how .how-image-container img:first-child {
+      display: none; }
+    #how .how-contents-container .how-contents-header h3 {
+      text-align: center; }
+    #how .how-contents-container .how-contents-header p {
+      text-align: justify; } }
+
 #process {
   display: flex;
   justify-content: space-between;
@@ -257,6 +268,16 @@ header.header {
       font-weight: 700; }
     #process .process-card p {
       font-size: 1.25rem; }
+
+@media screen and (max-width: 768px) {
+  #process {
+    flex-direction: column;
+    height: max-content; }
+    #process .process-card {
+      width: 100%;
+      margin: 15px 0px;
+      padding: 40px;
+      height: max-content; } }
 
 #learn {
   display: flex;
@@ -343,6 +364,14 @@ header.header {
         #testimonial-students .testimonials-container .student-container .student-profile .student-title h3 {
           font-weight: 700; }
 
+@media screen and (max-width: 768px) {
+  #testimonial-students .testimonials-container {
+    flex-direction: column; }
+    #testimonial-students .testimonials-container .student-container {
+      width: 100%;
+      margin: 15px 0px;
+      padding: 40px; } }
+
 #contact {
   display: flex;
   flex-direction: column;
@@ -422,6 +451,13 @@ header.header {
           border: 1px solid #CAE9FF;
           background-color: #1b4965;
           transition: background-color 500ms ease-in-out, color 500ms ease-in-out; }
+
+@media screen and (max-width: 768px) {
+  #contact .contact-container {
+    flex-direction: column;
+    align-items: center; }
+    #contact .contact-container .contact-form-container {
+      margin-top: 25px; } }
 
 footer {
   margin: 0px;
