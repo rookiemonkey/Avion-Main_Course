@@ -1,0 +1,44 @@
+#sidebar {
+    display: block;
+    height: 100%;
+    max-width: 20rem;
+    overflow-y: hidden;
+    padding: 3rem 2rem;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 20rem;
+    z-index: 10002;
+    transform: translateX(20rem);
+    visibility: visible;
+    background-color: $blue3;
+    transition: transform .5s ease, visible .5s ease !important;
+
+
+    ul {
+        list-style: none;
+        
+        li {
+            a {
+                line-height: 3.5rem;
+                font-weight: 700;
+                color: $theme-background-color;
+            }
+        }
+    }
+}
+
+.sidebar_open {
+    visibility: visible !important;
+    transform: translateX(0) !important;
+}
+
+// class for the main#content if the sidebar is open
+.sidebar_open_forcontent {
+    transform: translateX(-20rem); // width of the sidebar
+}
+
+main#content {
+    transition: transform .5s ease, visible .5s ease !important;
+}

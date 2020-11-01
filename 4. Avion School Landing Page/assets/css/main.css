@@ -546,3 +546,36 @@ footer {
 @media screen and (max-width: 600px) {
   footer #call-to-action h3 {
     font-size: 2.5rem; } }
+
+#sidebar {
+  display: block;
+  height: 100%;
+  max-width: 20rem;
+  overflow-y: hidden;
+  padding: 3rem 2rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 20rem;
+  z-index: 10002;
+  transform: translateX(20rem);
+  visibility: visible;
+  background-color: #62B6CB;
+  transition: transform .5s ease, visible .5s ease !important; }
+  #sidebar ul {
+    list-style: none; }
+    #sidebar ul li a {
+      line-height: 3.5rem;
+      font-weight: 700;
+      color: #1b4965; }
+
+.sidebar_open {
+  visibility: visible !important;
+  transform: translateX(0) !important; }
+
+.sidebar_open_forcontent {
+  transform: translateX(-20rem); }
+
+main#content {
+  transition: transform .5s ease, visible .5s ease !important; }
