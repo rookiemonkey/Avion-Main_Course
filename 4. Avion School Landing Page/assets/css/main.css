@@ -385,6 +385,8 @@ header.header {
     font-weight: 700; }
   #contact .contact-container {
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%; }
     #contact .contact-container .contact-cards-container {
       width: 100%;
