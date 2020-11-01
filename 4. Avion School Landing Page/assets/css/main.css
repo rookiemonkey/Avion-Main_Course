@@ -206,26 +206,34 @@ header.header {
   display: flex;
   min-height: 100vh; }
   #how .how-image-container {
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    #how .how-image-container img {
+      max-width: 500px;
+      height: auto; }
+  #how .how-contents-container {
     padding: 20px; }
-  #how .how-contents-container .how-contents-header {
-    margin-bottom: 15px; }
-    #how .how-contents-container .how-contents-header h3 {
-      color: #62B6CB;
-      margin-bottom: 15px;
-      font-size: 2.5rem;
-      font-weight: 700; }
-  #how .how-contents-container .how-contents-list {
-    list-style: none; }
-    #how .how-contents-container .how-contents-list li {
-      font-size: 20px;
-      font-weight: 600;
-      padding: 20px 32px;
-      box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3);
-      margin-bottom: 10px;
-      width: 100%; }
-      #how .how-contents-container .how-contents-list li:before {
-        content: '✔  ' !important;
-        color: #3ee03e !important; }
+    #how .how-contents-container .how-contents-header {
+      margin-bottom: 15px; }
+      #how .how-contents-container .how-contents-header h3 {
+        color: #62B6CB;
+        margin-bottom: 15px;
+        font-size: 2.5rem;
+        font-weight: 700; }
+    #how .how-contents-container .how-contents-list {
+      list-style: none; }
+      #how .how-contents-container .how-contents-list li {
+        font-size: 20px;
+        font-weight: 600;
+        padding: 20px 32px;
+        box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3);
+        margin-bottom: 10px;
+        width: 100%; }
+        #how .how-contents-container .how-contents-list li:before {
+          content: '✔  ' !important;
+          color: #3ee03e !important; }
 
 #process {
   display: flex;
@@ -281,9 +289,22 @@ header.header {
   align-items: center;
   min-height: 100vh;
   width: 100%;
-  background-color: black; }
+  background-image: url("/assets/images/francis-plaza.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(11, 29, 40, 0.85);
+  background-attachment: fixed;
+  background-blend-mode: overlay; }
   #testimonial-ceo blockquote {
     width: 75vw; }
+    #testimonial-ceo blockquote h2 {
+      font-size: 2.5rem;
+      font-style: italic;
+      margin-bottom: 25px; }
+    #testimonial-ceo blockquote small {
+      font-size: 1.75rem;
+      float: right; }
 
 #testimonial-students {
   display: flex;
@@ -407,7 +428,13 @@ footer {
   padding: 0px;
   width: 100%;
   height: 100vh;
-  background-color: black; }
+  background-image: url("/assets/images/footer.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-color: rgba(11, 29, 40, 0.85);
+  background-attachment: fixed;
+  background-blend-mode: overlay; }
   footer #call-to-action,
   footer #copyright-container {
     display: flex;

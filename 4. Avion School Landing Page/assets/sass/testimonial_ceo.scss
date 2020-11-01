@@ -4,10 +4,26 @@
     align-items: center;
     min-height: 100vh;
     width: 100%;
-    // put a background image w/ overlay here of Mr. Franis Plaza
-    background-color: black; // temporary
+    background-image: url('/assets/images/francis-plaza.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(11, 29, 40, 0.85);
+    background-attachment: fixed;
+    background-blend-mode: overlay;
 
     blockquote {
         width: $width-global;
+
+        h2 {
+            font-size: 2.5rem;
+            font-style: italic;
+            margin-bottom: $margin-lg;
+        }
+
+        small {
+            font-size: 1.75rem;
+            float: right;
+        }
     }
 }

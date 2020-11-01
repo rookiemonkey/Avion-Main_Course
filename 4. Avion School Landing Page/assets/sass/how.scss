@@ -3,10 +3,20 @@
     min-height: 100vh;
 
     .how-image-container {
-        padding: $spacing;
+        padding: $spacing 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        img {
+            max-width: 500px;
+            height: auto;
+        }
     }
 
     .how-contents-container {
+        padding: $spacing;
+
         .how-contents-header {
             margin-bottom: $margin-md;
             
