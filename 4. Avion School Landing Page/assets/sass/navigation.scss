@@ -51,6 +51,28 @@
                     transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
                 }
             }
+
+            li.nav-mobile-item {
+                display: none;
+            }
+        }
+    }
+}
+
+// SHOW THE HAMBURGER AND HIDE OTHER NAV ITEMS
+@media screen and (max-width: 960px) { 
+    #navigation {
+        .container-nav-items {
+            ul {
+                li.nav-mobile-item {
+                    display: list-item;
+                    min-width: 20px;
+                }
+
+                li.nav-desktop-item {
+                    display: none;
+                }
+            }
         }
     }
 }
