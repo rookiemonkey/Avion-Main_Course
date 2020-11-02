@@ -8,7 +8,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: rgba(11, 29, 40, 0.85);
+    background-color: rgba(11, 12, 16, 0.85);
     background-attachment: fixed;
     background-blend-mode: overlay;
 
@@ -24,6 +24,7 @@
         small {
             font-size: 1.75rem;
             float: right;
+            color: $blue3;
         }
     }
 }

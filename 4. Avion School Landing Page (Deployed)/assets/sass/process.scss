@@ -1,8 +1,8 @@
 #process {
     display: flex;
     justify-content: space-between;
+    min-height: 100vh;
     align-items: center;
-    min-height: max-content;
 
     .process-card {
         width: 30%;

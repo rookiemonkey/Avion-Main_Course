@@ -1,7 +1,8 @@
-$theme-background-color: #1b4965; // Indigo Dye
-$theme-text-color: #CAE9FF; // Columbia Blue
+$theme-background-color: #1f2833; // Indigo Dye
+$theme-background-color-darker: #0B0C10;
+$theme-text-color: #C5C6C7; // Columbia Blue
 $blue2: #5FA8D3; // Carolina Blue
-$blue3: #62B6CB; // Maximum Blue
+$blue3: #66FCF1; // Maximum Blue
 $blue4: #BEE9E8; // Powder Blue
 $success: #3ee03e;
 $danger: #cb7762;
@@ -67,9 +68,9 @@ p {
 }
 
 .hover_button_clear_bg:hover {
-    background-color: $theme-text-color !important;
+    background-color: $blue3 !important;
     color: $theme-background-color !important;
-    transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;  
 }
 
 .hide {

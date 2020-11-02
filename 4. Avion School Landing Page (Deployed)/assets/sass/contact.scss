@@ -83,9 +83,9 @@
                 textarea {
                     border: none;
                     background-color: $theme-background-color;
-                    border-bottom: 2px solid $blue3;
+                    border-bottom: 2px solid $theme-text-color;
                     font-size: 1rem;
-                    color: $theme-text-color;
+                    color: $blue3;
 
                     &:focus {
                         outline: none;
@@ -107,8 +107,8 @@
                     font-weight: 700;
                     border-radius: 35px;
                     text-transform: uppercase;
-                    color:  $theme-text-color;
-                    border: 1px solid $theme-text-color;
+                    color: $blue3;
+                    border: 1px solid $blue3;
                     background-color: $theme-background-color;
                     transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
                 }

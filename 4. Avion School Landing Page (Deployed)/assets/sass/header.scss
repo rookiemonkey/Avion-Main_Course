@@ -29,7 +29,7 @@
     -webkit-transition-delay: 1.25s;
     -ms-transition-delay: 1.25s;
     transition-delay: 1.25s;
-    background: #111111;
+    background-color: $theme-background-color-darker;
     content: '';
     display: block;
     height: 100vh;
@@ -42,7 +42,7 @@
 }
 
 #banner:after {
-    background: linear-gradient(135deg, $theme-background-color 5%, #111111 100%);
+    background: linear-gradient(135deg, $theme-background-color-darker 5%, $theme-background-color-darker 100%);
     content: ' ';
     display: block;
     height: 100vh;
@@ -87,11 +87,12 @@ header.header {
         h3 {
             font-size: 3.75rem;
             font-weight: 700;
+            color: $blue3;
         }
 
         small {
             font-size: 1.75rem;
-            color: $blue3;
+            font-weight: 700;
         }
 
     }
@@ -101,7 +102,7 @@ header.header {
             text-transform: uppercase;
             vertical-align: baseline;
             appearance: none;
-            border: 1px solid $theme-text-color;
+            border: 1px solid $blue3;
             border-radius: 35px;
             cursor: pointer;
             display: inline-block;
@@ -114,7 +115,7 @@ header.header {
             text-decoration: none;
             box-shadow: none;
             background-color: transparent;
-            color: $theme-text-color;
+            color: $blue3;
             margin-bottom: 0;
             transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
         }

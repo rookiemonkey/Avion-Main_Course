@@ -6,6 +6,7 @@
     .container-brand {
         display: flex;
         align-items: center;
+        color: $blue3;
 
         img {
             width: 35px;
@@ -46,7 +47,8 @@
 
                 a.special_button{
                     text-transform: uppercase;
-                    border: 1px solid $theme-text-color;
+                    color: $blue3;
+                    border: 1px solid $blue3;
                     margin-left: 15px;
                     transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
                 }

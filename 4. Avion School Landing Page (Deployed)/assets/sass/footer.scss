@@ -7,7 +7,7 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
-    background-color: rgba(11, 29, 40, 0.85);
+    background-color: rgba(11, 12, 16, 0.85);
     background-attachment: fixed;
     background-blend-mode: overlay;
 
@@ -36,8 +36,8 @@ footer {
             font-weight: 700;
             border-radius: 35px;
             text-transform: uppercase;
-            color:  $theme-text-color;
-            border: 1px solid $theme-text-color;
+            color:  $blue3;
+            border: 1px solid $blue3;
             background-color: transparent;
             transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
         }

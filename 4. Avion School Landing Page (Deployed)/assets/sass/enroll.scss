@@ -17,8 +17,8 @@ button#nextBtn {
     text-decoration: none;
     box-shadow: none;
     background-color: transparent;
-    color: $theme-text-color;
-    border: 1px solid $theme-text-color;
+    color: $blue3;
+    border: 1px solid $blue3;
     transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
 }
 
@@ -51,6 +51,7 @@ div#initial_element {
 
     h1 {
       font-size: 3.75rem;
+      color: $blue3;
     }
   }
 
@@ -76,8 +77,8 @@ div#initial_element {
     text-decoration: none;
     box-shadow: none;
     background-color: transparent;
-    color: $theme-text-color;
-    border: 1px solid $theme-text-color;
+    color: $blue3;
+    border: 1px solid $blue3;
     transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
   }
 }
@@ -92,6 +93,10 @@ div#initial_element {
   padding: $spacing;
   width: 70%;
   min-width: 300px;
+}
+
+#regForm {
+  padding: 0px !important;
 }
 
 div.goback_button_container {
@@ -136,9 +141,9 @@ div.goback_button_container {
     height: 40px;
     border: none;
     background-color: $theme-background-color;
-    border-bottom: 2px solid $blue3;
+    border-bottom: 2px solid $theme-text-color;
     font-size: 1.5rem;
-    color: $theme-text-color;
+    color: $blue3 !important;
 
     &:focus {
         outline: none;
