@@ -134,3 +134,18 @@ header.header {
         }
     }
 }
+
+@media screen and (max-width: 400px) { // MOBILE PHONES
+    header.header {
+        .header-meta-title-container {
+            h3 {
+                font-size: 2rem;
+            }
+        }
+        .header-meta-content-container{
+            p {
+                font-size: 1rem;
+            }
+        }
+    }
+}
