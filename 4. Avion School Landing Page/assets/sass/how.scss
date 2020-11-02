@@ -41,7 +41,7 @@
 
                 &:before {
                     content: '✔  ' !important;
-                    color: rgb(62, 224, 62) !important;
+                    color: $success !important;
                 }
             }
         }

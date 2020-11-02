@@ -43,6 +43,9 @@ p {
   color: #1b4965 !important;
   transition: all 500ms ease-in-out; }
 
+.hide {
+  display: none !important; }
+
 @media screen and (max-width: 600px) {
   #navigation,
   #how,
@@ -579,3 +582,124 @@ footer {
 
 main#content {
   transition: transform .5s ease, visible .5s ease !important; }
+
+button#goback,
+button#prevBtn,
+button#nextBtn {
+  margin: 25px;
+  vertical-align: baseline;
+  appearance: none;
+  border-radius: 35px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  height: 3.25rem;
+  line-height: 3.25rem;
+  padding: 0 1.75rem;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: #CAE9FF;
+  border: 1px solid #CAE9FF;
+  transition: background-color 500ms ease-in-out, color 500ms ease-in-out; }
+
+button#prevBtn,
+button#nextBtn {
+  margin: 7.5px !important; }
+
+div#initial_element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50% !important; }
+  div#initial_element .initial_element_header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px; }
+    div#initial_element .initial_element_header img {
+      width: 100px;
+      height: 100px; }
+    div#initial_element .initial_element_header h1 {
+      font-size: 3.75rem; }
+  div#initial_element p {
+    text-align: center; }
+  div#initial_element button#startRegForm {
+    margin: 25px 0px;
+    vertical-align: baseline;
+    appearance: none;
+    border-radius: 35px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    height: 3.25rem;
+    line-height: 3.25rem;
+    padding: 0 1.75rem;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    box-shadow: none;
+    background-color: transparent;
+    color: #CAE9FF;
+    border: 1px solid #CAE9FF;
+    transition: background-color 500ms ease-in-out, color 500ms ease-in-out; }
+
+#regForm,
+div#initial_element {
+  background-color: transparent;
+  margin: 0px auto;
+  padding: 20px;
+  width: 70%;
+  min-width: 300px; }
+
+.tab-formfield-container {
+  margin: 25px 0px; }
+  .tab-formfield-container input[type='text'],
+  .tab-formfield-container input[type='email'] {
+    padding: 20px 5px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: #1b4965;
+    border-bottom: 2px solid #62B6CB;
+    font-size: 1rem;
+    color: #CAE9FF; }
+    .tab-formfield-container input[type='text']:focus,
+    .tab-formfield-container input[type='email']:focus {
+      outline: none;
+      box-shadow: none; }
+  .tab-formfield-container input.invalid {
+    border-bottom: 2px solid #cb7762; }
+
+.tab {
+  display: none;
+  min-height: 300px; }
+  .tab label,
+  .tab label.question {
+    font-size: 1.5rem; }
+  .tab label.question {
+    color: #62B6CB; }
+
+.tab.support div.tab-formfield-container,
+.tab.programming_experience div.tab-formfield-container,
+.tab.source div.tab-formfield-container,
+.tab.whento_start div.tab-formfield-container {
+  margin: 7.5px; }
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5; }
+
+.step.active {
+  opacity: 1; }
+
+.step.finish {
+  background-color: #3ee03e; }

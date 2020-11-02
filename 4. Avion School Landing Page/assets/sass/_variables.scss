@@ -3,6 +3,8 @@ $theme-text-color: #CAE9FF; // Columbia Blue
 $blue2: #5FA8D3; // Carolina Blue
 $blue3: #62B6CB; // Maximum Blue
 $blue4: #BEE9E8; // Powder Blue
+$success: #3ee03e;
+$danger: #cb7762;
 
 $width-global: 75vw; // width of each section, with margin auto
 $spacing: 20px;
@@ -61,6 +63,10 @@ p {
     background-color: $theme-text-color !important;
     color: $theme-background-color !important;
     transition: all 500ms ease-in-out;
+}
+
+.hide {
+    display: none !important;
 }
 
 @media screen and (max-width: 600px) { // MOBILE PHONES

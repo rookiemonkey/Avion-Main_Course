@@ -26,7 +26,8 @@
                         <li class="nav-desktop-item"><a href='#testimonial-ceo'>About</a></li>
                         <li class="nav-desktop-item"><a href='#process'>Process</a></li>
                         <li class="nav-desktop-item"><a href='#contact'>Contact</a></li>
-                        <li class="nav-desktop-item"><a href='#' class="special_button hover_button_clear_bg">Enroll
+                        <li class="nav-desktop-item enroll_button"><a href='#'
+                                class="special_button hover_button_clear_bg">Enroll
                                 Now!</a></li>
                         <li class="nav-mobile-item">
                             <a href='#' id="hamburger">
@@ -54,7 +55,7 @@
                         software, work with teams and apply for top software jobs.</p>
                 </div>
                 <div class="header-meta-button-container">
-                    <a href="#chooseplan" class="header-meta-button hover_button_clear_bg">ENROLL NOW!</a>
+                    <a href="#" class="header-meta-button hover_button_clear_bg enroll_button">ENROLL NOW!</a>
                 </div>
             </header>
 
@@ -247,10 +248,313 @@
             </div>
         </section>
 
+        <section id="enroll" class="global_section hide">
+
+            <button id="goback" class="hover_button_clear_bg">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                &nbsp; Home
+            </button>
+
+            <div id="initial_element">
+                <div class="initial_element_header">
+                    <img id="brand-icon" src="/assets/images/brand-noname.png" alt="avion school logo" />
+                    <h1 id="brand-name"><b>Avion</b> School</h1>
+                </div>
+
+                <p>
+                    Congratulations on taking the first step to a career in software development! Start by filling up
+                    this
+                    application form,
+                    and our team will reach out to guide you through the process.
+                </p>
+
+                <button id="startRegForm" class="hover_button_clear_bg">Start</button>
+            </div>
+
+            <form id="regForm" class="hide" action="">
+
+                <!-- name -->
+                <div class="tab name">
+                    <label class="question">What is your Name?</label>
+                    <div class="tab-formfield-container">
+                        <input type="text" placeholder="First name" oninput="this.className = ''">
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="text" placeholder="Last name" oninput="this.className = ''">
+                    </div>
+                </div>
+
+                <!-- 18 years older -->
+                <div class="tab age">
+                    <label class="question">Are you 18 years old or older?</label>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="is18YearsOldAbove" value="yes" oninput="this.className = ''">
+                        <label>&nbsp; Yes</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="is18YearsOldAbove" value="no" oninput="this.className = ''">
+                        <label>&nbsp; No</label>
+                    </div>
+                </div>
+
+                <!-- email -->
+                <div class="tab email">
+                    <label class="question">What is your email address?</label>
+                    <div class="tab-formfield-container">
+                        <input type="email" placeholder="Type your answer here" oninput="this.className = ''">
+                    </div>
+                </div>
+
+                <!-- is filipino citizen -->
+                <div class="tab citizenship">
+                    <label class="question">Are you a Filipino Citizen</label>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="isFilipinoCitizen" value="yes" oninput="this.className = ''">
+                        <label>&nbsp; Yes</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="isFilipinoCitizen" value="no" oninput="this.className = ''">
+                        <label>&nbsp; No</label>
+                    </div>
+                </div>
+
+                <!-- home address -->
+                <div class="tab address">
+                    <label class="question">What is your home address?</label>
+                    <div class="tab-formfield-container">
+                        <input type="text" placeholder="Type your answer here" oninput="this.className = ''">
+                    </div>
+                </div>
+
+                <!-- type of class 24 or 12 week -->
+                <div class="tab class_type">
+                    <label class="question">What type of class do you wish to enroll in?</label>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="desiredTypeOfClass" value="12week" oninput="this.className = ''">
+                        <label>&nbsp; 12 Week Course: M-F (9am-6pm)</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="desiredTypeOfClass" value="24week" oninput="this.className = ''">
+                        <label>&nbsp; 24 Week Course: M-F (7pm-9pm) & Sat (9am-1pm)</label>
+                    </div>
+                </div>
+
+                <!-- payment method -->
+                <div class="tab payment_method">
+                    <label class="question">If accepted, which payment method do you plan to take?</label> </br>
+                    <small>An Income Share Agreement (ISA) is a method of paying tuition where you only pay when you're
+                        hired. You'll receive
+                        detailed information later, and your selection is not binding now.</small>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="paymentMethod" value="incomeShare" oninput="this.className = ''">
+                        <label>&nbsp; Income Share: 17% of your income for 2 years after you're hired</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="paymentMethod" value="upfront" oninput="this.className = ''">
+                        <label>&nbsp; Upfront Payment: Php 80,000</label>
+                    </div>
+                </div>
+
+                <!-- has balance -->
+                <div class="tab has_balance">
+                    <label class="question">Do you have an unpaid Income Share Agreement (ISA) with Avion School, or
+                        other pending loans
+                        with other entities?</label>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="hasBalance" value="yes" oninput="this.className = ''">
+                        <label>&nbsp; Yes</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="hasBalance" value="yes" oninput="this.className = ''">
+                        <label>&nbsp; No</label>
+                    </div>
+                </div>
+
+                <!-- work immediately -->
+                <div class="tab work_immediately">
+                    <label class="question">Avion School is for people who want to seek work immediately upon graduation
+                        from our course.
+                        Do you plan to look for
+                        full-time work immediately after Avion School?</label>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="workImmediately" value="yes" oninput="this.className = ''">
+                        <label>&nbsp; Yes</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="workImmediately" value="yes" oninput="this.className = ''">
+                        <label>&nbsp; No</label>
+                    </div>
+                </div>
+
+                <!-- How will you support yourself while attending Avion School? -->
+                <div class="tab support">
+                    <label class="question">How will you support yourself while attending Avion School?</label>
+                    <div class="tab-formfield-container">
+                        <input type="checkbox" name="whoWillSupport" value="personalSavings"
+                            oninput="this.className = ''">
+                        <label>&nbsp; I have personal savings</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="checkbox" name="whoWillSupport" value="family" oninput="this.className = ''">
+                        <label>&nbsp; My family will support me</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="checkbox" name="whoWillSupport" value="fullTimeJob" oninput="this.className = ''">
+                        <label>&nbsp; I have a full-time job</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="checkbox" name="whoWillSupport" value="partTimeJob" oninput="this.className = ''">
+                        <label>&nbsp; I have a part-time job</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="checkbox" name="whoWillSupport" value="unemploymentBenefits"
+                            oninput="this.className = ''">
+                        <label>&nbsp; I receive unemployment benefits</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="checkbox" name="whoWillSupport" value="disabilityBenefits"
+                            oninput="this.className = ''">
+                        <label>&nbsp; I receive disability benefits</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="checkbox" name="whoWillSupport" value="nodetails" oninput="this.className = ''">
+                        <label>&nbsp; I haven't worked out the details yet</label>
+                    </div>
+                </div>
+
+                <!-- describe programming experience -->
+                <div class="tab programming_experience">
+                    <label class="question">Which of the following best describes your programming experience?</label>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="programmingExperience" value="noExperience"
+                            oninput="this.className = ''">
+                        <label>&nbsp; No Experience: but I'm excited to start learning</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="programmingExperience" value="beginner" oninput="this.className = ''">
+                        <label>&nbsp; Beginner: I've done some introductory coding lessons or tutorials</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="programmingExperience" value="intermediate"
+                            oninput="this.className = ''">
+                        <label>&nbsp; Intermediate: I have completed some coding classes or tutorials</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="programmingExperience" value="advanced" oninput="this.className = ''">
+                        <label>&nbsp; Advanced: I can create simple applications</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="programmingExperience" value="professional"
+                            oninput="this.className = ''">
+                        <label>&nbsp; Professional: I am an experienced software engineer</label>
+                    </div>
+                </div>
+
+                <!-- how did you hear about avion -->
+                <div class="tab source">
+                    <label class="question">How did you hear about Avion School?</label>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="sourceOfInfo" value="facebook" oninput="this.className = ''">
+                        <label>&nbsp; Facebook</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="sourceOfInfo" value="linkedin" oninput="this.className = ''">
+                        <label>&nbsp; LinkedIn</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="sourceOfInfo" value="google" oninput="this.className = ''">
+                        <label>&nbsp; Google</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="sourceOfInfo" value="twitter" oninput="this.className = ''">
+                        <label>&nbsp; Twitter</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="sourceOfInfo" value="news" oninput="this.className = ''">
+                        <label>&nbsp; News</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="sourceOfInfo" value="friend" oninput="this.className = ''">
+                        <label>&nbsp; Friend</label>
+                    </div>
+                </div>
+
+                <!-- Do you have a LinkedIn profile? -->
+                <div class="tab linkedin_profile">
+                    <label class="question">Do you have a LinkedIn profile?</label>
+                    </br>
+                    <small>Please enter the URL. If none, leave blank.</small>
+                    <div class="tab-formfield-container">
+                        <input type="text" name="linkedInProfile" oninput="this.className = ''"
+                            placeholder="Type your answer here">
+                    </div>
+                </div>
+
+                <!-- when can you start attending class -->
+                <div class="tab whento_start">
+                    <label class="question">Avion School runs classes every four to eight weeks. How soon are you
+                        looking to start
+                        class?</label>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="toStartAttendingClasses" value="next4Weeks"
+                            oninput="this.className = ''">
+                        <label>&nbsp; Within the next 4 weeks</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="toStartAttendingClasses" value="next3Months"
+                            oninput="this.className = ''">
+                        <label>&nbsp; Within the next 3 months</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="toStartAttendingClasses" value="next3To6Months"
+                            oninput="this.className = ''">
+                        <label>&nbsp; Within the next 3 to 6 months</label>
+                    </div>
+                    <div class="tab-formfield-container">
+                        <input type="radio" name="toStartAttendingClasses" value="notsure"
+                            oninput="this.className = ''">
+                        <label>&nbsp; I'm not sure</label>
+                    </div>
+                </div>
+
+                <!-- Previous/Next button -->
+                <div style="overflow:auto;">
+                    <div style="float:right;">
+                        <button type="button" id="prevBtn" class="hover_button_clear_bg" onclick="nextPrev(-1)">
+                            Previous
+                        </button>
+                        <button type="button" id="nextBtn" class="hover_button_clear_bg" onclick="nextPrev(1)">
+                            Next
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Circles which indicates the steps of the form: -->
+                <div style="text-align:center;margin-top:40px;">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                </div>
+
+            </form>
+
+        </section>
+
         <footer>
             <div id="call-to-action">
                 <h3>Ready to Learn?</h3>
-                <button class="hover_button_clear_bg">ENROLL NOW!</button>
+                <button class="hover_button_clear_bg enroll_button">ENROLL NOW!</button>
             </div>
             <div id="copyright-container"><small>© Avion School 2020.</small></div>
         </footer>
@@ -264,7 +568,7 @@
             <li class="sidebar-item"><a href='#testimonial-ceo'>About</a></li>
             <li class="sidebar-item"><a href='#process'>Process</a></li>
             <li class="sidebar-item"><a href='#contact'>Contact</a></li>
-            <li class="sidebar-item"><a href='#'>Enroll Now!</a></li>
+            <li class="sidebar-item"><a href='#' class="enroll_button">Enroll Now!</a></li>
         </ul>
     </section>
 
@@ -272,5 +576,7 @@
 
 <script src="/assets/js/functions.js"></script>
 <script src="/assets/js/menu.js"></script>
+<script src="/assets/js/multistepform.js"></script>
+<script src="/assets/js/enroll.js"></script>
 
 </html>

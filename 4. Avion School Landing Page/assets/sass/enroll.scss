@@ -1,0 +1,157 @@
+// go back to home button available all-through out the form
+button#goback,
+button#prevBtn,
+button#nextBtn {
+    margin: $margin-lg;
+    vertical-align: baseline;
+    appearance: none;
+    border-radius: 35px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    height: 3.25rem;
+    line-height: 3.25rem;
+    padding: 0 1.75rem;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    box-shadow: none;
+    background-color: transparent;
+    color: $theme-text-color;
+    border: 1px solid $theme-text-color;
+    transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+}
+
+button#prevBtn,
+button#nextBtn {
+  margin: $margin-sm !important;
+}
+
+// welcome message upon clicking enroll now
+div#initial_element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50% !important;
+
+  .initial_element_header {
+    display: flex;
+    align-items: center;
+    margin-bottom: $margin-lg;
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+
+    h1 {
+      font-size: 3.75rem;
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+
+  button#startRegForm {
+    margin: $margin-lg 0px;
+    vertical-align: baseline;
+    appearance: none;
+    border-radius: 35px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    height: 3.25rem;
+    line-height: 3.25rem;
+    padding: 0 1.75rem;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    box-shadow: none;
+    background-color: transparent;
+    color: $theme-text-color;
+    border: 1px solid $theme-text-color;
+    transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+  }
+}
+
+
+#regForm,
+div#initial_element {
+  background-color: transparent;
+  margin: 0px auto;
+  padding: $spacing;
+  width: 70%;
+  min-width: 300px;
+}
+
+.tab-formfield-container {
+  margin: $margin-lg 0px;
+
+  input[type='text'],
+  input[type='email']  {
+    padding: $spacing 5px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    background-color: $theme-background-color;
+    border-bottom: 2px solid $blue3;
+    font-size: 1rem;
+    color: $theme-text-color;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+  }
+
+  input.invalid {
+    border-bottom: 2px solid $danger;
+  }
+}
+
+.tab {
+  display: none;
+  min-height: 300px;
+
+  label,
+  label.question {
+    font-size: 1.5rem;
+  }
+
+  label.question {
+    color: $blue3;
+  }
+}
+
+.tab.support,
+.tab.programming_experience,
+.tab.source,
+.tab.whento_start {
+  div.tab-formfield-container {
+    margin: $margin-sm; // from $margin-lg
+  }
+}
+
+// circle indicator
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+// circle indicator, current tab
+.step.active {
+  opacity: 1;
+}
+
+// circle indicator, done answering
+.step.finish {
+  background-color: $success;
+}
