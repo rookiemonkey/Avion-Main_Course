@@ -683,6 +683,8 @@ div#initial_element {
     font-size: 1.5rem; }
   .tab label.question {
     color: #62B6CB; }
+  .tab small {
+    font-size: 1rem; }
 
 .tab.support div.tab-formfield-container,
 .tab.programming_experience div.tab-formfield-container,

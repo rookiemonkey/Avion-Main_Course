@@ -117,7 +117,7 @@ function validateForm() {
     }
 
     // if not, show the Error for each field, fixes the issue when clicked next, no error
-    if (!areValid) {
+    if (!areValid && inputs[0].type !== 'radio') {
         [...inputs].forEach(input => validator.showErrors(input))
     }
 
