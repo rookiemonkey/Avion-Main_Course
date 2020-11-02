@@ -22,6 +22,10 @@ button#nextBtn {
     transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
 }
 
+button#goback {
+  margin: auto $margin-lg !important;
+}
+
 button#prevBtn,
 button#nextBtn {
   margin: $margin-sm !important;
@@ -55,7 +59,7 @@ div#initial_element {
   }
 
   button#startRegForm {
-    margin: $margin-lg 0px;
+    margin: 20% $margin-lg 0px;
     vertical-align: baseline;
     appearance: none;
     border-radius: 35px;
@@ -77,13 +81,28 @@ div#initial_element {
 }
 
 
+
 #regForm,
 div#initial_element {
   background-color: transparent;
-  margin: 0px auto;
+  margin: auto;
   padding: $spacing;
   width: 70%;
   min-width: 300px;
+}
+
+div.goback_button_container {
+  height: 15vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#regForm {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .tab-formfield-container {
@@ -160,4 +179,21 @@ div#initial_element {
 // circle indicator, done answering
 .step.finish {
   background-color: $success;
+}
+
+.enrollment_form_navigation {
+  margin: $margin-lg 0px;
+}
+
+@media screen and (max-width: 768px) { // IPAD
+    #initial_element {
+      .initial_element_header {
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+          text-align: center;
+        }
+      }
+    }
 }

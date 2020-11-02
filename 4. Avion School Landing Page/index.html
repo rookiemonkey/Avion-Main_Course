@@ -250,10 +250,12 @@
 
         <section id="enroll" class="global_section hide">
 
-            <button id="goback" class="hover_button_clear_bg">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                &nbsp; Home
-            </button>
+            <div class="goback_button_container">
+                <button id="goback" class="hover_button_clear_bg">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    &nbsp; Home
+                </button>
+            </div>
 
             <div id="initial_element">
                 <div class="initial_element_header">
@@ -550,35 +552,38 @@
                     </div>
                 </div>
 
-                <!-- Previous/Next button -->
-                <div style="overflow:auto;">
-                    <div style="float:right;">
-                        <button type="button" id="prevBtn" class="hover_button_clear_bg" onclick="nextPrev(-1)">
-                            Previous
-                        </button>
-                        <button type="button" id="nextBtn" class="hover_button_clear_bg" onclick="nextPrev(1)">
-                            Next
-                        </button>
+                <!-- prev/next btn and form step indicators -->
+                <div class="enrollment_form_navigation">
+                    <!-- Previous/Next button -->
+                    <div style="overflow:auto;">
+                        <div style="float:right;">
+                            <button type="button" id="prevBtn" class="hover_button_clear_bg" onclick="nextPrev(-1)">
+                                Previous
+                            </button>
+                            <button type="button" id="nextBtn" class="hover_button_clear_bg" onclick="nextPrev(1)">
+                                Next
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Circles which indicates the steps of the form: -->
-                <div style="text-align:center;margin-top:40px;">
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
+                    <!-- Circles which indicates the steps of the form: -->
+                    <div style="text-align:center;margin-top:40px;">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                    </div>
                 </div>
 
             </form>

@@ -637,6 +637,9 @@ button#nextBtn {
   border: 1px solid #CAE9FF;
   transition: background-color 500ms ease-in-out, color 500ms ease-in-out; }
 
+button#goback {
+  margin: auto 25px !important; }
+
 button#prevBtn,
 button#nextBtn {
   margin: 7.5px !important; }
@@ -659,7 +662,7 @@ div#initial_element {
   div#initial_element p {
     text-align: center; }
   div#initial_element button#startRegForm {
-    margin: 25px 0px;
+    margin: 20% 25px 0px;
     vertical-align: baseline;
     appearance: none;
     border-radius: 35px;
@@ -681,10 +684,22 @@ div#initial_element {
 #regForm,
 div#initial_element {
   background-color: transparent;
-  margin: 0px auto;
+  margin: auto;
   padding: 20px;
   width: 70%;
   min-width: 300px; }
+
+div.goback_button_container {
+  height: 15vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+
+#regForm {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
 
 .tab-formfield-container {
   margin: 25px 0px; }
@@ -739,3 +754,13 @@ div#initial_element {
 
 .step.finish {
   background-color: #3ee03e; }
+
+.enrollment_form_navigation {
+  margin: 25px 0px; }
+
+@media screen and (max-width: 768px) {
+  #initial_element .initial_element_header {
+    display: flex;
+    flex-direction: column; }
+    #initial_element .initial_element_header h1 {
+      text-align: center; } }
