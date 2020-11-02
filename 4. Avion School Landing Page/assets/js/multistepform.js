@@ -170,10 +170,13 @@ function goto_home() {
     // this should reset the whole form values
     document.getElementById('regForm').reset();
 
-    // hide again all the tabs
+    // hide all the tabs
     [...document.getElementsByClassName("tab")].forEach((tab) => {
         tab.style.display = 'none';
     });
+
+    // hide the form
+    document.querySelector('#regForm').classList.add('hide');
 
     // reset the progress indicators
     [...document.getElementsByClassName("step")].forEach((step) => {
