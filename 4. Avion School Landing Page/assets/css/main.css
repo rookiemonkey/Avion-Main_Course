@@ -721,8 +721,7 @@ div.goback_button_container {
 
 .tab-formfield-container {
   margin: 25px 0px; }
-  .tab-formfield-container input[type='text'],
-  .tab-formfield-container input[type='email'] {
+  .tab-formfield-container #enroll_input {
     padding: 20px 5px;
     width: 100%;
     height: 40px;
@@ -731,8 +730,7 @@ div.goback_button_container {
     border-bottom: 2px solid #62B6CB;
     font-size: 1.5rem;
     color: #CAE9FF; }
-    .tab-formfield-container input[type='text']:focus,
-    .tab-formfield-container input[type='email']:focus {
+    .tab-formfield-container #enroll_input:focus {
       outline: none;
       box-shadow: none; }
   .tab-formfield-container div.error {

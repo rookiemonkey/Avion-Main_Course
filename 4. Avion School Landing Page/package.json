@@ -8,6 +8,8 @@
     "sass": "node-sass assets/sass/_index.scss assets/css/main.css"
   },
   "devDependencies": {
+    "minify": "^6.0.1",
+    "ncp": "^2.0.0",
     "node-sass": "^4.14.1"
   }
 }

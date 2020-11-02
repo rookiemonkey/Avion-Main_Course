@@ -130,8 +130,7 @@ div.goback_button_container {
 .tab-formfield-container {
   margin: $margin-lg 0px;
 
-  input[type='text'],
-  input[type='email']  {
+  #enroll_input  {
     padding: $spacing 5px;
     width: 100%;
     height: 40px;
