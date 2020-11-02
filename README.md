@@ -19,6 +19,12 @@
 ![Screenshot](https://res.cloudinary.com/promises/image/upload/v1603674594/Avion-Product_Landing_Page.png)
 
 
+### ✨ [4. Avion School Page Demo](https://krrb-prod-avionschool.netlify.app/)
+
+> This is a project that focuses on the usage of CSS flexbox and other concepts taught prior this project as instructed by Avion School instructors. Final project before moving into javascript.
+
+![Screenshot](https://res.cloudinary.com/promises/image/upload/v1604310489/avion-avion_school.png)
+
 
 ## Author
 
