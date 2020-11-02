@@ -685,6 +685,7 @@ div#initial_element {
     transition: background-color 500ms ease-in-out, color 500ms ease-in-out; }
 
 #regForm,
+.submitted_enrollment,
 div#initial_element {
   background-color: transparent;
   margin: auto;
@@ -701,11 +702,22 @@ div.goback_button_container {
   align-items: center;
   min-width: 300px; }
 
-#regForm {
+#regForm,
+.submitted_enrollment {
   min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
+
+.submitted_enrollment {
+  justify-content: center !important;
+  align-items: center; }
+  .submitted_enrollment img {
+    width: 50%;
+    height: auto;
+    margin-bottom: 25px; }
+  .submitted_enrollment h1 {
+    margin-top: 25px; }
 
 .tab-formfield-container {
   margin: 25px 0px; }
@@ -769,7 +781,9 @@ div.goback_button_container {
     display: flex;
     flex-direction: column; }
     #initial_element .initial_element_header h1 {
-      text-align: center; } }
+      text-align: center; }
+  .submitted_enrollment img {
+    width: 100%; } }
 
 @media screen and (max-width: 375px) {
   .enrollment_form_navigation {

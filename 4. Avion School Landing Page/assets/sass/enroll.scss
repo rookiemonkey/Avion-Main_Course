@@ -85,6 +85,7 @@ div#initial_element {
 
 
 #regForm,
+.submitted_enrollment,
 div#initial_element {
   background-color: transparent;
   margin: auto;
@@ -103,11 +104,27 @@ div.goback_button_container {
   min-width: 300px;
 }
 
-#regForm {
+#regForm,
+.submitted_enrollment {
   min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.submitted_enrollment {
+  justify-content: center !important;
+  align-items: center;
+
+  img {
+    width: 50%;
+    height: auto;
+    margin-bottom: $margin-lg;
+  }
+
+  h1 {
+    margin-top: $margin-lg;
+  }
 }
 
 .tab-formfield-container {
@@ -199,6 +216,12 @@ div.goback_button_container {
         h1 {
           text-align: center;
         }
+      }
+    }
+
+    .submitted_enrollment {
+      img {
+        width: 100%;
       }
     }
 }
