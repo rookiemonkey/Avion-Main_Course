@@ -19,6 +19,7 @@
 .fadeIn {
 	-webkit-animation-name: fadeIn;
     animation-name: fadeIn;
+    -webkit-animation-duration: 550ms;
     animation-duration: 550ms;
     animation-timing-function: ease-in;
 }
@@ -45,6 +46,78 @@
 .fadeOut {
 	-webkit-animation-name: fadeOut;
     animation-name: fadeOut;
+    -webkit-animation-duration: 500ms;
     animation-duration: 500ms;
     animation-timing-function: ease-in;
+}
+
+
+@-webkit-keyframes notice {
+	0% {
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1)
+	}
+	10%,
+	20% {
+		-webkit-transform: scale3d(.9, .9, .9) rotate(-3deg);
+		transform: scale3d(.9, .9, .9) rotate(-3deg)
+	}
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate(3deg);
+		transform: scale3d(1.1, 1.1, 1.1) rotate(3deg)
+	}
+	40%,
+	60%,
+	80% {
+		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate(-3deg);
+		transform: scale3d(1.1, 1.1, 1.1) rotate(-3deg)
+	}
+	to {
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1)
+	}
+}
+
+@keyframes notice {
+	0% {
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1)
+	}
+	10%,
+	20% {
+		-webkit-transform: scale3d(.9, .9, .9) rotate(-3deg);
+		transform: scale3d(.9, .9, .9) rotate(-3deg)
+	}
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate(3deg);
+		transform: scale3d(1.1, 1.1, 1.1) rotate(3deg)
+	}
+	40%,
+	60%,
+	80% {
+		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate(-3deg);
+		transform: scale3d(1.1, 1.1, 1.1) rotate(-3deg)
+	}
+	to {
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1)
+	}
+}
+
+.notice {
+	-webkit-animation-name: notice;
+    animation-name: notice;
+    -webkit-animation-duration:  1000ms;
+    animation-duration: 1000ms;
+    -webkit-animation-duration:  1000ms;
+    animation-duration: 1000ms;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 1500ms;
+    animation-delay: 1500ms;
 }
