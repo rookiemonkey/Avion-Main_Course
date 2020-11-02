@@ -10,6 +10,20 @@ let currentTab = 0;
 document.getElementById('startRegForm').addEventListener('click', start);
 
 
+/**
+ * 
+ * used in validateForm function
+ * @onAir : option, true to listen on onChange events
+ */
+const validator = new Validator(
+    document.querySelector('#regForm'),
+    function (err, res) {
+        return res
+    }, {
+    autoTracking: true,
+    onAir: true
+});
+
 
 
 
@@ -85,28 +99,29 @@ function nextPrev(n) {
  */
 function validateForm() {
     // This function deals with validation of the form fields
-    var tabs, inputs, i, valid = true;
+    let tabs, inputs, areValid = true;
 
+    // get the current tab being displayed
     tabs = document.getElementsByClassName("tab");
+
+    // we only have type text, radio, and checkboxes for inputs
+    // get the inputs elements on the current tab being displayed
     inputs = tabs[currentTab].getElementsByTagName("input");
 
-    // A loop that checks every input field in the current tab:
-    for (i = 0; i < inputs.length; i++) {
-        // If a field is empty...
-        if (inputs[i].value == "") {
-            // add an "invalid" class to the field:
-            inputs[i].className += " invalid";
-            // and set the current valid status to false:
-            valid = false;
-        }
+    // A loop that checks every input (text, radio) field in the current tab:
+    [...inputs].forEach(input => areValid = validator.validate(input))
+
+    if (!areValid) {
+        // just halt the function execution, no need of error message
+        return null;
     }
 
     // If the valid status is true, mark the step as finished and valid:
-    if (valid) {
+    if (areValid) {
         document.getElementsByClassName("step")[currentTab].className += " finish";
     }
 
-    return valid; // return the valid status
+    return areValid; // return the valid status
 }
 
 

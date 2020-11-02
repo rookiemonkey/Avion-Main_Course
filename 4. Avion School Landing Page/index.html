@@ -273,14 +273,21 @@
 
             <form id="regForm" class="hide" action="">
 
-                <!-- name -->
-                <div class="tab name">
-                    <label class="question">What is your Name?</label>
+                <!-- first name -->
+                <div class="tab firstname">
+                    <label class="question">What is your First Name?</label>
                     <div class="tab-formfield-container">
-                        <input type="text" placeholder="First name" oninput="this.className = ''">
+                        <input type="text" name="fistname" placeholder="Type your answer here" data-rule="required"
+                            oninput="this.className = ''">
                     </div>
+                </div>
+
+                <!-- last name -->
+                <div class="tab lastname">
+                    <label class="question">What is your Last Name?</label>
                     <div class="tab-formfield-container">
-                        <input type="text" placeholder="Last name" oninput="this.className = ''">
+                        <input type="text" name="lastname" placeholder="Type your answer here" data-rule="required"
+                            oninput="this.className = ''">
                     </div>
                 </div>
 
@@ -288,11 +295,13 @@
                 <div class="tab age">
                     <label class="question">Are you 18 years old or older?</label>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="is18YearsOldAbove" value="yes" oninput="this.className = ''">
+                        <input type="radio" name="is18YearsOldAbove" data-rule="required" value="yes"
+                            oninput="this.className = ''">
                         <label>&nbsp; Yes</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="is18YearsOldAbove" value="no" oninput="this.className = ''">
+                        <input type="radio" name="is18YearsOldAbove" data-rule="required" value="no"
+                            oninput="this.className = ''">
                         <label>&nbsp; No</label>
                     </div>
                 </div>
@@ -301,7 +310,8 @@
                 <div class="tab email">
                     <label class="question">What is your email address?</label>
                     <div class="tab-formfield-container">
-                        <input type="email" placeholder="Type your answer here" oninput="this.className = ''">
+                        <input type="text" name="email" data-rule="required|email" placeholder="Type your answer here"
+                            oninput="this.className = ''">
                     </div>
                 </div>
 
@@ -309,11 +319,13 @@
                 <div class="tab citizenship">
                     <label class="question">Are you a Filipino Citizen</label>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="isFilipinoCitizen" value="yes" oninput="this.className = ''">
+                        <input type="radio" name="isFilipinoCitizen" data-rule="required" value="yes"
+                            oninput="this.className = ''">
                         <label>&nbsp; Yes</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="isFilipinoCitizen" value="no" oninput="this.className = ''">
+                        <input type="radio" name="isFilipinoCitizen" data-rule="required" value="no"
+                            oninput="this.className = ''">
                         <label>&nbsp; No</label>
                     </div>
                 </div>
@@ -322,7 +334,8 @@
                 <div class="tab address">
                     <label class="question">What is your home address?</label>
                     <div class="tab-formfield-container">
-                        <input type="text" placeholder="Type your answer here" oninput="this.className = ''">
+                        <input type="text" name="address" placeholder="Type your answer here" data-rule="required"
+                            oninput="this.className = ''">
                     </div>
                 </div>
 
@@ -330,11 +343,13 @@
                 <div class="tab class_type">
                     <label class="question">What type of class do you wish to enroll in?</label>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="desiredTypeOfClass" value="12week" oninput="this.className = ''">
+                        <input type="radio" name="desiredTypeOfClass" data-rule="required" value="12week"
+                            oninput="this.className = ''">
                         <label>&nbsp; 12 Week Course: M-F (9am-6pm)</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="desiredTypeOfClass" value="24week" oninput="this.className = ''">
+                        <input type="radio" name="desiredTypeOfClass" data-rule="required" value="24week"
+                            oninput="this.className = ''">
                         <label>&nbsp; 24 Week Course: M-F (7pm-9pm) & Sat (9am-1pm)</label>
                     </div>
                 </div>
@@ -346,11 +361,13 @@
                         hired. You'll receive
                         detailed information later, and your selection is not binding now.</small>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="paymentMethod" value="incomeShare" oninput="this.className = ''">
+                        <input type="radio" name="paymentMethod" data-rule="required" value="incomeShare"
+                            oninput="this.className = ''">
                         <label>&nbsp; Income Share: 17% of your income for 2 years after you're hired</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="paymentMethod" value="upfront" oninput="this.className = ''">
+                        <input type="radio" name="paymentMethod" data-rule="required" value="upfront"
+                            oninput="this.className = ''">
                         <label>&nbsp; Upfront Payment: Php 80,000</label>
                     </div>
                 </div>
@@ -361,11 +378,13 @@
                         other pending loans
                         with other entities?</label>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="hasBalance" value="yes" oninput="this.className = ''">
+                        <input type="radio" name="hasBalance" data-rule="required" value="yes"
+                            oninput="this.className = ''">
                         <label>&nbsp; Yes</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="hasBalance" value="yes" oninput="this.className = ''">
+                        <input type="radio" name="hasBalance" data-rule="required" value="yes"
+                            oninput="this.className = ''">
                         <label>&nbsp; No</label>
                     </div>
                 </div>
@@ -377,11 +396,13 @@
                         Do you plan to look for
                         full-time work immediately after Avion School?</label>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="workImmediately" value="yes" oninput="this.className = ''">
+                        <input type="radio" name="workImmediately" data-rule="required" value="yes"
+                            oninput="this.className = ''">
                         <label>&nbsp; Yes</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="workImmediately" value="yes" oninput="this.className = ''">
+                        <input type="radio" name="workImmediately" data-rule="required" value="yes"
+                            oninput="this.className = ''">
                         <label>&nbsp; No</label>
                     </div>
                 </div>
@@ -390,34 +411,38 @@
                 <div class="tab support">
                     <label class="question">How will you support yourself while attending Avion School?</label>
                     <div class="tab-formfield-container">
-                        <input type="checkbox" name="whoWillSupport" value="personalSavings"
+                        <input type="radio" name="whoWillSupport" data-rule="required" value="personalSavings"
                             oninput="this.className = ''">
                         <label>&nbsp; I have personal savings</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="checkbox" name="whoWillSupport" value="family" oninput="this.className = ''">
+                        <input type="radio" name="whoWillSupport" data-rule="required" value="family"
+                            oninput="this.className = ''">
                         <label>&nbsp; My family will support me</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="checkbox" name="whoWillSupport" value="fullTimeJob" oninput="this.className = ''">
+                        <input type="radio" name="whoWillSupport" data-rule="required" value="fullTimeJob"
+                            oninput="this.className = ''">
                         <label>&nbsp; I have a full-time job</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="checkbox" name="whoWillSupport" value="partTimeJob" oninput="this.className = ''">
+                        <input type="radio" name="whoWillSupport" data-rule="required" value="partTimeJob"
+                            oninput="this.className = ''">
                         <label>&nbsp; I have a part-time job</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="checkbox" name="whoWillSupport" value="unemploymentBenefits"
+                        <input type="radio" name="whoWillSupport" data-rule="required" value="unemploymentBenefits"
                             oninput="this.className = ''">
                         <label>&nbsp; I receive unemployment benefits</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="checkbox" name="whoWillSupport" value="disabilityBenefits"
+                        <input type="radio" name="whoWillSupport" data-rule="required" value="disabilityBenefits"
                             oninput="this.className = ''">
                         <label>&nbsp; I receive disability benefits</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="checkbox" name="whoWillSupport" value="nodetails" oninput="this.className = ''">
+                        <input type="radio" name="whoWillSupport" data-rule="required" value="nodetails"
+                            oninput="this.className = ''">
                         <label>&nbsp; I haven't worked out the details yet</label>
                     </div>
                 </div>
@@ -426,25 +451,27 @@
                 <div class="tab programming_experience">
                     <label class="question">Which of the following best describes your programming experience?</label>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="programmingExperience" value="noExperience"
+                        <input type="radio" name="programmingExperience" data-rule="required" value="noExperience"
                             oninput="this.className = ''">
                         <label>&nbsp; No Experience: but I'm excited to start learning</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="programmingExperience" value="beginner" oninput="this.className = ''">
+                        <input type="radio" name="programmingExperience" data-rule="required" value="beginner"
+                            oninput="this.className = ''">
                         <label>&nbsp; Beginner: I've done some introductory coding lessons or tutorials</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="programmingExperience" value="intermediate"
+                        <input type="radio" name="programmingExperience" data-rule="required" value="intermediate"
                             oninput="this.className = ''">
                         <label>&nbsp; Intermediate: I have completed some coding classes or tutorials</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="programmingExperience" value="advanced" oninput="this.className = ''">
+                        <input type="radio" name="programmingExperience" data-rule="required" value="advanced"
+                            oninput="this.className = ''">
                         <label>&nbsp; Advanced: I can create simple applications</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="programmingExperience" value="professional"
+                        <input type="radio" name="programmingExperience" data-rule="required" value="professional"
                             oninput="this.className = ''">
                         <label>&nbsp; Professional: I am an experienced software engineer</label>
                     </div>
@@ -454,27 +481,33 @@
                 <div class="tab source">
                     <label class="question">How did you hear about Avion School?</label>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="sourceOfInfo" value="facebook" oninput="this.className = ''">
+                        <input type="radio" name="sourceOfInfo" data-rule="required" value="facebook"
+                            oninput="this.className = ''">
                         <label>&nbsp; Facebook</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="sourceOfInfo" value="linkedin" oninput="this.className = ''">
+                        <input type="radio" name="sourceOfInfo" data-rule="required" value="linkedin"
+                            oninput="this.className = ''">
                         <label>&nbsp; LinkedIn</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="sourceOfInfo" value="google" oninput="this.className = ''">
+                        <input type="radio" name="sourceOfInfo" data-rule="required" value="google"
+                            oninput="this.className = ''">
                         <label>&nbsp; Google</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="sourceOfInfo" value="twitter" oninput="this.className = ''">
+                        <input type="radio" name="sourceOfInfo" data-rule="required" value="twitter"
+                            oninput="this.className = ''">
                         <label>&nbsp; Twitter</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="sourceOfInfo" value="news" oninput="this.className = ''">
+                        <input type="radio" name="sourceOfInfo" data-rule="required" value="news"
+                            oninput="this.className = ''">
                         <label>&nbsp; News</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="sourceOfInfo" value="friend" oninput="this.className = ''">
+                        <input type="radio" name="sourceOfInfo" data-rule="required" value="friend"
+                            oninput="this.className = ''">
                         <label>&nbsp; Friend</label>
                     </div>
                 </div>
@@ -483,9 +516,9 @@
                 <div class="tab linkedin_profile">
                     <label class="question">Do you have a LinkedIn profile?</label>
                     </br>
-                    <small>Please enter the URL. If none, leave blank.</small>
+                    <small>Please enter the URL. If none, just leave it empty.</small>
                     <div class="tab-formfield-container">
-                        <input type="text" name="linkedInProfile" oninput="this.className = ''"
+                        <input type="text" name="linkedInProfile" data-rule="" oninput="this.className = ''"
                             placeholder="Type your answer here">
                     </div>
                 </div>
@@ -496,22 +529,22 @@
                         looking to start
                         class?</label>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="toStartAttendingClasses" value="next4Weeks"
+                        <input type="radio" name="toStartAttendingClasses" data-rule="required" value="next4Weeks"
                             oninput="this.className = ''">
                         <label>&nbsp; Within the next 4 weeks</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="toStartAttendingClasses" value="next3Months"
+                        <input type="radio" name="toStartAttendingClasses" data-rule="required" value="next3Months"
                             oninput="this.className = ''">
                         <label>&nbsp; Within the next 3 months</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="toStartAttendingClasses" value="next3To6Months"
+                        <input type="radio" name="toStartAttendingClasses" data-rule="required" value="next3To6Months"
                             oninput="this.className = ''">
                         <label>&nbsp; Within the next 3 to 6 months</label>
                     </div>
                     <div class="tab-formfield-container">
-                        <input type="radio" name="toStartAttendingClasses" value="notsure"
+                        <input type="radio" name="toStartAttendingClasses" data-rule="required" value="notsure"
                             oninput="this.className = ''">
                         <label>&nbsp; I'm not sure</label>
                     </div>
@@ -531,6 +564,7 @@
 
                 <!-- Circles which indicates the steps of the form: -->
                 <div style="text-align:center;margin-top:40px;">
+                    <span class="step"></span>
                     <span class="step"></span>
                     <span class="step"></span>
                     <span class="step"></span>
@@ -574,9 +608,11 @@
 
 </body>
 
+<script src="/assets/js/validator.js"></script>
 <script src="/assets/js/functions.js"></script>
 <script src="/assets/js/menu.js"></script>
 <script src="/assets/js/multistepform.js"></script>
 <script src="/assets/js/enroll.js"></script>
+
 
 </html>
