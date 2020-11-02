@@ -111,14 +111,14 @@ function validateForm() {
     // A loop that checks every input (text, radio) field in the current tab:
     [...inputs].forEach(input => areValid = validator.validate(input))
 
-    if (!areValid) {
-        // just halt the function execution, no need of error message
-        return null;
-    }
-
-    // If the valid status is true, mark the step as finished and valid:
+    // If valid, mark the step as finished and valid:
     if (areValid) {
         document.getElementsByClassName("step")[currentTab].className += " finish";
+    }
+
+    // if not, show the Error for each field, fixes the issue when clicked next, no error
+    if (!areValid) {
+        [...inputs].forEach(input => validator.showErrors(input))
     }
 
     return areValid; // return the valid status

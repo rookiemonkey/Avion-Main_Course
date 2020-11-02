@@ -105,9 +105,11 @@ div#initial_element {
         box-shadow: none;
     }
   }
-
-  input.invalid {
-    border-bottom: 2px solid $danger;
+  
+  div.error {
+    margin-top: $margin-sm;
+    font-style: italic;
+    color: $danger;
   }
 }
 

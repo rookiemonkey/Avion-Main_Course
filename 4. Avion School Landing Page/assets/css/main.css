@@ -670,8 +670,10 @@ div#initial_element {
     .tab-formfield-container input[type='email']:focus {
       outline: none;
       box-shadow: none; }
-  .tab-formfield-container input.invalid {
-    border-bottom: 2px solid #cb7762; }
+  .tab-formfield-container div.error {
+    margin-top: 7.5px;
+    font-style: italic;
+    color: #cb7762; }
 
 .tab {
   display: none;
