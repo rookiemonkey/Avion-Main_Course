@@ -784,7 +784,8 @@ div.goback_button_container {
     width: 100%; } }
 
 @media screen and (max-width: 500px) {
-  #regForm {
+  #regForm,
+  div.goback_button_container {
     width: 85%;
     padding: 0px; }
   div#initial_element .initial_element_header h1#brand-name {

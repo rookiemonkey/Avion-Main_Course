@@ -226,7 +226,8 @@ div.goback_button_container {
 }
 
 @media screen and (max-width: 500px) { // MOBILE PHONE
-  #regForm {
+  #regForm,
+  div.goback_button_container {
     width: 85%;
     padding: 0px;
   }
