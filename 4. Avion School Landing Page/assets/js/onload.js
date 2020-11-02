@@ -11,7 +11,7 @@ window.addEventListener('load', function () {
     if (hasSubmittedEnrollmentDetails) {
         document.getElementById('initial_element').remove();
         document.getElementById('regForm').remove();
-        document.getElementsByClassName('loader')[0].remove();
+        document.getElementsByClassName('loader-enrollment')[0].remove();
         document.getElementsByClassName('submitted_enrollment')[0].classList.remove('hide')
     }
 

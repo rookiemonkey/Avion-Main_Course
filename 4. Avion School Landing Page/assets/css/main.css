@@ -597,22 +597,23 @@ footer {
 main#content {
   transition: transform .5s ease, visible .5s ease !important; }
 
-.loader {
-  padding-top: 20%;
+.loader-enrollment {
   width: 100%;
+  height: 85vh;
   display: flex;
-  justify-content: center; }
-  .loader .loader-inner {
+  justify-content: center;
+  align-items: center; }
+  .loader-enrollment .loader-enrollment-inner {
     width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center; }
-    .loader .loader-inner svg {
+    .loader-enrollment .loader-enrollment-inner svg {
       width: 100px;
       height: 100px;
       margin: 10px;
       display: inline-block; }
-    .loader .loader-inner small {
+    .loader-enrollment .loader-enrollment-inner small {
       text-align: center; }
 
 button#goback,

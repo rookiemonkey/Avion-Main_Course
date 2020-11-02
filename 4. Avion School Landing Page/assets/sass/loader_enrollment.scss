@@ -1,10 +1,11 @@
-.loader {
-  padding-top: 20%;
+.loader-enrollment {
   width: 100%;
+  height: 85vh; // should be the same with #regForm
   display: flex;
   justify-content: center;
+  align-items: center;
 
-  .loader-inner {
+  .loader-enrollment-inner {
     width: fit-content;
     display: flex;
     flex-direction: column;

@@ -105,7 +105,7 @@ function onsubmit_enroll() {
     // select needed DOM elements
     const form = document.querySelector('#regForm');
     const initial = document.querySelector('#initial_element')
-    const loader = document.querySelector('.loader');
+    const loader = document.querySelector('.loader-enrollment');
     const message = document.querySelector('.submitted_enrollment')
 
     // remove the hide class for loader and hide the form
