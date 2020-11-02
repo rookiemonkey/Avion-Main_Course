@@ -225,15 +225,25 @@ div.goback_button_container {
     }
 }
 
+@media screen and (max-width: 500px) { // MOBILE PHONE
+  #regForm {
+    width: 85%;
+    padding: 0px;
+  }
+
+  div#initial_element {
+    .initial_element_header {
+      h1#brand-name {
+        font-size: 2rem !important;
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 375px) { // MOBILE PHONE
   .enrollment_form_navigation {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  #regForm {
-    padding: 0px;
   }
 }
