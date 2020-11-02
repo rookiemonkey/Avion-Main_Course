@@ -638,7 +638,7 @@ button#nextBtn {
   transition: background-color 500ms ease-in-out, color 500ms ease-in-out; }
 
 button#goback {
-  margin: auto 25px !important; }
+  margin: auto 0px !important; }
 
 button#prevBtn,
 button#nextBtn {
@@ -668,7 +668,9 @@ div#initial_element {
     border-radius: 35px;
     cursor: pointer;
     display: inline-block;
-    font-weight: 600;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.5rem;
     height: 3.25rem;
     line-height: 3.25rem;
     padding: 0 1.75rem;
@@ -691,12 +693,15 @@ div#initial_element {
 
 div.goback_button_container {
   height: 15vh;
+  margin: 0px auto;
+  width: 70%;
   display: flex;
   justify-content: flex-start;
-  align-items: center; }
+  align-items: center;
+  min-width: 300px; }
 
 #regForm {
-  height: 85vh;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
@@ -711,7 +716,7 @@ div.goback_button_container {
     border: none;
     background-color: #1b4965;
     border-bottom: 2px solid #62B6CB;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #CAE9FF; }
     .tab-formfield-container input[type='text']:focus,
     .tab-formfield-container input[type='email']:focus {
@@ -764,3 +769,11 @@ div.goback_button_container {
     flex-direction: column; }
     #initial_element .initial_element_header h1 {
       text-align: center; } }
+
+@media screen and (max-width: 375px) {
+  .enrollment_form_navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  #regForm {
+    padding: 0px; } }

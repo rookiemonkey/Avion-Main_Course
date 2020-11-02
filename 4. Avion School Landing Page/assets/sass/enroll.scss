@@ -23,7 +23,7 @@ button#nextBtn {
 }
 
 button#goback {
-  margin: auto $margin-lg !important;
+  margin: auto 0px !important;
 }
 
 button#prevBtn,
@@ -65,7 +65,9 @@ div#initial_element {
     border-radius: 35px;
     cursor: pointer;
     display: inline-block;
-    font-weight: 600;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.5rem;
     height: 3.25rem;
     line-height: 3.25rem;
     padding: 0 1.75rem;
@@ -93,13 +95,16 @@ div#initial_element {
 
 div.goback_button_container {
   height: 15vh;
+  margin: 0px auto;
+  width: 70%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  min-width: 300px;
 }
 
 #regForm {
-  height: 85vh;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -116,7 +121,7 @@ div.goback_button_container {
     border: none;
     background-color: $theme-background-color;
     border-bottom: 2px solid $blue3;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: $theme-text-color;
 
     &:focus {
@@ -196,4 +201,17 @@ div.goback_button_container {
         }
       }
     }
+}
+
+
+@media screen and (max-width: 375px) { // MOBILE PHONE
+  .enrollment_form_navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #regForm {
+    padding: 0px;
+  }
 }
