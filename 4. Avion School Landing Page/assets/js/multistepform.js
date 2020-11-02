@@ -9,13 +9,6 @@ let currentTab = 0;
  */
 document.getElementById('startRegForm').addEventListener('click', start);
 
-/**
- * invoke the showTab function and pass in the currentTab varialbe.
- * this allows the currentTab number to be displayed to the user
- */
-showTab(currentTab);
-
-
 
 
 
@@ -49,6 +42,9 @@ function showTab(n) {
 }
 
 
+
+
+
 /**
  * display the next tab(tabNumber) and hide the current tab
  *  where n = -1 if previous
@@ -78,6 +74,9 @@ function nextPrev(n) {
     // Otherwise, display the correct tab:
     showTab(currentTab);
 }
+
+
+
 
 
 /**
@@ -111,6 +110,9 @@ function validateForm() {
 }
 
 
+
+
+
 /**
  * fixes the multistep form indicator below the form
  */
@@ -128,6 +130,9 @@ function fixStepIndicator(n) {
 }
 
 
+
+
+
 /**
  * reveals the form
  */
@@ -136,14 +141,25 @@ function start() {
     // reveal the form
     document
         .querySelector('#regForm')
-        .classList.toggle('hide');
+        .classList.remove('hide');
 
 
     // hide the initial page
     document
         .querySelector('#initial_element')
         .classList.toggle('hide');
+
+    /**
+    * invoke the showTab function and pass in the currentTab varialbe.
+    * this allows the currentTab number to be displayed to the user
+    */
+    showTab(currentTab);
 }
+
+
+
+
+
 
 
 /**
@@ -151,10 +167,22 @@ function start() {
  */
 function goto_home() {
 
-    goto_enroll() // this resets the classes, refer to functions.js
-
     // this should reset the whole form values
     document.getElementById('regForm').reset();
 
-    // bug: went back to home, them go to enroll shows the 0 tab
+    // hide again all the tabs
+    [...document.getElementsByClassName("tab")].forEach((tab) => {
+        tab.style.display = 'none';
+    });
+
+    // reset the progress indicators
+    [...document.getElementsByClassName("step")].forEach((step) => {
+        step.classList.remove('finish');
+    });
+
+    // reset the currentTab to 0 again
+    currentTab = 0;
+
+    // resets the classes back to when homepage is being displayed, refer to functions.js
+    goto_enroll(); // its the other way  around
 }

@@ -60,4 +60,9 @@ function goto_enroll() {
     document
         .querySelector('#enroll')
         .classList.toggle('hide');
+
+    // incase the user went back to home, then go back to the enrollment form
+    if (document.querySelector('div#initial_element').classList.contains('hide')) {
+        document.querySelector('div#initial_element').classList.toggle('hide')
+    }
 }
