@@ -12,7 +12,7 @@
     z-index: 10002;
     transform: translateX(20rem);
     visibility: visible;
-    background-color: $blue3;
+    background-color: $theme-background-color-darker;
     transition: transform .5s ease, visible .5s ease !important;
 
 
@@ -23,7 +23,11 @@
             a {
                 line-height: 3.5rem;
                 font-weight: 700;
-                color: $theme-background-color;
+                color: $theme-text-color;
+
+                &:hover {
+                    color: $blue3;
+                }
             }
         }
     }

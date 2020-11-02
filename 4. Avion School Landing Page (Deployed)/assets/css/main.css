@@ -112,7 +112,10 @@ p {
           box-shadow: none;
           background-color: transparent;
           color: #C5C6C7;
-          margin-bottom: 0; }
+          margin-bottom: 0;
+          transition: color 500ms ease-in-out; }
+          #navigation .container-nav-items ul li a:hover {
+            color: #66FCF1; }
         #navigation .container-nav-items ul li a.special_button {
           text-transform: uppercase;
           color: #66FCF1;
@@ -583,14 +586,16 @@ footer {
   z-index: 10002;
   transform: translateX(20rem);
   visibility: visible;
-  background-color: #66FCF1;
+  background-color: #0B0C10;
   transition: transform .5s ease, visible .5s ease !important; }
   #sidebar ul {
     list-style: none; }
     #sidebar ul li a {
       line-height: 3.5rem;
       font-weight: 700;
-      color: #1f2833; }
+      color: #C5C6C7; }
+      #sidebar ul li a:hover {
+        color: #66FCF1; }
 
 .sidebar_open {
   visibility: visible !important;

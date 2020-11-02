@@ -43,6 +43,11 @@
                     background-color: transparent;
                     color: $theme-text-color;
                     margin-bottom: 0;
+                    transition: color 500ms ease-in-out;
+
+                    &:hover {
+                        color: $blue3;
+                    }
                 }
 
                 a.special_button{
