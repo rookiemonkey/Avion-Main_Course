@@ -35,6 +35,10 @@ function showTab(n) {
     // get all the elements with classname 'tab'
     const tabs = document.getElementsByClassName("tab");
 
+    if (currentTab >= tabs.length) {
+        return null;
+    }
+
     // display the tab number pass to this function
     tabs[n].style.display = "block";
 
@@ -78,15 +82,57 @@ function nextPrev(n) {
     // Increase or decrease the current tab by 1:
     currentTab = currentTab + n;
 
-    // if you have reached the end of the form... :
+    // if user have reached the end of the form
     if (currentTab >= tabs.length) {
-        //...the form gets submitted:
-        document.getElementById("regForm").submit();
-        return false;
+        onsubmit_enroll(); // defined below
     }
 
     // Otherwise, display the correct tab:
     showTab(currentTab);
+}
+
+
+
+/**
+ * submit the form data
+ */
+
+function onsubmit_enroll() {
+    // remove enter event listener
+    document
+        .removeEventListener('keypress', handle_enterkey)
+
+    // select needed DOM elements
+    const form = document.querySelector('#regForm');
+    const initial = document.querySelector('#initial_element')
+    const loader = document.querySelector('.loader');
+    const message = document.querySelector('.submitted_enrollment')
+
+    // remove the hide class for loader and hide the form
+    loader.classList.remove('hide');
+    form.classList.add('hide');
+
+    // extract the form data
+    const enrollment_data = new FormData(form);
+
+    // initialize an emtpy object
+    let data = {};
+
+    // form an object using the array
+    [...enrollment_data].forEach(formitem => {
+        data[formitem[0]] = formitem[1]
+    });
+
+    console.log('data to be POSTED via an API', data);
+
+    // emulate the server response for the mean time
+    setTimeout(() => {
+        initial.remove();
+        form.remove();
+        loader.remove();
+        message.classList.remove('hide');
+        localStorage.setItem('submitted_enrollment', 'true');
+    }, 2500);
 }
 
 
@@ -146,6 +192,15 @@ function fixStepIndicator(n) {
 
 
 
+/**
+ * handle enter key, needed to be decalred since we need to remove the event listener
+ * after submitting the form or going back to home page
+ */
+function handle_enterkey(event) {
+    if (event.which === 13) { nextPrev(1) }
+}
+
+
 
 
 /**
@@ -164,6 +219,10 @@ function start() {
         .querySelector('#initial_element')
         .classList.toggle('hide');
 
+    // add an event listener for enter key
+    document
+        .addEventListener('keypress', handle_enterkey)
+
     /**
     * invoke the showTab function and pass in the currentTab varialbe.
     * this allows the currentTab number to be displayed to the user
@@ -176,27 +235,39 @@ function start() {
 
 
 
-
 /**
  * go back to home and resets everything
  */
 function goto_home() {
+    // select necessary elements
+    const form = document.getElementById('regForm');
+    const tabs = document.getElementsByClassName("tab");
+    const steps = document.getElementsByClassName("step");
 
-    // this should reset the whole form values
-    document.getElementById('regForm').reset();
+    // this should reset the whole form values and hide it
+    if (form) {
+        form.reset();
+        form.classList.add('hide');
+    };
 
     // hide all the tabs
-    [...document.getElementsByClassName("tab")].forEach((tab) => {
-        tab.style.display = 'none';
-    });
+    if (tabs.length > 0) {
+        [...tabs].forEach((tab) => {
+            tab.style.display = 'none';
+        });
 
-    // hide the form
-    document.querySelector('#regForm').classList.add('hide');
+    }
 
     // reset the progress indicators
-    [...document.getElementsByClassName("step")].forEach((step) => {
-        step.classList.remove('finish');
-    });
+    if (steps.length > 0) {
+        [...steps].forEach((step) => {
+            step.classList.remove('finish');
+        });
+    }
+
+    // remove enter event listener
+    document
+        .removeEventListener('keypress', handle_enterkey)
 
     // reset the currentTab to 0 again
     currentTab = 0;

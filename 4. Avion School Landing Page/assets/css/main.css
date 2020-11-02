@@ -583,6 +583,24 @@ footer {
 main#content {
   transition: transform .5s ease, visible .5s ease !important; }
 
+.loader {
+  padding-top: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+  .loader .loader-inner {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .loader .loader-inner svg {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      display: inline-block; }
+    .loader .loader-inner small {
+      text-align: center; }
+
 button#goback,
 button#prevBtn,
 button#nextBtn {

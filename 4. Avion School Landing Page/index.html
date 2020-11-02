@@ -583,6 +583,29 @@
 
             </form>
 
+            <!-- LOADER ANIMATION -->
+            <section class="loader hide">
+                <div class="loader-inner">
+                    <svg fill="black" version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+                        enable-background="new 0 0 0 0" xml:space="preserve">
+                        <path fill="black"
+                            d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                            <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+                                from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                        </path>
+                    </svg>
+
+                    <small>Please wait...</small>
+                </div>
+            </section>
+
+            <!-- SUCCESS -->
+            <section class="submitted_enrollment hide">
+                <h1 style="text-align: center;"> Your enrollment details have been sent successfully! Please wait for
+                    our team to get in touch with you &#127881;</h1>
+            </section>
+
         </section>
 
         <footer>
@@ -613,6 +636,6 @@
 <script src="/assets/js/menu.js"></script>
 <script src="/assets/js/multistepform.js"></script>
 <script src="/assets/js/enroll.js"></script>
-
+<script defer src="/assets/js/onload.js"></script>
 
 </html>
