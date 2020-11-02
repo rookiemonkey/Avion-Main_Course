@@ -85,9 +85,11 @@ p {
     align-items: center;
     color: #66FCF1; }
     #navigation .container-brand img {
-      width: 35px;
-      height: 35px;
+      width: 60px;
+      height: 40px;
       margin-right: 5px; }
+    #navigation .container-brand h1 {
+      font-size: 1.75rem; }
   #navigation .container-nav-items {
     display: flex;
     align-items: center; }
@@ -125,9 +127,18 @@ p {
       #navigation .container-nav-items ul li.nav-mobile-item {
         display: none; }
 
+@media screen and (max-width: 600px) {
+  #navigation .container-brand img {
+    width: 55px;
+    height: 30px;
+    margin-right: 5px; }
+  #navigation .container-brand h1 {
+    font-size: 1.25rem; } }
+
 @media screen and (max-width: 960px) {
   #navigation {
-    padding: 15px 10px; }
+    margin-top: 25px;
+    padding: 15px; }
     #navigation .container-nav-items ul li.nav-mobile-item {
       display: list-item;
       min-width: 20px; }
@@ -342,7 +353,7 @@ header.header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: max-content; }
+  min-height: 100vh; }
   #learn h2 {
     text-align: center;
     color: #66FCF1;
@@ -666,8 +677,9 @@ div#initial_element {
     align-items: center;
     margin-bottom: 25px; }
     div#initial_element .initial_element_header img {
-      width: 100px;
-      height: 100px; }
+      width: 80px;
+      height: 50px;
+      margin-right: 15px; }
     div#initial_element .initial_element_header h1 {
       font-size: 3.75rem;
       color: #66FCF1; }
@@ -792,6 +804,8 @@ div.goback_button_container {
   #initial_element .initial_element_header {
     display: flex;
     flex-direction: column; }
+    #initial_element .initial_element_header img {
+      margin-bottom: 25px; }
     #initial_element .initial_element_header h1 {
       text-align: center; }
   .submitted_enrollment img {

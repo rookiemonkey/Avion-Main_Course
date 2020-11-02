@@ -45,8 +45,9 @@ div#initial_element {
     margin-bottom: $margin-lg;
 
     img {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 50px;
+      margin-right: $margin-md;
     }
 
     h1 {
@@ -216,6 +217,10 @@ div.goback_button_container {
       .initial_element_header {
         display: flex;
         flex-direction: column;
+
+        img {
+          margin-bottom: $margin-lg;
+        }
 
         h1 {
           text-align: center;
