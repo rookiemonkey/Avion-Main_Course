@@ -1,0 +1,50 @@
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0
+	}
+	to {
+		opacity: 1
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0
+	}
+	to {
+		opacity: 1
+	}
+}
+
+.fadeIn {
+	-webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    animation-duration: 550ms;
+    animation-timing-function: ease-in;
+}
+
+
+@-webkit-keyframes fadeOut {
+	0% {
+		opacity: 1
+	}
+	to {
+		opacity: 0
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1
+	}
+	to {
+		opacity: 0
+	}
+}
+
+.fadeOut {
+	-webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in;
+}

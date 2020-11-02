@@ -39,8 +39,9 @@ function showTab(n) {
         return null;
     }
 
-    // display the tab number pass to this function
+    // display the tab number passed to this function
     tabs[n].style.display = "block";
+    tabs[n].classList.add('fadeIn');
 
     // ... and fix the Previous/Next buttons:
     if (n == 0) {
@@ -78,6 +79,13 @@ function nextPrev(n) {
 
     // Hide the current tab:
     tabs[currentTab].style.display = "none";
+    tabs[currentTab].classList.add('fadeOut');
+
+    // fixes the UI issue fading out when going back
+    const copyOfTab = currentTab; // created a copy of the current tab var
+    setTimeout(() => {
+        tabs[copyOfTab].classList.remove('fadeOut')
+    }, 550)
 
     // Increase or decrease the current tab by 1:
     currentTab = currentTab + n;
@@ -254,6 +262,8 @@ function goto_home() {
     if (tabs.length > 0) {
         [...tabs].forEach((tab) => {
             tab.style.display = 'none';
+            tab.classList.remove('fadeIn');
+            tab.classList.remove('fadeOut');
         });
 
     }
