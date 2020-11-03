@@ -46,7 +46,7 @@ async function handleSubmit(event) {
         loader.classList.remove('hide');
 
         // proceed with the HTTP request
-        const emailserver = 'https://krrb-prod-emailserver-p-3.herokuapp.com/emails';
+        const emailserver = 'https://krrb-prod-emailserver-p-3.herokuapp.com/email';
 
         const raw = await fetch(emailserver, {
             method: 'POST',
