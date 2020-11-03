@@ -156,6 +156,7 @@ div.goback_button_container {
 .tab {
   display: none;
   min-height: 300px;
+  padding-top: $margin-lg;
 
   label,
   label.question {

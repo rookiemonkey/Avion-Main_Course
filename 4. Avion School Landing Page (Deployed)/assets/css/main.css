@@ -478,6 +478,11 @@ header.header {
     #process .process-card p {
       font-size: 1.25rem; }
 
+@media screen and (max-width: 600px) {
+  #process {
+    padding-left: 30px !important;
+    padding-right: 30px !important; } }
+
 @media screen and (max-width: 768px) {
   #process {
     flex-direction: column;
@@ -512,6 +517,11 @@ header.header {
         font-weight: 700; }
       #learn .learn-row div.learn-row-content p {
         text-align: justify; }
+
+@media screen and (max-width: 600px) {
+  #learn {
+    padding-left: 30px !important;
+    padding-right: 30px !important; } }
 
 @media screen and (max-width: 600px) {
   #learn .learn-row img {
@@ -580,6 +590,11 @@ header.header {
         #testimonial-students .testimonials-container .student-container .student-profile .student-title h3 {
           color: #66FCF1;
           font-weight: 700; }
+
+@media screen and (max-width: 600px) {
+  #testimonial-students {
+    padding-left: 30px !important;
+    padding-right: 30px !important; } }
 
 @media screen and (max-width: 768px) {
   #testimonial-students .testimonials-container {
@@ -942,7 +957,8 @@ div.goback_button_container {
 
 .tab {
   display: none;
-  min-height: 300px; }
+  min-height: 300px;
+  padding-top: 25px; }
   .tab label,
   .tab label.question {
     font-size: 1.5rem; }

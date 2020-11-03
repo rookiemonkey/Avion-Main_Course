@@ -36,6 +36,13 @@
     }
 }
 
+@media screen and (max-width: 600px) { // Mobile
+    #learn  {
+        padding-left: $spacing + 10px !important;
+        padding-right: $spacing + 10px !important;
+    }
+}
+
 @media screen and (max-width: 600px) { // MOBILE PHONES
     #learn {
         .learn-row {
