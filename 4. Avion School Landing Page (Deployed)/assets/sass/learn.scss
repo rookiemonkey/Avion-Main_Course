@@ -50,8 +50,6 @@
 
 @media screen and (max-width: 800px) { // IPAD
     #learn {
-        padding-left: $spacing + 10px !important;
-        padding-right: $spacing + 10px !important;
 
         .learn-row {
             flex-direction: column;
@@ -83,5 +81,12 @@
         .learn-row:nth-child(3) {
             flex-direction: column-reverse;
         }
+    }
+}
+
+@media screen and (max-width: 600px) { // MOBILE
+    #learn {
+        padding-left: $spacing + 10px;
+        padding-right: $spacing + 10px;
     }
 }

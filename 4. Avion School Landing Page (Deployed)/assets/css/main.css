@@ -531,27 +531,29 @@ header.header {
         text-align: justify; }
 
 @media screen and (max-width: 800px) {
+  #learn .learn-row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    #learn .learn-row div.learn-row-icon-container,
+    #learn .learn-row div.learn-row-content {
+      width: 100%; }
+    #learn .learn-row img {
+      width: 100% !important;
+      height: auto !important;
+      max-height: 250px;
+      margin-bottom: 25px; }
+    #learn .learn-row div.learn-row-content {
+      padding: 0px; }
+      #learn .learn-row div.learn-row-content h3 {
+        font-size: 1.25rem; }
+  #learn .learn-row:nth-child(3) {
+    flex-direction: column-reverse; } }
+
+@media screen and (max-width: 600px) {
   #learn {
-    padding-left: 30px !important;
-    padding-right: 30px !important; }
-    #learn .learn-row {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center; }
-      #learn .learn-row div.learn-row-icon-container,
-      #learn .learn-row div.learn-row-content {
-        width: 100%; }
-      #learn .learn-row img {
-        width: 100% !important;
-        height: auto !important;
-        max-height: 250px;
-        margin-bottom: 25px; }
-      #learn .learn-row div.learn-row-content {
-        padding: 0px; }
-        #learn .learn-row div.learn-row-content h3 {
-          font-size: 1.25rem; }
-    #learn .learn-row:nth-child(3) {
-      flex-direction: column-reverse; } }
+    padding-left: 30px;
+    padding-right: 30px; } }
 
 #testimonial-ceo {
   display: flex;
@@ -718,8 +720,17 @@ header.header {
   #contact .contact-container {
     flex-direction: column;
     align-items: center; }
+    #contact .contact-container .contact-cards-container,
+    #contact .contact-container .contact-form-container {
+      padding-left: 0px;
+      padding-right: 0px; }
     #contact .contact-container .contact-form-container {
       margin-top: 25px; } }
+
+@media screen and (max-width: 600px) {
+  #contact .contact-container .contact-cards-container,
+  #contact .contact-container .contact-form-container {
+    padding: 20px; } }
 
 @media screen and (max-width: 450px) {
   #contact .contact-container .contact-cards-container .contact-card .contact-card-meta h3 {

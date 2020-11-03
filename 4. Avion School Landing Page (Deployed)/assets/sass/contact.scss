@@ -128,8 +128,25 @@
             flex-direction: column;
             align-items: center;
 
+            .contact-cards-container, 
+            .contact-form-container {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+
             .contact-form-container {
                 margin-top: $margin-lg;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) { // MOBILE
+    #contact {
+        .contact-container {
+            .contact-cards-container, 
+            .contact-form-container {
+                padding: $spacing;
             }
         }
     }
