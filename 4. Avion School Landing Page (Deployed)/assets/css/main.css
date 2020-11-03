@@ -402,7 +402,7 @@ header.header {
   display: flex;
   min-height: 100vh; }
   #how .how-image-container {
-    padding: 20px 0px;
+    padding-right: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around; }
@@ -410,7 +410,7 @@ header.header {
       max-width: 500px;
       height: auto; }
   #how .how-contents-container {
-    padding: 20px; }
+    padding-left: 20px; }
     #how .how-contents-container .how-contents-header {
       margin-bottom: 15px; }
       #how .how-contents-container .how-contents-header h3 {
@@ -435,6 +435,9 @@ header.header {
   #how {
     flex-direction: column;
     align-items: center; }
+    #how .how-image-container,
+    #how .how-contents-container {
+      padding: 20px; }
     #how .how-image-container img:first-child {
       display: none; }
     #how .how-contents-container .how-contents-header h3 {
@@ -504,30 +507,51 @@ header.header {
     font-size: 2.5rem;
     font-weight: 700; }
   #learn .learn-row {
+    min-height: 50vh;
     display: flex;
-    margin: 25px 0px; }
-    #learn .learn-row img.learn-row-icon {
-      width: 100px;
-      height: 100px; }
+    align-items: center;
+    margin: 25px 0px;
+    padding: 20px;
+    box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3); }
+    #learn .learn-row div.learn-row-icon-container {
+      width: 40%;
+      padding: 20px; }
+      #learn .learn-row div.learn-row-icon-container img.learn-row-icon {
+        width: 100%;
+        height: auto; }
     #learn .learn-row div.learn-row-content {
-      padding-left: 25px; }
+      width: 60%;
+      padding: 20px; }
       #learn .learn-row div.learn-row-content h3 {
         color: #66FCF1;
         margin-bottom: 7.5px;
-        font-weight: 700; }
+        font-weight: 700;
+        font-size: 1.75rem; }
       #learn .learn-row div.learn-row-content p {
         text-align: justify; }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   #learn {
     padding-left: 30px !important;
-    padding-right: 30px !important; } }
-
-@media screen and (max-width: 600px) {
-  #learn .learn-row img {
-    display: none; }
-  #learn .learn-row div.learn-row-content {
-    padding: 0px; } }
+    padding-right: 30px !important; }
+    #learn .learn-row {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      #learn .learn-row div.learn-row-icon-container,
+      #learn .learn-row div.learn-row-content {
+        width: 100%; }
+      #learn .learn-row img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 250px;
+        margin-bottom: 25px; }
+      #learn .learn-row div.learn-row-content {
+        padding: 0px; }
+        #learn .learn-row div.learn-row-content h3 {
+          font-size: 1.25rem; }
+    #learn .learn-row:nth-child(3) {
+      flex-direction: column-reverse; } }
 
 #testimonial-ceo {
   display: flex;
@@ -601,8 +625,7 @@ header.header {
     flex-direction: column; }
     #testimonial-students .testimonials-container .student-container {
       width: 100%;
-      margin: 15px 0px;
-      padding: 40px; } }
+      margin: 15px 0px; } }
 
 #contact {
   display: flex;
@@ -971,7 +994,7 @@ div.goback_button_container {
 .tab.programming_experience div.tab-formfield-container,
 .tab.source div.tab-formfield-container,
 .tab.whento_start div.tab-formfield-container {
-  margin: 7.5px; }
+  margin: 15px; }
 
 .step {
   height: 15px;

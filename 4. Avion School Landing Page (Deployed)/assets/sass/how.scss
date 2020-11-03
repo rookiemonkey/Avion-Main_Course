@@ -3,7 +3,7 @@
     min-height: 100vh;
 
     .how-image-container {
-        padding: $spacing 0px;
+        padding-right: $spacing;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -15,7 +15,7 @@
     }
 
     .how-contents-container {
-        padding: $spacing;
+        padding-left: $spacing;
 
         .how-contents-header {
             margin-bottom: $margin-md;
@@ -52,6 +52,11 @@
     #how {
         flex-direction: column;
         align-items: center;
+
+        .how-image-container, 
+        .how-contents-container  {
+            padding: $spacing;
+        }
 
         .how-image-container {
             img:first-child {
