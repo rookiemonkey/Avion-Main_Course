@@ -121,3 +121,23 @@
     -webkit-animation-delay: 1500ms;
     animation-delay: 1500ms;
 }
+
+@-webkit-keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 #bdc3c7
+    }
+
+    100% {
+        box-shadow: 0 0 0 1.5em rgba(189,195,199,0)
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 #bdc3c7
+    }
+
+    100% {
+        box-shadow: 0 0 0 1.5em rgba(189,195,199,0)
+    }
+}

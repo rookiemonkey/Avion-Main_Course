@@ -11,6 +11,30 @@
   font-weight: 400;
   src: local("Montserrat Regular"), local("Montserrat-Regular"), url("../fonts/montserrat.ttf") format("truetype"); }
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/material-icons.woff2") format("woff2"); }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute !important;
+  top: 1px !important;
+  left: 3.5px !important; }
+
 * {
   margin: 0px;
   padding: 0px;
@@ -162,6 +186,18 @@ div.error {
   -webkit-animation-fill-mode: both;
   -webkit-animation-delay: 1500ms;
   animation-delay: 1500ms; }
+
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #bdc3c7; }
+  100% {
+    box-shadow: 0 0 0 1.5em rgba(189, 195, 199, 0); } }
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #bdc3c7; }
+  100% {
+    box-shadow: 0 0 0 1.5em rgba(189, 195, 199, 0); } }
 
 /* Icons for FONTAWESOME, instead of class 'fa' */
 .icon {
@@ -964,3 +1000,86 @@ div.goback_button_container {
     display: flex;
     flex-direction: column;
     align-items: center; } }
+
+.input_container * {
+  box-sizing: border-box; }
+
+.input_container {
+  position: relative;
+  margin-right: 1em;
+  white-space: nowrap;
+  line-height: 1; }
+
+.input_container input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-width: 1em;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer; }
+
+.input_container .state label {
+  position: initial;
+  display: inline-block;
+  font-weight: 400;
+  margin: 0;
+  text-indent: 1.5em;
+  min-width: calc(1em + 2px); }
+
+.input_container .state label:after, .input_container .state label:before {
+  content: '';
+  width: calc(1em + 2px);
+  height: calc(1em + 2px);
+  display: block;
+  box-sizing: border-box;
+  border-radius: 0;
+  border: 1px solid transparent;
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  top: calc((0% - (100% - 1em)) - 8%);
+  background-color: transparent; }
+
+.input_container .state label:before {
+  border-color: #bdc3c7; }
+
+.input_container.p-icon .state .icon {
+  position: absolute;
+  font-size: 1em;
+  width: calc(1em + 2px);
+  height: calc(1em + 2px);
+  left: 0;
+  z-index: 1;
+  text-align: center;
+  line-height: normal;
+  top: calc((0% - (100% - 1em)) - 8%);
+  border: 1px solid transparent;
+  opacity: 0; }
+
+.input_container.p-icon input:checked ~ .state .icon {
+  opacity: 1; }
+
+.input_container.p-icon input:checked ~ .state label:before {
+  border-color: #C5C6C7; }
+
+.input_container.p-curve .state label:after, .input_container.p-curve .state label:before {
+  border-radius: 20%; }
+
+.input_container.p-pulse:not(.p-switch) input:checked ~ .state label:before {
+  -webkit-animation: pulse 1s;
+  animation: pulse 1s; }
+
+.input_container input:checked ~ .state.p-info-o label:before, .input_container.p-toggle .state.p-info-o label:before {
+  border-color: #66FCF1; }
+
+.input_container input:checked ~ .state.p-info-o label:after, .input_container.p-toggle .state.p-info-o label:after {
+  background-color: transparent; }
+
+.input_container input:checked ~ .state.p-info-o .icon, .input_container input:checked ~ .state.p-info-o .svg, .input_container input:checked ~ .state.p-info-o svg, .input_container.p-toggle .state.p-info-o .icon, .input_container.p-toggle .state.p-info-o .svg, .input_container.p-toggle .state.p-info-o svg {
+  color: #66FCF1;
+  stroke: #66FCF1; }
