@@ -21,6 +21,7 @@
 
         .contact-cards-container {
             width: 100%;
+            height: 100%;
             padding: $spacing;
             display: flex;
             flex-direction: column;
@@ -28,22 +29,21 @@
             align-items: center;
 
             .contact-card {
-                width: 300px;
-                height: 150px;
+                width: 100%;
+                padding: $spacing;
+                height: max-content;
                 display: flex;
-                flex-direction: column;
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-start;
                 margin: $margin-md 0px;
                 border: 1px solid $theme-background-color;
                 box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3);
 
-                .contact-icons {
-                    font-size: 2.5rem;
-                }
-
-                .special {
-                    font-size: 4.5rem !important;
+                img {
+                    width: 110px;
+                    height: auto;
+                    max-height: 100px;
+                    margin-right: $margin-lg;
                 }
 
                 h3 {
@@ -125,6 +125,22 @@
 
             .contact-form-container {
                 margin-top: $margin-lg;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) { // MOBILE
+    #contact {
+        .contact-container {
+            .contact-cards-container {
+                .contact-card {
+                    .contact-card-meta {
+                        h3 {
+                            font-size: 0.75rem;
+                        }
+                    }
+                }
             }
         }
     }
