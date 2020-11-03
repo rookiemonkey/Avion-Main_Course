@@ -14,8 +14,10 @@
         .process-card-icon-container {
             margin-bottom: $margin-md;
 
-            .process-icon {
-                font-size: 5rem;
+            img {
+                width: 100%;
+                height: auto;
+                max-height: 160px;
             }
         }
 

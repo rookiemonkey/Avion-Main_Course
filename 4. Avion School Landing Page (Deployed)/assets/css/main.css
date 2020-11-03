@@ -424,8 +424,10 @@ header.header {
     box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3); }
     #process .process-card .process-card-icon-container {
       margin-bottom: 15px; }
-      #process .process-card .process-card-icon-container .process-icon {
-        font-size: 5rem; }
+      #process .process-card .process-card-icon-container img {
+        width: 100%;
+        height: auto;
+        max-height: 160px; }
     #process .process-card h3 {
       color: #66FCF1;
       margin-bottom: 15px;
