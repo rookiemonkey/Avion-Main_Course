@@ -1,0 +1,40 @@
+.loader-contact {
+  width: 100%;
+  height: 100%; // should be the same with #regForm
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .loader-contact-inner {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    svg{
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      display:inline-block;
+    }
+
+    small {
+      text-align: center;
+    }
+  }
+}
+
+section.submitted_contact,
+section.submitted_contact_error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 50%;
+    height: auto;
+    margin-bottom: $margin-lg;
+  }
+}

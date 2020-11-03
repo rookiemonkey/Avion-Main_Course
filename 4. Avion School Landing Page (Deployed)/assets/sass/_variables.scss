@@ -77,6 +77,13 @@ p {
     display: none !important;
 }
 
+div.error {
+    margin-top: $margin-sm;
+    font-style: italic;
+    color: $danger;
+    position: absolute !important;
+}
+
 @media screen and (max-width: 600px) { // MOBILE PHONES
     #navigation,
     #how,

@@ -52,6 +52,12 @@ p {
 .hide {
   display: none !important; }
 
+div.error {
+  margin-top: 7.5px;
+  font-style: italic;
+  color: #cb7762;
+  position: absolute !important; }
+
 @media screen and (max-width: 600px) {
   #navigation,
   #how,
@@ -604,7 +610,10 @@ header.header {
         #contact .contact-container .contact-form-container form input,
         #contact .contact-container .contact-form-container form textarea,
         #contact .contact-container .contact-form-container form button {
+          margin-top: 7.5px;
           padding: 20px 5px; }
+        #contact .contact-container .contact-form-container form button {
+          margin-top: 10px !important; }
         #contact .contact-container .contact-form-container form input,
         #contact .contact-container .contact-form-container form textarea {
           border: none;
@@ -740,6 +749,38 @@ main#content {
     .loader-enrollment .loader-enrollment-inner small {
       text-align: center; }
 
+.loader-contact {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .loader-contact .loader-contact-inner {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .loader-contact .loader-contact-inner svg {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      display: inline-block; }
+    .loader-contact .loader-contact-inner small {
+      text-align: center; }
+
+section.submitted_contact,
+section.submitted_contact_error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  section.submitted_contact img,
+  section.submitted_contact_error img {
+    width: 50%;
+    height: auto;
+    margin-bottom: 25px; }
+
 button#goback,
 button#prevBtn,
 button#nextBtn {
@@ -862,10 +903,6 @@ div.goback_button_container {
     .tab-formfield-container #enroll_input:focus {
       outline: none;
       box-shadow: none; }
-  .tab-formfield-container div.error {
-    margin-top: 7.5px;
-    font-style: italic;
-    color: #cb7762; }
 
 .tab {
   display: none;

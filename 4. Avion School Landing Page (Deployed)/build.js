@@ -56,6 +56,7 @@ const assets = [
     [`${path.join(__dirname, './assets/js/menu.js')}`, '/menu', 'js'],
     [`${path.join(__dirname, './assets/js/multistepform.js')}`, '/multistepform', 'js'],
     [`${path.join(__dirname, './assets/js/onload.js')}`, '/onload', 'js'],
+    [`${path.join(__dirname, './assets/js/onsubmit.js')}`, '/onsubmit', 'js'],
     [`${path.join(__dirname, './assets/js/validator.js')}`, '/validator', 'js']
 ]
 

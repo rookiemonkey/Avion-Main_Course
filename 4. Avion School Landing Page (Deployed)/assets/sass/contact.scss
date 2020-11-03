@@ -76,7 +76,12 @@
                 input,
                 textarea,
                 button {
+                    margin-top: $margin-sm;
                     padding: $spacing 5px;
+                }
+
+                button {
+                    margin-top: 10px !important;
                 }
 
                 input,

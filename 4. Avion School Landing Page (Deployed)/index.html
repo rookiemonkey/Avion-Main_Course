@@ -233,23 +233,53 @@
                     </div>
                 </div>
                 <div class="contact-form-container">
-                    <p>or you can use the form below so you can message us right away!</p>
-                    <form method="POST">
+                    <form id="contact-form" method="POST">
+                        <p>or you can use the form below so you can message us right away!</p>
                         <div class="field-container">
-                            <input type="text" placeholder="Full Name" />
+                            <input type="text" name='name' placeholder="Full Name" data-rule="required|name" />
                         </div>
                         <div class="field-container">
-                            <input type="email" placeholder="Email Address" />
+                            <input type="text" name='email' placeholder="Email Address" data-rule="required|email" />
                         </div>
                         <div class="field-container">
-                            <textarea placeholder="Message" rows="7"></textarea>
+                            <textarea name="details" placeholder="Message" rows="7" data-rule="required"></textarea>
                         </div>
                         <div class="field-container">
-                            <button class="hover_button_clear_bg"> <i class="icon fa-paper-plane"
-                                    aria-hidden="true"></i>
+                            <button onclick="return handleSubmit(event)" class="hover_button_clear_bg"> <i
+                                    class="icon fa-paper-plane" aria-hidden="true"></i>
                                 &nbsp; Send Message</button>
                         </div>
                     </form>
+
+                    <!-- LOADER ANIMATION -->
+                    <section class="loader-contact hide">
+                        <div class="loader-contact-inner">
+                            <svg fill="black" version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+                                enable-background="new 0 0 0 0" xml:space="preserve">
+                                <path fill="#66FCF1"
+                                    d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                                    <animateTransform attributeName="transform" attributeType="XML" type="rotate"
+                                        dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                                </path>
+                            </svg>
+                            <small>Please wait...</small>
+                        </div>
+                    </section>
+
+                    <!-- SUCCESS -->
+                    <section class="submitted_contact hide">
+                        <img src="/assets/images/contact_success.svg" alt="" />
+                        <h1 style="text-align: center;"> Your message has been sent successfully!</h1>
+                    </section>
+
+                    <!-- ERROR -->
+                    <section class="submitted_contact_error hide">
+                        <img src="/assets/images/contact_failed.svg" alt="" />
+                        <h1 style="text-align: center;"> Something went wrong upon sending your message. Please refresh
+                            your browser and try again.</h1>
+                    </section>
+
                 </div>
             </div>
         </section>
@@ -649,6 +679,7 @@
 <script src="/assets/js/menu.js"></script>
 <script src="/assets/js/multistepform.js"></script>
 <script src="/assets/js/enroll.js"></script>
+<script src="/assets/js/onsubmit.js"></script>
 <script defer src="/assets/js/onload.js"></script>
 
 </html>
