@@ -16,4 +16,18 @@ window.addEventListener('load', function () {
     }
 
 
+    /**
+     * check if the user already submitted a contact request
+     * if true, remove unnecessary elements and display the 
+     * success message instead.
+     */
+    const hasSubmittedContactRequest = localStorage.getItem('submitted_contact');
+
+    if (hasSubmittedContactRequest) {
+        document.getElementById('contact-form').remove();
+        document.querySelector('.loader-contact').remove();
+        document.querySelector('.submitted_contact_error').remove();
+        document.querySelector('.submitted_contact').classList.remove('hide');
+    }
+
 })
