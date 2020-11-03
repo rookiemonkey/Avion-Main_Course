@@ -32,7 +32,7 @@ p {
   line-height: 30px; }
 
 ::placeholder {
-  color: #66FCF1; }
+  color: rgba(102, 252, 241, 0.25); }
 
 #navigation,
 #how,
