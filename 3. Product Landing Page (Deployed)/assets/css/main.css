@@ -383,6 +383,12 @@ section#banner .inner h2 {
   #header {
     min-width: 320px; } }
 
+@media screen and (max-width: 775px) {
+  .desktop-nav-link {
+    display: none !important; }
+  #menu_button {
+    display: block !important; } }
+
 @media screen and (max-width: 736px) {
   #header {
     padding: 50px 60px; }
@@ -764,7 +770,7 @@ body {
   -ms-overflow-style: scrollbar; }
 
 .hide {
-  display: none; }
+  display: none !important; }
 
 .text-medium {
   font-size: 1.25rem; }
