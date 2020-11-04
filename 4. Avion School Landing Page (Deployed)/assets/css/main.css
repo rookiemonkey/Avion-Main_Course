@@ -322,14 +322,14 @@ div.error {
   display: block;
   height: 100vh;
   left: 0;
-  opacity: 0.45;
+  opacity: 0.75;
   position: absolute;
   top: 0;
   width: 100%;
   z-index: 1; }
 
 #banner:after {
-  background: linear-gradient(135deg, #0B0C10 5%, #0B0C10 100%);
+  background-color: rgba(11, 12, 16, 0.75);
   content: ' ';
   display: block;
   height: 100vh;

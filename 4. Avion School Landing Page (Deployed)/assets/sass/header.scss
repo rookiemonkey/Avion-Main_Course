@@ -34,7 +34,7 @@
     display: block;
     height: 100vh;
     left: 0;
-    opacity: 0.45;
+    opacity: 0.75;
     position: absolute;
     top: 0;
     width: 100%;
@@ -42,7 +42,7 @@
 }
 
 #banner:after {
-    background: linear-gradient(135deg, $theme-background-color-darker 5%, $theme-background-color-darker 100%);
+    background-color: rgba($color: $theme-background-color-darker, $alpha: 0.75);
     content: ' ';
     display: block;
     height: 100vh;
