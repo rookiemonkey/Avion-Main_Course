@@ -7,6 +7,9 @@ async function handleSubmit(event) {
         const areValid = validator.validate();
 
         if (!areValid) {
+            // show errors for each inputs
+            validator.showErrors();
+
             // just halt the function execution, no need of error message
             return null;
         }
