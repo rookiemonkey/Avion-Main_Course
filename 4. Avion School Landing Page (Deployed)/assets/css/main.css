@@ -1087,6 +1087,16 @@ div.goback_button_container {
     flex-direction: column;
     align-items: center; } }
 
+.show-on-scroll {
+  opacity: 0 !important; }
+
+.transition-scroll {
+  transition: opacity 500ms 500ms ease-in !important;
+  will-change: opacity; }
+
+.is-visible {
+  opacity: 1 !important; }
+
 .input_container * {
   box-sizing: border-box; }
 

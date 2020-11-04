@@ -1,0 +1,16 @@
+
+// initial styles of elements to be animated
+.show-on-scroll {
+    opacity: 0 !important;
+}
+
+// the animation upon showing the element
+.transition-scroll {
+    transition: opacity 500ms 500ms ease-in !important;
+    will-change: opacity;
+}
+
+// the final style upon showing the element
+.is-visible {
+    opacity: 1 !important;
+}
