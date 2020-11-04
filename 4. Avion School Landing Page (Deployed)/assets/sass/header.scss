@@ -71,66 +71,102 @@
 
 header.header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
     z-index: 1000;
-    max-width: 65%;
+    max-width: 100%;
     height: 100%;
+    padding-top: 0px !important;
 
-    .header-meta-content-container,
-    .header-meta-button-container,
-    .header-meta-title-container {
-        margin: $spacing 0px;
-    }
+    .header-content-text-container {
+        width: 60% !important;
+        padding-right: $spacing;
+        text-align: left !important;
 
-    .header-meta-title-container {
-        h3 {
-            font-size: 3.75rem;
-            font-weight: 700;
-            color: $blue3;
+        .header-meta-content-container,
+        .header-meta-button-container,
+        .header-meta-title-container {
+            margin: $spacing 0px;
         }
 
-        small {
-            font-size: 1.75rem;
-            font-weight: 700;
+        .header-meta-title-container {
+            h3 {
+                font-size: 3rem;
+                font-weight: 700;
+                color: $blue3;
+            }
+
+            small {
+                font-size: 1.75rem;
+                font-weight: 700;
+            }
+
         }
 
+        .header-meta-button-container {
+            .header-meta-button {
+                text-transform: uppercase;
+                vertical-align: baseline;
+                appearance: none;
+                border: 1px solid $blue3;
+                border-radius: 35px;
+                cursor: pointer;
+                display: inline-block;
+                font-weight: 600;
+                height: 3.25rem;
+                line-height: 3.25rem;
+                padding: 0 1.75rem;
+                text-align: center;
+                white-space: nowrap;
+                text-decoration: none;
+                box-shadow: none;
+                background-color: transparent;
+                color: $blue3;
+                margin-bottom: 0;
+                transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+            }
+        }
     }
 
-    .header-meta-button-container {
-        .header-meta-button {
-            text-transform: uppercase;
-            vertical-align: baseline;
-            appearance: none;
-            border: 1px solid $blue3;
-            border-radius: 35px;
-            cursor: pointer;
-            display: inline-block;
-            font-weight: 600;
-            height: 3.25rem;
-            line-height: 3.25rem;
-            padding: 0 1.75rem;
-            text-align: center;
-            white-space: nowrap;
-            text-decoration: none;
-            box-shadow: none;
-            background-color: transparent;
-            color: $blue3;
-            margin-bottom: 0;
-            transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
+    .header-content-image-container {
+        width: 40% !important;
+        padding-left: $spacing;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 775px) { // IPAD
+    header.header {
+        .header-content-text-container {
+            width: 100% !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center !important;
+        }
+        .header-content-image-container {
+            display: none;
         }
     }
 }
 
 @media screen and (max-width: 600px) { // MOBILE PHONES
     header.header {
-        .header-meta-title-container {
-            h3 {
-                font-size: 2.5rem;
-            }
+        .header-content-text-container {
+            .header-meta-title-container {
+                h3 {
+                    font-size: 2.5rem;
+                }
 
-            small {
-                font-size: 1rem;
+                small {
+                    font-size: 1rem;
+                }
             }
         }
     }
@@ -138,15 +174,17 @@ header.header {
 
 @media screen and (max-width: 400px) { // MOBILE PHONES
     header.header {
-        .header-meta-title-container {
-            h3 {
-                font-size: 2rem;
+        .header-content-text-container {
+            .header-meta-title-container {
+                h3 {
+                    font-size: 2rem;
+                }
             }
-        }
-        .header-meta-content-container{
-            p {
-                font-size: 1rem;
-            }
+            .header-meta-content-container{
+                p {
+                    font-size: 1rem;
+                }
+            }  
         }
     }
 }
