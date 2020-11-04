@@ -279,7 +279,7 @@ div.error {
 @media screen and (max-width: 960px) {
   #navigation {
     margin-top: 25px;
-    padding: 15px; }
+    padding: 15px 15px 0px 15px; }
     #navigation .container-nav-items ul li.nav-mobile-item {
       display: list-item;
       min-width: 20px; }
@@ -550,7 +550,8 @@ header.header {
     #learn .learn-row div.learn-row-content {
       padding: 0px; }
       #learn .learn-row div.learn-row-content h3 {
-        font-size: 1.25rem; }
+        font-size: 1.25rem;
+        text-align: center; }
   #learn .learn-row:nth-child(3) {
     flex-direction: column-reverse; } }
 
@@ -1039,7 +1040,10 @@ div.goback_button_container {
     #initial_element .initial_element_header h1 {
       text-align: center; }
   .submitted_enrollment img {
-    width: 100%; } }
+    width: 100%; }
+  .step {
+    height: 10px;
+    width: 10px; } }
 
 @media screen and (max-width: 500px) {
   #regForm,

@@ -91,7 +91,7 @@
 @media screen and (max-width: 960px) { 
     #navigation {   
         margin-top: $margin-lg;
-        padding: $margin-md;
+        padding: $margin-md $margin-md 0px $margin-md;
 
         .container-nav-items {
             ul {
