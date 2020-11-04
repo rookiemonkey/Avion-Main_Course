@@ -32,10 +32,11 @@
                 width: 100%;
                 padding: $spacing;
                 height: max-content;
+                min-height: 141px;
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
-                margin: $margin-md 0px;
+                margin: $margin-sm 0px;
                 border: 1px solid $theme-background-color;
                 box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3);
 
@@ -71,6 +72,7 @@
                 input,
                 textarea {
                     width: 100%;
+                    background-color: transparent !important;
                 }
 
                 input,

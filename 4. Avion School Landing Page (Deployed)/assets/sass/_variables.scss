@@ -109,6 +109,10 @@ p {
     display: none !important;
 }
 
+.rounded {
+    border-radius: 25px !important;
+}
+
 div.error {
     margin-top: $margin-sm;
     font-style: italic;

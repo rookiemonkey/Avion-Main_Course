@@ -80,6 +80,9 @@ p {
 .hide {
   display: none !important; }
 
+.rounded {
+  border-radius: 25px !important; }
+
 div.error {
   margin-top: 7.5px;
   font-style: italic;
@@ -515,8 +518,7 @@ header.header {
     display: flex;
     align-items: center;
     margin: 25px 0px;
-    padding: 20px;
-    box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3); }
+    padding: 20px; }
     #learn .learn-row div.learn-row-icon-container {
       width: 40%;
       padding: 20px; }
@@ -662,10 +664,11 @@ header.header {
         width: 100%;
         padding: 20px;
         height: max-content;
+        min-height: 141px;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        margin: 15px 0px;
+        margin: 7.5px 0px;
         border: 1px solid #1f2833;
         box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3); }
         #contact .contact-container .contact-cards-container .contact-card img {
@@ -687,7 +690,8 @@ header.header {
         #contact .contact-container .contact-form-container form .field-container,
         #contact .contact-container .contact-form-container form input,
         #contact .contact-container .contact-form-container form textarea {
-          width: 100%; }
+          width: 100%;
+          background-color: transparent !important; }
         #contact .contact-container .contact-form-container form input,
         #contact .contact-container .contact-form-container form textarea,
         #contact .contact-container .contact-form-container form button {
