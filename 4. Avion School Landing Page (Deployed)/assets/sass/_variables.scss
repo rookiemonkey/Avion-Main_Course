@@ -15,17 +15,21 @@ $margin-md: 15px;
 $margin-lg: 25px;
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'Poppins';
   font-style: normal;
-  font-weight: 700;
-  src: local('Montserrat Regular'), local('Montserrat-Regular'), url('../fonts/montserrat-700.woff2') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  src: local('Poppins Regular'), local('Poppins-Regular'), url('/assets/fonts/poppins-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'Poppins';
   font-style: normal;
-  font-weight: 400;
-  src: local('Montserrat Regular'), local('Montserrat-Regular'), url('../fonts/montserrat.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  src: local('Poppins Bold'), local('Poppins-Bold'), url('/assets/fonts/poppins-700.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -61,13 +65,13 @@ $margin-lg: 25px;
     padding: 0px;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    font-family: 'Montserrat';
+    font-family: 'Poppins', sans-serif;  
 }
 
 body {
     background-color: $theme-background-color;
     color: $theme-text-color;
-    font-family: 'Montserrat';
+    font-family: 'Poppins', sans-serif;
 }
 
 a {
