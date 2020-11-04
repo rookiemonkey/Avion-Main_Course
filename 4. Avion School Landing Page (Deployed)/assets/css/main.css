@@ -207,6 +207,14 @@ div.error {
   100% {
     box-shadow: 0 0 0 1.5em rgba(189, 195, 199, 0); } }
 
+.pulse {
+  -webkit-animation-name: pulse !important;
+  animation-name: pulse !important;
+  -webkit-animation-duration: 1500ms !important;
+  animation-duration: 1500ms !important;
+  -webkit-animation-delay: 1500ms;
+  animation-delay: 1500ms; }
+
 /* Icons for FONTAWESOME, instead of class 'fa' */
 .icon {
   text-decoration: none;

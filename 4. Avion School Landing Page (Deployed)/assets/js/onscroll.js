@@ -51,10 +51,20 @@ function showOnScroll() {
         // check if the element is inside the view port, by using the defined function
         if (isElementInViewport(element)) {
             element.classList.add('is-visible');
+
+            // check if the its the last enroll button
+            if (element.dataset.type && element.dataset.type === 'last_enroll_button') {
+                element.classList.add('pulse');
+            }
         }
 
         else {
             element.classList.remove('is-visible');
+
+            // check if the its the last enroll button
+            if (element.dataset.type && element.dataset.type === 'last_enroll_button') {
+                element.classList.remove('pulse');
+            }
         }
     })
 
