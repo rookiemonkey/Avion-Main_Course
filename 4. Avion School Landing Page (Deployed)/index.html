@@ -245,18 +245,20 @@
                     </div>
                 </div>
                 <div class="contact-form-container">
-                    <form id="contact-form" class="show-on-scroll transition-scroll" method="POST">
-                        <p>or message us right away!</p>
-                        <div class="field-container">
+                    <form id="contact-form" method="POST">
+                        <p class="show-on-scroll transition-scroll">
+                            or message us right away!
+                        </p>
+                        <div class="field-container show-on-scroll transition-scroll">
                             <input type="text" name='name' placeholder="Full Name" data-rule="required|name" />
                         </div>
-                        <div class="field-container">
+                        <div class="field-container show-on-scroll transition-scroll">
                             <input type="text" name='email' placeholder="Email Address" data-rule="required|email" />
                         </div>
-                        <div class="field-container">
+                        <div class="field-container show-on-scroll transition-scroll">
                             <textarea name="details" placeholder="Message" rows="7" data-rule="required"></textarea>
                         </div>
-                        <div class="field-container">
+                        <div class="field-container show-on-scroll transition-scroll">
                             <button onclick="return handleSubmit(event)" class="hover_button_clear_bg"> <i
                                     class="icon fa-paper-plane" aria-hidden="true"></i>
                                 &nbsp; Send Message</button>
@@ -264,7 +266,7 @@
                     </form>
 
                     <!-- LOADER ANIMATION -->
-                    <section class="loader-contact hide">
+                    <section class="loader-contact hide show-on-scroll transition-scroll">
                         <div class="loader-contact-inner">
                             <svg fill="black" version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
@@ -280,13 +282,13 @@
                     </section>
 
                     <!-- SUCCESS -->
-                    <section class="submitted_contact hide">
+                    <section class="submitted_contact hide show-on-scroll transition-scroll">
                         <img src="/assets/images/contact_success.svg" alt="" />
                         <h1 style="text-align: center;"> Your message has been sent successfully!</h1>
                     </section>
 
                     <!-- ERROR -->
-                    <section class="submitted_contact_error hide">
+                    <section class="submitted_contact_error hide show-on-scroll transition-scroll">
                         <img src="/assets/images/contact_failed.svg" alt="" />
                         <h1 style="text-align: center;"> Something went wrong upon sending your message. Please refresh
                             your browser and try again.</h1>
