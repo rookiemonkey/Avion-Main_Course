@@ -80,7 +80,7 @@ header.header {
     padding-top: 0px !important;
 
     .header-content-text-container {
-        width: 60% !important;
+        width: 50% !important;
         padding-right: $spacing;
         text-align: left !important;
 
@@ -130,7 +130,7 @@ header.header {
     }
 
     .header-content-image-container {
-        width: 40% !important;
+        width: 50% !important;
         padding-left: $spacing;
 
         img {
@@ -149,6 +149,7 @@ header.header {
             align-items: center;
             justify-content: center;
             text-align: center !important;
+            padding: 0px;
         }
         .header-content-image-container {
             display: none;
