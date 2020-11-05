@@ -56,12 +56,24 @@ div#initial_element {
     }
   }
 
+  .initial_element_image {
+    width: 100%;
+    height: auto; 
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 50%;
+      height: auto;
+    }
+  }
+
   p {
     text-align: center;
   }
 
   button#startRegForm {
-    margin: 20% $margin-lg 0px;
+    margin: $margin-lg ;
     vertical-align: baseline;
     appearance: none;
     border-radius: 35px;

@@ -964,10 +964,18 @@ div#initial_element {
     div#initial_element .initial_element_header h1 {
       font-size: 3.75rem;
       color: #66FCF1; }
+  div#initial_element .initial_element_image {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center; }
+    div#initial_element .initial_element_image img {
+      width: 50%;
+      height: auto; }
   div#initial_element p {
     text-align: center; }
   div#initial_element button#startRegForm {
-    margin: 20% 25px 0px;
+    margin: 25px;
     vertical-align: baseline;
     appearance: none;
     border-radius: 35px;
