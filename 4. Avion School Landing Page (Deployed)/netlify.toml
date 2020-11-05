@@ -1,0 +1,8 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Content-Security-Policy = "default-src 'self'"
+    X-XSS-Protection = "1; mode=block"
+    Cache-Control = "public, max-age=1209600" # 2 weeks

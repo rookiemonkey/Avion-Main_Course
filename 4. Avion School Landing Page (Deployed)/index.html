@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Learn the fundamentals of writing code and the skills of the best software engineers. We teach you how to build software, work with teams and apply for top software jobs." />
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="/assets/css/main.css" />
 
@@ -64,7 +66,7 @@
                     </div>
                 </div>
                 <div class="header-content-image-container">
-                    <img src="/assets/images/header-image.svg" alt="" />
+                    <img src="/assets/images/header-image.svg" alt="team work" />
                 </div>
             </header>
 
@@ -76,8 +78,8 @@
 
         <section id="how" class="global_section">
             <div class="how-image-container show-on-scroll transition-scroll">
-                <img src="/assets/images/how1.svg" alt="" />
-                <img src="/assets/images/how2.svg" alt="" />
+                <img src="/assets/images/how1.svg" alt="how illustration 1" />
+                <img src="/assets/images/how2.svg" alt="how illustration 2" />
             </div>
             <div class="how-contents-container show-on-scroll transition-scroll">
                 <div class="how-contents-header">
@@ -106,7 +108,7 @@
         <section id="process" class="global_section">
             <div class="process-card rounded show-on-scroll transition-scroll">
                 <div class=" process-card-icon-container">
-                    <img src="/assets/images/process1.svg" src="admission" />
+                    <img src="/assets/images/process1.svg" alt="admission" />
                 </div>
                 <h3><b>Admissions</b></h3>
                 <p>We took the time to make admissions easy: an online application, a 1:1 video interview, a tech
@@ -115,7 +117,7 @@
             </div>
             <div class="process-card rounded show-on-scroll transition-scroll">
                 <div class=" process-card-icon-container">
-                    <img src="/assets/images/process2.svg" src="bootcamp" />
+                    <img src="/assets/images/process2.svg" alt="bootcamp" />
                 </div>
                 <h3><b>Bootcamp</b></h3>
                 <p>Our course is structured with real world problems in mind. You learn only what’s needed and get
@@ -124,7 +126,7 @@
             </div>
             <div class="process-card rounded show-on-scroll transition-scroll">
                 <div class=" process-card-icon-container">
-                    <img src="/assets/images/process3.svg" src="career" />
+                    <img src="/assets/images/process3.svg" alt="career" />
                 </div>
                 <h3><b>Career</b></h3>
                 <p>Tech startups are always on the lookout for engineers which is why we’ve partnered with all the best
@@ -139,7 +141,7 @@
             </h2>
             <div class="learn-row rounded show-on-scroll transition-scroll">
                 <div class="learn-row-icon-container">
-                    <img class="learn-row-icon" src="/assets/images/learn1.svg">
+                    <img class="learn-row-icon" src="/assets/images/learn1.svg" alt="basics">
                 </div>
                 <div class="learn-row-content">
                     <h3><b>Web Dev. Fundamentals (HTML, CSS, JavaScript)</b></h3>
@@ -158,12 +160,12 @@
                     </p>
                 </div>
                 <div class="learn-row-icon-container">
-                    <img class="learn-row-icon" src="/assets/images/learn2.svg">
+                    <img class="learn-row-icon" src="/assets/images/learn2.svg" alt="react">
                 </div>
             </div>
             <div class="learn-row rounded show-on-scroll transition-scroll">
                 <div class="learn-row-icon-container">
-                    <img class="learn-row-icon" src="/assets/images/learn3.svg">
+                    <img class="learn-row-icon" src="/assets/images/learn3.svg" alt="backend">
                 </div>
                 <div class="learn-row-content">
                     <h3><b>Backend Development (Ruby and Ruby on Rails)</b></h3>
@@ -195,7 +197,7 @@
                         blandit imperdiet consequat. Proin nisl libero, ultrices quis mattis vitae, porttitor a ligula."
                     </p>
                     <div class="student-profile">
-                        <img src="/assets/images/student1.jpg">
+                        <img src="/assets/images/student1.jpg" alt="student1">
                         <div class="student-title">
                             <h3><b>John Doe</b></h3>
                             <span>Senior Developer</span>
@@ -211,7 +213,7 @@
                         blandit imperdiet consequat. Proin nisl libero, ultrices quis mattis vitae, porttitor a ligula."
                     </p>
                     <div class="student-profile">
-                        <img src="/assets/images/student2.jpg">
+                        <img src="/assets/images/student2.jpg" alt="student2">
                         <div class="student-title">
                             <h3><b>Pizza Doe</b></h3>
                             <span>Junior Developer</span>
@@ -254,17 +256,20 @@
                             or message us right away!
                         </p>
                         <div class="field-container show-on-scroll transition-scroll">
-                            <input type="text" name='name' placeholder="Full Name" data-rule="required|name" />
+                            <input type="text" name='name' placeholder="Full Name" data-rule="required|name"
+                                aria-label="Full Name" />
                         </div>
                         <div class="field-container show-on-scroll transition-scroll">
-                            <input type="text" name='email' placeholder="Email Address" data-rule="required|email" />
+                            <input type="text" name='email' placeholder="Email Address" data-rule="required|email"
+                                aria-label="Email Address" />
                         </div>
                         <div class="field-container show-on-scroll transition-scroll">
-                            <textarea name="details" placeholder="Message" rows="7" data-rule="required"></textarea>
+                            <textarea name="details" placeholder="Message" rows="7" data-rule="required"
+                                aria-label="Message"></textarea>
                         </div>
                         <div class="field-container show-on-scroll transition-scroll">
-                            <button onclick="return handleSubmit(event)" class="hover_button_clear_bg"> <i
-                                    class="icon fa-paper-plane" aria-hidden="true"></i>
+                            <button onclick="return handleSubmit(event)" class="hover_button_clear_bg"
+                                aria-label="Submit Message"> <i class="icon fa-paper-plane" aria-hidden="true"></i>
                                 &nbsp; Send Message</button>
                         </div>
                     </form>
@@ -272,7 +277,7 @@
                     <!-- LOADER ANIMATION -->
                     <section class="loader-contact hide show-on-scroll transition-scroll">
                         <div class="loader-contact-inner">
-                            <svg fill="black" version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
+                            <svg fill="black" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
                                 enable-background="new 0 0 0 0" xml:space="preserve">
                                 <path fill="#66FCF1"
@@ -287,13 +292,13 @@
 
                     <!-- SUCCESS -->
                     <section class="submitted_contact hide show-on-scroll transition-scroll">
-                        <img src="/assets/images/contact_success.svg" alt="" />
+                        <img src="/assets/images/contact_success.svg" alt="successful contact" />
                         <h1 style="text-align: center;"> Your message has been sent successfully!</h1>
                     </section>
 
                     <!-- ERROR -->
                     <section class="submitted_contact_error hide show-on-scroll transition-scroll">
-                        <img src="/assets/images/contact_failed.svg" alt="" />
+                        <img src="/assets/images/contact_failed.svg" alt="failed contact" />
                         <h1 style="text-align: center;"> Something went wrong upon sending your message. Please refresh
                             your browser and try again.</h1>
                     </section>
@@ -334,7 +339,7 @@
                     <label class="question">What is your First Name?</label>
                     <div class="tab-formfield-container">
                         <input type="text" id="enroll_input" name="first_name" placeholder="Type your answer here"
-                            data-rule="required|name" oninput="this.className = ''">
+                            aria-label="first name" data-rule="required|name" oninput="this.className = ''">
                     </div>
                 </div>
 
@@ -343,7 +348,7 @@
                     <label class="question">What is your Last Name?</label>
                     <div class="tab-formfield-container">
                         <input type="text" id="enroll_input" name="last_name" placeholder="Type your answer here"
-                            data-rule="required|lastname" oninput="this.className = ''">
+                            aria-label="last name" data-rule="required|lastname" oninput="this.className = ''">
                     </div>
                 </div>
 
@@ -351,16 +356,16 @@
                 <div class="tab age">
                     <label class="question">Are you 18 years old or older?</label>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
-                        <input type="radio" name="is_18_years_old_above" data-rule="required" value="yes"
-                            oninput="this.className = ''">
+                        <input aria-label="is 18 years old" type="radio" name="is_18_years_old_above"
+                            data-rule="required" value="yes" oninput="this.className = ''">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; Yes</label>
                         </div>
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
-                        <input type="radio" name="is_18_years_old_above" data-rule="required" value="no"
-                            oninput="this.className = ''">
+                        <input aria-label="is not 18 years old" type="radio" name="is_18_years_old_above"
+                            data-rule="required" value="no" oninput="this.className = ''">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; No</label>
@@ -372,7 +377,7 @@
                 <div class="tab email">
                     <label class="question">What is your email address?</label>
                     <div class="tab-formfield-container">
-                        <input type="text" id="enroll_input" name="email" data-rule="required|email"
+                        <input type="text" id="enroll_input" name="email" data-rule="required|email" aria-label="email"
                             placeholder="Type your answer here" oninput="this.className = ''">
                     </div>
                 </div>
@@ -381,16 +386,16 @@
                 <div class="tab citizenship">
                     <label class="question">Are you a Filipino Citizen?</label>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
-                        <input type="radio" name="is_filipino_citizen" data-rule="required" value="yes"
-                            oninput="this.className = ''">
+                        <input type="radio" id="is_filipino_citizen" name="is_filipino_citizen" data-rule="required"
+                            value="yes" oninput="this.className = ''" aria-label="is a filipino">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; Yes</label>
                         </div>
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
-                        <input type="radio" name="is_filipino_citizen" data-rule="required" value="no"
-                            oninput="this.className = ''">
+                        <input type="radio" id="is_filipino_citizen" name="is_filipino_citizen" data-rule="required"
+                            value="no" oninput="this.className = ''" aria-label="is not a filipino">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; No</label>
@@ -403,7 +408,7 @@
                     <label class="question">What is your home address?</label>
                     <div class="tab-formfield-container">
                         <input type="text" id="enroll_input" name="address" placeholder="Type your answer here"
-                            data-rule="required" oninput="this.className = ''">
+                            aria-label="address" data-rule="required" oninput="this.className = ''">
                     </div>
                 </div>
 
@@ -412,7 +417,7 @@
                     <label class="question">What type of class do you wish to enroll in?</label>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="desired_type_of_class" data-rule="required" value="12-Week Course"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="wanted a 12 week course">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; <b>12 Week Course</b>: M-F (9am-6pm)</label>
@@ -420,7 +425,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="desired_type_of_class" data-rule="required" value="24-Week Course"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="wanted a 24 week course">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; <b>24 Week Course</b>: M-F (7pm-9pm) & Sat (9am-1pm)</label>
@@ -436,7 +441,7 @@
                         detailed information later, and your selection is not binding now.</small>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="payment_method" data-rule="required" value="Income Share"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="income share agreement">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; <b>Income Share</b>: 17% of your income for 2 years after you're hired</label>
@@ -444,7 +449,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="payment_method" data-rule="required" value="Up-front"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="upfront 80,000 Pesos">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; <b>Upfront Payment</b>: Php 80,000</label>
@@ -459,7 +464,7 @@
                         with other entities?</label>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="has_balance" data-rule="required" value="yes"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="has balance">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; Yes</label>
@@ -467,7 +472,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="has_balance" data-rule="required" value="no"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="no balance">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; No</label>
@@ -483,7 +488,7 @@
                         full-time work immediately after Avion School?</label>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="work_immediately" data-rule="required" value="yes"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="wanted to work immediately">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; Yes</label>
@@ -491,7 +496,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="work_immediately" data-rule="required" value="no"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="does'nt want to work immediately">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; No</label>
@@ -504,7 +509,7 @@
                     <label class="question">How will you support yourself while attending Avion School?</label>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="who_will_support" data-rule="required" value="Personal Savings"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="support using my personal savings">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; I have personal savings</label>
@@ -512,7 +517,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="who_will_support" data-rule="required" value="Family"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="support by my family">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; My family will support me</label>
@@ -520,7 +525,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="who_will_support" data-rule="required" value="Full-Time Job"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="support by my full-time job">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; I have a full-time job</label>
@@ -528,7 +533,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="who_will_support" data-rule="required" value="Part-Time Job"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="support by my part-time job">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; I have a part-time job</label>
@@ -536,7 +541,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="who_will_support" data-rule="required" value="Unemployment Benefits"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="support by my unemployment benefits">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; I receive unemployment benefits</label>
@@ -544,7 +549,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="who_will_support" data-rule="required" value="Disability Benefits"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="support by my disability benefits">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; I receive disability benefits</label>
@@ -552,7 +557,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="who_will_support" data-rule="required" value="No Details"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="no details regarding my support">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; I haven't worked out the details yet</label>
@@ -566,7 +571,7 @@
                         experience?</label>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="programming_experience" data-rule="required" value="No Experience"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="no programming experience">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; <b>No Experience</b>: but I'm excited to start learning</label>
@@ -574,7 +579,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="programming_experience" data-rule="required" value="Beginner"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="beginner in programming">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; <b>Beginner</b>: I've done some introductory coding lessons or
@@ -583,7 +588,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="programming_experience" data-rule="required" value="Intermediate"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="intermediate programming experience">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; <b>Intermediate</b>: I have completed some coding classes or tutorials</label>
@@ -591,7 +596,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="programming_experience" data-rule="required" value="Advanced"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="advanced programming experience">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; <b>Advanced</b>: I can create simple applications</label>
@@ -599,7 +604,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="programming_experience" data-rule="required" value="Professional"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="professional programming experience">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; <b>Professional</b>: I am an experienced software engineer</label>
@@ -612,7 +617,7 @@
                     <label class="question">How did you hear about Avion School?</label>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="source" data-rule="required" value="Facebook"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="i discovered avion on facebook">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; Facebook</label>
@@ -620,7 +625,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="source" data-rule="required" value="Linkedin"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="i discovered avion on linkedin">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; LinkedIn</label>
@@ -628,7 +633,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="source" data-rule="required" value="Google"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="i discovered avion on google">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; Google</label>
@@ -636,7 +641,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="source" data-rule="required" value="Twitter"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="i discovered avion on twitter">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; Twitter</label>
@@ -644,7 +649,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="source" data-rule="required" value="News"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="i discovered avion on the news">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; News</label>
@@ -652,7 +657,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="source" data-rule="required" value="Friend"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="avion was introduced by a friend">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; Friend</label>
@@ -667,7 +672,8 @@
                     <small>Please enter the URL. If none, just leave it empty.</small>
                     <div class="tab-formfield-container">
                         <input type="text" id="enroll_input" name="linked_in_profile" data-rule=""
-                            oninput="this.className = ''" placeholder="Type your answer here">
+                            aria-label="my linked profile" oninput="this.className = ''"
+                            placeholder="Type your answer here">
                     </div>
                 </div>
 
@@ -678,7 +684,7 @@
                         class?</label>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="whento_start" data-rule="required" value="w/n Next 4 Weeks"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="i can start w/in the next 4 weeks">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; Within the next 4 weeks</label>
@@ -686,7 +692,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="whento_start" data-rule="required" value="w/n Next 3 Months"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="i can start w/in the next 3 months">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; Within the next 3 months</label>
@@ -694,7 +700,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="whento_start" data-rule="required" value="w/n Next 3 to 6 Months"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="i can start w/in the next 3 + 6 months">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; Within the next 3 to 6 months</label>
@@ -702,7 +708,7 @@
                     </div>
                     <div class="tab-formfield-container input_container p-icon p-curve p-pulse">
                         <input type="radio" name="whento_start" data-rule="required" value="Not Sure"
-                            oninput="this.className = ''">
+                            oninput="this.className = ''" aria-label="not sure when to start">
                         <div class="state p-info-o">
                             <i class="icon material-icons">done</i>
                             <label>&nbsp; I'm not sure</label>
@@ -749,7 +755,7 @@
             <!-- LOADER ANIMATION -->
             <section class="loader-enrollment hide">
                 <div class="loader-enrollment-inner">
-                    <svg fill="black" version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
+                    <svg fill="black" version="1.1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
                         enable-background="new 0 0 0 0" xml:space="preserve">
                         <path fill="#66FCF1"
@@ -765,7 +771,7 @@
 
             <!-- SUCCESS -->
             <section class="submitted_enrollment hide">
-                <img src="/assets/images/thankyou_enrollment.svg" alt="" />
+                <img src="/assets/images/thankyou_enrollment.svg" alt="thank you enrolled" />
                 <h1 style="text-align: center;"> Your enrollment details have been sent successfully! <br /> Please wait
                     for
                     our team to get in touch with you &#127881;</h1>

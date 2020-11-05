@@ -74,11 +74,12 @@ const others = [
     [`${path.join(__dirname, './assets/videos')}`, `${outputDir_main}${outputDir_sub}/videos`]
 ]
 
-
-
-
-
-
+// copy/overwrite the netlify config file to the build folder, might need to rerun the script
+// becuase build folder doesn't exisit yet
+fs.copyFile('./netlify.toml', './build/netlify.toml', (err) => {
+    if (err) throw err;
+    console.log('source.txt was copied to destination.txt');
+});
 
 
 
@@ -146,10 +147,6 @@ fs.access(`${outputDir_main}${outputDir_sub}`, function (err) {
         });
     }
 });
-
-
-
-
 
 /**
  * !JS/CSS MINIFICATION OPTIONS
