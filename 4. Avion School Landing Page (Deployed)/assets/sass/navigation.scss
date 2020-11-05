@@ -97,13 +97,15 @@
             }
         }
     }
+
+    .scrolled {
+        padding: $spacing $spacing / 1.5 !important;
+    }
 }
 
 // SHOW THE HAMBURGER AND HIDE OTHER NAV ITEMS
 @media screen and (max-width: 960px) { 
     #navigation {   
-        padding: $spacing !important;
-
         .container-nav-items {
             ul {
                 li.nav-mobile-item {
