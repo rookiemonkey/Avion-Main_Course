@@ -36,8 +36,8 @@
   -moz-font-feature-settings: 'liga';
   -moz-osx-font-smoothing: grayscale;
   position: absolute !important;
-  top: 1px !important;
-  left: 3.5px !important; }
+  top: 7px !important;
+  left: 12px !important; }
 
 * {
   margin: 0px;
@@ -1107,7 +1107,7 @@ div.goback_button_container {
   opacity: 0 !important; }
 
 .transition-scroll {
-  transition: opacity 500ms 500ms ease-in, background-color 500ms ease-in-out,  color 500ms ease-in-out !important;
+  transition: opacity 500ms 250ms ease-in, background-color 500ms ease-in-out,  color 500ms ease-in-out !important;
   will-change: opacity; }
 
 .is-visible {
@@ -1118,9 +1118,7 @@ div.goback_button_container {
 
 .input_container {
   position: relative;
-  margin-right: 1em;
-  white-space: nowrap;
-  line-height: 1; }
+  margin-right: 1em; }
 
 .input_container input {
   position: absolute;
@@ -1153,8 +1151,8 @@ div.goback_button_container {
   border: 1px solid transparent;
   z-index: 0;
   position: absolute;
-  left: 0;
-  top: calc((0% - (100% - 1em)) - 8%);
+  left: 7.5px;
+  top: 5px;
   background-color: transparent; }
 
 .input_container .state label:before {

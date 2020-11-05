@@ -6,7 +6,7 @@
 
 // the animation upon showing the element
 .transition-scroll {
-    transition: opacity 500ms 500ms ease-in,
+    transition: opacity 500ms 250ms ease-in,
                 background-color 500ms ease-in-out, 
                 color 500ms ease-in-out !important;
     will-change: opacity;
