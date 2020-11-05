@@ -100,6 +100,15 @@ header.header,
     margin: 0px auto;
 }
 
+#how,
+#process,
+#learn,
+#testimonial-students,
+#contact,
+#learn {
+    padding-top: 100px !important; // 100px height of the fixed nav bar
+}
+
 .hover_button_clear_bg:hover {
     background-color: $blue3 !important;
     color: $theme-background-color !important;

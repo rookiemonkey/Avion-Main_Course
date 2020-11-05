@@ -73,6 +73,14 @@ header.header,
   padding: 50px 0px;
   margin: 0px auto; }
 
+#how,
+#process,
+#learn,
+#testimonial-students,
+#contact,
+#learn {
+  padding-top: 100px !important; }
+
 .hover_button_clear_bg:hover {
   background-color: #66FCF1 !important;
   color: #1f2833 !important;
