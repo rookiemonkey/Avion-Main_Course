@@ -4,10 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "node build.js",
-    "sass": "node-sass assets/sass/_index.scss assets/css/main.css"
+    "build-prod": "npm run build-dev-sass && npm run build-dev-js && node build.js",
+    "build-dev-js": "gulp -f ./gulp/build-js.js",
+    "build-dev-sass": "node-sass assets/sass/_index.scss assets/css/main.css"
   },
   "devDependencies": {
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-terser": "^1.4.1",
     "minify": "^6.0.1",
     "ncp": "^2.0.0",
     "node-sass": "^4.14.1"

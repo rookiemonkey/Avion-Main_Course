@@ -51,14 +51,7 @@ const assets = [
     [`${path.join(__dirname, './index.html')}`, '/index', 'html'],
     [`${path.join(__dirname, './assets/css/font-awesome.min.css')}`, '/font-awesome.min', 'css'],
     [`${path.join(__dirname, './assets/css/main.css')}`, '/main', 'css'],
-    [`${path.join(__dirname, './assets/js/enroll.js')}`, '/enroll', 'js'],
-    [`${path.join(__dirname, './assets/js/functions.js')}`, '/functions', 'js'],
-    [`${path.join(__dirname, './assets/js/menu.js')}`, '/menu', 'js'],
-    [`${path.join(__dirname, './assets/js/multistepform.js')}`, '/multistepform', 'js'],
-    [`${path.join(__dirname, './assets/js/onload.js')}`, '/onload', 'js'],
-    [`${path.join(__dirname, './assets/js/onsubmit.js')}`, '/onsubmit', 'js'],
-    [`${path.join(__dirname, './assets/js/onscroll.js')}`, '/onscroll', 'js'],
-    [`${path.join(__dirname, './assets/js/validator.js')}`, '/validator', 'js']
+    [`${path.join(__dirname, './assets/js/main.js')}`, '/main', 'js']
 ]
 
 
