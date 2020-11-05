@@ -1048,6 +1048,14 @@ div.goback_button_container {
 .tab.whento_start div.tab-formfield-container {
   margin: 15px; }
 
+.form-navigation-buttons-container {
+  display: flex;
+  justify-content: center; }
+
+.step-container {
+  text-align: center;
+  margin-top: 40px; }
+
 .step {
   height: 15px;
   width: 15px;

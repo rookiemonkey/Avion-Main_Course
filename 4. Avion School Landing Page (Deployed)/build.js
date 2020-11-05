@@ -78,7 +78,7 @@ const others = [
 // becuase build folder doesn't exisit yet
 fs.copyFile('./netlify.toml', './build/netlify.toml', (err) => {
     if (err) throw err;
-    console.log('source.txt was copied to destination.txt');
+    console.log('✓ Succesfully Copied: ./netlify.toml ');
 });
 
 

@@ -181,7 +181,17 @@ div.goback_button_container {
   }
 }
 
+.form-navigation-buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
 // circle indicator
+.step-container {
+  text-align:center;
+  margin-top:40px;
+}
+
 .step {
   height: 15px;
   width: 15px;

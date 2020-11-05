@@ -719,19 +719,17 @@
                 <!-- prev/next btn and form step indicators -->
                 <div class="enrollment_form_navigation">
                     <!-- Previous/Next button -->
-                    <div style="overflow:auto;">
-                        <div style="float:right;">
-                            <button type="button" id="prevBtn" class="hover_button_clear_bg" onclick="nextPrev(-1)">
-                                Previous
-                            </button>
-                            <button type="button" id="nextBtn" class="hover_button_clear_bg" onclick="nextPrev(1)">
-                                Next
-                            </button>
-                        </div>
+                    <div class="form-navigation-buttons-container">
+                        <button type="button" id="prevBtn" class="hover_button_clear_bg" onclick="nextPrev(-1)">
+                            Previous
+                        </button>
+                        <button type="button" id="nextBtn" class="hover_button_clear_bg" onclick="nextPrev(1)">
+                            Next
+                        </button>
                     </div>
 
                     <!-- Circles which indicates the steps of the form: -->
-                    <div style="text-align:center;margin-top:40px;">
+                    <div class="step-container">
                         <span class="step"></span>
                         <span class="step"></span>
                         <span class="step"></span>
