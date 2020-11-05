@@ -23,7 +23,7 @@
 
 > This is a project that focuses on the usage of CSS flexbox and other concepts taught prior this project as instructed by Avion School instructors. Final project before moving into javascript.
 
-![Screenshot](https://res.cloudinary.com/promises/image/upload/v1604471495/avion-avion_school_ddl8ei.png)
+![Screenshot](https://res.cloudinary.com/promises/image/upload/v1604581833/avion-avion_school_eybqk8.png)
 
 
 ## Author
