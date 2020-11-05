@@ -30,4 +30,12 @@ window.addEventListener('load', function () {
         document.querySelector('.submitted_contact').classList.remove('hide');
     }
 
+
+    /**
+    * for preloaded css stylesheet. This can be done inline of the link tag
+    */
+    const preloaded = document.getElementById('preloaded_stylesheet');
+    preloaded.setAttribute('rel', 'stylesheet');
+
+
 })

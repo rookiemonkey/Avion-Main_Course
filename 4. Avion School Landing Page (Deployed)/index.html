@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
+
+    <!-- defer a css: https://web.dev/defer-non-critical-css/ && https://www.digitalocean.com/community/tutorials/html-preload-prefetch. NOTE: since i already have an onload event, the onload function is on onload.js to change the value of the rel attribute from preload to stylesheet -->
+    <link rel='preload' id="preloaded_stylesheet" as='style' href="/assets/css/font-awesome.min.css" />
+
     <title>Avion School</title>
 </head>
 
@@ -795,6 +798,6 @@
 
 </body>
 
-<script src="/assets/js/main.js"></script>
+<script defer src="/assets/js/main.js"></script>
 
 </html>
