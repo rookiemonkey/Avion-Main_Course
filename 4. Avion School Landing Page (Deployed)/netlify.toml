@@ -3,6 +3,6 @@
   [headers.values]
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
-    Content-Security-Policy = "default-src 'self'"
+    Content-Security-Policy = "default-src 'self'; object-src 'none'; require-trusted-types-for 'script'; base-uri 'none'"
     X-XSS-Protection = "1; mode=block"
     Cache-Control = "public, max-age=1209600" # 2 weeks
