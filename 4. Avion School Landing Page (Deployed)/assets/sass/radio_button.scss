@@ -42,9 +42,11 @@
     border: 1px solid transparent;
     z-index: 0;
     position: absolute;
+    background-color: transparent;
+
+    // positions the checkbox box
     left: 7.5px;
     top:  5px;
-    background-color: transparent
 }
 
 .input_container .state label:before {
@@ -93,4 +95,12 @@
 .input_container input:checked~.state.p-info-o .icon,.input_container input:checked~.state.p-info-o .svg,.input_container input:checked~.state.p-info-o svg,.input_container.p-toggle .state.p-info-o .icon,.input_container.p-toggle .state.p-info-o .svg,.input_container.p-toggle .state.p-info-o svg {
     color: $blue3;
     stroke: $blue3;
+}
+
+@media screen and (max-width: 500px) { // MOBILE PHONE
+    .input_container .state label:after,.input_container .state label:before {
+        // positions the checkbox box
+        left: 6px !important;
+        top:  4px !important;
+    }
 }

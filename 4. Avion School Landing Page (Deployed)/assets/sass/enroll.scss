@@ -252,6 +252,18 @@ div.goback_button_container {
     padding: 0px;
   }
 
+  #regForm {
+    .tab {
+      .tab-formfield-container {
+        .state {
+          label {
+            font-size: 1rem !important;
+          }
+        }
+      }
+    }
+  }
+
   div#initial_element {
     .initial_element_header {
       h1#brand-name {

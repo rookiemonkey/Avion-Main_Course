@@ -90,6 +90,15 @@ div.error {
   color: #cb7762;
   position: absolute !important; }
 
+@media screen and (max-width: 500px) {
+  .material-icons {
+    top: 8px !important; } }
+
+@media screen and (max-width: 500px) {
+  .material-icons {
+    top: 4px !important;
+    left: 6px !important; } }
+
 @media screen and (max-width: 600px) {
   #navigation,
   #how,
@@ -1094,6 +1103,8 @@ div.goback_button_container {
   div.goback_button_container {
     width: 85%;
     padding: 0px; }
+  #regForm .tab .tab-formfield-container .state label {
+    font-size: 1rem !important; }
   div#initial_element .initial_element_header h1#brand-name {
     font-size: 2rem !important; } }
 
@@ -1151,9 +1162,9 @@ div.goback_button_container {
   border: 1px solid transparent;
   z-index: 0;
   position: absolute;
+  background-color: transparent;
   left: 7.5px;
-  top: 5px;
-  background-color: transparent; }
+  top: 5px; }
 
 .input_container .state label:before {
   border-color: #bdc3c7; }
@@ -1193,3 +1204,8 @@ div.goback_button_container {
 .input_container input:checked ~ .state.p-info-o .icon, .input_container input:checked ~ .state.p-info-o .svg, .input_container input:checked ~ .state.p-info-o svg, .input_container.p-toggle .state.p-info-o .icon, .input_container.p-toggle .state.p-info-o .svg, .input_container.p-toggle .state.p-info-o svg {
   color: #66FCF1;
   stroke: #66FCF1; }
+
+@media screen and (max-width: 500px) {
+  .input_container .state label:after, .input_container .state label:before {
+    left: 6px !important;
+    top: 4px !important; } }

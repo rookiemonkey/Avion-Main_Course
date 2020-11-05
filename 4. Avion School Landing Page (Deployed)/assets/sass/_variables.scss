@@ -121,6 +121,21 @@ div.error {
     position: absolute !important;
 }
 
+@media screen and (max-width: 500px) { // MOBILE PHONE
+    .material-icons {
+        // positions the icon inside the checkbox/radio
+        top: 8px !important;
+    }
+}
+
+@media screen and (max-width: 500px) { // MOBILE PHONE
+    .material-icons {
+        // positions the icon inside the checkbox/radio
+        top: 4px !important;
+        left: 6px !important;
+    }
+}
+
 @media screen and (max-width: 600px) { // MOBILE PHONES
     #navigation,
     #how,
