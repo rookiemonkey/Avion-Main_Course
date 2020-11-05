@@ -2,13 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: max-content;
     width: 100%;
-    background-image: url('/assets/images/francis-plaza.jpg');
+    padding: $spacing;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: rgba(11, 12, 16, 0.85);
+    background-color: $theme-background-color-darker;
     background-attachment: fixed;
     background-blend-mode: overlay;
 
