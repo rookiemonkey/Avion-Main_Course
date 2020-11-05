@@ -242,7 +242,8 @@ div.error {
   display: flex;
   justify-content: space-between;
   z-index: 1000;
-  padding-bottom: 20px !important; }
+  padding-bottom: 0px;
+  transition: all 500ms ease-in-out; }
   #navigation .container-brand {
     display: flex;
     align-items: center;
@@ -290,6 +291,15 @@ div.error {
       #navigation .container-nav-items ul li.nav-mobile-item {
         display: none; }
 
+.scrolled {
+  position: fixed !important;
+  background-color: #1f2833 !important;
+  width: 100vw !important;
+  padding: 20px 12.5vw !important;
+  box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3) !important;
+  z-index: 9999999 !important;
+  transition: all 500ms ease-in-out; }
+
 @media screen and (max-width: 600px) {
   #navigation .container-brand img {
     width: 55px;
@@ -300,8 +310,7 @@ div.error {
 
 @media screen and (max-width: 960px) {
   #navigation {
-    margin-top: 25px;
-    padding: 15px 15px 0px 15px; }
+    padding: 20px !important; }
     #navigation .container-nav-items ul li.nav-mobile-item {
       display: list-item;
       min-width: 20px; }

@@ -1,3 +1,42 @@
+/**
+ * !!ONSCROLL-NAVIGATIONBAR-ANIMATION
+ */
+
+window.addEventListener('scroll', function () {
+    // select the header/navigation
+    const navigation = document.querySelector('#navigation');
+
+    // get the y-axis scroll value
+    const scroll_value = window.scrollY;
+
+    // get the value of the clients view port height
+    const viewPortHeight = window.innerHeight;
+
+    // if the user srolled pass the first section of the page which has 100vh
+    if (scroll_value > viewPortHeight) {
+        navigation.classList.add('scrolled')
+    }
+    else {
+        navigation.classList.remove('scrolled')
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * !!ONSCROLL-ANIMATION
+ */
+
 
 /**
  * requestAnimationFrame is a method that we can use to repeatedly check our page to see if elements are visible, while making sure we don’t overload the browser by checking thousands of times per second. It does this by limiting how often the callback is executed to either the screen’s refresh rate or 60 times per second.  This way we are able to have a fallback function for browsers that don’t yet support it.

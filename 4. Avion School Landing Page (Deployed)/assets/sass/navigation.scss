@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     z-index: 1000;
-    padding-bottom: 20px !important;
+    padding-bottom: 0px;
+    transition: all 500ms ease-in-out;
 
     .container-brand {
         display: flex;
@@ -71,6 +72,16 @@
     }
 }
 
+.scrolled {
+    position: fixed !important;
+    background-color: $theme-background-color !important;
+    width: 100vw !important;
+    padding: 20px 12.5vw !important; // $width-global: 75vw; half of the 25vh
+    box-shadow: 12px 7px 90px 0 rgba(0, 0, 0, 0.3) !important;
+    z-index: 9999999 !important;
+    transition: all 500ms ease-in-out;
+}
+
 // SHOW THE HAMBURGER AND HIDE OTHER NAV ITEMS
 @media screen and (max-width: 600px) { 
     #navigation {   
@@ -91,8 +102,7 @@
 // SHOW THE HAMBURGER AND HIDE OTHER NAV ITEMS
 @media screen and (max-width: 960px) { 
     #navigation {   
-        margin-top: $margin-lg;
-        padding: $margin-md $margin-md 0px $margin-md;
+        padding: $spacing !important;
 
         .container-nav-items {
             ul {
