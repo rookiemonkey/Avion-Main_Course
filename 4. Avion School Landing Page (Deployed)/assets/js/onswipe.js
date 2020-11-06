@@ -15,12 +15,16 @@
  *      - hamburger is only shown at 960px and below
  */
 
+const MaxTargetViewPortWidth = 960;
+const swipeThreshold = 100; // at least 100px < (to open) or > (to close)
+
 
 /**
  * HELPER FUNCTION: get the x,y coordinate of the start touch event
  */
 
 function getTouchStartValues(event) {
+    if (window.innerWidth > MaxTargetViewPortWidth) return null;
     const x_coor = event.touches[0].clientX;
     const y_coor = event.touches[0].clientY;
     touch_start = [x_coor, y_coor];
@@ -33,8 +37,8 @@ function getTouchStartValues(event) {
  */
 
 function getTouchEndValues(event) {
+    if (window.innerWidth > MaxTargetViewPortWidth) return null;
     const enrollRoute = document.body.getAttribute('data-route');
-    const threshold = 100; // at least 100px < (to open) or > (to close)
     const x_coor = event.changedTouches[0].clientX;
     const y_coor = event.changedTouches[0].clientY;
     touch_end = [x_coor, y_coor];
@@ -51,7 +55,7 @@ function getTouchEndValues(event) {
         // swipe x-axis travelled distance = touch_start_x - touch_end_x;
         let travelled_distance = touch_start[0] - touch_end[0];
 
-        if (travelled_distance >= threshold) {
+        if (travelled_distance >= swipeThreshold) {
             const isSidebarOpen = sidebar.classList.contains("sidebar_open");
             const isMainShifted = main.classList.contains("sidebar_open_forcontent")
 
@@ -67,7 +71,7 @@ function getTouchEndValues(event) {
         // swipe x-axis travelled distance = touch_start_x - touch_end_x; other way around
         let travelled_distance = touch_end[0] - touch_start[0];
 
-        if (travelled_distance >= threshold) {
+        if (travelled_distance >= swipeThreshold) {
 
             const isSidebarOpen = sidebar.classList.contains("sidebar_open");
             const isMainShifted = main.classList.contains("sidebar_open_forcontent")

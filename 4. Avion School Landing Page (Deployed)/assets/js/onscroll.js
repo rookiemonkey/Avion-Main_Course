@@ -10,7 +10,7 @@ window.addEventListener('scroll', function () {
     const scroll_value = window.scrollY;
 
     // get the value of the clients view port height
-    const viewPortHeight = window.innerHeight;
+    const viewPortHeight = window.innerHeight - (window.innerHeight * 0.02);
 
     // if the user srolled pass the first section of the page which has 100vh
     if (scroll_value > viewPortHeight) {

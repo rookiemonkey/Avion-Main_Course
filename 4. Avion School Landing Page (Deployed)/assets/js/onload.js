@@ -41,15 +41,14 @@ window.addEventListener('load', function () {
 
     /**
      * for swipe events, helper functions are on onswipe.js
+     * // getTouchEndValues, will determine if the length of the swipe
+     * // is enough to open the sidebar see onswipe.js
      */
     let touch_start = [];
     let touch_end = [];
 
-    if (window.innerWidth > 960) {
-        window.addEventListener('touchstart', getTouchStartValues)
-        window.addEventListener('touchend', getTouchEndValues)
-        // getTouchEndValues, will determine if the length of the swipe
-        // is enough to open the sidebar see onswipe.js
-    }
+    window.addEventListener('touchstart', getTouchStartValues)
+    window.addEventListener('touchend', getTouchEndValues)
+
 
 })
