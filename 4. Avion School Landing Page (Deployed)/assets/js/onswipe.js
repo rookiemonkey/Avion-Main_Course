@@ -33,6 +33,7 @@ function getTouchStartValues(event) {
  */
 
 function getTouchEndValues(event) {
+    const enrollRoute = document.body.getAttribute('data-route');
     const threshold = 100; // at least 100px < (to open) or > (to close)
     const x_coor = event.changedTouches[0].clientX;
     const y_coor = event.changedTouches[0].clientY;
@@ -42,8 +43,9 @@ function getTouchEndValues(event) {
     const sidebar = document.querySelector('#sidebar');
     const main = document.querySelector('main#content')
 
-    // check if its a swipe from left-to-right or right-to-left
-    if (touch_start[0] > touch_end[0]) {
+    // check if its a swipe from left-to-right or right-to-left, 
+    // and user is not on the enrollment form element
+    if (touch_start[0] > touch_end[0] && !enrollRoute) {
         // !right-to-left since start is higher
 
         // swipe x-axis travelled distance = touch_start_x - touch_end_x;

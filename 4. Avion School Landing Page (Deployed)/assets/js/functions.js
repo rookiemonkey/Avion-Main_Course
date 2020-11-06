@@ -12,6 +12,7 @@ function toggle_menu() {
 
 function goto_enroll() {
     // select necessary elements
+    const body = document.body;
     const main = document.querySelector('main#content');
     const banner = document.querySelector('#banner');
     const how = document.querySelector('#how');
@@ -51,4 +52,12 @@ function goto_enroll() {
     if (enroll_init && enroll_init.classList.contains('hide')) {
         enroll_init.classList.toggle('hide')
     }
+
+    // allows identification that the enroll element is being viewed
+    if (body.hasAttribute('data-route')) {
+        body.removeAttribute('data-route');
+    } else {
+        body.setAttribute('data-route', 'enroll')
+    }
+
 }
