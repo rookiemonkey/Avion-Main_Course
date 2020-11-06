@@ -35,9 +35,14 @@
 
             h3 {
                 color: $blue3;
-                margin-bottom: $margin-sm;
                 font-weight: 700;
                 font-size: 1.75rem;
+            }
+
+            h4 {
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin-bottom: $margin-sm;
             }
 
             p {
@@ -73,6 +78,11 @@
 
                 h3 {
                     font-size: 1.25rem;
+                    text-align: center;
+                }
+
+                h4 {
+                    font-size: 1rem;
                     text-align: center;
                 }
             }

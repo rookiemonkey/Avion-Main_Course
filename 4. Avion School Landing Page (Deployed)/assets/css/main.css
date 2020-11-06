@@ -595,9 +595,12 @@ header.header {
       padding: 20px; }
       #learn .learn-row div.learn-row-content h3 {
         color: #66FCF1;
-        margin-bottom: 7.5px;
         font-weight: 700;
         font-size: 1.75rem; }
+      #learn .learn-row div.learn-row-content h4 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 7.5px; }
       #learn .learn-row div.learn-row-content p {
         text-align: justify; }
 
@@ -618,6 +621,9 @@ header.header {
       padding: 0px; }
       #learn .learn-row div.learn-row-content h3 {
         font-size: 1.25rem;
+        text-align: center; }
+      #learn .learn-row div.learn-row-content h4 {
+        font-size: 1rem;
         text-align: center; }
   #learn .learn-row:nth-child(3) {
     flex-direction: column-reverse; } }
