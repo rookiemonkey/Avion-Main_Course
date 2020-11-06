@@ -754,6 +754,11 @@ header.header {
       padding: 20px; }
       #contact .contact-container .contact-form-container p {
         margin-bottom: 25px; }
+      #contact .contact-container .contact-form-container form#contact-form,
+      #contact .contact-container .contact-form-container section.loader-contact,
+      #contact .contact-container .contact-form-container section.submitted_contact,
+      #contact .contact-container .contact-form-container section.submitted_contact_error {
+        min-height: 531px !important; }
       #contact .contact-container .contact-form-container form {
         width: 100%; }
         #contact .contact-container .contact-form-container form .field-container {
@@ -916,7 +921,6 @@ main#content {
 
 .loader-contact {
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center; }

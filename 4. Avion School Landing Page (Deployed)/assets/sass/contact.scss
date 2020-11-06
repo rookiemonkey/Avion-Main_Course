@@ -61,6 +61,13 @@
                 margin-bottom: $margin-lg;
             }
 
+            form#contact-form,
+            section.loader-contact,
+            section.submitted_contact,
+            section.submitted_contact_error {
+                min-height: 531px !important;
+            }
+
             form {
                 width: 100%;
 
