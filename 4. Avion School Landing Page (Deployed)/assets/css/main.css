@@ -969,18 +969,8 @@ div#initial_element {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50% !important; }
-  div#initial_element .initial_element_header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 25px; }
-    div#initial_element .initial_element_header img {
-      width: 80px;
-      height: 50px;
-      margin-right: 15px; }
-    div#initial_element .initial_element_header h1 {
-      font-size: 3.75rem;
-      color: #66FCF1; }
+  width: 50% !important;
+  height: 85vh; }
   div#initial_element .initial_element_image {
     width: 100%;
     height: auto;
@@ -1030,9 +1020,20 @@ div.goback_button_container {
   margin: 0px auto;
   width: 70%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   min-width: 300px; }
+  div.goback_button_container div.goback_button_header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0px; }
+    div.goback_button_container div.goback_button_header-container h2 {
+      color: #66FCF1; }
+    div.goback_button_container div.goback_button_header-container img {
+      width: 60px;
+      height: 40px;
+      margin-right: 5px; }
 
 #regForm,
 .submitted_enrollment {
@@ -1112,13 +1113,10 @@ div.goback_button_container {
   margin: 25px 0px; }
 
 @media screen and (max-width: 768px) {
-  #initial_element .initial_element_header {
-    display: flex;
-    flex-direction: column; }
-    #initial_element .initial_element_header img {
-      margin-bottom: 25px; }
-    #initial_element .initial_element_header h1 {
-      text-align: center; }
+  div#initial_element {
+    width: 70% !important; }
+    div#initial_element div.initial_element_image img {
+      width: 75% !important; }
   .submitted_enrollment img {
     width: 100%; }
   .step {
@@ -1126,14 +1124,16 @@ div.goback_button_container {
     width: 10px; } }
 
 @media screen and (max-width: 500px) {
+  div.goback_button_container div.goback_button_header-container img {
+    margin: 0px; }
+  div.goback_button_container div.goback_button_header-container h2 {
+    display: none; }
   #regForm,
   div.goback_button_container {
     width: 85%;
     padding: 0px; }
   #regForm .tab .tab-formfield-container .state label {
-    font-size: 1rem !important; }
-  div#initial_element .initial_element_header h1#brand-name {
-    font-size: 2rem !important; } }
+    font-size: 1rem !important; } }
 
 @media screen and (max-width: 375px) {
   .enrollment_form_navigation {

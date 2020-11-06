@@ -38,23 +38,7 @@ div#initial_element {
   align-items: center;
   justify-content: center;
   width: 50% !important;
-
-  .initial_element_header {
-    display: flex;
-    align-items: center;
-    margin-bottom: $margin-lg;
-
-    img {
-      width: 80px;
-      height: 50px;
-      margin-right: $margin-md;
-    }
-
-    h1 {
-      font-size: 3.75rem;
-      color: $blue3;
-    }
-  }
+  height: 85vh; // 15vh for the goback-container height
 
   .initial_element_image {
     width: 100%;
@@ -117,9 +101,26 @@ div.goback_button_container {
   margin: 0px auto;
   width: 70%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   min-width: 300px;
+
+  div.goback_button_header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0px ;
+
+    h2 {
+      color: $blue3;
+    }
+
+    img {
+      width: 60px;
+      height: 40px;
+      margin-right: 5px;
+    }
+  }
 }
 
 #regForm,
@@ -230,34 +231,41 @@ div.goback_button_container {
 }
 
 @media screen and (max-width: 768px) { // IPAD
-    #initial_element {
-      .initial_element_header {
-        display: flex;
-        flex-direction: column;
+  div#initial_element {
+    width: 70% !important;
 
-        img {
-          margin-bottom: $margin-lg;
-        }
-
-        h1 {
-          text-align: center;
-        }
-      }
-    }
-
-    .submitted_enrollment {
+    div.initial_element_image {
       img {
-        width: 100%;
+        width: 75% !important;
       }
     }
-
-    .step {
-      height: 10px;
-      width: 10px;
+  }
+  
+  .submitted_enrollment {
+    img {
+      width: 100%;
     }
+  }
+
+  .step {
+    height: 10px;
+    width: 10px;
+  }
 }
 
 @media screen and (max-width: 500px) { // MOBILE PHONE
+  div.goback_button_container {
+    div.goback_button_header-container {
+      img {
+        margin: 0px;
+      }
+
+      h2 {
+        display: none;
+      }
+    }
+  }
+
   #regForm,
   div.goback_button_container {
     width: 85%;
@@ -272,14 +280,6 @@ div.goback_button_container {
             font-size: 1rem !important;
           }
         }
-      }
-    }
-  }
-
-  div#initial_element {
-    .initial_element_header {
-      h1#brand-name {
-        font-size: 2rem !important;
       }
     }
   }
