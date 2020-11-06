@@ -256,20 +256,17 @@
                 </div>
                 <div class="contact-form-container">
                     <form id="contact-form" method="POST">
-                        <p class="show-on-scroll transition-scroll">
-                            or message us right away!
-                        </p>
                         <div class="field-container show-on-scroll transition-scroll">
                             <input type="text" name='name' placeholder="Full Name" data-rule="required|name"
-                                aria-label="Full Name" />
+                                aria-label="Full Name" autocomplete="off" />
                         </div>
                         <div class="field-container show-on-scroll transition-scroll">
                             <input type="text" name='email' placeholder="Email Address" data-rule="required|email"
-                                aria-label="Email Address" />
+                                aria-label="Email Address" autocomplete="off" />
                         </div>
                         <div class="field-container show-on-scroll transition-scroll">
                             <textarea name="details" placeholder="Message" rows="7" data-rule="required"
-                                aria-label="Message"></textarea>
+                                aria-label="Message" autocomplete="off"></textarea>
                         </div>
                         <div class="field-container show-on-scroll transition-scroll">
                             <button onclick="return handleSubmit(event)" class="hover_button_clear_bg"
