@@ -2,7 +2,7 @@
 
 > This project is focused on the usage of basic HTML & CSS structure as instructed by Avion School instructors
 
->> Added Features:
+>> ###### Features:
 >> - [x] Responsive design
 >> - [x] Timeline
 
@@ -15,6 +15,12 @@
 
 > This project is focused on the usage of basic HTML & CSS structure as instructed by Avion School instructors
 
+>> ###### Features:
+>> - [x] Responsive design
+>> - [x] Custom Form Validation
+>> - [x] Animated checkboxes
+>> - [x] Simulated server response with success message
+
 ![Screenshot](_SCREENSHOTS/project2.png)
 
 
@@ -24,6 +30,12 @@
 
 > This project is focused on the usage of CSS flexbox and other concepts taught prior this project as instructed by Avion School instructors
 
+>> ###### Features:
+>> - [x] Responsive design
+>> - [x] Sidebar for mobile view
+>> - [x] Custom Form Validation
+>> - [x] live email server for the contact form
+
 ![Screenshot](_SCREENSHOTS/project3.png)
 
 
@@ -32,6 +44,16 @@
 ### ✨ [4. Avion School Page (Click to see live version)](https://krrb-prod-avionschool.netlify.app/)
 
 > This project is focused on the usage of CSS flexbox and other concepts taught prior this project as instructed by Avion School instructors. Final project before moving into javascript.
+
+>> ###### Features:
+>> - [x] Responsive design
+>> - [x] Sidebar for mobile view
+>> - [x] Multi-step form support (recreated typeform from scratch)
+>> - [x] Custom form validation
+>> - [x] Animated checkboxes
+>> - [x] Onscroll animations
+>> - [x] Onswipe support (able to open sidebar just by swipe)
+>> - [x] Live email server for the contact form (recycled from product landing page)
 
 ![Screenshot](_SCREENSHOTS/project4.png)
 
