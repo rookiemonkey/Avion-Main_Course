@@ -3,7 +3,7 @@
 > This is a project that focuses on the usage of basic HTML & CSS structure as instructed by Avion School instructors
 
 <!-- ![Screenshot](https://res.cloudinary.com/promises/image/upload/v1603446962/avion-tribute_page.png) -->
-![Screenshot](1. Tribute Page (Deployed)/screenshot.png)
+![Screenshot](_SCREENSHOTS/project1.png)
 
 
 ### ✨ [2. Survey Form Demo](https://krrb-prod-survey-form.netlify.app/)
