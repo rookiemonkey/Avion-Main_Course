@@ -2,6 +2,10 @@
 
 > This project is focused on the usage of basic HTML & CSS structure as instructed by Avion School instructors
 
+>> Added Features:
+>> - [x] Responsive design
+>> - [x] Timeline
+
 ![Screenshot](_SCREENSHOTS/project1.png)
 
 
