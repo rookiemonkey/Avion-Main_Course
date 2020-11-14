@@ -59,6 +59,19 @@
 
 
 
+### ✨ [5. Calculator (Click to see live version)](https://krrb-prod-calculator-avion.netlify.app/)
+
+> This project is focused on the basics of implementing javascript on web applications which consists of manipulating styles and markup
+
+>> ###### Features:
+>> - [x] consecutive calculations
+>> - [x] supports operations for whole and decimal numbers
+>> - [x] added Jest test using jsdom to automate user clicks/calculations
+
+![Screenshot](_SCREENSHOTS/project5.png)
+
+
+
 
 ## Author
 
