@@ -116,7 +116,7 @@ html {
 
 body {
   align-items: center;
-  background-image: linear-gradient(236deg, #74ebd5, #acb6e5);
+  background-image: radial-gradient(circle farthest-corner, #b53c36, #000);
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -132,7 +132,9 @@ body {
 
 .calculator {
   border-radius: 12px;
+  background-image: linear-gradient(to bottom, #555, #000);
   box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.15);
+  padding: 10px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2em;
@@ -140,24 +142,29 @@ body {
   overflow: hidden;
 }
 
+.calculator__display,
+.calculator__keys, 
+button {
+  background-color: transparent !important;
+}
+
 .calculator__display {
   font-family: 'Digital';
-  background-color: #222222;
   color: yellowgreen;
   font-size: 1.75em;
   padding: 0.5em 0.75em;
   text-align: right;
+  border-bottom: 1px solid white;
 }
 
 .calculator__keys {
-  background-color: #999;
+  margin-top: 5px;
   display: grid;
-  grid-gap: 1px;
+  grid-gap: 5px;
   grid-template-columns: repeat(4, 1fr);
 }
 
 .calculator__keys > * {
-  background-color: #fff;
   padding: 0.5em 1.25em;
   position: relative;
   text-align: center;
@@ -175,14 +182,42 @@ body {
   right: 0;
   top: 0;
   z-index: 1;
+  border-radius: 12px;
 }
 
 .key--operator {
-  background-color: #eee;
+  color: #b53c36 !important;
+  font-weight: 900;
 }
 
 .key--equal {
-  background-image: linear-gradient(to bottom, #fe886a, #ff7033);
   grid-column: -2;
   grid-row: 2 / span 4;
+  background-color: transparent;
+  color: white;
+  border: 1px solid #b53c36;
+  border-radius: 12px;
+}
+
+button {
+  border-radius: 12px;
+  transition: background-color 250ms ease-in-out,
+              border 250ms ease-in-out;
+}
+
+button:not(.key--equal) {
+  width: 90px !important;
+  height: 65px !important;
+  color: white;
+  cursor: pointer;
+}
+
+button[data-action="clear"] {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  border: none;
 }
