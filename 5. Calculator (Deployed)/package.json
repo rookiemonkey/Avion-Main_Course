@@ -1,0 +1,15 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "clear && jest tests/calculator.test.js"
+  },
+  "jest": {
+    "verbose": true
+  },
+  "devDependencies": {
+    "jsdom": "^16.4.0"
+  }
+}
