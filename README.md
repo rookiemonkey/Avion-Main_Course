@@ -65,9 +65,11 @@
 
 >> ###### Features:
 >> - [x] consecutive calculations
->> - [x] supports operations for whole and decimal numbers
 >> - [x] assets are minified using gulp
 >> - [x] added Jest test using jsdom to automate user clicks/calculations
+>> - [x] supports operations for whole and decimal numbers
+>> - [x] supports positine/negative integers
+>> - [x] suuports square, cube and factorial of a number
 
 ![Screenshot](_SCREENSHOTS/project5.png)
 
