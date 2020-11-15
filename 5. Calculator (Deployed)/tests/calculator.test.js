@@ -26,6 +26,7 @@ describe('CALCULATOR APPLICATION', function () {
     // select needed buttons PS:sorry if i used filter a lot, cant think of a better way
     const buttons = Array.from(keys.children);
     const [squared] = buttons.filter(button => button.dataset.action === 'squared')
+    const [cube] = buttons.filter(button => button.dataset.action === 'cube')
     const [sign] = buttons.filter(button => button.dataset.action === 'sign')
     const [clear] = buttons.filter(button => button.dataset.action === 'clear')
     const [decimal] = buttons.filter(button => button.dataset.action === 'decimal')
@@ -227,6 +228,19 @@ describe('CALCULATOR APPLICATION', function () {
 
                 calculator.dataset.firstValue = squared;
                 display.textContent = squared;
+            }
+
+
+            // !CUBE KEY
+            if (action === 'cube' &&
+                (previousKeyType === 'number' ||
+                    previousKeyType === 'calculate')) {
+
+                const parsedDisplayNum = parseFloat(displayedNum);
+                const cube = Math.pow(parsedDisplayNum, 3);
+
+                calculator.dataset.firstValue = cube;
+                display.textContent = cube;
             }
 
 
@@ -702,6 +716,85 @@ describe('CALCULATOR APPLICATION', function () {
         expect(display.textContent).toBe('100');
     })
 
+    test('SQUARED OF A NUMBER (able to chain to another calculation): 99^2+10 should return 9811', function () {
+
+        clear.click();
+        nine.click();
+        nine.click();
+        squared.click();
+        plus.click();
+        one.click();
+        zero.click();
+        equals.click();
+
+        expect(display.textContent).toBe('9811');
+    })
+
+
+    test('CUBE OF A NUMBER: 9^3 should return 729', function () {
+
+        clear.click();
+        nine.click();
+        cube.click();
+
+        expect(display.textContent).toBe('729');
+    })
+
+    test('CUBE OF A NUMBER: -9^3 should return -729', function () {
+
+        clear.click();
+        sign.click();
+        nine.click();
+        cube.click();
+
+        expect(display.textContent).toBe('-729');
+    })
+
+    test('CUBE OF A NUMBER: 9^3^3 should return 387420489', function () {
+
+        clear.click();
+        nine.click();
+        cube.click();
+        cube.click();
+
+        expect(display.textContent).toBe('387420489');
+    })
+
+    test('CUBE OF A NUMBER (clicking equals should not do anything): 9^3 = should return 9801', function () {
+
+        clear.click();
+        nine.click();
+        cube.click();
+        equals.click();
+
+        expect(display.textContent).toBe('729');
+    })
+
+    test('CUBE OF A NUMBER (able to square a result of the previous calculation): 5+5=^3 should return 1000', function () {
+
+        clear.click();
+        five.click();
+        plus.click();
+        five.click();
+        equals.click();
+        cube.click();
+
+        expect(display.textContent).toBe('1000');
+    })
+
+    test('CUBE OF A NUMBER (able to chain to another calculation): 99^3+10 should return 970309', function () {
+
+        clear.click();
+        nine.click();
+        nine.click();
+        cube.click();
+        plus.click();
+        one.click();
+        zero.click();
+        equals.click();
+
+        expect(display.textContent).toBe('970309');
+    })
 
 
     test('POSITIVE/NEGATIVE OPERATIONS (first number negative): -5 + 3 = -4', function () {

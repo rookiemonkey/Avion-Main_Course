@@ -143,16 +143,30 @@ keys.addEventListener('click', event => {
 
 
 
-        // !SQUARED KEY
         if (action === 'squared' &&
-            previousKeyType === 'number' ||
-            previousKeyType === 'calculate') {
+            (previousKeyType === 'number' ||
+                previousKeyType === 'calculate')) {
 
             const parsedDisplayNum = parseFloat(displayedNum);
             const squared = Math.pow(parsedDisplayNum, 2);
 
             calculator.dataset.firstValue = squared;
             display.textContent = squared;
+        }
+
+
+
+
+        // !CUBE KEY
+        if (action === 'cube' &&
+            (previousKeyType === 'number' ||
+                previousKeyType === 'calculate')) {
+
+            const parsedDisplayNum = parseFloat(displayedNum);
+            const cube = Math.pow(parsedDisplayNum, 3);
+
+            calculator.dataset.firstValue = cube;
+            display.textContent = cube;
         }
 
 
