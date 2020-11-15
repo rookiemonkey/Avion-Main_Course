@@ -25,6 +25,7 @@ describe('CALCULATOR APPLICATION', function () {
 
     // select needed buttons PS:sorry if i used filter a lot, cant think of a better way
     const buttons = Array.from(keys.children);
+    const [squared] = buttons.filter(button => button.dataset.action === 'squared')
     const [sign] = buttons.filter(button => button.dataset.action === 'sign')
     const [clear] = buttons.filter(button => button.dataset.action === 'clear')
     const [decimal] = buttons.filter(button => button.dataset.action === 'decimal')
@@ -217,10 +218,21 @@ describe('CALCULATOR APPLICATION', function () {
             }
 
 
+            // !SQUARED KEY
+            if (action === 'squared' &&
+                (previousKeyType === 'number' ||
+                    previousKeyType === 'calculate')) {
+                const parsedDisplayNum = parseFloat(displayedNum);
+                const squared = Math.pow(parsedDisplayNum, 2);
+
+                calculator.dataset.firstValue = squared;
+                display.textContent = squared;
+            }
+
 
 
             // !EQUAL KEY
-            if (action === 'calculate') {
+            if (action === 'calculate' && calculator.dataset.operator) {
                 let firstValue = calculator.dataset.firstValue
                 let secondValue = displayedNum;
                 const operator = calculator.dataset.operator
@@ -633,6 +645,62 @@ describe('CALCULATOR APPLICATION', function () {
     })
 
 
+
+    test('SQUARED OF A NUMBER: 99^2 should return 9801', function () {
+
+        clear.click();
+        nine.click();
+        nine.click();
+        squared.click();
+
+        expect(display.textContent).toBe('9801');
+    })
+
+    test('SQUARED OF A NUMBER: -99^2 should return 9801', function () {
+
+        clear.click();
+        sign.click();
+        nine.click();
+        nine.click();
+        squared.click();
+
+        expect(display.textContent).toBe('9801');
+    })
+
+    test('SQUARED OF A NUMBER: 99^2^2 = should return 96059601', function () {
+
+        clear.click();
+        nine.click();
+        nine.click();
+        squared.click();
+        squared.click();
+        equals.click();
+
+        expect(display.textContent).toBe('96059601');
+    })
+
+    test('SQUARED OF A NUMBER (clicking equals should not do anything): 99^2 = should return 9801', function () {
+
+        clear.click();
+        nine.click();
+        nine.click();
+        squared.click();
+        equals.click();
+
+        expect(display.textContent).toBe('9801');
+    })
+
+    test('SQUARED OF A NUMBER (able to square a result of the previous calculation): 5+5=^2 should return 100', function () {
+
+        clear.click();
+        five.click();
+        plus.click();
+        five.click();
+        equals.click();
+        squared.click();
+
+        expect(display.textContent).toBe('100');
+    })
 
 
 

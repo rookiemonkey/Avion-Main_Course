@@ -143,8 +143,23 @@ keys.addEventListener('click', event => {
 
 
 
+        // !SQUARED KEY
+        if (action === 'squared' &&
+            previousKeyType === 'number' ||
+            previousKeyType === 'calculate') {
+
+            const parsedDisplayNum = parseFloat(displayedNum);
+            const squared = Math.pow(parsedDisplayNum, 2);
+
+            calculator.dataset.firstValue = squared;
+            display.textContent = squared;
+        }
+
+
+
+
         // !EQUAL KEY
-        if (action === 'calculate') {
+        if (action === 'calculate' && calculator.dataset.operator) {
             let firstValue = calculator.dataset.firstValue
             let secondValue = displayedNum;
             const operator = calculator.dataset.operator
