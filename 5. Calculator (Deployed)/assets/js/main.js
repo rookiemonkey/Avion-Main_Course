@@ -224,7 +224,7 @@ function factorial(num) {
 
     let arr = [];
 
-    for (i = 0; i < parseFloat(num); i++) {
+    for (let i = 0; i < parseFloat(num); i++) {
         arr.push(i + 1);
     }
 
