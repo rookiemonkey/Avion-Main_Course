@@ -137,7 +137,6 @@ body {
   padding: 10px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2em;
   max-width: 15em;
   overflow: hidden;
 }
@@ -199,6 +198,10 @@ button {
   border-radius: 12px;
 }
 
+sup.pow {
+  font-size: 0.5rem;
+}
+
 button {
   border-radius: 12px;
   transition: background-color 250ms ease-in-out,
@@ -212,7 +215,8 @@ button:not(.key--equal) {
   cursor: pointer;
 }
 
-button[data-action="clear"] {
+button[data-action="clear"],
+button.key--sign {
   padding-left: 15px !important;
   padding-right: 15px !important;
 }

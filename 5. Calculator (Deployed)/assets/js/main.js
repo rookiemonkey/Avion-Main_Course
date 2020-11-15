@@ -27,12 +27,6 @@ keys.addEventListener('click', event => {
         // !NUMBER KEY
         if (!action) {
 
-            // BUG FIX: cannot do operations with float number as second number
-            // if (displayedNum === '0.') {
-            //     display.textContent = displayedNum + keyContent
-            //     return null
-            // }
-
             if (displayedNum === '0' ||
                 previousKeyType === 'operator' ||
                 previousKeyType === 'calculate') {
@@ -112,6 +106,38 @@ keys.addEventListener('click', event => {
         } else {
             const clearButton = calculator.querySelector('[data-action=clear]')
             clearButton.textContent = 'CE'
+        }
+
+
+
+
+        // !SIGN KEY
+        if (action === 'sign') {
+            if (displayedNum.charAt(0) === '0') {
+                // if 0, just append a negative sign
+                display.textContent = '-'
+            }
+
+            else if (displayedNum.charAt(0) !== '-' && previousKeyType !== 'operator') {
+                // append the positive sign at the beginning
+                display.textContent = '-' + displayedNum
+            }
+
+            else if (displayedNum.charAt(0) === '-' && previousKeyType !== 'operator') {
+                // remove the negative sign
+                display.textContent = displayedNum.substring(1)
+            }
+
+            else if (previousKeyType === 'operator') {
+                // this is for the second value incase of consecutive calcs
+                display.textContent = '-'
+            }
+
+            if (display.textContent === '') {
+                display.textContent = '0'
+            }
+
+            calculator.dataset.previousKeyType = 'sign'
         }
 
 

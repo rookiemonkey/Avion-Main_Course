@@ -25,6 +25,7 @@ describe('CALCULATOR APPLICATION', function () {
 
     // select needed buttons PS:sorry if i used filter a lot, cant think of a better way
     const buttons = Array.from(keys.children);
+    const [sign] = buttons.filter(button => button.dataset.action === 'sign')
     const [clear] = buttons.filter(button => button.dataset.action === 'clear')
     const [decimal] = buttons.filter(button => button.dataset.action === 'decimal')
     const [plus] = buttons.filter(button => button.dataset.action === 'add')
@@ -32,6 +33,7 @@ describe('CALCULATOR APPLICATION', function () {
     const [times] = buttons.filter(button => button.dataset.action === 'multiply')
     const [divide] = buttons.filter(button => button.dataset.action === 'divide')
     const [equals] = buttons.filter(button => button.dataset.action === 'calculate')
+    const [zero] = buttons.filter(button => button.innerHTML === '0')
     const [one] = buttons.filter(button => button.innerHTML === '1')
     const [two] = buttons.filter(button => button.innerHTML === '2')
     const [three] = buttons.filter(button => button.innerHTML === '3')
@@ -75,6 +77,8 @@ describe('CALCULATOR APPLICATION', function () {
      * const display = document.querySelector('.calculator__display');
      */
 
+
+
     keys.addEventListener('click', event => {
         // !GLOBAL BUTTON
         if (event.target.matches('button')) {
@@ -98,12 +102,6 @@ describe('CALCULATOR APPLICATION', function () {
 
             // !NUMBER KEY
             if (!action) {
-
-                // BUG FIX: cannot do operations with float number as second number
-                // if (displayedNum === '0.') {
-                //     display.textContent = displayedNum + keyContent
-                //     return null
-                // }
 
                 if (displayedNum === '0' ||
                     previousKeyType === 'operator' ||
@@ -189,6 +187,38 @@ describe('CALCULATOR APPLICATION', function () {
 
 
 
+            // !SIGN KEY
+            if (action === 'sign') {
+                if (displayedNum.charAt(0) === '0') {
+                    // if 0, just append a negative sign
+                    display.textContent = '-'
+                }
+
+                else if (displayedNum.charAt(0) !== '-' && previousKeyType !== 'operator') {
+                    // append the positive sign at the beginning
+                    display.textContent = '-' + displayedNum
+                }
+
+                else if (displayedNum.charAt(0) === '-' && previousKeyType !== 'operator') {
+                    // remove the negative sign
+                    display.textContent = displayedNum.substring(1)
+                }
+
+                else if (previousKeyType === 'operator') {
+                    // this is for the second value incase of consecutive calcs
+                    display.textContent = '-'
+                }
+
+                if (display.textContent === '') {
+                    display.textContent = '0'
+                }
+
+                calculator.dataset.previousKeyType = 'sign'
+            }
+
+
+
+
             // !EQUAL KEY
             if (action === 'calculate') {
                 let firstValue = calculator.dataset.firstValue
@@ -209,6 +239,7 @@ describe('CALCULATOR APPLICATION', function () {
             }
         }
     })
+
 
     // calculates equation entered by the user
     const calculate = (n1, operator, n2) => {
@@ -603,6 +634,220 @@ describe('CALCULATOR APPLICATION', function () {
 
 
 
+
+
+    test('POSITIVE/NEGATIVE OPERATIONS (first number negative): -5 + 3 = -4', function () {
+
+        clear.click();
+        sign.click();
+        five.click();
+        plus.click();
+        three.click();
+        equals.click();
+
+        expect(display.textContent).toBe('-2')
+    })
+
+    test('POSITIVE/NEGATIVE OPERATIONS (first number negative): -5 - 3 = -8', function () {
+
+        clear.click();
+        sign.click();
+        five.click();
+        minus.click();
+        three.click();
+        equals.click();
+
+        expect(display.textContent).toBe('-8')
+    })
+
+    test('POSITIVE/NEGATIVE OPERATIONS (first number negative): -5 * 3 = -15', function () {
+
+        clear.click();
+        sign.click();
+        five.click();
+        times.click();
+        three.click();
+        equals.click();
+
+        expect(display.textContent).toBe('-15')
+    })
+
+    test('POSITIVE/NEGATIVE OPERATIONS (first number negative): -5 / 3 = -1.66...', function () {
+
+        clear.click();
+        sign.click();
+        five.click();
+        divide.click();
+        three.click();
+        equals.click();
+
+        const isIt = display.textContent.includes('-1.66');
+
+        expect(isIt).toBe(true)
+    })
+
+
+
+    test('POSITIVE/NEGATIVE OPERATIONS (first number negative, second larger): -5 + 10 = 5', function () {
+
+        clear.click();
+        sign.click();
+        five.click();
+        plus.click();
+        one.click();
+        zero.click();
+        equals.click();
+
+        expect(display.textContent).toBe('5')
+    })
+
+    test('POSITIVE/NEGATIVE OPERATIONS (first number negative, second larger): -5 - 10 = -15', function () {
+
+        clear.click();
+        sign.click();
+        five.click();
+        minus.click();
+        one.click();
+        zero.click();
+        equals.click();
+
+        expect(display.textContent).toBe('-15')
+    })
+
+    test('POSITIVE/NEGATIVE OPERATIONS (first number negative, second larger): -5 * 10 = -50', function () {
+
+        clear.click();
+        sign.click();
+        five.click();
+        times.click();
+        one.click();
+        zero.click();
+        equals.click();
+
+        expect(display.textContent).toBe('-50')
+    })
+
+    test('POSITIVE/NEGATIVE OPERATIONS (first number negative, second larger): -5 / 10 = -0.5', function () {
+
+        clear.click();
+        sign.click();
+        five.click();
+        divide.click();
+        one.click();
+        zero.click();
+        equals.click();
+
+        expect(display.textContent).toBe('-0.5')
+    })
+
+
+
+    test('POSITIVE/NEGATIVE OPERATIONS (second number negative): 5 + -3 = 2', function () {
+
+        clear.click();
+        five.click();
+        plus.click();
+        sign.click();
+        three.click();
+        equals.click();
+
+        expect(display.textContent).toBe('2')
+    })
+
+    test('POSITIVE/NEGATIVE OPERATIONS (second number negative): 5 - -3 = 8', function () {
+
+        clear.click();
+        five.click();
+        minus.click();
+        sign.click();
+        three.click();
+        equals.click();
+
+        expect(display.textContent).toBe('8')
+    })
+
+    test('POSITIVE/NEGATIVE OPERATIONS (second number negative): 5 * -3 = -15', function () {
+
+        clear.click();
+        five.click();
+        times.click();
+        sign.click();
+        three.click();
+        equals.click();
+
+        expect(display.textContent).toBe('-15')
+    })
+
+    test('POSITIVE/NEGATIVE OPERATIONS (second number negative): 5 / -3 = -1.66...', function () {
+
+        clear.click();
+        five.click();
+        divide.click();
+        sign.click();
+        three.click();
+        equals.click();
+
+        const isIt = display.textContent.includes('-1.66');
+
+        expect(isIt).toBe(true)
+    })
+
+
+
+    test('POSITIVE/NEGATIVE OPERATIONS (second number negative, second larger): 5 + -10 = -5', function () {
+
+        clear.click();
+        five.click();
+        plus.click();
+        sign.click();
+        one.click();
+        zero.click();
+        equals.click();
+
+        expect(display.textContent).toBe('-5')
+    })
+
+    test('POSITIVE/NEGATIVE OPERATIONS (second number negative, second larger): 5 - -10 = 15', function () {
+
+        clear.click();
+        five.click();
+        minus.click();
+        sign.click();
+        one.click();
+        zero.click();
+        equals.click();
+
+        expect(display.textContent).toBe('15')
+    })
+
+    test('POSITIVE/NEGATIVE OPERATIONS (second number negative, second larger): 5 * -10 = -50', function () {
+
+        clear.click();
+        five.click();
+        times.click();
+        sign.click();
+        one.click();
+        zero.click();
+        equals.click();
+
+        expect(display.textContent).toBe('-50')
+    })
+
+    test('POSITIVE/NEGATIVE OPERATIONS (second number negative, second larger): 5 / -10 = -0.5', function () {
+
+        clear.click();
+        five.click();
+        divide.click();
+        sign.click();
+        one.click();
+        zero.click();
+        equals.click();
+
+        expect(display.textContent).toBe('-0.5')
+    })
+
+
+
     test('ADVANCED OPERATIONS (Operator followed by an Equal Sign): 5 + = should return 10 (5+5=10)', function () {
 
         clear.click();
@@ -941,4 +1186,334 @@ describe('CALCULATOR APPLICATION', function () {
 
     })
 
+
+
+    test('ADVANCED OPERATIONS (Consecutive operations with floats. + first): 99 + 1.5 - 2.5 * 3.5 / 4.5 + 5.5 = should return 81.72...', function () {
+
+        clear.click();
+
+        nine.click();
+        nine.click();
+
+        plus.click();
+
+        one.click();
+        decimal.click();
+        five.click();
+
+        minus.click();
+
+        two.click();
+        decimal.click();
+        five.click();
+
+        times.click();
+
+        three.click();
+        decimal.click();
+        five.click();
+
+        divide.click();
+
+        four.click();
+        decimal.click();
+        five.click();
+
+        plus.click();
+
+        five.click();
+        decimal.click();
+        five.click();
+
+        equals.click();
+
+        const isIt = display.textContent.includes('81.72')
+
+        expect(isIt).toBe(true);
+
+    })
+
+    test('ADVANCED OPERATIONS (Consecutive operations with floats. - first): 99 - 1.5 * 2.5 / 3.5 + 4.5 - 5.5 = should return 68.64...', function () {
+
+        clear.click();
+
+        nine.click();
+        nine.click();
+
+        minus.click();
+
+        one.click();
+        decimal.click();
+        five.click();
+
+        times.click();
+
+        two.click();
+        decimal.click();
+        five.click();
+
+        divide.click();
+
+        three.click();
+        decimal.click();
+        five.click();
+
+        plus.click();
+
+        four.click();
+        decimal.click();
+        five.click();
+
+        minus.click();
+
+        five.click();
+        decimal.click();
+        five.click();
+
+        equals.click();
+
+        const isIt = display.textContent.includes('68.64')
+
+        expect(isIt).toBe(true);
+
+    })
+
+    test('ADVANCED OPERATIONS (Consecutive operations with floats. * first): 99 * 1.5 / 2.5 + 3.5 - 4.5 * 5.5 = should return 321.2', function () {
+
+        clear.click();
+
+        nine.click();
+        nine.click();
+
+        times.click();
+
+        one.click();
+        decimal.click();
+        five.click();
+
+        divide.click();
+
+        two.click();
+        decimal.click();
+        five.click();
+
+        plus.click();
+
+        three.click();
+        decimal.click();
+        five.click();
+
+        minus.click();
+
+        four.click();
+        decimal.click();
+        five.click();
+
+        times.click();
+
+        five.click();
+        decimal.click();
+        five.click();
+
+        equals.click();
+
+        const isIt = display.textContent.includes('321.2')
+
+        expect(isIt).toBe(true);
+
+    })
+
+    test('ADVANCED OPERATIONS (Consecutive operations with floats. / first): 99 / 1.5 + 2.5 - 3.5 * 4.5 / 5.5 = should return 53.18...', function () {
+
+        clear.click();
+
+        nine.click();
+        nine.click();
+
+        divide.click();
+
+        one.click();
+        decimal.click();
+        five.click();
+
+        plus.click();
+
+        two.click();
+        decimal.click();
+        five.click();
+
+        minus.click();
+
+        three.click();
+        decimal.click();
+        five.click();
+
+        times.click();
+
+        four.click();
+        decimal.click();
+        five.click();
+
+        divide.click();
+
+        five.click();
+        decimal.click();
+        five.click();
+
+        equals.click();
+
+        const isIt = display.textContent.includes('53.18')
+
+        expect(isIt).toBe(true);
+
+    })
+
+
+
+
+    test('ADVANCED OPERATIONS (Consecutive operations with signs. + first): 99 + -1 - 2 * -3 / 4 + -5 = should return -77', function () {
+
+        clear.click();
+
+        nine.click();
+        nine.click();
+
+        plus.click();
+
+        sign.click();
+        one.click();
+
+        minus.click();
+
+        two.click();
+
+        times.click();
+
+        sign.click();
+        three.click();
+
+        divide.click();
+
+        four.click();
+
+        plus.click();
+
+        sign.click();
+        five.click();
+
+        equals.click();
+
+        expect(display.textContent).toBe("-77");
+
+    })
+
+    test('ADVANCED OPERATIONS (Consecutive operations with signs. - first): 99 - -1 * 2 / -3 + 4 - -5 = should return -57.66...', function () {
+
+        clear.click();
+
+        nine.click();
+        nine.click();
+
+        minus.click();
+
+        sign.click();
+        one.click();
+
+        times.click();
+
+        two.click();
+
+        divide.click();
+
+        sign.click();
+        three.click();
+
+        plus.click();
+
+        four.click();
+
+        minus.click();
+
+        sign.click();
+        five.click();
+
+        equals.click();
+
+        const isIt = display.textContent.includes('-57.66')
+
+        expect(isIt).toBe(true);
+
+    })
+
+    test('ADVANCED OPERATIONS (Consecutive operations with signs. * first): 99 * -1 / 2 + -3 - 4 * -5 = should return 282.5', function () {
+
+        clear.click();
+
+        nine.click();
+        nine.click();
+
+        times.click();
+
+        sign.click();
+        one.click();
+
+        divide.click();
+
+        two.click();
+
+        plus.click();
+
+        sign.click();
+        three.click();
+
+        minus.click();
+
+        four.click();
+
+        times.click();
+
+        sign.click();
+        five.click();
+
+        equals.click();
+
+        expect(display.textContent).toBe("282.5");
+
+    })
+
+    test('ADVANCED OPERATIONS (Consecutive operations with signs. / first): 99 / -1 + 2 - -3 * 4 / -5 = should return 75.2', function () {
+
+        clear.click();
+
+        nine.click();
+        nine.click();
+
+        divide.click();
+
+        sign.click();
+        one.click();
+
+        plus.click();
+
+        two.click();
+
+        minus.click();
+
+        sign.click();
+        three.click();
+
+        times.click();
+
+        four.click();
+
+        divide.click();
+
+        sign.click();
+        five.click();
+
+        equals.click();
+
+        expect(display.textContent).toBe("75.2");
+
+    })
 })
