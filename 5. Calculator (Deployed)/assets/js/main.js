@@ -141,20 +141,16 @@ keys.addEventListener('click', event => {
         }
 
 
-
-
+        // !SQUARED KEY
         if (action === 'squared' &&
             (previousKeyType === 'number' ||
                 previousKeyType === 'calculate')) {
-
             const parsedDisplayNum = parseFloat(displayedNum);
             const squared = Math.pow(parsedDisplayNum, 2);
 
             calculator.dataset.firstValue = squared;
             display.textContent = squared;
         }
-
-
 
 
         // !CUBE KEY
@@ -169,6 +165,17 @@ keys.addEventListener('click', event => {
             display.textContent = cube;
         }
 
+
+        // !FACTORIAL KEY
+        if (action === 'factorial' &&
+            (previousKeyType === 'number' ||
+                previousKeyType === 'calculate')) {
+
+            const parsedDisplayNum = parseFloat(displayedNum);
+            const result = factorial(parsedDisplayNum);
+            calculator.dataset.firstValue = result;
+            display.textContent = result;
+        }
 
 
 
@@ -193,6 +200,7 @@ keys.addEventListener('click', event => {
     }
 })
 
+
 // calculates equation entered by the user
 const calculate = (n1, operator, n2) => {
     let result = ''
@@ -208,4 +216,17 @@ const calculate = (n1, operator, n2) => {
     }
 
     return result
+}
+
+// returns the factorial of a number
+function factorial(num) {
+    if (parseFloat(num) < 0 || !num) return NaN;
+
+    let arr = [];
+
+    for (i = 0; i < parseFloat(num); i++) {
+        arr.push(i + 1);
+    }
+
+    return arr.reduce((prev, next) => prev * next, 1);
 }

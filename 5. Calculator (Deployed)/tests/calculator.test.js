@@ -25,6 +25,7 @@ describe('CALCULATOR APPLICATION', function () {
 
     // select needed buttons PS:sorry if i used filter a lot, cant think of a better way
     const buttons = Array.from(keys.children);
+    const [factorialBtn] = buttons.filter(button => button.dataset.action === 'factorial')
     const [squared] = buttons.filter(button => button.dataset.action === 'squared')
     const [cube] = buttons.filter(button => button.dataset.action === 'cube')
     const [sign] = buttons.filter(button => button.dataset.action === 'sign')
@@ -244,6 +245,18 @@ describe('CALCULATOR APPLICATION', function () {
             }
 
 
+            // !FACTORIAL KEY
+            if (action === 'factorial' &&
+                (previousKeyType === 'number' ||
+                    previousKeyType === 'calculate')) {
+
+                const parsedDisplayNum = parseFloat(displayedNum);
+                const result = factorial(parsedDisplayNum);
+                calculator.dataset.firstValue = result;
+                display.textContent = result;
+            }
+
+
 
             // !EQUAL KEY
             if (action === 'calculate' && calculator.dataset.operator) {
@@ -283,6 +296,20 @@ describe('CALCULATOR APPLICATION', function () {
 
         return result
     }
+
+    // returns the factorial of a number
+    function factorial(num) {
+        if (parseFloat(num) < 0 || !num) return NaN;
+
+        let arr = [];
+
+        for (i = 0; i < parseFloat(num); i++) {
+            arr.push(i + 1);
+        }
+
+        return arr.reduce((prev, next) => prev * next, 1);
+    }
+
 
     // =========================================================//
     // PASTE YOUR keys.addEventListener and calculate function or other helper functions
@@ -731,6 +758,7 @@ describe('CALCULATOR APPLICATION', function () {
     })
 
 
+
     test('CUBE OF A NUMBER: 9^3 should return 729', function () {
 
         clear.click();
@@ -795,6 +823,83 @@ describe('CALCULATOR APPLICATION', function () {
 
         expect(display.textContent).toBe('970309');
     })
+
+
+
+    test('FACTORIAL OF A NUMBER: 3! should return 6', function () {
+
+        clear.click();
+        three.click();
+        factorialBtn.click();
+
+        expect(display.textContent).toBe('6')
+    })
+
+    test('FACTORIAL OF A NUMBER: 3!! should return 720', function () {
+
+        clear.click();
+        three.click();
+        factorialBtn.click();
+        factorialBtn.click();
+
+        expect(display.textContent).toBe('720')
+    })
+
+    test('FACTORIAL OF A NUMBER: -3! should return NaN', function () {
+
+        clear.click();
+        sign.click();
+        three.click();
+        factorialBtn.click();
+
+        expect(display.textContent).toBe('NaN')
+    })
+
+    test('FACTORIAL OF A NUMBER: -3!! should return NaN', function () {
+
+        clear.click();
+        sign.click();
+        three.click();
+        factorialBtn.click();
+        factorialBtn.click();
+
+        expect(display.textContent).toBe('NaN')
+    })
+
+    test('FACTORIAL OF A NUMBER (clicking equals should not do anything): 3! = should return 6', function () {
+
+        clear.click();
+        three.click();
+        factorialBtn.click();
+        equals.click();
+
+        expect(display.textContent).toBe('6')
+    })
+
+    test('FACTORIAL OF A NUMBER (able to get the factorial from the result of the previous calculation): 2+2=! should return 24', function () {
+
+        clear.click();
+        two.click();
+        plus.click();
+        two.click();
+        equals.click();
+        factorialBtn.click();
+
+        expect(display.textContent).toBe('24')
+    })
+
+    test('FACTORIAL OF A NUMBER (able to chain to another calculation): 3! + 5 should return 11', function () {
+
+        clear.click();
+        three.click();
+        factorialBtn.click();
+        plus.click();
+        five.click();
+        equals.click();
+
+        expect(display.textContent).toBe('11')
+    })
+
 
 
     test('POSITIVE/NEGATIVE OPERATIONS (first number negative): -5 + 3 = -4', function () {
