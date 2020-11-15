@@ -71,7 +71,7 @@
 >> - [x] supports positine/negative integers
 >> - [x] suuports square, cube and factorial of a number
 
-![Screenshot](_SCREENSHOTS/project5.png)
+![Screenshot](_SCREENSHOTS/project5new.png)
 
 
 
