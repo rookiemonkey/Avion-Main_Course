@@ -69,7 +69,8 @@
 >> - [x] added Jest test using jsdom to automate user clicks/calculations
 >> - [x] supports operations for whole and decimal numbers
 >> - [x] supports positine/negative integers
->> - [x] suuports square, cube and factorial of a number
+>> - [x] supports square, cube and factorial of a number
+>> - [x] supports fractions, square and cube roots and exponents
 
 ![Screenshot](_SCREENSHOTS/project5new.png)
 

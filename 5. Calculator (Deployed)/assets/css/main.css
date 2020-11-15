@@ -216,6 +216,11 @@ button {
   border-radius: 12px;
 }
 
+.directive {
+  color: #b53c36 !important;
+  font-weight: 700;
+}
+
 sup.pow {
   font-size: 0.5rem;
 }
@@ -234,7 +239,8 @@ button:not(.key--equal) {
 }
 
 button[data-action="clear"],
-button.key--sign {
+button.key--sign,
+button.key--fraction {
   padding-left: 15px !important;
   padding-right: 15px !important;
 }

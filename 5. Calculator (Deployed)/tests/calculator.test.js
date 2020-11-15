@@ -25,6 +25,7 @@ describe('CALCULATOR APPLICATION', function () {
 
     // select needed buttons PS:sorry if i used filter a lot, cant think of a better way
     const buttons = Array.from(keys.children);
+    const [fraction] = buttons.filter(button => button.dataset.action === 'fraction')
     const [factorialBtn] = buttons.filter(button => button.dataset.action === 'factorial')
     const [squared] = buttons.filter(button => button.dataset.action === 'squared')
     const [cube] = buttons.filter(button => button.dataset.action === 'cube')
@@ -252,6 +253,44 @@ describe('CALCULATOR APPLICATION', function () {
 
                 const parsedDisplayNum = parseFloat(displayedNum);
                 const result = factorial(parsedDisplayNum);
+                calculator.dataset.firstValue = result;
+                display.textContent = result;
+            }
+
+
+            // !FRACTION KEY
+            if (action === 'fraction' &&
+                (previousKeyType === 'number' ||
+                    previousKeyType === 'calculate')) {
+
+                const parsedDisplayNum = parseFloat(displayedNum);
+                const result = 1 / parsedDisplayNum;
+                calculator.dataset.firstValue = result;
+                display.textContent = result;
+            }
+
+
+
+            // !SQUARE ROOT KEY
+            if (action === 'squareroot' &&
+                (previousKeyType === 'number' ||
+                    previousKeyType === 'calculate')) {
+
+                const parsedDisplayNum = parseFloat(displayedNum);
+                const result = Math.sqrt(parsedDisplayNum);
+                calculator.dataset.firstValue = result;
+                display.textContent = result;
+            }
+
+
+
+            // !CUBE ROOT KEY
+            if (action === 'cuberoot' &&
+                (previousKeyType === 'number' ||
+                    previousKeyType === 'calculate')) {
+
+                const parsedDisplayNum = parseFloat(displayedNum);
+                const result = Math.cbrt(parsedDisplayNum);
                 calculator.dataset.firstValue = result;
                 display.textContent = result;
             }
@@ -898,6 +937,65 @@ describe('CALCULATOR APPLICATION', function () {
         equals.click();
 
         expect(display.textContent).toBe('11')
+    })
+
+
+
+    test('FRACTION OF A NUMBER (positive number): 5 should return 0.2', function () {
+
+        clear.click();
+        five.click();
+        fraction.click();
+
+        expect(display.textContent).toBe('0.2')
+    })
+
+    test('FRACTION OF A NUMBER (negative number): -5 should return -0.2', function () {
+
+        clear.click();
+        sign.click();
+        five.click();
+        fraction.click();
+
+        expect(display.textContent).toBe('-0.2')
+    })
+
+    test('FRACTION OF A NUMBER (clicking equals should not do anything): 5 1/x = should return 0.2', function () {
+
+        clear.click();
+        five.click();
+        fraction.click();
+        equals.click();
+        equals.click();
+        equals.click();
+
+        expect(display.textContent).toBe('0.2')
+    })
+
+    test('FRACTION OF A NUMBER (able to get the fraction from the result of the previous calculation): 2+2=1/x should return 0.25', function () {
+
+        clear.click();
+        two.click();
+        plus.click();
+        two.click();
+        equals.click();
+        fraction.click();
+
+        expect(display.textContent).toBe('0.25')
+    })
+
+    test('FRACTION OF A NUMBER (able to chain to another calculation): 3 1/x + 5 should return 5.33...', function () {
+
+        clear.click();
+        three.click();
+        fraction.click();
+        plus.click();
+        five.click();
+        equals.click();
+
+        const isIt = display.textContent.includes('5.33')
+
+        expect(isIt).toBe(true)
     })
 
 

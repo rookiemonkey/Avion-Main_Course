@@ -179,6 +179,57 @@ keys.addEventListener('click', event => {
 
 
 
+        // !FRACTION KEY
+        if (action === 'fraction' &&
+            (previousKeyType === 'number' ||
+                previousKeyType === 'calculate')) {
+
+            const parsedDisplayNum = parseFloat(displayedNum);
+            const result = 1 / parsedDisplayNum;
+            calculator.dataset.firstValue = result;
+            display.textContent = result;
+        }
+
+
+
+        // !SQUARE ROOT KEY
+        if (action === 'squareroot' &&
+            (previousKeyType === 'number' ||
+                previousKeyType === 'calculate')) {
+
+            const parsedDisplayNum = parseFloat(displayedNum);
+            const result = Math.sqrt(parsedDisplayNum);
+            calculator.dataset.firstValue = result;
+            display.textContent = result;
+        }
+
+
+
+        // !CUBE ROOT KEY
+        if (action === 'cuberoot' &&
+            (previousKeyType === 'number' ||
+                previousKeyType === 'calculate')) {
+
+            const parsedDisplayNum = parseFloat(displayedNum);
+            const result = Math.cbrt(parsedDisplayNum);
+            calculator.dataset.firstValue = result;
+            display.textContent = result;
+        }
+
+
+
+        // !EXPONENT KEY
+        if (action === 'exponent' &&
+            (previousKeyType === 'number' ||
+                previousKeyType === 'calculate')) {
+
+            // only appends ^ if its not existing
+            // calculation of the exponent will be inside the equal key
+        }
+
+
+
+
         // !EQUAL KEY
         if (action === 'calculate' && calculator.dataset.operator) {
             let firstValue = calculator.dataset.firstValue
