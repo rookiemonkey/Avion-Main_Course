@@ -166,6 +166,7 @@ button {
 }
 
 .calculator__display {
+  width: 400px;
   font-family: 'Digital';
   color: yellowgreen;
   font-size: 1.75em;
