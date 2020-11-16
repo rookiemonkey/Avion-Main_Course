@@ -27,7 +27,9 @@ describe('CALCULATOR APPLICATION', function () {
     const buttons = Array.from(keys.children);
     const [fraction] = buttons.filter(button => button.dataset.action === 'fraction')
     const [factorialBtn] = buttons.filter(button => button.dataset.action === 'factorial')
+    const [squareroot] = buttons.filter(button => button.dataset.action === 'squareroot')
     const [squared] = buttons.filter(button => button.dataset.action === 'squared')
+    const [cuberoot] = buttons.filter(button => button.dataset.action === 'cuberoot')
     const [cube] = buttons.filter(button => button.dataset.action === 'cube')
     const [sign] = buttons.filter(button => button.dataset.action === 'sign')
     const [clear] = buttons.filter(button => button.dataset.action === 'clear')
@@ -43,6 +45,7 @@ describe('CALCULATOR APPLICATION', function () {
     const [three] = buttons.filter(button => button.innerHTML === '3')
     const [four] = buttons.filter(button => button.innerHTML === '4')
     const [five] = buttons.filter(button => button.innerHTML === '5')
+    const [seven] = buttons.filter(button => button.innerHTML === '7')
     const [nine] = buttons.filter(button => button.innerHTML === '9')
 
 
@@ -798,6 +801,65 @@ describe('CALCULATOR APPLICATION', function () {
 
 
 
+    test('SQUAREROOT OF A NUMBER: √4 should return 2', function () {
+
+        clear.click();
+        four.click();
+        squareroot.click();
+
+        expect(display.textContent).toBe('2')
+    })
+
+    test('SQUAREROOT OF A NUMBER: √-4 should return NaN', function () {
+
+        clear.click();
+        sign.click();
+        four.click();
+        squareroot.click();
+
+        expect(display.textContent).toBe('NaN')
+    })
+
+    test('SQUAREROOT OF A NUMBER (clicking equals should not do anything): √4 = should return 2', function () {
+
+        clear.click();
+        four.click();
+        squareroot.click();
+        equals.click();
+
+        expect(display.textContent).toBe('2')
+    })
+
+    test('SQUAREROOT OF A NUMBER (able to squareroot a result of the previous calculation): 5+5=√ should return 3.16', function () {
+
+        clear.click();
+        five.click();
+        plus.click();
+        five.click();
+        equals.click();
+        squareroot.click();
+
+        const isIt = display.textContent.includes('3.16');
+
+        expect(isIt).toBe(true)
+    })
+
+    test('SQUAREROOT OF A NUMBER (able to chain to another calculation): √4+2= should return 4', function () {
+
+        clear.click();
+        four.click();
+        squareroot.click();
+        plus.click();
+        two.click();
+        equals.click();
+
+        const isIt = display.textContent.includes('4');
+
+        expect(isIt).toBe(true)
+    })
+
+
+
     test('CUBE OF A NUMBER: 9^3 should return 729', function () {
 
         clear.click();
@@ -837,7 +899,7 @@ describe('CALCULATOR APPLICATION', function () {
         expect(display.textContent).toBe('729');
     })
 
-    test('CUBE OF A NUMBER (able to square a result of the previous calculation): 5+5=^3 should return 1000', function () {
+    test('CUBE OF A NUMBER (able to cube a result of the previous calculation): 5+5=^3 should return 1000', function () {
 
         clear.click();
         five.click();
@@ -861,6 +923,68 @@ describe('CALCULATOR APPLICATION', function () {
         equals.click();
 
         expect(display.textContent).toBe('970309');
+    })
+
+
+
+    test('CUBEROOT OF A NUMBER: ∛27 should return 3', function () {
+
+        clear.click();
+        two.click();
+        seven.click();
+        cuberoot.click();
+
+        expect(display.textContent).toBe('3')
+    })
+
+    test('CUBEROOT OF A NUMBER: ∛-27 should return -3', function () {
+
+        clear.click();
+        sign.click();
+        two.click();
+        seven.click();
+        cuberoot.click();
+
+        expect(display.textContent).toBe('-3')
+    })
+
+    test('CUBEROOT OF A NUMBER (clicking equals should not do anything): ∛27 = should return 3', function () {
+
+        clear.click();
+        two.click();
+        seven.click();
+        cuberoot.click();
+        equals.click();
+        equals.click();
+
+        expect(display.textContent).toBe('3')
+    })
+
+    test('CUBEROOT OF A NUMBER (able to cuberoot a result of the previous calculation): 5+5=∛ = should return 2.15', function () {
+
+        clear.click();
+        five.click();
+        plus.click();
+        five.click();
+        equals.click();
+        cuberoot.click();
+
+        const isIt = display.textContent.includes('2.15');
+
+        expect(isIt).toBe(true)
+    })
+
+    test('CUBEROOT OF A NUMBER (able to chain to another calculation): ∛27+5 = should return 8', function () {
+
+        clear.click();
+        two.click();
+        seven.click();
+        cuberoot.click();
+        plus.click();
+        five.click();
+        equals.click();
+
+        expect(display.textContent).toBe('8')
     })
 
 
