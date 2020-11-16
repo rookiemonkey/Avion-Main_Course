@@ -113,6 +113,30 @@ keys.addEventListener('click', event => {
 
         // !SIGN KEY
         if (action === 'sign') {
+
+            // exponent
+            if (displayedNum.includes('^')) {
+                const position = displayedNum.indexOf('^')
+                const toArray = displayedNum.split('');
+
+                // check if there is already a negative for the exponent
+                if (displayedNum.lastIndexOf('-') > position) {
+                    // remove negative for exponent
+                    const lastPart = toArray.splice(position + 1)
+                    lastPart.shift(); // index 0 is the exponent neg sign
+                    const removedSign = [...toArray, ...lastPart]
+                    display.textContent = removedSign.join('');
+                } else {
+                    // append negative for exponent
+                    const lastPart = toArray.splice(position + 1)
+                    const appendedSign = [...toArray, '-', ...lastPart]
+                    display.textContent = appendedSign.join('');
+                }
+
+                calculator.dataset.previousKeyType = 'sign'
+                return null
+            }
+
             if (displayedNum.charAt(0) === '0') {
                 // if 0, just append a negative sign
                 display.textContent = '-'
@@ -148,6 +172,8 @@ keys.addEventListener('click', event => {
             const parsedDisplayNum = parseFloat(displayedNum);
             const squared = Math.pow(parsedDisplayNum, 2);
 
+            calculator.dataset.operator = '';
+            calculator.dataset.modValue = '';
             calculator.dataset.firstValue = squared;
             display.textContent = squared;
         }
@@ -161,6 +187,8 @@ keys.addEventListener('click', event => {
             const parsedDisplayNum = parseFloat(displayedNum);
             const cube = Math.pow(parsedDisplayNum, 3);
 
+            calculator.dataset.operator = '';
+            calculator.dataset.modValue = '';
             calculator.dataset.firstValue = cube;
             display.textContent = cube;
         }
@@ -173,6 +201,9 @@ keys.addEventListener('click', event => {
 
             const parsedDisplayNum = parseFloat(displayedNum);
             const result = factorial(parsedDisplayNum);
+
+            calculator.dataset.operator = '';
+            calculator.dataset.modValue = '';
             calculator.dataset.firstValue = result;
             display.textContent = result;
         }
@@ -186,6 +217,9 @@ keys.addEventListener('click', event => {
 
             const parsedDisplayNum = parseFloat(displayedNum);
             const result = 1 / parsedDisplayNum;
+
+            calculator.dataset.operator = '';
+            calculator.dataset.modValue = '';
             calculator.dataset.firstValue = result;
             display.textContent = result;
         }
@@ -199,6 +233,9 @@ keys.addEventListener('click', event => {
 
             const parsedDisplayNum = parseFloat(displayedNum);
             const result = Math.sqrt(parsedDisplayNum);
+
+            calculator.dataset.operator = '';
+            calculator.dataset.modValue = '';
             calculator.dataset.firstValue = result;
             display.textContent = result;
         }
@@ -212,6 +249,9 @@ keys.addEventListener('click', event => {
 
             const parsedDisplayNum = parseFloat(displayedNum);
             const result = Math.cbrt(parsedDisplayNum);
+
+            calculator.dataset.operator = '';
+            calculator.dataset.modValue = '';
             calculator.dataset.firstValue = result;
             display.textContent = result;
         }
@@ -221,10 +261,14 @@ keys.addEventListener('click', event => {
         // !EXPONENT KEY
         if (action === 'exponent' &&
             (previousKeyType === 'number' ||
-                previousKeyType === 'calculate')) {
+                previousKeyType === 'calculate') &&
+            !displayedNum.includes('^')) {
 
-            // only appends ^ if its not existing
-            // calculation of the exponent will be inside the equal key
+            // only adds ^ if not existing, calculation will be on equals
+            display.textContent = displayedNum + "^";
+            calculator.dataset.previousKeyType = 'exponent'
+            calculator.dataset.operator = '';
+            calculator.dataset.modValue = '';
         }
 
 
@@ -247,6 +291,16 @@ keys.addEventListener('click', event => {
 
             calculator.dataset.modValue = secondValue == 0 ? '' : secondValue;
             calculator.dataset.previousKeyType = 'calculate'
+        }
+
+        // !EQUAL KEY for EXPONENTS
+        if (action === 'calculate' && displayedNum.includes('^')) {
+            const [base, exponent] = displayedNum.split('^')
+            const base_parsed = parseFloat(base);
+            const exponent_parsed = parseFloat(exponent);
+            const result = Math.pow(base_parsed, exponent_parsed);
+            calculator.dataset.firstValue = result;
+            display.textContent = result;
         }
     }
 })
