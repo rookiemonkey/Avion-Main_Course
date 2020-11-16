@@ -168,7 +168,8 @@ keys.addEventListener('click', event => {
         // !SQUARED KEY
         if (action === 'squared' &&
             (previousKeyType === 'number' ||
-                previousKeyType === 'calculate')) {
+                previousKeyType === 'calculate' ||
+                display.textContent)) {
             const parsedDisplayNum = parseFloat(displayedNum);
             const squared = Math.pow(parsedDisplayNum, 2);
 
@@ -182,7 +183,8 @@ keys.addEventListener('click', event => {
         // !CUBE KEY
         if (action === 'cube' &&
             (previousKeyType === 'number' ||
-                previousKeyType === 'calculate')) {
+                previousKeyType === 'calculate' ||
+                display.textContent)) {
 
             const parsedDisplayNum = parseFloat(displayedNum);
             const cube = Math.pow(parsedDisplayNum, 3);
@@ -197,7 +199,9 @@ keys.addEventListener('click', event => {
         // !FACTORIAL KEY
         if (action === 'factorial' &&
             (previousKeyType === 'number' ||
-                previousKeyType === 'calculate')) {
+                previousKeyType === 'calculate' ||
+                display.textContent
+            )) {
 
             const parsedDisplayNum = parseFloat(displayedNum);
             const result = factorial(parsedDisplayNum);
@@ -213,7 +217,9 @@ keys.addEventListener('click', event => {
         // !FRACTION KEY
         if (action === 'fraction' &&
             (previousKeyType === 'number' ||
-                previousKeyType === 'calculate')) {
+                previousKeyType === 'calculate' ||
+                display.textContent
+            )) {
 
             const parsedDisplayNum = parseFloat(displayedNum);
             const result = 1 / parsedDisplayNum;
@@ -229,7 +235,9 @@ keys.addEventListener('click', event => {
         // !SQUARE ROOT KEY
         if (action === 'squareroot' &&
             (previousKeyType === 'number' ||
-                previousKeyType === 'calculate')) {
+                previousKeyType === 'calculate' ||
+                display.textContent
+            )) {
 
             const parsedDisplayNum = parseFloat(displayedNum);
             const result = Math.sqrt(parsedDisplayNum);
@@ -245,7 +253,9 @@ keys.addEventListener('click', event => {
         // !CUBE ROOT KEY
         if (action === 'cuberoot' &&
             (previousKeyType === 'number' ||
-                previousKeyType === 'calculate')) {
+                previousKeyType === 'calculate' ||
+                display.textContent
+            )) {
 
             const parsedDisplayNum = parseFloat(displayedNum);
             const result = Math.cbrt(parsedDisplayNum);
@@ -260,8 +270,11 @@ keys.addEventListener('click', event => {
 
         // !EXPONENT KEY
         if (action === 'exponent' &&
-            (previousKeyType === 'number' ||
-                previousKeyType === 'calculate') &&
+            (
+                previousKeyType === 'number' ||
+                previousKeyType === 'calculate' ||
+                display.textContent
+            ) &&
             !displayedNum.includes('^')) {
 
             // only adds ^ if not existing, calculation will be on equals

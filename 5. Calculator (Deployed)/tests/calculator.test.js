@@ -250,7 +250,8 @@ describe('CALCULATOR APPLICATION', function () {
             // !SQUARED KEY
             if (action === 'squared' &&
                 (previousKeyType === 'number' ||
-                    previousKeyType === 'calculate')) {
+                    previousKeyType === 'calculate' ||
+                    display.textContent)) {
                 const parsedDisplayNum = parseFloat(displayedNum);
                 const squared = Math.pow(parsedDisplayNum, 2);
 
@@ -264,7 +265,8 @@ describe('CALCULATOR APPLICATION', function () {
             // !CUBE KEY
             if (action === 'cube' &&
                 (previousKeyType === 'number' ||
-                    previousKeyType === 'calculate')) {
+                    previousKeyType === 'calculate' ||
+                    display.textContent)) {
 
                 const parsedDisplayNum = parseFloat(displayedNum);
                 const cube = Math.pow(parsedDisplayNum, 3);
@@ -279,7 +281,9 @@ describe('CALCULATOR APPLICATION', function () {
             // !FACTORIAL KEY
             if (action === 'factorial' &&
                 (previousKeyType === 'number' ||
-                    previousKeyType === 'calculate')) {
+                    previousKeyType === 'calculate' ||
+                    display.textContent
+                )) {
 
                 const parsedDisplayNum = parseFloat(displayedNum);
                 const result = factorial(parsedDisplayNum);
@@ -295,7 +299,9 @@ describe('CALCULATOR APPLICATION', function () {
             // !FRACTION KEY
             if (action === 'fraction' &&
                 (previousKeyType === 'number' ||
-                    previousKeyType === 'calculate')) {
+                    previousKeyType === 'calculate' ||
+                    display.textContent
+                )) {
 
                 const parsedDisplayNum = parseFloat(displayedNum);
                 const result = 1 / parsedDisplayNum;
@@ -311,7 +317,9 @@ describe('CALCULATOR APPLICATION', function () {
             // !SQUARE ROOT KEY
             if (action === 'squareroot' &&
                 (previousKeyType === 'number' ||
-                    previousKeyType === 'calculate')) {
+                    previousKeyType === 'calculate' ||
+                    display.textContent
+                )) {
 
                 const parsedDisplayNum = parseFloat(displayedNum);
                 const result = Math.sqrt(parsedDisplayNum);
@@ -327,7 +335,9 @@ describe('CALCULATOR APPLICATION', function () {
             // !CUBE ROOT KEY
             if (action === 'cuberoot' &&
                 (previousKeyType === 'number' ||
-                    previousKeyType === 'calculate')) {
+                    previousKeyType === 'calculate' ||
+                    display.textContent
+                )) {
 
                 const parsedDisplayNum = parseFloat(displayedNum);
                 const result = Math.cbrt(parsedDisplayNum);
@@ -342,8 +352,11 @@ describe('CALCULATOR APPLICATION', function () {
 
             // !EXPONENT KEY
             if (action === 'exponent' &&
-                (previousKeyType === 'number' ||
-                    previousKeyType === 'calculate') &&
+                (
+                    previousKeyType === 'number' ||
+                    previousKeyType === 'calculate' ||
+                    display.textContent
+                ) &&
                 !displayedNum.includes('^')) {
 
                 // only adds ^ if not existing, calculation will be on equals
@@ -794,7 +807,7 @@ describe('CALCULATOR APPLICATION', function () {
 
 
 
-    test('SQUARED OF A NUMBER: 99^2 should return 9801', function () {
+    test('SQUARE OF A NUMBER: 99^2 should return 9801', function () {
 
         clear.click();
         nine.click();
@@ -804,7 +817,7 @@ describe('CALCULATOR APPLICATION', function () {
         expect(display.textContent).toBe('9801');
     })
 
-    test('SQUARED OF A NUMBER: -99^2 should return 9801', function () {
+    test('SQUARE OF A NUMBER: -99^2 should return 9801', function () {
 
         clear.click();
         sign.click();
@@ -815,7 +828,7 @@ describe('CALCULATOR APPLICATION', function () {
         expect(display.textContent).toBe('9801');
     })
 
-    test('SQUARED OF A NUMBER: 99^2^2 = should return 96059601', function () {
+    test('SQUARE OF A NUMBER: 99^2^2 = should return 96059601', function () {
 
         clear.click();
         nine.click();
@@ -827,7 +840,7 @@ describe('CALCULATOR APPLICATION', function () {
         expect(display.textContent).toBe('96059601');
     })
 
-    test('SQUARED OF A NUMBER (clicking equals should not do anything): 99^2 = should return 9801', function () {
+    test('SQUARE OF A NUMBER (clicking equals should not do anything): 99^2 = should return 9801', function () {
 
         clear.click();
         nine.click();
@@ -838,7 +851,7 @@ describe('CALCULATOR APPLICATION', function () {
         expect(display.textContent).toBe('9801');
     })
 
-    test('SQUARED OF A NUMBER (able to square a result of the previous calculation): 5+5=^2 should return 100', function () {
+    test('SQUARE OF A NUMBER (able to square a result of the previous calculation): 5+5=^2 should return 100', function () {
 
         clear.click();
         five.click();
@@ -850,7 +863,7 @@ describe('CALCULATOR APPLICATION', function () {
         expect(display.textContent).toBe('100');
     })
 
-    test('SQUARED OF A NUMBER (able to chain to another calculation): 99^2+10 should return 9811', function () {
+    test('SQUARE OF A NUMBER (able to chain to another calculation): 99^2+10 should return 9811', function () {
 
         clear.click();
         nine.click();
@@ -862,6 +875,16 @@ describe('CALCULATOR APPLICATION', function () {
         equals.click();
 
         expect(display.textContent).toBe('9811');
+    })
+
+    test('SQUARE OF A NUMBER (interchanged click of sign and number for directives, number first then sign): 5 +/- ^2 should return 25', function () {
+
+        clear.click();
+        five.click();
+        sign.click();
+        squared.click();
+
+        expect(display.textContent).toBe('25')
     })
 
 
@@ -921,6 +944,16 @@ describe('CALCULATOR APPLICATION', function () {
         const isIt = display.textContent.includes('4');
 
         expect(isIt).toBe(true)
+    })
+
+    test('SQUAREROOT OF A NUMBER (interchanged click of sign and number for directives, number first then sign): 5 +/- √ should return NaN', function () {
+
+        clear.click();
+        five.click();
+        sign.click();
+        squareroot.click();
+
+        expect(display.textContent).toBe('NaN')
     })
 
 
@@ -990,6 +1023,16 @@ describe('CALCULATOR APPLICATION', function () {
         expect(display.textContent).toBe('970309');
     })
 
+    test('CUBE OF A NUMBER (interchanged click of sign and number for directives, number first then sign): 5 +/- ^3 should return -125', function () {
+
+        clear.click();
+        five.click();
+        sign.click();
+        cube.click();
+
+        expect(display.textContent).toBe('-125')
+    })
+
 
 
     test('CUBEROOT OF A NUMBER: ∛27 should return 3', function () {
@@ -1050,6 +1093,18 @@ describe('CALCULATOR APPLICATION', function () {
         equals.click();
 
         expect(display.textContent).toBe('8')
+    })
+
+    test('CUBEROOT OF A NUMBER (interchanged click of sign and number for directives, number first then sign): 5 +/- ∛ should return -1.70...', function () {
+
+        clear.click();
+        five.click();
+        sign.click();
+        cuberoot.click();
+
+        const isIt = display.textContent.includes('-1.70')
+
+        expect(isIt).toBe(true)
     })
 
 
@@ -1128,6 +1183,16 @@ describe('CALCULATOR APPLICATION', function () {
         expect(display.textContent).toBe('11')
     })
 
+    test('FACTORIAL OF A NUMBER (interchanged click of sign and number for directives, number first then sign): 5 +/- x! should return NaN', function () {
+
+        clear.click();
+        five.click();
+        sign.click();
+        factorialBtn.click();
+
+        expect(display.textContent).toBe('NaN')
+    })
+
 
 
     test('FRACTION OF A NUMBER (positive number): 5 should return 0.2', function () {
@@ -1185,6 +1250,16 @@ describe('CALCULATOR APPLICATION', function () {
         const isIt = display.textContent.includes('5.33')
 
         expect(isIt).toBe(true)
+    })
+
+    test('FRACTION OF A NUMBER (interchanged click of sign and number for directives, number first then sign): 5 +/- 1/x should return -0.2', function () {
+
+        clear.click();
+        five.click();
+        sign.click();
+        fraction.click();
+
+        expect(display.textContent).toBe('-0.2')
     })
 
 
@@ -1464,6 +1539,18 @@ describe('CALCULATOR APPLICATION', function () {
         equals.click();
 
         expect(display.textContent).toBe('3125')
+    })
+
+    test('EXPONENTS (interchanged click of sign and number for directives, number first then sign): 5 +/- ^ 4 should return 625', function () {
+
+        clear.click();
+        five.click();
+        sign.click();
+        exponent.click();
+        four.click();
+        equals.click();
+
+        expect(display.textContent).toBe('625')
     })
 
 
