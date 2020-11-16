@@ -72,7 +72,7 @@
 >> - [x] supports square, cube and factorial of a number
 >> - [x] supports fractions, square and cube roots and exponents
 
-![Screenshot](_SCREENSHOTS/project5new.png)
+![Screenshot](_SCREENSHOTS/project5new2.png)
 
 
 
