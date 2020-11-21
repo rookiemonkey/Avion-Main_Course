@@ -36,9 +36,9 @@ btn_hold.addEventListener('click', PigGame.updateGlobalScoreDisplay)
 
 // MODEL FOR GAME
 function Game() {
-    this.isStarted = true;
-    this.whoIsPlaying = '1';
+    this.hasStarted = true;
     this.whoIsWinner = '';
+    this.whoIsPlaying = '1';
     this.P1RoundScore = 0;
     this.P1GlobalScore = 0;
     this.P2RoundScore = 0;
@@ -46,16 +46,6 @@ function Game() {
     this.img_dice = document.querySelector('.dice');
     this.btn_roll = document.querySelector('.btn-roll');
     this.btn_hold = document.querySelector('.btn-hold');
-    this.nextPlayer = () => {
-        const currentPlayer = `P${this.whoIsPlaying}RoundScore`
-
-        this[currentPlayer] = 0;
-        this.updateRoundScoreDisplay();
-
-        this.whoIsPlaying === '1'
-            ? this.whoIsPlaying = '2'
-            : this.whoIsPlaying = '1'
-    }
     this.calculateRoundScore = score => {
         const currentPlayer = `P${this.whoIsPlaying}RoundScore`
         this[currentPlayer] = parseFloat(this[currentPlayer]) + parseFloat(score)
@@ -77,5 +67,24 @@ function Game() {
         this[currentPlayerGlobalScore] = globalScoreNew;
         this.updateRoundScoreDisplay();
         this.nextPlayer();
+    };
+    this.nextPlayer = () => {
+        const currentPlayer = `P${this.whoIsPlaying}RoundScore`
+        const currentPlayerPanel = `.player-${this.whoIsPlaying}-panel`
+
+        this[currentPlayer] = 0;
+        this.updateRoundScoreDisplay();
+        document.querySelector(currentPlayerPanel).classList.remove('active')
+
+        switch (this.whoIsPlaying) {
+            case '1':
+                document.querySelector('.player-2-panel').classList.add('active')
+                this.whoIsPlaying = '2'
+                break;
+            case '2':
+                document.querySelector('.player-1-panel').classList.add('active')
+                this.whoIsPlaying = '1'
+                break;
+        }
     }
 }
