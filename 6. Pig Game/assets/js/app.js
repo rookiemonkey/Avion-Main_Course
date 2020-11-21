@@ -9,24 +9,25 @@ GAME RULES:
 */
 
 const PigGame = new Game();
-const { btn_roll, img_dice, whoIsPlaying } = PigGame;
+const { btn_roll, btn_hold, img_dice, whoIsPlaying } = PigGame;
 
-// event for round score button constraints: current player
-btn_roll
-    .addEventListener('click', function () {
-        const randomDiceValue = Math.floor(Math.random() * 6) + 1;
+// event for round score button
+btn_roll.addEventListener('click', function () {
+    const randomDiceValue = Math.floor(Math.random() * 6) + 1;
 
-        img_dice.setAttribute('src', `/assets/images/dice-${randomDiceValue}.png`);
+    img_dice.setAttribute('src', `/assets/images/dice-${randomDiceValue}.png`);
 
-        if (randomDiceValue === 1) {
-            PigGame.nextPlayer();
-            return null;
-        }
+    if (randomDiceValue === 1) {
+        PigGame.nextPlayer();
+        return null;
+    }
 
-        PigGame.calculateRoundScore(randomDiceValue);
-        PigGame.updateRoundScoreDisplay(randomDiceValue);
-    })
+    PigGame.calculateRoundScore(randomDiceValue);
+    PigGame.updateRoundScoreDisplay(randomDiceValue);
+})
 
+// event for global score button
+btn_hold.addEventListener('click', PigGame.updateGlobalScoreDisplay)
 
 
 
@@ -44,6 +45,7 @@ function Game() {
     this.P2GlobalScore = 0;
     this.img_dice = document.querySelector('.dice');
     this.btn_roll = document.querySelector('.btn-roll');
+    this.btn_hold = document.querySelector('.btn-hold');
     this.nextPlayer = () => {
         const currentPlayer = `P${this.whoIsPlaying}RoundScore`
 
@@ -56,14 +58,24 @@ function Game() {
     }
     this.calculateRoundScore = score => {
         const currentPlayer = `P${this.whoIsPlaying}RoundScore`
-        this[currentPlayer] = this[currentPlayer] + parseFloat(score)
+        this[currentPlayer] = parseFloat(this[currentPlayer]) + parseFloat(score)
     };
     this.calculateGlobalScore = roundScore => {
         const currentPlayer = `P${this.whoIsPlaying}GlobalScore`
-        this[currentPlayer] = this[currentPlayer] + parseFloat(roundScore)
+        this[currentPlayer] = parseFloat(this[currentPlayer]) + parseFloat(roundScore)
     };
     this.updateRoundScoreDisplay = () => {
         document.querySelector(`#current-${this.whoIsPlaying}`)
             .textContent = this[`P${this.whoIsPlaying}RoundScore`];
+    };
+    this.updateGlobalScoreDisplay = () => {
+        const currentPlayerGlobalScore = `P${this.whoIsPlaying}GlobalScore`
+        const currentPlayerRoundScore = `P${this.whoIsPlaying}RoundScore`
+        const globalScoreDiplay = document.querySelector(`#score-${this.whoIsPlaying}`);
+        const globalScoreNew = this[currentPlayerGlobalScore] + this[currentPlayerRoundScore]
+        globalScoreDiplay.textContent = globalScoreNew;
+        this[currentPlayerGlobalScore] = globalScoreNew;
+        this.updateRoundScoreDisplay();
+        this.nextPlayer();
     }
 }
