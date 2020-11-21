@@ -161,9 +161,14 @@ i {
     position: absolute;
     left: 45%; // before 50%
     top: 178px;
-    // transform: translateX(-50%) !important;
     height: 100px;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+.player-rolled-1 {
+    visibility: hidden;
+    text-align: center;
+    margin: 10px 0px 20px 0px;
 }
 
 .winner { background-color: #f7f7f7; }
@@ -172,6 +177,12 @@ i {
 .rotate-center {
 	-webkit-animation: rotate-center 250ms cubic-bezier(0.785, 0.135, 0.150, 0.860) both;
 	        animation: rotate-center 250ms cubic-bezier(0.785, 0.135, 0.150, 0.860) both;
+}
+
+.fade-in-top {
+    visibility: visible !important;
+	-webkit-animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 @-webkit-keyframes rotate-center {
@@ -192,5 +203,30 @@ i {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
   }
 }

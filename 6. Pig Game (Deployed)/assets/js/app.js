@@ -31,6 +31,7 @@ AddPointsSound.volume = 0.2;
 
 // MODEL FOR GAME
 function Game() {
+    this.diceval = 0;
     this.hasStarted = true;
     this.whoIsWinner = '';
     this.whoIsPlaying = '1';
@@ -68,6 +69,10 @@ function Game() {
     this.nextPlayer = () => {
         const currentPlayer = `P${this.whoIsPlaying}RoundScore`
         const currentPlayerPanel = `.player-${this.whoIsPlaying}-panel`
+        const currentPlayerPrompt = `#rolled1-P${this.whoIsPlaying}`
+
+        if (this.diceval === 1)
+            document.querySelector(currentPlayerPrompt).classList.add('fade-in-top')
 
         this[currentPlayer] = 0;
         this.updateRoundScoreDisplay();
@@ -75,31 +80,32 @@ function Game() {
 
         switch (this.whoIsPlaying) {
             case '1':
-                document.querySelector('.player-2-panel').classList.add('active')
                 this.whoIsPlaying = '2'
+                document.querySelector('.player-2-panel').classList.add('active')
+                document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
                 break;
             case '2':
-                document.querySelector('.player-1-panel').classList.add('active')
                 this.whoIsPlaying = '1'
+                document.querySelector('.player-1-panel').classList.add('active')
+                document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
                 break;
         }
     };
     this.rollDice = () => {
         RollDiceSound.play();
-        const randomDiceValue = Math.floor(Math.random() * 6) + 1;
-
-        this.img_dice.setAttribute('src', `/assets/images/dice-${randomDiceValue}.png`);
+        this.diceval = Math.floor(Math.random() * 6) + 1;
+        this.img_dice.setAttribute('src', `/assets/images/dice-${this.diceval}.png`);
         this.img_dice.classList.add('rotate-center')
         setTimeout(() => this.img_dice.classList.remove('rotate-center'), 250) // check css
 
-        if (randomDiceValue === 1) {
+        if (this.diceval === 1) {
             LosePointsSound.play();
             this.nextPlayer();
             return null;
         }
 
-        this.calculateRoundScore(randomDiceValue);
-        this.updateRoundScoreDisplay(randomDiceValue);
+        this.calculateRoundScore(this.diceval);
+        this.updateRoundScoreDisplay(this.diceval);
     };
     this.newGame = () => {
         this.hasStarted = true;
@@ -110,9 +116,11 @@ function Game() {
         this.P2GlobalScore = 0;
         this.whoIsPlaying = '2';
         document.querySelector(`#score-${this.whoIsPlaying}`).textContent = 0;
+        document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
         this.updateRoundScoreDisplay();
         this.whoIsPlaying = '1';
         document.querySelector(`#score-${this.whoIsPlaying}`).textContent = 0
+        document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
         this.updateRoundScoreDisplay();
         document.querySelector('.player-2-panel').classList.remove('active')
         document.querySelector('.player-1-panel').classList.add('active')
