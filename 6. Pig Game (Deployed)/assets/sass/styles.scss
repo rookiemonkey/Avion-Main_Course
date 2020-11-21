@@ -159,12 +159,38 @@ i {
 
 .dice {
     position: absolute;
-    left: 50%;
+    left: 45%; // before 50%
     top: 178px;
-    transform: translateX(-50%);
+    // transform: translateX(-50%) !important;
     height: 100px;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
 }
 
 .winner { background-color: #f7f7f7; }
 .winner .player-name { font-weight: 300; color: #EB4D4D; }
+
+.rotate-center {
+	-webkit-animation: rotate-center 250ms cubic-bezier(0.785, 0.135, 0.150, 0.860) both;
+	        animation: rotate-center 250ms cubic-bezier(0.785, 0.135, 0.150, 0.860) both;
+}
+
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}

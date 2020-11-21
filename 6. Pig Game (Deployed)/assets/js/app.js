@@ -89,6 +89,8 @@ function Game() {
         const randomDiceValue = Math.floor(Math.random() * 6) + 1;
 
         this.img_dice.setAttribute('src', `/assets/images/dice-${randomDiceValue}.png`);
+        this.img_dice.classList.add('rotate-center')
+        setTimeout(() => this.img_dice.classList.remove('rotate-center'), 250) // check css
 
         if (randomDiceValue === 1) {
             LosePointsSound.play();
@@ -106,11 +108,11 @@ function Game() {
         this.P1GlobalScore = 0;
         this.P2RoundScore = 0;
         this.P2GlobalScore = 0;
-        this.whoIsPlaying = '1';
-        document.querySelector(`#score-${this.whoIsPlaying}`).textContent = 0
-        this.updateRoundScoreDisplay();
         this.whoIsPlaying = '2';
         document.querySelector(`#score-${this.whoIsPlaying}`).textContent = 0;
+        this.updateRoundScoreDisplay();
+        this.whoIsPlaying = '1';
+        document.querySelector(`#score-${this.whoIsPlaying}`).textContent = 0
         this.updateRoundScoreDisplay();
         document.querySelector('.player-2-panel').classList.remove('active')
         document.querySelector('.player-1-panel').classList.add('active')
