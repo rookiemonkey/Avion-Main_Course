@@ -1,4 +1,5 @@
 const PigGame = new Game();
+const BackgroundMusic = new Audio('/assets/audios/bensound-buddy.mp3');
 const { btn_roll, btn_hold, btn_new } = PigGame;
 
 // event for new game
@@ -10,7 +11,10 @@ btn_roll.addEventListener('click', PigGame.rollDice)
 // event for global score button
 btn_hold.addEventListener('click', PigGame.updateGlobalScoreDisplay)
 
-
+// play background music with lesser volume and on-loop
+BackgroundMusic.play()
+BackgroundMusic.loop = true;
+BackgroundMusic.volume = 0.1
 
 
 
