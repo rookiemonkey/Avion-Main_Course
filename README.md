@@ -76,6 +76,16 @@
 
 
 
+### ✨ [6. Pig Game (Click to see live version)](https://krrb-prod-piggame.netlify.app)
+
+> This project is focused on the basics of implementing javascript on web applications which consists of manipulating styles and markup.
+
+>> ###### Features:
+>> - [x] use of factory functions
+
+![Screenshot](_SCREENSHOTS/project6.png)
+
+
 
 ## Author
 
