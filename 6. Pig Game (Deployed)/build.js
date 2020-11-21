@@ -36,6 +36,10 @@ const paths = {
     fonts: {
         src: './assets/fonts/*',
         dest: './build/assets/fonts'
+    },
+    audios: {
+        src: './assets/audios/*',
+        dest: './build/assets/audios'
     }
 };
 
@@ -114,10 +118,19 @@ const fonts = () =>
 
 
 
+// Copy the AUDIOS folder/contents
+const audios = () =>
+    gulp
+        .src(paths.audios.src)
+        .pipe(plumber())
+        .pipe(gulp.dest(paths.audios.dest));
+
+
+
 // Define the series of tasks needed to accomplished by gulp
 const build = gulp.series(
     clean,
-    gulp.parallel(html, styles, scripts, images, fonts)
+    gulp.parallel(html, styles, scripts, images, fonts, audios)
 );
 
 exports.clean = clean;

@@ -1,5 +1,8 @@
 const PigGame = new Game();
 const BackgroundMusic = new Audio('/assets/audios/bensound-buddy.mp3');
+const RollDiceSound = new Audio('/assets/audios/dice-roll.mp3');
+const LosePointsSound = new Audio('/assets/audios/lose-points.mp3');
+const AddPointsSound = new Audio('/assets/audios/add-points.mp3');
 const { btn_roll, btn_hold, btn_new } = PigGame;
 
 // event for new game
@@ -14,7 +17,14 @@ btn_hold.addEventListener('click', PigGame.updateGlobalScoreDisplay)
 // play background music with lesser volume and on-loop
 BackgroundMusic.play()
 BackgroundMusic.loop = true;
-BackgroundMusic.volume = 0.1
+BackgroundMusic.volume = 0.1;
+
+// adjust volume for sprites
+RollDiceSound.volume = 0.2;
+LosePointsSound.volume = 0.2;
+AddPointsSound.volume = 0.2;
+
+
 
 
 
@@ -45,6 +55,7 @@ function Game() {
             .textContent = this[`P${this.whoIsPlaying}RoundScore`];
     };
     this.updateGlobalScoreDisplay = () => {
+        AddPointsSound.play();
         const currentPlayerGlobalScore = `P${this.whoIsPlaying}GlobalScore`
         const currentPlayerRoundScore = `P${this.whoIsPlaying}RoundScore`
         const globalScoreDiplay = document.querySelector(`#score-${this.whoIsPlaying}`);
@@ -74,11 +85,13 @@ function Game() {
         }
     };
     this.rollDice = () => {
+        RollDiceSound.play();
         const randomDiceValue = Math.floor(Math.random() * 6) + 1;
 
         this.img_dice.setAttribute('src', `/assets/images/dice-${randomDiceValue}.png`);
 
         if (randomDiceValue === 1) {
+            LosePointsSound.play();
             this.nextPlayer();
             return null;
         }
@@ -94,10 +107,10 @@ function Game() {
         this.P2RoundScore = 0;
         this.P2GlobalScore = 0;
         this.whoIsPlaying = '1';
-        this.updateGlobalScoreDisplay();
+        document.querySelector(`#score-${this.whoIsPlaying}`).textContent = 0
         this.updateRoundScoreDisplay();
         this.whoIsPlaying = '2';
-        this.updateGlobalScoreDisplay();
+        document.querySelector(`#score-${this.whoIsPlaying}`).textContent = 0;
         this.updateRoundScoreDisplay();
         document.querySelector('.player-2-panel').classList.remove('active')
         document.querySelector('.player-1-panel').classList.add('active')
