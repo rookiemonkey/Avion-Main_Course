@@ -9,22 +9,13 @@ GAME RULES:
 */
 
 const PigGame = new Game();
-const { btn_roll, btn_hold, img_dice, whoIsPlaying } = PigGame;
+const { btn_roll, btn_hold, btn_new } = PigGame;
 
-// event for round score button
-btn_roll.addEventListener('click', function () {
-    const randomDiceValue = Math.floor(Math.random() * 6) + 1;
+// event for new game
+btn_new.addEventListener('click', PigGame.newGame)
 
-    img_dice.setAttribute('src', `/assets/images/dice-${randomDiceValue}.png`);
-
-    if (randomDiceValue === 1) {
-        PigGame.nextPlayer();
-        return null;
-    }
-
-    PigGame.calculateRoundScore(randomDiceValue);
-    PigGame.updateRoundScoreDisplay(randomDiceValue);
-})
+// event for round score/roll button
+btn_roll.addEventListener('click', PigGame.rollDice)
 
 // event for global score button
 btn_hold.addEventListener('click', PigGame.updateGlobalScoreDisplay)
@@ -44,6 +35,7 @@ function Game() {
     this.P2RoundScore = 0;
     this.P2GlobalScore = 0;
     this.img_dice = document.querySelector('.dice');
+    this.btn_new = document.querySelector('.btn-new');
     this.btn_roll = document.querySelector('.btn-roll');
     this.btn_hold = document.querySelector('.btn-hold');
     this.calculateRoundScore = score => {
@@ -86,5 +78,34 @@ function Game() {
                 this.whoIsPlaying = '1'
                 break;
         }
+    };
+    this.rollDice = () => {
+        const randomDiceValue = Math.floor(Math.random() * 6) + 1;
+
+        this.img_dice.setAttribute('src', `/assets/images/dice-${randomDiceValue}.png`);
+
+        if (randomDiceValue === 1) {
+            this.nextPlayer();
+            return null;
+        }
+
+        this.calculateRoundScore(randomDiceValue);
+        this.updateRoundScoreDisplay(randomDiceValue);
+    };
+    this.newGame = () => {
+        this.hasStarted = true;
+        this.whoIsWinner = '';
+        this.P1RoundScore = 0;
+        this.P1GlobalScore = 0;
+        this.P2RoundScore = 0;
+        this.P2GlobalScore = 0;
+        this.whoIsPlaying = '1';
+        this.updateGlobalScoreDisplay();
+        this.updateRoundScoreDisplay();
+        this.whoIsPlaying = '2';
+        this.updateGlobalScoreDisplay();
+        this.updateRoundScoreDisplay();
+        document.querySelector('.player-2-panel').classList.remove('active')
+        document.querySelector('.player-1-panel').classList.add('active')
     }
 }
