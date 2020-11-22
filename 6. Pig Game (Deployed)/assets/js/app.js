@@ -59,9 +59,19 @@ function Game() {
         AddPointsSound.play();
         const currentPlayerGlobalScore = `P${this.whoIsPlaying}GlobalScore`
         const currentPlayerRoundScore = `P${this.whoIsPlaying}RoundScore`
-        const globalScoreDiplay = document.querySelector(`#score-${this.whoIsPlaying}`);
+        const addedScoreDisplay = document.querySelector(`#scoreadd-${this.whoIsPlaying}`);
+        const globalScoreDisplay = document.querySelector(`#score-${this.whoIsPlaying}`);
         const globalScoreNew = this[currentPlayerGlobalScore] + this[currentPlayerRoundScore]
-        globalScoreDiplay.textContent = globalScoreNew;
+        globalScoreDisplay.textContent = globalScoreNew;
+        addedScoreDisplay.textContent = `+${this[currentPlayerRoundScore]}`
+        addedScoreDisplay.classList.add('slide-in-frombottom')
+        setTimeout(() => {
+            addedScoreDisplay.classList.add('slide-out-tobottom');
+        }, 1000)
+        setTimeout(() => {
+            addedScoreDisplay.classList.remove('slide-in-frombottom');
+            addedScoreDisplay.classList.remove('slide-out-tobottom');
+        }, 2000)
         this[currentPlayerGlobalScore] = globalScoreNew;
         this.updateRoundScoreDisplay();
         this.nextPlayer();
