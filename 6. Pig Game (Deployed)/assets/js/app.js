@@ -3,6 +3,7 @@ const BackgroundMusic = new Audio('/assets/audios/bensound-buddy.mp3');
 const RollDiceSound = new Audio('/assets/audios/dice-roll.mp3');
 const LosePointsSound = new Audio('/assets/audios/lose-points.mp3');
 const AddPointsSound = new Audio('/assets/audios/add-points.mp3');
+const ApplauseSound = new Audio('/assets/audios/applause.mp3')
 const { btn_roll, btn_hold, btn_new } = PigGame;
 
 // event for new game
@@ -23,6 +24,7 @@ BackgroundMusic.volume = 0.1;
 RollDiceSound.volume = 0.2;
 LosePointsSound.volume = 0.2;
 AddPointsSound.volume = 0.2;
+ApplauseSound.volume = 0.2
 
 
 
@@ -74,6 +76,19 @@ function Game() {
         }, 2000)
         this[currentPlayerGlobalScore] = globalScoreNew;
         this.updateRoundScoreDisplay();
+
+        if (this[currentPlayerGlobalScore] >= 100) {
+            ApplauseSound.play();
+            const panel = document.querySelector(`.player-${this.whoIsPlaying}-panel`);
+            const promptWinner = document.querySelector(`#winner-${this.whoIsPlaying}`);
+            panel.style.backgroundImage = `url('/assets/images/winner.png')`
+            promptWinner.style.visibility = `visible`
+            this.img_dice.style.visibility = `hidden`
+            this.btn_roll.style.visibility = `hidden`
+            this.btn_hold.style.visibility = `hidden`
+            return null;
+        }
+
         this.nextPlayer();
     };
     this.nextPlayer = () => {
@@ -127,12 +142,19 @@ function Game() {
         this.whoIsPlaying = '2';
         document.querySelector(`#score-${this.whoIsPlaying}`).textContent = 0;
         document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
+        document.querySelector(`.player-${this.whoIsPlaying}-panel`).style.backgroundImage = ``
+        document.querySelector(`#winner-${this.whoIsPlaying}`).style.visibility = 'hidden'
         this.updateRoundScoreDisplay();
         this.whoIsPlaying = '1';
         document.querySelector(`#score-${this.whoIsPlaying}`).textContent = 0
         document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
+        document.querySelector(`.player-${this.whoIsPlaying}-panel`).style.backgroundImage = ``
+        document.querySelector(`#winner-${this.whoIsPlaying}`).style.visibility = 'hidden'
         this.updateRoundScoreDisplay();
         document.querySelector('.player-2-panel').classList.remove('active')
         document.querySelector('.player-1-panel').classList.add('active')
+        this.img_dice.style.visibility = `visible`
+        this.btn_roll.style.visibility = `visible`
+        this.btn_hold.style.visibility = `visible`
     }
 }

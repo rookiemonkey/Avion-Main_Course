@@ -2281,7 +2281,9 @@ body {
   width: 50%;
   float: left;
   height: 600px;
-  padding: 100px; }
+  padding: 100px;
+  background-position: center;
+  background-size: cover; }
 
 /**********************************************
 *** PLAYERS
@@ -2301,7 +2303,7 @@ body {
   font-size: 80px;
   font-weight: 100;
   color: #EB4D4D;
-  margin-bottom: 130px; }
+  margin-bottom: 95px; }
 
 .active {
   background-color: #f7f7f7; }
@@ -2399,12 +2401,12 @@ i {
 #scoreadd-2 {
   left: 85%; }
 
-.winner {
-  background-color: #f7f7f7; }
-
-.winner .player-name {
-  font-weight: 300;
-  color: #EB4D4D; }
+#winner-1,
+#winner-2 {
+  visibility: hidden;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600; }
 
 .rotate-center {
   -webkit-animation: rotate-center 250ms cubic-bezier(0.785, 0.135, 0.15, 0.86) both;
