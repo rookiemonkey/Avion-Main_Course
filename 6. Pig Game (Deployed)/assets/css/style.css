@@ -2313,15 +2313,22 @@ body {
       margin: 10px 0px; }
 
 .language-panel {
+  min-width: 185px;
+  padding: 10px 15px;
+  border: 1px solid #EB4D4D;
+  border-radius: 35px;
   display: flex;
   align-items: center;
   position: absolute;
   top: 20px;
   left: 80%; }
+  .language-panel label {
+    margin-top: 1.5px; }
   .language-panel select {
+    min-width: 110px;
     font-family: Lato;
     border: none;
-    padding: 7.5px 10px;
+    padding: 7.5px 2px 7.5px 2px;
     background-color: #f7f7f7; }
     .language-panel select option {
       font-family: Lato; }
