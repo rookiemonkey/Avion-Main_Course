@@ -59,6 +59,7 @@ body {
     float: left;
     height: 600px;
     padding: 100px;
+    background-color: #f7f7f7;
     background-position: center;
     background-size: cover;
     transition: border 500ms ease-in-out;
@@ -67,7 +68,7 @@ body {
 .initial-panel {
   width: 1000px;
   height: 95vh;
-  background-color: #fff;
+  background-color: #f7f7f7;
   display: flex;
 
   .initial-panel-logo,
