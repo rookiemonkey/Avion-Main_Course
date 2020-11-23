@@ -61,6 +61,7 @@ body {
     padding: 100px;
     background-position: center;
     background-size: cover;
+    transition: border 500ms ease-in-out;
 }
 
 .initial-panel {
@@ -166,8 +167,20 @@ body {
     margin-bottom: 30px;
 }
 
-.active { background-color: #f7f7f7; }
-.active .player-name { font-weight: 300; }
+.active-1 {
+  border-top: 5px solid #EB4D4D;
+  border-left: 5px solid #EB4D4D;
+  border-bottom: 5px solid #EB4D4D;
+ }
+
+ .active-2 {
+  border-top: 5px solid #EB4D4D;
+  border-right: 5px solid #EB4D4D;
+  border-bottom: 5px solid #EB4D4D;
+ }
+ 
+.active-1 .player-name { font-weight: 600; }
+.active-2 .player-name { font-weight: 600; }
 
 .player-current-box {
     height: 90px;

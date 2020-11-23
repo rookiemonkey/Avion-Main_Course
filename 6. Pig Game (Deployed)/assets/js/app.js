@@ -120,17 +120,18 @@ function Game() {
 
         this[currentPlayer] = 0;
         this.updateRoundScoreDisplay();
-        document.querySelector(currentPlayerPanel).classList.remove('active')
 
         switch (this.whoIsPlaying) {
             case '1':
+                document.querySelector(currentPlayerPanel).classList.remove('active-1')
                 this.whoIsPlaying = '2'
-                document.querySelector('.player-2-panel').classList.add('active')
+                document.querySelector('.player-2-panel').classList.add('active-2')
                 document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
                 break;
             case '2':
+                document.querySelector(currentPlayerPanel).classList.remove('active-2')
                 this.whoIsPlaying = '1'
-                document.querySelector('.player-1-panel').classList.add('active')
+                document.querySelector('.player-1-panel').classList.add('active-1')
                 document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
                 break;
         }
@@ -185,8 +186,8 @@ function Game() {
         document.querySelector(`.player-${this.whoIsPlaying}-panel`).style.backgroundImage = ``
         document.querySelector(`#winner-${this.whoIsPlaying}`).style.visibility = 'hidden'
         this.updateRoundScoreDisplay();
-        document.querySelector('.player-2-panel').classList.remove('active')
-        document.querySelector('.player-1-panel').classList.add('active')
+        document.querySelector('.player-2-panel').classList.remove('active-2')
+        document.querySelector('.player-1-panel').classList.add('active-1')
         this.img_dice.style.visibility = `visible`
         this.btn_roll.style.visibility = `visible`
         this.btn_hold.style.visibility = `visible`
