@@ -4,10 +4,14 @@ const RollDiceSound = new Audio('/assets/audios/dice-roll.mp3');
 const LosePointsSound = new Audio('/assets/audios/lose-points.mp3');
 const AddPointsSound = new Audio('/assets/audios/add-points.mp3');
 const ApplauseSound = new Audio('/assets/audios/applause.mp3')
-const { btn_roll, btn_hold, btn_new, btn_start, btn_home, select_language } = PigGame;
+const { btn_roll, btn_hold, btn_new, btn_start, btn_home,
+    select_language, toggler_theme } = PigGame;
 
 // event for changing the language
 select_language.addEventListener('change', PigGame.changeLanguage)
+
+// event for changing the theme
+toggler_theme.addEventListener('change', PigGame.changeTheme)
 
 // event for starting/restarting the game
 btn_start.addEventListener('click', PigGame.startGame)
@@ -47,7 +51,9 @@ function Game() {
     this.P2RoundScore = 0;
     this.P2GlobalScore = 0;
     this.img_dice = document.querySelector('.dice');
+    this.toggler_theme = document.querySelector('#theme');
     this.select_language = document.querySelector('#language');
+    this.panelInitial = document.querySelector('.initial-panel');
     this.btn_start = document.querySelector('.btn-start');
     this.btn_home = document.querySelector('.btn-home');
     this.btn_new = document.querySelector('.btn-new');
@@ -216,5 +222,60 @@ function Game() {
         this.ptag1.textContent = instructions.ptag1;
         this.ptag2.textContent = instructions.ptag2;
         this.ptag3.textContent = instructions.ptag3;
+    };
+    this.changeTheme = event => {
+        const { checked } = event.target;
+
+        const LTbg = '#f7f7f7';
+        const LTred = '#eb4d4d';
+        const LTfont = '#555';
+        const DTbg = 'black';
+        const DTred = '#f07878';
+        const DTfont = '#fff';
+
+        const body = document.body;
+        const paragraphs = document.querySelectorAll('p');
+        const buttons = document.querySelectorAll('button');
+        const icons = document.querySelectorAll('i');
+        const select_lang = document.querySelector('#language');
+        const panel_lang = document.querySelector('.language-panel');
+        const panel_p1 = document.querySelector('.player-1-panel');
+        const panel_p2 = document.querySelector('.player-2-panel');
+        const rolled_p1 = document.querySelector('#rolled1-P1');
+        const rolled_p2 = document.querySelector('#rolled1-P2');
+        const names = document.querySelectorAll('.player-name');
+
+        switch (checked) {
+            case true:
+                body.style.backgroundColor = 'rgba(0, 0, 0, 0.85)'
+                body.style.backgroundBlendMode = 'overlay'
+                this.panelInitial.style.backgroundColor = DTbg;
+                panel_p1.style.backgroundColor = DTbg;
+                panel_p2.style.backgroundColor = DTbg;
+                rolled_p1.style.color = DTfont;
+                rolled_p2.style.color = DTfont;
+                panel_lang.style.borderColor = DTred;
+                select_lang.style.color = DTfont;
+                [...paragraphs].forEach(p => p.style.color = DTfont);
+                [...buttons].forEach(b => b.style.color = DTfont);
+                [...icons].forEach(i => i.style.color = DTred);
+                [...names].forEach(n => n.style.color = DTfont);
+                break;
+            case false:
+                body.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+                body.style.backgroundBlendMode = 'normal'
+                this.panelInitial.style.backgroundColor = LTbg;
+                panel_p1.style.backgroundColor = LTbg;
+                panel_p2.style.backgroundColor = LTbg;
+                rolled_p1.style.color = LTfont;
+                rolled_p2.style.color = LTfont;
+                panel_lang.style.borderColor = LTred;
+                select_lang.style.color = LTfont;
+                [...paragraphs].forEach(p => p.style.color = LTfont);
+                [...buttons].forEach(b => b.style.color = LTfont);
+                [...icons].forEach(i => i.style.color = LTred);
+                [...names].forEach(n => n.style.color = LTfont);
+                break;
+        }
     }
 }
