@@ -2300,17 +2300,24 @@ body {
     width: 100%;
     height: auto; }
   .initial-panel .initial-panel-navigation {
-    flex-direction: column;
-    padding: 0px 25px;
-    background-color: #f7f7f7; }
-    .initial-panel .initial-panel-navigation button {
-      position: static;
-      transform: translateX(0);
-      margin: 10px; }
-    .initial-panel .initial-panel-navigation p {
-      text-align: justify;
-      line-height: 30px;
-      margin: 10px 0px; }
+    background-color: #f7f7f7;
+    align-items: flex-start !important; }
+    .initial-panel .initial-panel-navigation .initial-panel-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 0px 25px;
+      min-height: 405px;
+      margin-top: 80px; }
+      .initial-panel .initial-panel-navigation .initial-panel-inner button {
+        position: static;
+        transform: translateX(0);
+        margin: 10px; }
+      .initial-panel .initial-panel-navigation .initial-panel-inner p {
+        text-align: justify;
+        line-height: 22px;
+        margin: 10px 0px; }
 
 .language-panel {
   min-width: 185px;
