@@ -145,6 +145,8 @@ body {
     margin-top: 20px;
     margin-bottom: 10px;
     position: relative;
+    height: 50px;
+    max-height: 50px;
 }
 
 .player-score {
@@ -152,13 +154,15 @@ body {
     font-size: 80px;
     font-weight: 100;
     color: #EB4D4D;
-    margin-bottom: 95px;
+    margin-bottom: 30px;
 }
 
 .active { background-color: #f7f7f7; }
 .active .player-name { font-weight: 300; }
 
 .player-current-box {
+    height: 90px;
+    max-height: 90px;
     background-color: #EB4D4D;
     color: #fff;
     width: 40%;
@@ -168,10 +172,12 @@ body {
 }
 
 .player-current-label {
+    height: 20px;
+    max-height: 20px;
     text-transform: uppercase;
     margin-bottom: 10px;
     font-size: 12px;
-    color: #222;
+    color: #f7f7f7;
 }
 
 .player-current-score {
@@ -218,17 +224,19 @@ i {
 .btn-hold { top: 467px;}
 
 .dice {
-    position: absolute;
-    left: 45%; // before 50%
-    top: 178px;
-    height: 100px;
-    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+  position: absolute;
+  left: 45%; // before 50%
+  top: 178px;
+  height: 100px;
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
 }
 
 .player-rolled-1 {
-    visibility: hidden;
-    text-align: center;
-    margin: 10px 0px 20px 0px;
+  height: 50px;
+  max-height: 50px;
+  visibility: hidden;
+  text-align: center;
+  margin: 10px 0px 20px 0px;
 }
 
 .hidden {
@@ -253,6 +261,8 @@ i {
   text-align: center;
   text-transform: uppercase;
   font-weight: 600;
+  height: 25px;
+  max-height: 25px;
 }
 
 .rotate-center {

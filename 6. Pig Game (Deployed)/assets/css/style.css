@@ -2344,14 +2344,16 @@ body {
   font-weight: 100;
   margin-top: 20px;
   margin-bottom: 10px;
-  position: relative; }
+  position: relative;
+  height: 50px;
+  max-height: 50px; }
 
 .player-score {
   text-align: center;
   font-size: 80px;
   font-weight: 100;
   color: #EB4D4D;
-  margin-bottom: 95px; }
+  margin-bottom: 30px; }
 
 .active {
   background-color: #f7f7f7; }
@@ -2360,6 +2362,8 @@ body {
   font-weight: 300; }
 
 .player-current-box {
+  height: 90px;
+  max-height: 90px;
   background-color: #EB4D4D;
   color: #fff;
   width: 40%;
@@ -2368,10 +2372,12 @@ body {
   text-align: center; }
 
 .player-current-label {
+  height: 20px;
+  max-height: 20px;
   text-transform: uppercase;
   margin-bottom: 10px;
   font-size: 12px;
-  color: #222; }
+  color: #f7f7f7; }
 
 .player-current-score {
   font-size: 30px; }
@@ -2430,6 +2436,8 @@ i {
   box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1); }
 
 .player-rolled-1 {
+  height: 50px;
+  max-height: 50px;
   visibility: hidden;
   text-align: center;
   margin: 10px 0px 20px 0px; }
@@ -2452,7 +2460,9 @@ i {
   visibility: hidden;
   text-align: center;
   text-transform: uppercase;
-  font-weight: 600; }
+  font-weight: 600;
+  height: 25px;
+  max-height: 25px; }
 
 .rotate-center {
   -webkit-animation: rotate-center 250ms cubic-bezier(0.785, 0.135, 0.15, 0.86) both;
