@@ -4,7 +4,10 @@ const RollDiceSound = new Audio('/assets/audios/dice-roll.mp3');
 const LosePointsSound = new Audio('/assets/audios/lose-points.mp3');
 const AddPointsSound = new Audio('/assets/audios/add-points.mp3');
 const ApplauseSound = new Audio('/assets/audios/applause.mp3')
-const { btn_roll, btn_hold, btn_new, btn_start, btn_home } = PigGame;
+const { btn_roll, btn_hold, btn_new, btn_start, btn_home, select_language } = PigGame;
+
+// event for changing the language
+select_language.addEventListener('change', PigGame.changeLanguage)
 
 // event for starting/restarting the game
 btn_start.addEventListener('click', PigGame.startGame)
@@ -44,11 +47,23 @@ function Game() {
     this.P2RoundScore = 0;
     this.P2GlobalScore = 0;
     this.img_dice = document.querySelector('.dice');
+    this.select_language = document.querySelector('#language');
     this.btn_start = document.querySelector('.btn-start');
     this.btn_home = document.querySelector('.btn-home');
     this.btn_new = document.querySelector('.btn-new');
     this.btn_roll = document.querySelector('.btn-roll');
     this.btn_hold = document.querySelector('.btn-hold');
+    this.howtoplay = document.querySelector('.howtoplay');
+    this.winner1 = document.querySelector('#winner-1');
+    this.winner2 = document.querySelector('#winner-2');
+    this.p1label = document.querySelector("#name-1");
+    this.p2label = document.querySelector("#name-2");
+    this.p1rolled1 = document.querySelector('#rolled1-P1');
+    this.p2rolled1 = document.querySelector('#rolled1-P2');
+    this.current = document.querySelectorAll('.player-current-label');
+    this.ptag1 = document.querySelector('.ptag1');
+    this.ptag2 = document.querySelector('.ptag2');
+    this.ptag3 = document.querySelector('.ptag3');
     this.calculateRoundScore = score => {
         const currentPlayer = `P${this.whoIsPlaying}RoundScore`
         this[currentPlayer] = parseFloat(this[currentPlayer]) + parseFloat(score)
@@ -175,5 +190,30 @@ function Game() {
         this.img_dice.style.visibility = `visible`
         this.btn_roll.style.visibility = `visible`
         this.btn_hold.style.visibility = `visible`
+    };
+    this.changeLanguage = event => {
+        const { value } = event.target
+        const { buttons, labels, instructions } = language[value];
+
+        this.btn_start.childNodes[1].textContent = buttons.start;
+        this.btn_home.childNodes[1].textContent = buttons.home;
+        this.btn_new.childNodes[1].textContent = buttons.newgame;
+        this.btn_roll.childNodes[1].textContent = buttons.roll;
+        this.btn_hold.childNodes[1].textContent = buttons.hold;
+
+        this.howtoplay.textContent = labels.howtoplay;
+        this.winner1.textContent = labels.player1;
+        this.winner2.textContent = labels.player2;
+        this.p1rolled1.textContent = labels.p1rolled1;
+        this.p2rolled1.textContent = labels.p2rolled1;
+        this.p1label.textContent = labels.player1;
+        this.p2label.textContent = labels.player2;
+
+        const currentArray = new Array(...this.current);
+        currentArray.forEach(element => element.textContent = labels.current)
+
+        this.ptag1.textContent = instructions.ptag1;
+        this.ptag2.textContent = instructions.ptag2;
+        this.ptag3.textContent = instructions.ptag3;
     }
 }

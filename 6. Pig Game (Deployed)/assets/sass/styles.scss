@@ -103,6 +103,24 @@ body {
   }
 }
 
+.language-panel {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  left: 80%;
+
+  select {
+    font-family: Lato;
+    border: none;
+    padding: 7.5px 10px;
+    background-color: #f7f7f7;
+
+    option {
+      font-family: Lato;
+    }
+  }
+}
 
 
 /**********************************************
@@ -130,16 +148,6 @@ body {
 
 .active { background-color: #f7f7f7; }
 .active .player-name { font-weight: 300; }
-
-.active .player-name::after {
-    content: "\2022";
-    font-size: 47px;
-    position: absolute;
-    color: #EB4D4D;
-    top: -7px;
-    right: 10px;
-    
-}
 
 .player-current-box {
     background-color: #EB4D4D;

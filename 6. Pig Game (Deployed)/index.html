@@ -10,25 +10,44 @@
 
 <body>
     <div class="wrapper clearfix">
+
+        <div class="language-panel">
+            <label for="language"><i class="ion-ios-world-outline"></i></label>
+            <select name='language' id='language'>
+                <option value="english">🇺🇸 &nbsp; English</option>
+                <option value="filipino">🇵🇭 &nbsp; Tagalog</option>
+                <option value="german">🇩🇪 &nbsp; German</option>
+                <option value="portuguese">🇵🇹 &nbsp; Portuguese</option>
+                <option value="spanish">🇪🇸 &nbsp; Spanish</option>
+                <option value="italian">🇮🇹 &nbsp; Italian</option>
+                <option value="japanese">🇯🇵 &nbsp; Japanese</option>
+                <option value="korean">🇰🇷 &nbsp; Korean</option>
+                <option value="french">🇫🇷 &nbsp; French</option>
+                <option value="russian">🇷🇺 &nbsp; Russian</option>
+            </select>
+        </div>
+
         <div class="initial-panel">
             <div class="initial-panel-logo">
                 <img src="/assets/images/pig.png" />
             </div>
             <div class="initial-panel-navigation">
                 <button class="btn-start"><i class="ion-ios-checkmark-outline"></i>Start</button>
-                <p>How to play the game?</p>
+                <p class="howtoplay">How to play the game?</p>
                 </br>
-                <p>A player rolls a die and scores as many points as the total shown on the die providing the die
+                <p class="ptag1">A player rolls a die and scores as many points as the total shown on the die providing
+                    the die
                     doesn’t roll a 1. The
                     player may continue rolling and accumulating points (but risk rolling a 1) to his current/round
                     score or end his turn. Ending his turn by pressing hold and it will be added to his global/total
                     score</p>
                 </br>
-                <p>If the player rolls a 1 his turn is over, he loses all points he accumulated that turn, and he passes
+                <p class="ptag2">If the player rolls a 1 his turn is over, he loses all points he accumulated that turn,
+                    and he passes
                     the die to the
                     next player.</p>
                 </br>
-                <p>The first player to accumulate 100 or more points wins the game.</p>
+                <p class="ptag3">The first player to accumulate 100 or more points wins the game.</p>
             </div>
         </div>
 
@@ -47,7 +66,7 @@
         </div>
 
         <div class="player-2-panel hidden">
-            <div id="winner-2">Winner!</div>
+            <div id="winner-2" class="winner">Winner!</div>
             <div class="player-name" id="name-2">Player 2</div>
             <div id="scoreadd-2">+0</div>
             <div class="player-score" id="score-2">0</div>
