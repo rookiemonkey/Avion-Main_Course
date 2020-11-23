@@ -2285,6 +2285,33 @@ body {
   background-position: center;
   background-size: cover; }
 
+.initial-panel {
+  width: 1000px;
+  height: 95vh;
+  background-color: #fff;
+  display: flex; }
+  .initial-panel .initial-panel-logo,
+  .initial-panel .initial-panel-navigation {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .initial-panel .initial-panel-logo img {
+    width: 100%;
+    height: auto; }
+  .initial-panel .initial-panel-navigation {
+    flex-direction: column;
+    padding: 0px 25px;
+    background-color: #f7f7f7; }
+    .initial-panel .initial-panel-navigation button {
+      position: static;
+      transform: translateX(0);
+      margin: 10px; }
+    .initial-panel .initial-panel-navigation p {
+      text-align: justify;
+      line-height: 30px;
+      margin: 10px 0px; }
+
 /**********************************************
 *** PLAYERS
 **********************************************/
@@ -2373,6 +2400,9 @@ i {
 .btn-new {
   top: 45px; }
 
+.btn-home {
+  top: 100px; }
+
 .btn-roll {
   top: 403px; }
 
@@ -2390,6 +2420,9 @@ i {
   visibility: hidden;
   text-align: center;
   margin: 10px 0px 20px 0px; }
+
+.hidden {
+  display: none; }
 
 #scoreadd-1,
 #scoreadd-2 {

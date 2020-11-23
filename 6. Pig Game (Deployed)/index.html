@@ -10,7 +10,29 @@
 
 <body>
     <div class="wrapper clearfix">
-        <div class="player-1-panel active">
+        <div class="initial-panel">
+            <div class="initial-panel-logo">
+                <img src="/assets/images/pig.png" />
+            </div>
+            <div class="initial-panel-navigation">
+                <button class="btn-start"><i class="ion-ios-checkmark-outline"></i>Start</button>
+                <p>How to play the game?</p>
+                </br>
+                <p>A player rolls a die and scores as many points as the total shown on the die providing the die
+                    doesn’t roll a 1. The
+                    player may continue rolling and accumulating points (but risk rolling a 1) to his current/round
+                    score or end his turn. Ending his turn by pressing hold and it will be added to his global/total
+                    score</p>
+                </br>
+                <p>If the player rolls a 1 his turn is over, he loses all points he accumulated that turn, and he passes
+                    the die to the
+                    next player.</p>
+                </br>
+                <p>The first player to accumulate 100 or more points wins the game.</p>
+            </div>
+        </div>
+
+        <div class="player-1-panel active hidden">
             <div id="winner-1">Winner!</div>
             <div class="player-name" id="name-1">Player 1</div>
             <div id="scoreadd-1">+0</div>
@@ -24,7 +46,7 @@
             </div>
         </div>
 
-        <div class="player-2-panel">
+        <div class="player-2-panel hidden">
             <div id="winner-2">Winner!</div>
             <div class="player-name" id="name-2">Player 2</div>
             <div id="scoreadd-2">+0</div>
@@ -38,11 +60,12 @@
             </div>
         </div>
 
-        <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
-        <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
-        <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
+        <button class="btn-home hidden"><i class="ion-android-arrow-back"></i>Home</button>
+        <button class="btn-new hidden"><i class="ion-ios-plus-outline"></i>New game</button>
+        <button class="btn-roll hidden"><i class="ion-ios-loop"></i>Roll dice</button>
+        <button class="btn-hold hidden"><i class="ion-ios-download-outline"></i>Hold</button>
 
-        <img src="/assets/images/dice-5.png" alt="Dice" class="dice">
+        <img src="/assets/images/dice-5.png" alt="Dice" class="dice hidden">
     </div>
 
     <script src="/assets/js/app.js"></script>

@@ -4,7 +4,11 @@ const RollDiceSound = new Audio('/assets/audios/dice-roll.mp3');
 const LosePointsSound = new Audio('/assets/audios/lose-points.mp3');
 const AddPointsSound = new Audio('/assets/audios/add-points.mp3');
 const ApplauseSound = new Audio('/assets/audios/applause.mp3')
-const { btn_roll, btn_hold, btn_new } = PigGame;
+const { btn_roll, btn_hold, btn_new, btn_start, btn_home } = PigGame;
+
+// event for starting/restarting the game
+btn_start.addEventListener('click', PigGame.startGame)
+btn_home.addEventListener('click', PigGame.startGame)
 
 // event for new game
 btn_new.addEventListener('click', PigGame.newGame)
@@ -34,14 +38,14 @@ ApplauseSound.volume = 0.2
 // MODEL FOR GAME
 function Game() {
     this.diceval = 0;
-    this.hasStarted = true;
-    this.whoIsWinner = '';
     this.whoIsPlaying = '1';
     this.P1RoundScore = 0;
     this.P1GlobalScore = 0;
     this.P2RoundScore = 0;
     this.P2GlobalScore = 0;
     this.img_dice = document.querySelector('.dice');
+    this.btn_start = document.querySelector('.btn-start');
+    this.btn_home = document.querySelector('.btn-home');
     this.btn_new = document.querySelector('.btn-new');
     this.btn_roll = document.querySelector('.btn-roll');
     this.btn_hold = document.querySelector('.btn-hold');
@@ -131,6 +135,21 @@ function Game() {
 
         this.calculateRoundScore(this.diceval);
         this.updateRoundScoreDisplay(this.diceval);
+    };
+    this.startGame = () => {
+        this.newGame();
+        const initialPanel = document.querySelector('.initial-panel');
+        const p1Panel = document.querySelector('.player-1-panel');
+        const p2Panel = document.querySelector('.player-2-panel');
+
+        initialPanel.classList.toggle('hidden');
+        p1Panel.classList.toggle('hidden');
+        p2Panel.classList.toggle('hidden');
+        this.img_dice.classList.toggle('hidden');
+        this.btn_home.classList.toggle('hidden');
+        this.btn_new.classList.toggle('hidden');
+        this.btn_roll.classList.toggle('hidden');
+        this.btn_hold.classList.toggle('hidden');
     };
     this.newGame = () => {
         this.hasStarted = true;
