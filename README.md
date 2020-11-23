@@ -82,6 +82,9 @@
 
 >> ###### Features:
 >> - [x] use of factory functions
+>> - [x] added background music and sprites
+>> - [x] dark/light theme
+>> - [x] localization (supports 10 languages)
 
 ![Screenshot](_SCREENSHOTS/project6.png)
 
