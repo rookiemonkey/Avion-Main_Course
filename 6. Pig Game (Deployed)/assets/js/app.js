@@ -9,6 +9,15 @@ const { btn_roll, btn_hold, btn_new, btn_start, btn_home, btn_hideform,
     select_language, toggler_theme, form_p1_name, form_p2_name,
     form_target_score, form } = PigGame;
 
+// things needed to be refreshed when user clicks the refresh button
+window.addEventListener('load', function () {
+    toggler_theme.checked = false;
+    select_language.value = 'english';
+    form_p1_name.value = '';
+    form_p2_name.value = '';
+    form_target_score.value = '';
+});
+
 // event for changing the language
 select_language.addEventListener('change', PigGame.changeLanguage);
 

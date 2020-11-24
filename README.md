@@ -86,7 +86,7 @@
 >> - [x] added background music and sprites
 >> - [x] localization (supports 10 languages)
 >> - [x] dynamic player names
->> - [x] user defined target score (original games is default to 100)
+>> - [x] user defined target score (original game's default is 100)
 
 ![Screenshot](_SCREENSHOTS/project6.png)
 

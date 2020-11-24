@@ -2331,7 +2331,7 @@ body {
   align-items: center;
   position: absolute;
   top: 20px;
-  left: 80%; }
+  left: 78.2%; }
   .language-panel label {
     margin-top: 1.5px; }
   .language-panel select {
@@ -2490,7 +2490,8 @@ i {
 .theme-panel {
   padding-top: 20px;
   text-align: center;
-  position: absolute; }
+  position: absolute;
+  left: 1.25%; }
 
 .toggle {
   position: relative;
@@ -2649,7 +2650,7 @@ i {
   visibility: hidden; }
 
 form {
-  width: 75%; }
+  width: 85%; }
 
 input {
   background: none;
