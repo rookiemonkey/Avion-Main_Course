@@ -1,4 +1,5 @@
 const PigGame = new Game();
+const areNumbers = new RegExp(/^[0-9]+$/);
 const BackgroundMusic = new Audio('/assets/audios/bensound-buddy.mp3');
 const RollDiceSound = new Audio('/assets/audios/dice-roll.mp3');
 const LosePointsSound = new Audio('/assets/audios/lose-points.mp3');
@@ -44,6 +45,13 @@ form.addEventListener('submit', PigGame.submitForm);
     })
 })
 
+// event for target score input to prevent typing texts
+form_target_score.addEventListener('keyup', function () {
+    areNumbers.test(this.value)
+        ? PigGame.form_target_score_isvalid = true
+        : null
+})
+
 // play background music with lesser volume and on-loop
 BackgroundMusic.play();
 BackgroundMusic.loop = true;
@@ -54,6 +62,15 @@ RollDiceSound.volume = 0.2;
 LosePointsSound.volume = 0.2;
 AddPointsSound.volume = 0.2;
 ApplauseSound.volume = 0.2;
+
+
+
+
+
+
+
+
+
 
 
 
@@ -71,6 +88,7 @@ function Game() {
     this.P1GlobalScore = 0;
     this.P2RoundScore = 0;
     this.P2GlobalScore = 0;
+    this.form_target_score_isvalid = false;
     this.img_dice = document.querySelector('.dice');
     this.toggler_theme = document.querySelector('#theme');
     this.select_language = document.querySelector('#language');
@@ -86,6 +104,7 @@ function Game() {
     this.btn_new = document.querySelector('.btn-new');
     this.btn_roll = document.querySelector('.btn-roll');
     this.btn_hold = document.querySelector('.btn-hold');
+    this.btn_target = document.querySelector('.btn-target');
     this.btn_hideform = document.querySelector('#hideform');
     this.howtoplay = document.querySelector('.howtoplay');
     this.winner1 = document.querySelector('#winner-1');
@@ -200,8 +219,11 @@ function Game() {
         this.btn_new.classList.toggle('hidden');
         this.btn_roll.classList.toggle('hidden');
         this.btn_hold.classList.toggle('hidden');
+        this.btn_target.classList.toggle('hidden');
+        this.btn_target.childNodes[1].textContent = `RACE TO ${this.target_score}`
         this.p1label.textContent = this.p1Name;
         this.p2label.textContent = this.p2Name;
+        this.form_target_score_isvalid = false;
     };
     this.newGame = () => {
         this.hasStarted = true;
@@ -239,7 +261,9 @@ function Game() {
     this.submitForm = event => {
         event.preventDefault();
 
-        if (!this.form_p1_name.value || !this.form_p2_name.value) {
+        if (!this.form_p1_name.value ||
+            !this.form_p2_name.value ||
+            !this.form_target_score_isvalid) {
             return null;
         }
 
@@ -291,12 +315,15 @@ function Game() {
         const paragraphs = document.querySelectorAll('p');
         const buttons = document.querySelectorAll('button');
         const icons = document.querySelectorAll('i');
+        const inputs = document.querySelectorAll('input');
         const select_lang = document.querySelector('#language');
         const panel_lang = document.querySelector('.language-panel');
         const panel_p1 = document.querySelector('.player-1-panel');
         const panel_p2 = document.querySelector('.player-2-panel');
         const rolled_p1 = document.querySelector('#rolled1-P1');
         const rolled_p2 = document.querySelector('#rolled1-P2');
+        const winner_p1 = document.querySelector('#winner-1');
+        const winner_p2 = document.querySelector('#winner-2');
         const names = document.querySelectorAll('.player-name');
 
         switch (checked) {
@@ -308,12 +335,18 @@ function Game() {
                 panel_p2.style.backgroundColor = DTbg;
                 rolled_p1.style.color = DTfont;
                 rolled_p2.style.color = DTfont;
+                winner_p1.style.color = DTfont;
+                winner_p2.style.color = DTfont;
                 panel_lang.style.borderColor = DTred;
                 select_lang.style.color = DTfont;
                 [...paragraphs].forEach(p => p.style.color = DTfont);
                 [...buttons].forEach(b => b.style.color = DTfont);
                 [...icons].forEach(i => i.style.color = DTred);
                 [...names].forEach(n => n.style.color = DTfont);
+                [...inputs].forEach(i => {
+                    i.style.color = DTfont;
+                    i.style.borderBottomColor = DTred;
+                })
                 break;
             case false:
                 body.style.backgroundColor = 'rgba(0, 0, 0, 0)'
@@ -323,12 +356,18 @@ function Game() {
                 panel_p2.style.backgroundColor = LTbg;
                 rolled_p1.style.color = LTfont;
                 rolled_p2.style.color = LTfont;
+                winner_p1.style.color = LTfont;
+                winner_p2.style.color = LTfont;
                 panel_lang.style.borderColor = LTred;
                 select_lang.style.color = LTfont;
                 [...paragraphs].forEach(p => p.style.color = LTfont);
                 [...buttons].forEach(b => b.style.color = LTfont);
                 [...icons].forEach(i => i.style.color = LTred);
                 [...names].forEach(n => n.style.color = LTfont);
+                [...inputs].forEach(i => {
+                    i.style.color = LTfont;
+                    i.style.borderBottomColor = LTred;
+                })
                 break;
         }
     }

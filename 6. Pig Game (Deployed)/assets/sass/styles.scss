@@ -243,9 +243,10 @@ i {
 }
 
 .btn-new { top: 45px;}
-.btn-home {top: 100px; }
-.btn-roll { top: 403px;}
-.btn-hold { top: 467px;}
+.btn-home {top: 109px; }
+.btn-target {top: 372px; }
+.btn-roll { top: 436px;}
+.btn-hold { top: 500px;}
 
 .dice {
   position: absolute;
@@ -501,7 +502,7 @@ input[type='submit'], #hideform {
 }
 
 input[type="submit"]:hover, #hideform:hover {
-  color: white;
+  color: white !important;
   background-color: #EB4D4D;
 }
 

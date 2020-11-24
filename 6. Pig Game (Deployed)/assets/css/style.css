@@ -2440,13 +2440,16 @@ i {
   top: 45px; }
 
 .btn-home {
-  top: 100px; }
+  top: 109px; }
+
+.btn-target {
+  top: 372px; }
 
 .btn-roll {
-  top: 403px; }
+  top: 436px; }
 
 .btn-hold {
-  top: 467px; }
+  top: 500px; }
 
 .dice {
   position: absolute;
@@ -2672,7 +2675,7 @@ input[type='submit'], #hideform {
   transition: color 350ms ease-in-out, background-color 350ms ease-in-out; }
 
 input[type="submit"]:hover, #hideform:hover {
-  color: white;
+  color: white !important;
   background-color: #EB4D4D; }
 
 .input-group {
