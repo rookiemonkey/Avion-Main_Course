@@ -212,6 +212,17 @@ function Game() {
         this.img_dice.classList.add('rotate-center')
         setTimeout(() => this.img_dice.classList.remove('rotate-center'), 250) // check css
 
+        const globalScoreDisplay = document.querySelector(`#score-${this.whoIsPlaying}`);
+        const currPlyrGlobalScore = this[`P${this.whoIsPlaying}GlobalScore`];
+        const currPlyrRoundScore = this[`P${this.whoIsPlaying}RoundScore`];
+        const initialGlobalScoreBeforeHold = this.diceval + currPlyrGlobalScore + currPlyrRoundScore
+        const initialTargetScore = this.target_score * 0.75;
+
+        if (initialGlobalScoreBeforeHold >= initialTargetScore && this.diceval !== 1) {
+            globalScoreDisplay.classList.add('almost-a-winner');
+            setTimeout(() => globalScoreDisplay.classList.remove('almost-a-winner'), 750)
+        }
+
         if (this.diceval === 1) {
             LosePointsSound.play();
             this.nextPlayer();
@@ -308,8 +319,8 @@ function Game() {
         this.btn_hold.childNodes[1].textContent = buttons.hold;
 
         this.howtoplay.textContent = labels.howtoplay;
-        this.winner1.textContent = labels.player1;
-        this.winner2.textContent = labels.player2;
+        this.winner1.textContent = labels.winner;
+        this.winner2.textContent = labels.winner;
         this.p1rolled1.textContent = labels.p1rolled1;
         this.p2rolled1.textContent = labels.p2rolled1;
         this.form_p1_namelabel.textContent = labels.p1namelabel;

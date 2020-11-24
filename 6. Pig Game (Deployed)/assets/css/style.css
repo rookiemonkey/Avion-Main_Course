@@ -2715,6 +2715,10 @@ input[type="submit"]:hover, #hideform:hover {
   -webkit-animation: slide-to-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
   animation: slide-to-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both; }
 
+.almost-a-winner {
+  -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both; }
+
 @-webkit-keyframes rotate-center {
   0% {
     -webkit-transform: rotate(0);
@@ -2790,3 +2794,49 @@ input[type="submit"]:hover, #hideform:hover {
     -webkit-transform: translateY(0);
     transform: translateY(0);
     opacity: 1; } }
+
+@-webkit-keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0); }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px); }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px); }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px); }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px); } }
+
+@keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0); }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px); }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px); }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px); }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px); } }
