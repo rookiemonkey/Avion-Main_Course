@@ -79,6 +79,7 @@ ApplauseSound.volume = 0.2;
 
 // MODEL FOR GAME
 function Game() {
+    this.language = 'english';
     this.diceval = 0;
     this.whoIsPlaying = '1';
     this.target_score = 100;
@@ -96,15 +97,21 @@ function Game() {
     this.panelNavigation = document.querySelector('.initial-panel-navigation');
     this.panelForm = document.querySelector('.initial-panel-form');
     this.form = document.querySelector('form');
+    this.form_p1_desc = document.querySelector('#player1_desc');
+    this.form_target_desc = document.querySelector('#targetscore_desc');
     this.form_p1_name = document.querySelector("#player1_name");
     this.form_p2_name = document.querySelector("#player2_name");
+    this.form_p1_namelabel = document.querySelector('#player1_name_label');
+    this.form_p2_namelabel = document.querySelector('#player2_name_label');
     this.form_target_score = document.querySelector("#raceto");
+    this.form_target_scorelabel = document.querySelector('#target_score_label');
     this.btn_start = document.querySelector('.btn-start');
     this.btn_home = document.querySelector('.btn-home');
     this.btn_new = document.querySelector('.btn-new');
     this.btn_roll = document.querySelector('.btn-roll');
     this.btn_hold = document.querySelector('.btn-hold');
     this.btn_target = document.querySelector('.btn-target');
+    this.btn_commence = document.querySelector('#commence');
     this.btn_hideform = document.querySelector('#hideform');
     this.howtoplay = document.querySelector('.howtoplay');
     this.winner1 = document.querySelector('#winner-1');
@@ -210,6 +217,7 @@ function Game() {
         const initialPanel = document.querySelector('.initial-panel');
         const p1Panel = document.querySelector('.player-1-panel');
         const p2Panel = document.querySelector('.player-2-panel');
+        const { labels } = language[this.language];
 
         initialPanel.classList.toggle('hidden');
         p1Panel.classList.toggle('hidden');
@@ -220,7 +228,7 @@ function Game() {
         this.btn_roll.classList.toggle('hidden');
         this.btn_hold.classList.toggle('hidden');
         this.btn_target.classList.toggle('hidden');
-        this.btn_target.childNodes[1].textContent = `RACE TO ${this.target_score}`
+        this.btn_target.childNodes[1].textContent = `${labels.raceto} ${this.target_score}`
         this.p1label.textContent = this.p1Name;
         this.p2label.textContent = this.p2Name;
         this.form_target_score_isvalid = false;
@@ -282,6 +290,8 @@ function Game() {
         const { value } = event.target
         const { buttons, labels, instructions } = language[value];
 
+        this.language = value;
+        this.btn_target.childNodes[1].textContent = `${labels.raceto} ${this.target_score} `;
         this.btn_start.childNodes[1].textContent = buttons.start;
         this.btn_home.childNodes[1].textContent = buttons.home;
         this.btn_new.childNodes[1].textContent = buttons.newgame;
@@ -293,6 +303,13 @@ function Game() {
         this.winner2.textContent = labels.player2;
         this.p1rolled1.textContent = labels.p1rolled1;
         this.p2rolled1.textContent = labels.p2rolled1;
+        this.form_p1_namelabel.textContent = labels.p1namelabel;
+        this.form_p2_namelabel.textContent = labels.p2namelabel;
+        this.form_target_scorelabel.textContent = labels.targetscorelabel;
+        this.form_p1_desc.textContent = labels.p1formlabel;
+        this.form_target_desc.textContent = labels.targetscoreformlabel;
+        this.btn_commence.setAttribute('value', labels.commence)
+        this.btn_hideform.setAttribute('value', labels.back)
 
         const currentArray = new Array(...this.current);
         currentArray.forEach(element => element.textContent = labels.current)

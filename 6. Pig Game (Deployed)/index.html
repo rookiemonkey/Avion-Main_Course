@@ -62,7 +62,7 @@
                     </p>
                     </br>
                     <p class="ptag3">
-                        The first player to accumulate 100 or more points wins the game.
+                        The first player to accumulate set target points or more points wins the game.
                     </p>
                 </div>
             </div>
@@ -71,23 +71,23 @@
 
                     <div class="input-group">
                         <input type="text" name="p1Name" id="player1_name" maxlength="15">
-                        <label>Player 1's name</label>
-                        <small>Has a perk to roll the dice first</small>
+                        <label id="player1_name_label">Player 1's name</label>
+                        <small id="player1_desc">Has a perk to roll the dice first</small>
                     </div>
 
                     <div class="input-group">
                         <input type="text" name="p2Name" id="player2_name" maxlength="15">
-                        <label>Player 2's name</label>
+                        <label id="player2_name_label">Player 2's name</label>
                         <small style="visibility: hidden;">Another player</small>
                     </div>
 
                     <div class="input-group">
                         <input type="tel" name="target_score" id="raceto">
-                        <label>Target Score</label>
-                        <small>Original game had a goal of 100</small>
+                        <label id="target_score_label">Target Score</label>
+                        <small id="targetscore_desc">Original game had a goal of 100</small>
                     </div>
 
-                    <input type="submit" value="Commence" />
+                    <input type="submit" value="Commence" id="commence" />
                     <input type='button' value="Go Back" id="hideform" />
                 </form>
             </div>
@@ -123,7 +123,7 @@
 
         <button class="btn-home hidden"><i class="ion-android-arrow-back"></i>Home</button>
         <button class="btn-new hidden"><i class="ion-ios-plus-outline"></i>New game</button>
-        <button class="btn-target hidden"><i class="ion-flag"></i>Race to 100</button>
+        <button class="btn-target hidden"><i class="ion-flag"></i>Race to</button>
         <button class="btn-roll hidden"><i class="ion-ios-loop"></i>Roll dice</button>
         <button class="btn-hold hidden"><i class="ion-ios-download-outline"></i>Hold</button>
 

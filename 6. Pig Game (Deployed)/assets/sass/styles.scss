@@ -492,6 +492,7 @@ input[type="text"], input[type="tel"] {
 }
 
 input[type='submit'], #hideform {
+  text-transform: uppercase;
   color: #555;
   font-family: Lato;
   border-radius: 35px;
