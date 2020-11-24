@@ -4,30 +4,48 @@ const RollDiceSound = new Audio('/assets/audios/dice-roll.mp3');
 const LosePointsSound = new Audio('/assets/audios/lose-points.mp3');
 const AddPointsSound = new Audio('/assets/audios/add-points.mp3');
 const ApplauseSound = new Audio('/assets/audios/applause.mp3')
-const { btn_roll, btn_hold, btn_new, btn_start, btn_home,
-    select_language, toggler_theme } = PigGame;
+const { btn_roll, btn_hold, btn_new, btn_start, btn_home, btn_hideform,
+    select_language, toggler_theme, form_p1_name, form_p2_name,
+    form_target_score, form } = PigGame;
 
 // event for changing the language
-select_language.addEventListener('change', PigGame.changeLanguage)
+select_language.addEventListener('change', PigGame.changeLanguage);
 
 // event for changing the theme
-toggler_theme.addEventListener('change', PigGame.changeTheme)
+toggler_theme.addEventListener('change', PigGame.changeTheme);
 
 // event for starting/restarting the game
-btn_start.addEventListener('click', PigGame.startGame)
-btn_home.addEventListener('click', PigGame.startGame)
+btn_home.addEventListener('click', PigGame.startGame);
+
+// event for showing the form
+btn_start.addEventListener('click', PigGame.showForm);
+
+// event for hiding the form
+btn_hideform.addEventListener('click', PigGame.hideForm);
 
 // event for new game
-btn_new.addEventListener('click', PigGame.newGame)
+btn_new.addEventListener('click', PigGame.newGame);
 
 // event for round score/roll button
-btn_roll.addEventListener('click', PigGame.rollDice)
+btn_roll.addEventListener('click', PigGame.rollDice);
 
 // event for global score button
-btn_hold.addEventListener('click', PigGame.updateGlobalScoreDisplay)
+btn_hold.addEventListener('click', PigGame.updateGlobalScoreDisplay);
+
+// event for form submission and starts the game by invoking Piggame.startGame
+form.addEventListener('submit', PigGame.submitForm);
+
+// event for the form styles
+[form_p1_name, form_p2_name, form_target_score].forEach(element => {
+    element.addEventListener('focusout', () => {
+        element.value
+            ? element.classList.add("has-value")
+            : element.classList.remove("has-value")
+    })
+})
 
 // play background music with lesser volume and on-loop
-BackgroundMusic.play()
+BackgroundMusic.play();
 BackgroundMusic.loop = true;
 BackgroundMusic.volume = 0.1;
 
@@ -35,7 +53,7 @@ BackgroundMusic.volume = 0.1;
 RollDiceSound.volume = 0.2;
 LosePointsSound.volume = 0.2;
 AddPointsSound.volume = 0.2;
-ApplauseSound.volume = 0.2
+ApplauseSound.volume = 0.2;
 
 
 
@@ -46,6 +64,9 @@ ApplauseSound.volume = 0.2
 function Game() {
     this.diceval = 0;
     this.whoIsPlaying = '1';
+    this.target_score = 100;
+    this.p1Name = '';
+    this.p2Name = '';
     this.P1RoundScore = 0;
     this.P1GlobalScore = 0;
     this.P2RoundScore = 0;
@@ -54,11 +75,18 @@ function Game() {
     this.toggler_theme = document.querySelector('#theme');
     this.select_language = document.querySelector('#language');
     this.panelInitial = document.querySelector('.initial-panel');
+    this.panelNavigation = document.querySelector('.initial-panel-navigation');
+    this.panelForm = document.querySelector('.initial-panel-form');
+    this.form = document.querySelector('form');
+    this.form_p1_name = document.querySelector("#player1_name");
+    this.form_p2_name = document.querySelector("#player2_name");
+    this.form_target_score = document.querySelector("#raceto");
     this.btn_start = document.querySelector('.btn-start');
     this.btn_home = document.querySelector('.btn-home');
     this.btn_new = document.querySelector('.btn-new');
     this.btn_roll = document.querySelector('.btn-roll');
     this.btn_hold = document.querySelector('.btn-hold');
+    this.btn_hideform = document.querySelector('#hideform');
     this.howtoplay = document.querySelector('.howtoplay');
     this.winner1 = document.querySelector('#winner-1');
     this.winner2 = document.querySelector('#winner-2');
@@ -102,7 +130,7 @@ function Game() {
         this[currentPlayerGlobalScore] = globalScoreNew;
         this.updateRoundScoreDisplay();
 
-        if (this[currentPlayerGlobalScore] >= 100) {
+        if (this[currentPlayerGlobalScore] >= this.target_score) {
             ApplauseSound.play();
             const panel = document.querySelector(`.player-${this.whoIsPlaying}-panel`);
             const promptWinner = document.querySelector(`#winner-${this.whoIsPlaying}`);
@@ -172,6 +200,8 @@ function Game() {
         this.btn_new.classList.toggle('hidden');
         this.btn_roll.classList.toggle('hidden');
         this.btn_hold.classList.toggle('hidden');
+        this.p1label.textContent = this.p1Name;
+        this.p2label.textContent = this.p2Name;
     };
     this.newGame = () => {
         this.hasStarted = true;
@@ -198,6 +228,32 @@ function Game() {
         this.btn_roll.style.visibility = `visible`
         this.btn_hold.style.visibility = `visible`
     };
+    this.showForm = () => {
+        this.panelNavigation.style.display = 'none';
+        this.panelForm.style.display = 'flex';
+    };
+    this.hideForm = () => {
+        this.panelNavigation.style.display = 'block';
+        this.panelForm.style.display = 'none';
+    };
+    this.submitForm = event => {
+        event.preventDefault();
+
+        if (!this.form_p1_name.value || !this.form_p2_name.value) {
+            return null;
+        }
+
+        this.panelNavigation.style.display = 'block';
+        this.panelForm.style.display = 'none';
+        this.p1Name = this.form_p1_name.value;
+        this.p2Name = this.form_p2_name.value;
+        this.target_score = this.form_target_score.value
+            ? parseInt(this.form_target_score.value)
+            : 100
+
+        this.form.reset();
+        this.startGame();
+    };
     this.changeLanguage = event => {
         const { value } = event.target
         const { buttons, labels, instructions } = language[value];
@@ -213,8 +269,6 @@ function Game() {
         this.winner2.textContent = labels.player2;
         this.p1rolled1.textContent = labels.p1rolled1;
         this.p2rolled1.textContent = labels.p2rolled1;
-        this.p1label.textContent = labels.player1;
-        this.p2label.textContent = labels.player2;
 
         const currentArray = new Array(...this.current);
         currentArray.forEach(element => element.textContent = labels.current)

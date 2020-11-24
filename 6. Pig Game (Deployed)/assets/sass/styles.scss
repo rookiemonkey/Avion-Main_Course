@@ -72,7 +72,8 @@ body {
   display: flex;
 
   .initial-panel-logo,
-  .initial-panel-navigation {
+  .initial-panel-navigation,
+  .initial-panel-form {
     width: 50%;
     display: flex;
     justify-content: center;
@@ -465,6 +466,72 @@ i {
 #scoreadd-1,
 #scoreadd-2 {
   visibility: hidden;
+}
+
+form {
+  width: 75%;
+}
+
+input {
+  background: none;
+  border: solid 2px #EB4D4D;
+  color: #555;
+  padding: 15px 0px;
+  font-size: 18px;
+  display: inline-block;
+}
+
+input:focus, input:active {
+  outline: none;
+}
+
+input[type="text"], input[type="tel"] {
+  border: none;
+  border-bottom: solid 2px #EB4D4D;
+}
+
+input[type='submit'], #hideform {
+  color: #555;
+  font-family: Lato;
+  border-radius: 35px;
+  padding: 15px 30px;
+  font-weight: 600;
+  transition: color 350ms ease-in-out,
+              background-color 350ms ease-in-out;
+}
+
+input[type="submit"]:hover, #hideform:hover {
+  color: white;
+  background-color: #EB4D4D;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px 50px 0px;
+  position: relative;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-family: Lato;
+  font-style: italic;
+  font-size: 18px;
+  color: #999;
+  pointer-events: none;
+  -webkit-transition: all 350ms ease-in-out 0s;
+  transition: all 350ms ease-in-out 0s;
+}
+
+.input-group input:focus + label,
+.input-group input.has-value + label {
+  top: -10px;
+  font-size: 12px;
+  color: #aaa;
 }
 
 .slide-in-frombottom {

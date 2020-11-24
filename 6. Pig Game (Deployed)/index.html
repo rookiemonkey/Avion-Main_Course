@@ -66,6 +66,31 @@
                     </p>
                 </div>
             </div>
+            <div class="initial-panel-form" style="display: none;">
+                <form>
+
+                    <div class="input-group">
+                        <input type="text" name="p1Name" id="player1_name" maxlength="15">
+                        <label>Player 1's name</label>
+                        <small>First to roll the dice</small>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" name="p2Name" id="player2_name" maxlength="15">
+                        <label>Player 2's name</label>
+                        <small style="visibility: hidden;">Another player</small>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="tel" name="target_score" id="raceto">
+                        <label>Target Score</label>
+                        <small>Defaults to 100</small>
+                    </div>
+
+                    <input type="submit" value="Commence" />
+                    <input type='button' value="Go Back" id="hideform" />
+                </form>
+            </div>
         </div>
 
         <div class="player-1-panel active-1 hidden">
