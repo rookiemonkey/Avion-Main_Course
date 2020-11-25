@@ -149,18 +149,27 @@ function Game() {
         AddPointsSound.play();
         const currentPlayerGlobalScore = `P${this.whoIsPlaying}GlobalScore`
         const currentPlayerRoundScore = `P${this.whoIsPlaying}RoundScore`
+        const holdImage = document.querySelector(`#img-P${this.whoIsPlaying}-roundhold`);
+        const waitingImage = document.querySelector(`#img-P${this.whoIsPlaying}-roundwaiting`);
         const addedScoreDisplay = document.querySelector(`#scoreadd-${this.whoIsPlaying}`);
         const globalScoreDisplay = document.querySelector(`#score-${this.whoIsPlaying}`);
         const globalScoreNew = this[currentPlayerGlobalScore] + this[currentPlayerRoundScore]
         globalScoreDisplay.textContent = globalScoreNew;
         addedScoreDisplay.textContent = `+${this[currentPlayerRoundScore]}`
+        waitingImage.style.display = 'none';
+        holdImage.style.display = 'block';
         addedScoreDisplay.classList.add('slide-in-frombottom')
+        holdImage.classList.add('slide-in-frombottom')
         setTimeout(() => {
             addedScoreDisplay.classList.add('slide-out-tobottom');
+            holdImage.classList.add('slide-out-tobottom')
         }, 1000)
         setTimeout(() => {
             addedScoreDisplay.classList.remove('slide-in-frombottom');
             addedScoreDisplay.classList.remove('slide-out-tobottom');
+            holdImage.classList.remove('slide-in-tobottom');
+            holdImage.classList.remove('slide-out-tobottom');
+            holdImage.style.display = 'none';
         }, 2000)
         this[currentPlayerGlobalScore] = globalScoreNew;
         this.updateRoundScoreDisplay();
@@ -184,8 +193,16 @@ function Game() {
         const currentPlayerPanel = `.player-${this.whoIsPlaying}-panel`
         const currentPlayerPrompt = `#rolled1-P${this.whoIsPlaying}`
 
-        if (this.diceval === 1)
-            document.querySelector(currentPlayerPrompt).classList.add('fade-in-top')
+        if (this.diceval === 1) {
+            const loseRoundPropmt = document.querySelector(currentPlayerPrompt);
+            const waitingImage = document.querySelector(`#img-P${this.whoIsPlaying}-roundwaiting`);
+            const loseImage = document.querySelector(`#img-P${this.whoIsPlaying}-roundlose`)
+
+            waitingImage.style.display = 'none'
+            loseImage.style.display = 'block'
+            loseImage.classList.add('fade-in-top')
+            loseRoundPropmt.classList.add('fade-in-top')
+        }
 
         this[currentPlayer] = 0;
         this.updateRoundScoreDisplay();
@@ -196,12 +213,16 @@ function Game() {
                 this.whoIsPlaying = '2'
                 document.querySelector('.player-2-panel').classList.add('active-2')
                 document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
+                document.querySelector(`#img-P${this.whoIsPlaying}-roundwaiting`).style.display = 'block'
+                document.querySelector(`#img-P${this.whoIsPlaying}-roundlose`).style.display = 'none'
                 break;
             case '2':
                 document.querySelector(currentPlayerPanel).classList.remove('active-2')
                 this.whoIsPlaying = '1'
                 document.querySelector('.player-1-panel').classList.add('active-1')
                 document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
+                document.querySelector(`#img-P${this.whoIsPlaying}-roundwaiting`).style.display = 'block'
+                document.querySelector(`#img-P${this.whoIsPlaying}-roundlose`).style.display = 'none'
                 break;
         }
     };
@@ -265,12 +286,18 @@ function Game() {
         document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
         document.querySelector(`.player-${this.whoIsPlaying}-panel`).style.backgroundImage = ``
         document.querySelector(`#winner-${this.whoIsPlaying}`).style.visibility = 'hidden'
+        document.querySelector(`#img-P${this.whoIsPlaying}-roundwaiting`).style.display = 'none'
+        document.querySelector(`#img-P${this.whoIsPlaying}-roundlose`).style.display = 'none'
+        document.querySelector(`#img-P${this.whoIsPlaying}-roundhold`).style.display = 'none'
         this.updateRoundScoreDisplay();
         this.whoIsPlaying = '1';
         document.querySelector(`#score-${this.whoIsPlaying}`).textContent = 0
         document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
         document.querySelector(`.player-${this.whoIsPlaying}-panel`).style.backgroundImage = ``
         document.querySelector(`#winner-${this.whoIsPlaying}`).style.visibility = 'hidden'
+        document.querySelector(`#img-P${this.whoIsPlaying}-roundwaiting`).style.display = 'block'
+        document.querySelector(`#img-P${this.whoIsPlaying}-roundlose`).style.display = 'none'
+        document.querySelector(`#img-P${this.whoIsPlaying}-roundhold`).style.display = 'none'
         this.updateRoundScoreDisplay();
         document.querySelector('.player-2-panel').classList.remove('active-2')
         document.querySelector('.player-1-panel').classList.add('active-1')

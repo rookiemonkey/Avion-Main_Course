@@ -30,7 +30,11 @@ const paths = {
         output: 'app.js'
     },
     images: {
-        src: './assets/images/*',
+        src: './assets/images/*.png',
+        dest: './build/assets/images'
+    },
+    gifs: {
+        src: './assets/images/*.gif',
         dest: './build/assets/images'
     },
     fonts: {
@@ -109,6 +113,16 @@ const images = () =>
 
 
 
+// Copyt the IMAGES(.gif) 
+const gifs = () =>
+    gulp
+        .src(paths.gifs.src)
+        .pipe(plumber())
+        .pipe(gulp.dest(paths.gifs.dest));
+
+
+
+
 // Copy the FONTS folder/contents
 const fonts = () =>
     gulp
@@ -130,13 +144,14 @@ const audios = () =>
 // Define the series of tasks needed to accomplished by gulp
 const build = gulp.series(
     clean,
-    gulp.parallel(html, styles, scripts, images, fonts, audios)
+    gulp.parallel(html, styles, scripts, images, fonts, audios, gifs)
 );
 
 exports.clean = clean;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.images = images;
+exports.gifs = gifs;
 exports.fonts = fonts;
 exports.build = build;
 exports.default = build;

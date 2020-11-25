@@ -2257,7 +2257,7 @@
   clear: both; }
 
 body {
-  background-image: url("../images/back.jpg");
+  background-image: url("../images/back.png");
   background-size: cover;
   background-position: center;
   font-family: Lato;
@@ -2467,6 +2467,18 @@ i {
 
 .hidden {
   display: none; }
+
+.img-p1,
+.img-p2 {
+  position: absolute;
+  top: 70%;
+  left: 20px;
+  width: 150px;
+  height: auto;
+  max-height: 200px; }
+
+.img-p2 {
+  left: 827px !important; }
 
 #scoreadd-1,
 #scoreadd-2 {

@@ -32,7 +32,7 @@
 }
 
 body {
-    background-image: url('../images/back.jpg');
+    background-image: url('../images/back.png');
     background-size: cover;
     background-position: center;
     font-family: Lato;
@@ -40,7 +40,6 @@ body {
     position: relative;
     height: 100vh;
     color: #555;
-    zoom: 0.8;
 }
 
 .wrapper {
@@ -267,6 +266,20 @@ i {
 
 .hidden {
   display: none;
+}
+
+.img-p1,
+.img-p2 {
+  position: absolute;
+  top: 70%;
+  left: 20px; // .toggle margin left
+  width: 150px;
+  height: auto;
+  max-height: 200px;
+}
+
+.img-p2 {
+  left: 827px !important;
 }
 
 #scoreadd-1,
