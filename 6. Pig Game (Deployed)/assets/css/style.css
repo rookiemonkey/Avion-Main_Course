@@ -2289,7 +2289,7 @@ body {
 
 .initial-panel {
   width: 1000px;
-  height: 95vh;
+  height: 600px;
   background-color: #f7f7f7;
   display: flex; }
   .initial-panel .initial-panel-logo,
