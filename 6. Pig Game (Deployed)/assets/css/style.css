@@ -2299,9 +2299,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; }
-  .initial-panel .initial-panel-logo img {
-    width: 100%;
-    height: auto; }
+  .initial-panel .initial-panel-logo {
+    flex-direction: column; }
+    .initial-panel .initial-panel-logo img {
+      width: 100%;
+      height: auto; }
   .initial-panel .initial-panel-navigation {
     background-color: transparent;
     align-items: flex-start !important; }
@@ -2311,7 +2313,7 @@ body {
       align-items: center;
       flex-direction: column;
       padding: 0px 25px;
-      min-height: 405px;
+      min-height: 520px;
       margin-top: 80px; }
       .initial-panel .initial-panel-navigation .initial-panel-inner button {
         position: static;
@@ -2435,6 +2437,9 @@ i {
   vertical-align: text-top;
   margin-top: -4px;
   transition: margin 0.3s; }
+
+.btn-start {
+  margin-top: 15px !important; }
 
 .btn-new {
   top: 45px; }

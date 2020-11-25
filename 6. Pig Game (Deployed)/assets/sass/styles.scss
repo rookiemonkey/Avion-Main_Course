@@ -81,6 +81,8 @@ body {
   }
 
   .initial-panel-logo {
+    flex-direction: column;
+
     img {
       width: 100%;
       height: auto;
@@ -97,7 +99,7 @@ body {
       align-items: center;
       flex-direction: column;
       padding: 0px 25px;
-      min-height: 405px;
+      min-height: 520px;
       margin-top: 80px;
       
       button {
@@ -242,6 +244,7 @@ i {
     transition: margin 0.3s;
 }
 
+.btn-start {margin-top: 15px !important;}
 .btn-new { top: 45px;}
 .btn-home {top: 109px; }
 .btn-target {top: 372px; }
