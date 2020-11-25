@@ -101,6 +101,7 @@ function Game() {
     this.form_target_score_isvalid = false;
     this.img_dice = document.querySelector('.dice');
     this.toggler_theme = document.querySelector('#theme');
+    this.select_language_panel = document.querySelector('.language-panel');
     this.select_language = document.querySelector('#language');
     this.panelInitial = document.querySelector('.initial-panel');
     this.panelNavigation = document.querySelector('.initial-panel-navigation');
@@ -127,6 +128,8 @@ function Game() {
     this.winner2 = document.querySelector('#winner-2');
     this.p1label = document.querySelector("#name-1");
     this.p2label = document.querySelector("#name-2");
+    this.p1panel = document.querySelector('.player-1-panel');
+    this.p2panel = document.querySelector('.player-2-panel');
     this.p1rolled1 = document.querySelector('#rolled1-P1');
     this.p2rolled1 = document.querySelector('#rolled1-P2');
     this.current = document.querySelectorAll('.player-current-label');
@@ -189,37 +192,33 @@ function Game() {
         this.nextPlayer();
     };
     this.nextPlayer = () => {
-        const currentPlayer = `P${this.whoIsPlaying}RoundScore`
-        const currentPlayerPanel = `.player-${this.whoIsPlaying}-panel`
-        const currentPlayerPrompt = `#rolled1-P${this.whoIsPlaying}`
+        const loseRoundPropmt = document.querySelector(`#rolled1-P${this.whoIsPlaying}`);
+        const waitingImage = document.querySelector(`#img-P${this.whoIsPlaying}-roundwaiting`);
+        const loseImage = document.querySelector(`#img-P${this.whoIsPlaying}-roundlose`)
 
         if (this.diceval === 1) {
-            const loseRoundPropmt = document.querySelector(currentPlayerPrompt);
-            const waitingImage = document.querySelector(`#img-P${this.whoIsPlaying}-roundwaiting`);
-            const loseImage = document.querySelector(`#img-P${this.whoIsPlaying}-roundlose`)
-
             waitingImage.style.display = 'none'
             loseImage.style.display = 'block'
             loseImage.classList.add('fade-in-top')
             loseRoundPropmt.classList.add('fade-in-top')
         }
 
-        this[currentPlayer] = 0;
+        this[`P${this.whoIsPlaying}RoundScore`] = 0;
         this.updateRoundScoreDisplay();
 
         switch (this.whoIsPlaying) {
             case '1':
-                document.querySelector(currentPlayerPanel).classList.remove('active-1')
                 this.whoIsPlaying = '2'
-                document.querySelector('.player-2-panel').classList.add('active-2')
+                this.p1panel.classList.remove('active-1')
+                this.p2panel.classList.add('active-2');
                 document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
                 document.querySelector(`#img-P${this.whoIsPlaying}-roundwaiting`).style.display = 'block'
                 document.querySelector(`#img-P${this.whoIsPlaying}-roundlose`).style.display = 'none'
                 break;
             case '2':
-                document.querySelector(currentPlayerPanel).classList.remove('active-2')
                 this.whoIsPlaying = '1'
-                document.querySelector('.player-1-panel').classList.add('active-1')
+                this.p2panel.classList.remove('active-2')
+                this.p1panel.classList.add('active-1');
                 document.querySelector(`#rolled1-P${this.whoIsPlaying}`).classList.remove('fade-in-top')
                 document.querySelector(`#img-P${this.whoIsPlaying}-roundwaiting`).style.display = 'block'
                 document.querySelector(`#img-P${this.whoIsPlaying}-roundlose`).style.display = 'none'
@@ -255,14 +254,10 @@ function Game() {
     };
     this.startGame = () => {
         this.newGame();
-        const initialPanel = document.querySelector('.initial-panel');
-        const p1Panel = document.querySelector('.player-1-panel');
-        const p2Panel = document.querySelector('.player-2-panel');
         const { labels } = language[this.language];
-
-        initialPanel.classList.toggle('hidden');
-        p1Panel.classList.toggle('hidden');
-        p2Panel.classList.toggle('hidden');
+        this.panelInitial.classList.toggle('hidden');
+        this.p1panel.classList.toggle('hidden');
+        this.p2panel.classList.toggle('hidden');
         this.img_dice.classList.toggle('hidden');
         this.btn_home.classList.toggle('hidden');
         this.btn_new.classList.toggle('hidden');
@@ -299,8 +294,8 @@ function Game() {
         document.querySelector(`#img-P${this.whoIsPlaying}-roundlose`).style.display = 'none'
         document.querySelector(`#img-P${this.whoIsPlaying}-roundhold`).style.display = 'none'
         this.updateRoundScoreDisplay();
-        document.querySelector('.player-2-panel').classList.remove('active-2')
-        document.querySelector('.player-1-panel').classList.add('active-1')
+        this.p1panel.classList.add('active-1');
+        this.p2panel.classList.remove('active-2');
         this.img_dice.style.visibility = `visible`
         this.btn_roll.style.visibility = `visible`
         this.btn_hold.style.visibility = `visible`
@@ -355,11 +350,10 @@ function Game() {
         this.form_target_scorelabel.textContent = labels.targetscorelabel;
         this.form_p1_desc.textContent = labels.p1formlabel;
         this.form_target_desc.textContent = labels.targetscoreformlabel;
-        this.btn_commence.setAttribute('value', labels.commence)
-        this.btn_hideform.setAttribute('value', labels.back)
+        this.btn_commence.setAttribute('value', labels.commence);
+        this.btn_hideform.setAttribute('value', labels.back);
 
-        const currentArray = new Array(...this.current);
-        currentArray.forEach(element => element.textContent = labels.current)
+        [...this.current].forEach(element => element.textContent = labels.current)
 
         this.ptag1.textContent = instructions.ptag1;
         this.ptag2.textContent = instructions.ptag2;
@@ -380,14 +374,6 @@ function Game() {
         const buttons = document.querySelectorAll('button');
         const icons = document.querySelectorAll('i');
         const inputs = document.querySelectorAll('input');
-        const select_lang = document.querySelector('#language');
-        const panel_lang = document.querySelector('.language-panel');
-        const panel_p1 = document.querySelector('.player-1-panel');
-        const panel_p2 = document.querySelector('.player-2-panel');
-        const rolled_p1 = document.querySelector('#rolled1-P1');
-        const rolled_p2 = document.querySelector('#rolled1-P2');
-        const winner_p1 = document.querySelector('#winner-1');
-        const winner_p2 = document.querySelector('#winner-2');
         const names = document.querySelectorAll('.player-name');
 
         switch (checked) {
@@ -395,14 +381,14 @@ function Game() {
                 body.style.backgroundColor = 'rgba(0, 0, 0, 0.85)'
                 body.style.backgroundBlendMode = 'overlay'
                 this.panelInitial.style.backgroundColor = DTbg;
-                panel_p1.style.backgroundColor = DTbg;
-                panel_p2.style.backgroundColor = DTbg;
-                rolled_p1.style.color = DTfont;
-                rolled_p2.style.color = DTfont;
-                winner_p1.style.color = DTfont;
-                winner_p2.style.color = DTfont;
-                panel_lang.style.borderColor = DTred;
-                select_lang.style.color = DTfont;
+                this.p1panel.style.backgroundColor = DTbg;
+                this.p2panel.style.backgroundColor = DTbg;
+                this.p1rolled1.style.color = DTfont;
+                this.p2rolled1.style.color = DTfont;
+                this.winner1.style.color = DTfont;
+                this.winner2.style.color = DTfont;
+                this.select_language_panel.style.borderColor = DTred;
+                this.select_language.style.color = DTfont;
                 [...paragraphs].forEach(p => p.style.color = DTfont);
                 [...buttons].forEach(b => b.style.color = DTfont);
                 [...icons].forEach(i => i.style.color = DTred);
@@ -416,14 +402,14 @@ function Game() {
                 body.style.backgroundColor = 'rgba(0, 0, 0, 0)'
                 body.style.backgroundBlendMode = 'normal'
                 this.panelInitial.style.backgroundColor = LTbg;
-                panel_p1.style.backgroundColor = LTbg;
-                panel_p2.style.backgroundColor = LTbg;
-                rolled_p1.style.color = LTfont;
-                rolled_p2.style.color = LTfont;
-                winner_p1.style.color = LTfont;
-                winner_p2.style.color = LTfont;
-                panel_lang.style.borderColor = LTred;
-                select_lang.style.color = LTfont;
+                this.p1panel.style.backgroundColor = LTbg;
+                this.p2panel.style.backgroundColor = LTbg;
+                this.p1rolled1.style.color = LTfont;
+                this.p2rolled1.style.color = LTfont;
+                this.winner1.style.color = LTfont;
+                this.winner2.style.color = LTfont;
+                this.select_language_panel.style.borderColor = LTred;
+                this.select_language.style.color = LTfont;
                 [...paragraphs].forEach(p => p.style.color = LTfont);
                 [...buttons].forEach(b => b.style.color = LTfont);
                 [...icons].forEach(i => i.style.color = LTred);
