@@ -88,7 +88,7 @@
 >> - [x] dynamic player names
 >> - [x] user defined target score (original game's default is 100)
 
-![Screenshot](_SCREENSHOTS/project6new.png)
+![Screenshot](_SCREENSHOTS/project6new2.png)
 
 
 
