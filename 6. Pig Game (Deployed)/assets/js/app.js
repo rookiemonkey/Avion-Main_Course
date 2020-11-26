@@ -1,76 +1,68 @@
 const PigGame = new Game();
-const areNumbers = new RegExp(/^[0-9]+$/);
-const BackgroundMusic = new Audio('/assets/audios/bensound-buddy.mp3');
-const RollDiceSound = new Audio('/assets/audios/dice-roll.mp3');
-const LosePointsSound = new Audio('/assets/audios/lose-points.mp3');
-const AddPointsSound = new Audio('/assets/audios/add-points.mp3');
-const ApplauseSound = new Audio('/assets/audios/applause.mp3')
-const { btn_roll, btn_hold, btn_new, btn_start, btn_home, btn_hideform,
-    select_language, toggler_theme, form_p1_name, form_p2_name,
-    form_target_score, form } = PigGame;
 
 // things needed to be refreshed when user clicks the refresh button
 window.addEventListener('load', function () {
-    toggler_theme.checked = false;
-    select_language.value = 'english';
-    form_p1_name.value = '';
-    form_p2_name.value = '';
-    form_target_score.value = '';
+    PigGame.toggler_theme.checked = false;
+    PigGame.select_language.value = 'english';
+    PigGame.form_p1_name.value = '';
+    PigGame.form_p2_name.value = '';
+    PigGame.form_target_score.value = '';
 });
 
 // event for changing the language
-select_language.addEventListener('change', PigGame.changeLanguage);
+PigGame.select_language.addEventListener('change', PigGame.changeLanguage);
 
 // event for changing the theme
-toggler_theme.addEventListener('change', PigGame.changeTheme);
+PigGame.toggler_theme.addEventListener('change', PigGame.changeTheme);
 
 // event for starting/restarting the game
-btn_home.addEventListener('click', PigGame.startGame);
+PigGame.btn_home.addEventListener('click', PigGame.startGame);
 
 // event for showing the form
-btn_start.addEventListener('click', PigGame.showForm);
+PigGame.btn_start.addEventListener('click', PigGame.showForm);
 
 // event for hiding the form
-btn_hideform.addEventListener('click', PigGame.hideForm);
+PigGame.btn_hideform.addEventListener('click', PigGame.hideForm);
 
 // event for new game
-btn_new.addEventListener('click', PigGame.newGame);
+PigGame.btn_new.addEventListener('click', PigGame.newGame);
 
 // event for round score/roll button
-btn_roll.addEventListener('click', PigGame.rollDice);
+PigGame.btn_roll.addEventListener('click', PigGame.rollDice);
 
 // event for global score button
-btn_hold.addEventListener('click', PigGame.updateGlobalScoreDisplay);
+PigGame.btn_hold.addEventListener('click', PigGame.updateGlobalScoreDisplay);
 
 // event for form submission and starts the game by invoking Piggame.startGame
-form.addEventListener('submit', PigGame.submitForm);
+PigGame.form.addEventListener('submit', PigGame.submitForm);
 
 // event for the form styles
-[form_p1_name, form_p2_name, form_target_score].forEach(element => {
-    element.addEventListener('focusout', () => {
-        element.value
-            ? element.classList.add("has-value")
-            : element.classList.remove("has-value")
+[PigGame.form_p1_name, PigGame.form_p2_name, PigGame.form_target_score]
+    .forEach(element => {
+        element.addEventListener('focusout', () => {
+            element.value
+                ? element.classList.add("has-value")
+                : element.classList.remove("has-value")
+        })
     })
-})
 
 // event for target score input to prevent typing texts
-form_target_score.addEventListener('keyup', function () {
-    areNumbers.test(this.value)
+PigGame.form_target_score.addEventListener('keyup', function () {
+    PigGame.areNumbers.test(this.value)
         ? PigGame.form_target_score_isvalid = true
         : null
 })
 
 // play background music with lesser volume and on-loop
-BackgroundMusic.play();
-BackgroundMusic.loop = true;
-BackgroundMusic.volume = 0.1;
+PigGame.backgroundMusic.play();
+PigGame.backgroundMusic.loop = true;
+PigGame.backgroundMusic.volume = 0.1;
 
 // adjust volume for sprites
-RollDiceSound.volume = 0.2;
-LosePointsSound.volume = 0.2;
-AddPointsSound.volume = 0.2;
-ApplauseSound.volume = 0.2;
+PigGame.rollDiceSound.volume = 0.2;
+PigGame.losePointsSound.volume = 0.2;
+PigGame.addPointsSound.volume = 0.2;
+PigGame.applauseSound.volume = 0.2;
 
 
 
@@ -99,6 +91,12 @@ function Game() {
     this.P2RoundScore = 0;
     this.P2GlobalScore = 0;
     this.form_target_score_isvalid = false;
+    this.areNumbers = new RegExp(/^[0-9]+$/);
+    this.backgroundMusic = new Audio('/assets/audios/bensound-buddy.mp3');
+    this.rollDiceSound = new Audio('/assets/audios/dice-roll.mp3');
+    this.losePointsSound = new Audio('/assets/audios/lose-points.mp3');
+    this.addPointsSound = new Audio('/assets/audios/add-points.mp3');
+    this.applauseSound = new Audio('/assets/audios/applause.mp3')
     this.img_dice = document.querySelector('.dice');
     this.toggler_theme = document.querySelector('#theme');
     this.select_language_panel = document.querySelector('.language-panel');
@@ -149,7 +147,7 @@ function Game() {
             .textContent = this[`P${this.whoIsPlaying}RoundScore`];
     };
     this.updateGlobalScoreDisplay = () => {
-        AddPointsSound.play();
+        this.addPointsSound.play();
         const currentPlayerGlobalScore = `P${this.whoIsPlaying}GlobalScore`
         const currentPlayerRoundScore = `P${this.whoIsPlaying}RoundScore`
         const holdImage = document.querySelector(`#img-P${this.whoIsPlaying}-roundhold`);
@@ -178,7 +176,7 @@ function Game() {
         this.updateRoundScoreDisplay();
 
         if (this[currentPlayerGlobalScore] >= this.target_score) {
-            ApplauseSound.play();
+            this.applauseSound.play();
             const panel = document.querySelector(`.player-${this.whoIsPlaying}-panel`);
             const promptWinner = document.querySelector(`#winner-${this.whoIsPlaying}`);
             panel.style.backgroundImage = `url('/assets/images/winner.png')`
@@ -226,7 +224,7 @@ function Game() {
         }
     };
     this.rollDice = () => {
-        RollDiceSound.play();
+        this.rollDiceSound.play()
         this.diceval = Math.floor(Math.random() * 6) + 1;
         this.img_dice.setAttribute('src', `/assets/images/dice-${this.diceval}.png`);
         this.img_dice.classList.add('rotate-center')
@@ -244,7 +242,7 @@ function Game() {
         }
 
         if (this.diceval === 1) {
-            LosePointsSound.play();
+            this.losePointsSound.play();
             this.nextPlayer();
             return null;
         }
