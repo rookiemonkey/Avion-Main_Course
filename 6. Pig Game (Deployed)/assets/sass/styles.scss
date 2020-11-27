@@ -504,9 +504,15 @@ input:focus, input:active {
   outline: none;
 }
 
-input[type="text"], input[type="tel"] {
+input[type="text"], 
+input[type="tel"] {
   border: none;
   border-bottom: solid 2px #EB4D4D;
+}
+
+input[type="text"]:invalid, 
+input[type="tel"]:invalid {
+  box-shadow: none;
 }
 
 input[type='submit'], #hideform {
