@@ -81,12 +81,12 @@
 > This project is focused on the basics of implementing javascript on web applications which consists of manipulating styles and markup.
 
 >> ###### Features:
->> - [x] use of factory functions
->> - [x] dark/light theme
+>> - [x] use of ES6 Classes and weakmaps
+>> - [x] supports dark/light theme
+>> - [x] supports dynamic player names
+>> - [x] supports localization (10 languages)
+>> - [x] supports user defined target score (original game's default is 100)
 >> - [x] added background music and sprites
->> - [x] localization (supports 10 languages)
->> - [x] dynamic player names
->> - [x] user defined target score (original game's default is 100)
 
 ![Screenshot](_SCREENSHOTS/project6new2.png)
 
