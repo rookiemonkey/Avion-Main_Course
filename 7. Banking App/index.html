@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <title>InBank</title>
+</head>
+
+<body>
+    <main>
+        <section id="view_initial">
+            <article class="view_initial_img">
+                <img src="/assets/images/bank.svg" alt="InBank" />
+                <h1>InBank</h1>
+            </article>
+            <article class="view_initial_nav">
+                <ul class="initial_nav_parent">
+                    <li class='initial_nav_item active-nav' data-view="home">Home</li>
+                    <li class='initial_nav_item' data-view="register">Register</li>
+                    <li class='initial_nav_item' data-view="login">Login</li>
+                </ul>
+                <div class="view_initial_nav_dynamic">
+                    <div id="dynamic_home" data-view="home">
+                        Your in-browser banking application! Store money on browser with high security! Don't have an
+                        account? Register now!
+                    </div>
+                    <div id="dynamic_register" data-view="register" style="display: none;">
+                        <form>
+                            <label>Full Name</label>
+                            <input type='text' name="fullname" />
+                            <label>Password</label>
+                            <input type='password' name="password" />
+                            <label>Confirm Password</label>
+                            <input type='password' name="password_confirm" />
+                            <button>
+                                <i class="ion-android-checkmark-circle"></i>
+                                Register
+                            </button>
+                        </form>
+                    </div>
+                    <div id="dynamic_login" data-view="login" style="display: none;">
+                        <form>
+                            <label>Full Name</label>
+                            <input type='text' name="fullname" />
+                            <label>Password</label>
+                            <input type='password' name="password" />
+                            <button>
+                                <i class="ion-android-checkmark-circle"></i>
+                                Login
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+
+<script src="/assets/js/main.js"></script>
+
+</html>
