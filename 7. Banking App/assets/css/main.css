@@ -2459,3 +2459,59 @@ section#view_loggedin {
         font-size: 18px;
         font-weight: 700;
         padding: 12px 0px; }
+  section#view_loggedin .view_useractions #dynamic_transactions {
+    height: 511px;
+    max-height: 511px;
+    justify-content: flex-start;
+    flex-direction: column !important; }
+    section#view_loggedin .view_useractions #dynamic_transactions #transactions_options {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 7.5px; }
+      section#view_loggedin .view_useractions #dynamic_transactions #transactions_options label {
+        font-style: italic; }
+      section#view_loggedin .view_useractions #dynamic_transactions #transactions_options select#transaction_type {
+        background-color: transparent;
+        color: white;
+        padding: 7.5px 0px;
+        margin-left: 7.5px;
+        width: 150px;
+        font-size: 18px;
+        font-family: 'Arvo';
+        font-weight: 700;
+        border: none;
+        border-bottom: 2px solid white; }
+    section#view_loggedin .view_useractions #dynamic_transactions #transactions_list {
+      width: 100%; }
+      section#view_loggedin .view_useractions #dynamic_transactions #transactions_list div.transactions_list_empty {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; }
+        section#view_loggedin .view_useractions #dynamic_transactions #transactions_list div.transactions_list_empty h3 {
+          font-size: 1.5rem; }
+        section#view_loggedin .view_useractions #dynamic_transactions #transactions_list div.transactions_list_empty img {
+          width: 50%;
+          height: auto; }
+      section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li {
+        padding: 12px;
+        list-style-type: none;
+        border: 2px solid white;
+        border-radius: 15px;
+        margin: 7.5px; }
+        section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_date,
+        section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_balanceBefore {
+          font-size: 0.75rem;
+          font-style: italic; }
+        section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_balanceBefore {
+          float: right; }
+        section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_main {
+          margin: 7.5px 0px;
+          display: flex;
+          justify-content: space-between; }
+          section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_main .transactions_listitem_type,
+          section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_main .transactions_listitem_amount {
+            font-weight: 700; }

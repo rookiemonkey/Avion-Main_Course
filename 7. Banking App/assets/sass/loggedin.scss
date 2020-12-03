@@ -162,5 +162,89 @@ section#view_loggedin {
                 }
             }
         }
+
+        #dynamic_transactions {
+        height: 511px;
+        max-height: 511px;
+        justify-content: flex-start;
+        flex-direction: column !important;
+
+            #transactions_options {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-bottom: $spacing_sm;
+
+                label {
+                    font-style: italic;
+                }
+
+                select#transaction_type {
+                    background-color: transparent;
+                    color: white;
+                    padding: $spacing_sm 0px;
+                    margin-left: $spacing_sm;
+                    width: 150px;
+                    font-size: 18px;
+                    font-family: 'Arvo';
+                    font-weight: 700;
+                    border: none;
+                    border-bottom: 2px solid white;
+                }
+            }
+
+            #transactions_list {
+                width: 100%;
+
+                div.transactions_list_empty {
+                    margin-top: $spacing_lg +  $spacing_lg;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    h3 {
+                        font-size: 1.5rem;
+                    }
+
+                    img {
+                        width: 50%;
+                        height: auto;
+                    }
+                }
+
+                li {
+                    padding: $spacing_md;
+                    list-style-type: none;
+                    border: 2px solid white;
+                    border-radius: 15px;
+                    margin: $spacing_sm;
+                    
+                    .transactions_listitem_date,
+                    .transactions_listitem_balanceBefore {
+                        font-size: 0.75rem;
+                        font-style: italic;
+                    }
+
+                    .transactions_listitem_balanceBefore {
+                        float: right;
+                    }
+
+                    .transactions_listitem_main {
+                        margin: $spacing_sm 0px;
+                        display: flex;
+                        justify-content: space-between;
+
+                        .transactions_listitem_type,
+                        .transactions_listitem_amount {
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
     }
+
+
 }

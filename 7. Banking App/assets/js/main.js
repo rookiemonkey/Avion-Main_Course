@@ -16,8 +16,8 @@ class TransactDeposit {
         this.type = 'DEPOSIT'
         this.transactionDate = new Date().toDateString();
         this.accountNumber = accountNumber;
-        this.balanceBeforeDeposit = before
-        this.depositAmount = amount
+        this.balanceBefore = before
+        this.amount = amount
     }
 }
 
@@ -27,8 +27,8 @@ class TransactWithdraw {
         this.type = 'WITHDRAW'
         this.transactionDate = new Date().toDateString();
         this.accountNumber = accountNumber;
-        this.balanceBeforeWithdraw = before
-        this.withdrawAmount = amount
+        this.balanceBefore = before
+        this.amount = amount
     }
 }
 
@@ -38,9 +38,9 @@ class TransactSend {
         this.type = `SENT ${direction}`
         this.transactionDate = new Date().toDateString();
         this.accountNumber = accountNumber;
-        this.balanceBeforeSend = before
-        this.sentAmount = amount
-        this.sentToAccountNumber = toAccountNumber
+        this.balanceBefore = before
+        this.amount = amount
+        this.sentToOrFromAccountNumber = toAccountNumber
     }
 }
 
@@ -78,11 +78,13 @@ class BankingApp {
         this.displayBalance.textContent = foundUser.balance
         this.currentUser = foundUser
         this.showInitialPage(false);
+        resetForms()
     }
 
     static logout = () => {
         this.currentUser = null
         this.showInitialPage(true)
+        resetForms()
     };
 
     static showInitialPage = toShowInitPage => {
@@ -119,10 +121,10 @@ class BankingApp {
         const from = this.findUser(fromAccount)
         const to = this.findUser(toAccount)
         const newTransactionFrom = new TransactSend(
-            from.fullname, from.balance, amount, to.fullname, 'TO'
+            from.accountNumber, from.balance, amount, to.accountNumber, 'TO'
         )
         const newTransactionTo = new TransactSend(
-            from.fullname, to.balance, amount, to.fullname, 'FROM'
+            from.accountNumber, to.balance, amount, to.accountNumber, 'FROM'
         )
         from.balance -= parseInt(amount);
         from.transactions.unshift(newTransactionFrom)
@@ -135,10 +137,14 @@ class BankingApp {
         return this.currentUser.balance;
     }
 
-    static getAllTransactions = (type = 'ALL') => {
-        return type === 'ALL'
-            ? this.currentUser.transactions
-            : this.currentUser.transactions.map(t => t.type === type)
+    static getAllTransactions = type => {
+        const transactions = new Array();
+
+        type === 'ALL'
+            ? transactions.push(...this.currentUser.transactions)
+            : transactions.push(...this.currentUser.transactions.filter(t => t.type === type))
+
+        return transactions;
     }
 
 }
@@ -155,7 +161,9 @@ const form_login = document.querySelector('#form_login');
 const form_deposit = document.querySelector('#form_deposit');
 const form_withdraw = document.querySelector('#form_withdraw');
 const form_send = document.querySelector('#form_send');
+const form_transactionType = document.querySelector('#transaction_type')
 const transactionsBtn = document.getElementById('transactions');
+const transactionsList = document.getElementById('transactions_list');
 const initNavItemsArr = [...document.querySelector('.initial_nav_parent').children];
 const initNavViewsArr = [...document.querySelector('.view_initial_nav_dynamic').children];
 const userActionsViewsArr = [...document.querySelector('.view_useractions').children];
@@ -165,6 +173,7 @@ const userActionsBtnsArr = [...document.querySelector('.user_actions').children,
 // dynamic initial page panels for each nav buttons
 initNavItemsArr.forEach(navItem => {
     navItem.addEventListener('click', function () {
+        resetForms();
 
         initNavViewsArr.forEach(view => {
             navItem.dataset.view === view.dataset.view
@@ -184,6 +193,8 @@ initNavItemsArr.forEach(navItem => {
 // dynamic user panels for each action buttons except logout
 userActionsBtnsArr.forEach(actionBtn => {
     actionBtn.addEventListener('click', function () {
+        resetForms();
+
         if (this.dataset.action) {
 
             userActionsViewsArr.forEach(view => {
@@ -218,8 +229,7 @@ form_register.addEventListener('submit', event => {
 
     BankingApp.createUser(reg_fullname, reg_password)
     BankingApp.login(reg_fullname, reg_password)
-    form_register.reset();
-
+    resetForms()
 })
 
 // onsubmission of login form
@@ -228,7 +238,7 @@ form_login.addEventListener('submit', event => {
     const formData = new FormData(form_login);
     const { log_fullname, log_password } = parseFormData(formData);
     BankingApp.login(log_fullname, log_password)
-    form_login.reset();
+    resetForms()
 })
 
 // onsubmission fo deposit form
@@ -237,7 +247,7 @@ form_deposit.addEventListener('submit', event => {
     const formData = new FormData(form_deposit);
     const { deposit_amount } = parseFormData(formData);
     BankingApp.deposit(BankingApp.currentUser.accountNumber, parseInt(deposit_amount))
-    form_deposit.reset();
+    resetForms()
 })
 
 // onsubmission fo withdraw form
@@ -246,7 +256,7 @@ form_withdraw.addEventListener('submit', event => {
     const formData = new FormData(form_withdraw);
     const { withdraw_amount } = parseFormData(formData);
     BankingApp.withdraw(BankingApp.currentUser.accountNumber, parseInt(withdraw_amount))
-    form_withdraw.reset();
+    resetForms()
 })
 
 // onsubmittions of send money form
@@ -255,9 +265,56 @@ form_send.addEventListener('submit', event => {
     const formData = new FormData(form_send);
     const { receiver_accnum, send_amount } = parseFormData(formData);
     BankingApp.send(BankingApp.currentUser.accountNumber, receiver_accnum, parseInt(send_amount))
-    form_send.reset();
+    resetForms()
 })
 
+// onchange of transaction type select options
+form_transactionType.addEventListener('change', event => {
+    const transactions = BankingApp.getAllTransactions(event.target.value)
+
+    transactionsList.innerHTML = ''; // removes all child nodes
+
+    if (transactions.length === 0) {
+        const div = document.createElement("DIV")
+        const img = document.createElement("IMG")
+        const msg = document.createElement("H3")
+        div.classList.add('transactions_list_empty')
+        img.setAttribute('src', '/assets/images/empty.svg')
+        msg.textContent = `No results found for the query`
+        div.appendChild(msg)
+        div.appendChild(img)
+        transactionsList.appendChild(div)
+        return null;
+    }
+
+    transactions.forEach(transaction => {
+        const li = document.createElement("LI");
+        const spanDate = document.createElement("SPAN");
+        const spanBalanceBefore = document.createElement("SPAN");
+        const mainContentType = document.createElement("SPAN");
+        const mainContentAmount = document.createElement("SPAN");
+        const mainContent = document.createElement("P");
+        li.classList.add('transactions_listitem');
+        spanDate.classList.add('transactions_listitem_date')
+        spanDate.textContent = transaction.transactionDate
+        spanBalanceBefore.classList.add('transactions_listitem_balanceBefore')
+        spanBalanceBefore.textContent = `Balance before this transaction: ${transaction.balanceBefore}`
+        mainContent.classList.add('transactions_listitem_main')
+        mainContentType.classList.add('transactions_listitem_type')
+        mainContentAmount.classList.add('transactions_listitem_amount')
+        mainContentType.textContent = transaction.type == 'SENT TO' ||
+            transaction.type == 'SENT FROM'
+            ? `${transaction.type} ${transaction.sentToOrFromAccountNumber}`
+            : transaction.type
+        mainContentAmount.textContent = transaction.amount
+        mainContent.appendChild(mainContentType)
+        mainContent.appendChild(mainContentAmount)
+        li.appendChild(spanDate)
+        li.appendChild(spanBalanceBefore)
+        li.appendChild(mainContent)
+        transactionsList.appendChild(li)
+    })
+})
 
 
 
@@ -288,4 +345,14 @@ function parseFormData(formData) {
     });
 
     return formdataParsed;
+}
+
+function resetForms() {
+    form_register.reset();
+    form_login.reset();
+    form_deposit.reset();
+    form_withdraw.reset();
+    form_send.reset();
+    form_transactionType.value = 'All';
+    transactionsList.innerHTML = '';
 }

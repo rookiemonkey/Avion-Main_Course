@@ -179,7 +179,22 @@
                     </form>
                 </div>
                 <div id="dynamic_transactions" data-action="transactions" style="display: none">
-                    <h1>TRANSACTIONS</h1>
+                    <div id="transactions_options">
+                        <label for="transaction_type">Transaction Type</label>
+                        <select id="transaction_type" name="transaction_type">
+                            <option value="ALL">All</option>
+                            <option value="DEPOSIT">Deposits</option>
+                            <option value="WITHDRAW">Withdraws</option>
+                            <option value="SENT TO">Sent</option> <!-- SENT TO -->
+                            <option value="SENT FROM">Received</option> <!-- SENT FROM -->
+                        </select>
+                    </div>
+                    <ul id="transactions_list">
+                        <div class="transactions_list_empty">
+                            <h3>No Transactions for DEPOSIT</h3>
+                            <img src="/assets/images/empty.svg" />
+                        </div>
+                    </ul>
                 </div>
             </article>
         </section>
