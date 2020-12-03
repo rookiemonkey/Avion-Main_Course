@@ -1,49 +1,3 @@
-// model for each user
-class BankingAppUser {
-    constructor(fullname, password) {
-        this.accountCreation = new Date().toDateString();
-        this.accountNumber = Math.random().toString().substr(2, 10);
-        this.fullname = fullname;
-        this.password = password;
-        this.balance = 0;
-        this.transactions = new Array();
-        this.avatar = `/assets/images/default.jpg`;
-    }
-}
-
-// model for deposit transaction
-class TransactDeposit {
-    constructor(accountNumber, before, amount) {
-        this.type = 'DEPOSIT'
-        this.transactionDate = new Date().toDateString();
-        this.accountNumber = accountNumber;
-        this.balanceBefore = before
-        this.amount = amount
-    }
-}
-
-// model for withdraw transaction
-class TransactWithdraw {
-    constructor(accountNumber, before, amount) {
-        this.type = 'WITHDRAW'
-        this.transactionDate = new Date().toDateString();
-        this.accountNumber = accountNumber;
-        this.balanceBefore = before
-        this.amount = amount
-    }
-}
-
-// model for send transaction
-class TransactSend {
-    constructor(accountNumber, before, amount, toAccountNumber, direction) {
-        this.type = `SENT ${direction}`
-        this.transactionDate = new Date().toDateString();
-        this.accountNumber = accountNumber;
-        this.balanceBefore = before
-        this.amount = amount
-        this.sentToOrFromAccountNumber = toAccountNumber
-    }
-}
 
 // model for the banking application
 class BankingApp {
@@ -109,8 +63,8 @@ class BankingApp {
 
     static deposit = (accountNumber, amount) => {
         const foundUser = this.findUser(accountNumber)
-        const newTransaction = new TransactDeposit(
-            accountNumber, foundUser.balance, parseInt(amount)
+        const newTransaction = new Transact(
+            'DEPOSIT', accountNumber, foundUser.balance, parseInt(amount)
         )
         foundUser.balance += parseInt(amount)
         foundUser.transactions.unshift(newTransaction)
@@ -119,8 +73,8 @@ class BankingApp {
 
     static withdraw = (accountNumber, amount) => {
         const foundUser = this.findUser(accountNumber)
-        const newTransaction = new TransactWithdraw(
-            accountNumber, foundUser.balance, amount
+        const newTransaction = new Transact(
+            'WITHDRAW', accountNumber, foundUser.balance, amount
         )
         foundUser.balance -= parseInt(amount);
         foundUser.transactions.unshift(newTransaction)
@@ -253,7 +207,6 @@ class BankingApp {
             this.transactionsList.appendChild(li)
         })
     }
-
 }
 
 
@@ -371,4 +324,45 @@ function resetForms() {
     BankingApp.changeAvatarBtn.value = '';
     BankingApp.transactionSelect.value = 'All';
     BankingApp.transactionsList.innerHTML = '';
+}
+
+
+
+
+
+
+
+
+
+
+// ====================================================== //
+// MODELS
+// ====================================================== //
+// model for each user
+function BankingAppUser(fullname, password) {
+    this.accountCreation = new Date().toDateString();
+    this.accountNumber = Math.random().toString().substr(2, 10);
+    this.fullname = fullname;
+    this.password = password;
+    this.balance = 0;
+    this.transactions = new Array();
+    this.avatar = `/assets/images/default.jpg`;
+}
+
+function Transact(type, accountNumber, before, amount) {
+    this.type = type // 'DEPOSIT' or 'WITHDRAW'
+    this.transactionDate = new Date().toDateString();
+    this.accountNumber = accountNumber;
+    this.balanceBefore = before
+    this.amount = amount
+}
+
+// model for send transaction
+function TransactSend(accountNumber, before, amount, toAccountNumber, direction) {
+    this.type = `SENT ${direction}`
+    this.transactionDate = new Date().toDateString();
+    this.accountNumber = accountNumber;
+    this.balanceBefore = before
+    this.amount = amount
+    this.sentToOrFromAccountNumber = toAccountNumber
 }
