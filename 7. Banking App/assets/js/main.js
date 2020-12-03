@@ -123,7 +123,7 @@ initNavItemsArr.forEach(navItem => {
 
         initNavViewsArr.forEach(view => {
             navItem.dataset.view === view.dataset.view
-                ? view.style.display = 'block'
+                ? view.style.display = 'flex'
                 : view.style.display = 'none'
         })
 

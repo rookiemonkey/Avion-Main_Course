@@ -8,7 +8,7 @@ section#view_initial {
     .view_initial_img,
     .view_initial_nav {
         width: 50%;
-        border: 2px solid white;
+        height: 100%;
         padding: $spacing_lg;
         display: flex;
         flex-direction: column;
@@ -44,7 +44,8 @@ section#view_initial {
                 text-align: center;
                 font-weight: 700;
                 transition: background-color 500ms ease-in-out,
-                            color 500ms ease-in-out;
+                            color 500ms ease-in-out,
+                            border-color 500ms ease-in-out;
 
                 &:hover {
                     background-color: white;
@@ -52,8 +53,71 @@ section#view_initial {
                 }
 
                 &.active-nav {
-                    background-color: white ;
-                    color: $color_base;
+                    background-color: $color_accent2;
+                    border-color: $color_accent2;
+                    color: white;
+                }
+            }
+        }
+
+        .view_initial_nav_dynamic {
+            #dynamic_home,
+            #dynamic_register,
+            #dynamic_login {
+                height: 500px;
+                width: 500px;
+                padding: $spacing_lg;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #dynamic_home {
+                flex-direction: column;
+                align-items: flex-start !important;
+                p {
+                    margin: $spacing_md 0px;
+                }
+            }
+
+            #dynamic_register,
+            #dynamic_login {
+                form {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+
+                    .input-group {
+                        display: flex;
+                        flex-direction: column;
+                        margin: $spacing_md+10px 0px;
+
+                        label {
+                            margin-bottom: $spacing_sm;
+                        }
+
+                        input {
+                            width: 100%;
+                            border: none;
+                            border-bottom: 2px solid white;
+                            font-size: 16px;
+                            font-weight: 700;
+                            color: white;
+                            padding: $spacing_sm 0px;
+                            background-color: transparent;
+                        }
+
+                        button {
+                            cursor: pointer;
+                            border: none;
+                            color: white;
+                            background-color: transparent;
+                            width: max-content;
+                            font-size: 18px;
+                            font-weight: 700;
+                            padding: $spacing_md 0px;
+                        }
+                    }
                 }
             }
         }

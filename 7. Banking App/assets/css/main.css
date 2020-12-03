@@ -5,6 +5,9 @@
   margin: 0px;
   box-sizing: border-box; }
 
+:root {
+  font-size: 18px; }
+
 body main {
   width: 100%;
   height: 100vh;
@@ -2251,7 +2254,7 @@ section#view_initial {
   section#view_initial .view_initial_img,
   section#view_initial .view_initial_nav {
     width: 50%;
-    border: 2px solid white;
+    height: 100%;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -2275,10 +2278,58 @@ section#view_initial {
       margin: 0px 12px;
       text-align: center;
       font-weight: 700;
-      transition: background-color 500ms ease-in-out, color 500ms ease-in-out; }
+      transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; }
       section#view_initial .view_initial_nav ul.initial_nav_parent li:hover {
         background-color: white;
         color: #ff6200; }
       section#view_initial .view_initial_nav ul.initial_nav_parent li.active-nav {
-        background-color: white;
-        color: #ff6200; }
+        background-color: #80CEFF;
+        border-color: #80CEFF;
+        color: white; }
+  section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_home,
+  section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register,
+  section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login {
+    height: 500px;
+    width: 500px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_home {
+    flex-direction: column;
+    align-items: flex-start !important; }
+    section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_home p {
+      margin: 12px 0px; }
+  section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form,
+  section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form {
+    width: 100%;
+    display: flex;
+    flex-direction: column; }
+    section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group,
+    section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group {
+      display: flex;
+      flex-direction: column;
+      margin: 22px 0px; }
+      section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group label,
+      section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group label {
+        margin-bottom: 7.5px; }
+      section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group input,
+      section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group input {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid white;
+        font-size: 16px;
+        font-weight: 700;
+        color: white;
+        padding: 7.5px 0px;
+        background-color: transparent; }
+      section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group button,
+      section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group button {
+        cursor: pointer;
+        border: none;
+        color: white;
+        background-color: transparent;
+        width: max-content;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 12px 0px; }
