@@ -3,6 +3,7 @@
 class BankingApp {
 
     static users = new Array()
+    static notifier = new HTMLElementToaster();
     static currentUser = null;
     static initialPage = document.querySelector('#view_initial')
     static loggedInPage = document.querySelector('#view_loggedin')
@@ -25,24 +26,26 @@ class BankingApp {
     }
 
     static login = (fullname, password) => {
-        const foundUser = this.users.find(user => {
-            return user.fullname === fullname &&
-                user.password === password
-        })
+        try {
+            const foundUser = this.users.find(user => {
+                return user.fullname === fullname &&
+                    user.password === password
+            })
 
-        if (!foundUser) {
-            alert("User does'nt exists")
-            return null;
+            if (!foundUser) throw new Error("User doesn't exists")
+            this.displayName.textContent = foundUser.fullname
+            this.displayAccCrt.textContent = `Member since: ${foundUser.accountCreation}`
+            this.displayAccNum.textContent = ` ${foundUser.accountNumber}`
+            this.displayBalance.textContent = foundUser.balance
+            this.displayAvatar.setAttribute('src', foundUser.avatar)
+            this.currentUser = foundUser
+            this.showInitialPage(false);
+            resetForms()
         }
 
-        this.displayName.textContent = foundUser.fullname
-        this.displayAccCrt.textContent = `Member since: ${foundUser.accountCreation}`
-        this.displayAccNum.textContent = ` ${foundUser.accountNumber}`
-        this.displayBalance.textContent = foundUser.balance
-        this.displayAvatar.setAttribute('src', foundUser.avatar)
-        this.currentUser = foundUser
-        this.showInitialPage(false);
-        resetForms()
+        catch (error) {
+            this.notifier.showMessage(error.message, 'error')
+        }
     }
 
     static logout = () => {
@@ -72,29 +75,44 @@ class BankingApp {
     }
 
     static withdraw = (accountNumber, amount) => {
-        const foundUser = this.findUser(accountNumber)
-        const newTransaction = new Transact(
-            'WITHDRAW', accountNumber, foundUser.balance, amount
-        )
-        foundUser.balance -= parseInt(amount);
-        foundUser.transactions.unshift(newTransaction)
-        this.displayBalance.textContent = foundUser.balance
+        try {
+            const foundUser = this.findUser(accountNumber)
+            const newBalance = foundUser.balance - parseInt(amount)
+            if (newBalance < 0) throw new Error('Not enough money to withdraw the amount')
+            const newTransaction = new Transact(
+                'WITHDRAW', accountNumber, foundUser.balance, amount
+            )
+            foundUser.balance = newBalance;
+            foundUser.transactions.unshift(newTransaction)
+            this.displayBalance.textContent = foundUser.balance
+        }
+
+        catch (error) {
+            this.notifier.showMessage(error.message, 'error')
+        }
     }
 
     static send = (fromAccount, toAccount, amount) => {
-        const from = this.findUser(fromAccount)
-        const to = this.findUser(toAccount)
-        const newTransactionFrom = new TransactSend(
-            from.accountNumber, from.balance, amount, to.accountNumber, 'TO'
-        )
-        const newTransactionTo = new TransactSend(
-            from.accountNumber, to.balance, amount, to.accountNumber, 'FROM'
-        )
-        from.balance -= parseInt(amount);
-        from.transactions.unshift(newTransactionFrom)
-        to.balance += parseInt(amount);
-        to.transactions.unshift(newTransactionTo)
-        this.displayBalance.textContent = from.balance
+        try {
+            const from = this.findUser(fromAccount)
+            const to = this.findUser(toAccount)
+            if (!to) throw new Error("Receiver doesn't exists")
+            const newTransactionFrom = new TransactSend(
+                from.accountNumber, from.balance, amount, to.accountNumber, 'TO'
+            )
+            const newTransactionTo = new TransactSend(
+                from.accountNumber, to.balance, amount, to.accountNumber, 'FROM'
+            )
+            from.balance -= parseInt(amount);
+            from.transactions.unshift(newTransactionFrom)
+            to.balance += parseInt(amount);
+            to.transactions.unshift(newTransactionTo)
+            this.displayBalance.textContent = from.balance
+        }
+
+        catch (error) {
+            this.notifier.showMessage(error.message, 'error')
+        }
     }
 
     static getBalance = () => {
@@ -102,15 +120,31 @@ class BankingApp {
     }
 
     static submitRegisterForm = event => {
-        event.preventDefault();
-        const formData = new FormData(this.form_register);
-        const { reg_fullname, reg_password, reg_password_confirm } = parseFormData(formData);
+        try {
+            event.preventDefault();
+            const formData = new FormData(this.form_register);
+            const inputs = parseFormData(formData);
+            const { reg_fullname, reg_password, reg_password_confirm } = inputs;
 
-        if (reg_password !== reg_password_confirm) return null;
+            const isUserExisting = this.users.findIndex(({ fullname }) => fullname === reg_fullname)
 
-        this.createUser(reg_fullname, reg_password)
-        this.login(reg_fullname, reg_password)
-        resetForms()
+            if (!reg_fullname || !reg_password || !reg_password_confirm)
+                throw new Error("Please fill out the form")
+
+            if (isUserExisting !== -1)
+                throw new Error("User already exists")
+
+            if (reg_password !== reg_password_confirm)
+                throw new Error("Passwords doesn't match")
+
+            this.createUser(reg_fullname, reg_password)
+            this.login(reg_fullname, reg_password)
+            resetForms()
+        }
+
+        catch (error) {
+            this.notifier.showMessage(error.message, 'error')
+        }
     }
 
     static submitLoginForm = event => {
@@ -141,15 +175,25 @@ class BankingApp {
         event.preventDefault();
         const formData = new FormData(form_send);
         const { receiver_accnum, send_amount } = parseFormData(formData);
-        BankingApp.send(BankingApp.currentUser.accountNumber, receiver_accnum, parseInt(send_amount))
+        this.send(this.currentUser.accountNumber, receiver_accnum, parseInt(send_amount))
         resetForms()
     }
 
     static changeAvatar = event => {
-        const blob = URL.createObjectURL(event.target.files[0])
-        this.currentUser.avatar = blob;
-        this.displayAvatar.setAttribute('src', blob);
-        resetForms()
+        try {
+            const [image] = event.target.files
+            const regEx = new RegExp(/image\/(png|jpg|jpeg)/, 'g')
+            const isImage = regEx.test(image.type)
+            if (!isImage) throw new Error('We only accept images')
+            const blob = URL.createObjectURL(image)
+            this.currentUser.avatar = blob;
+            this.displayAvatar.setAttribute('src', blob);
+            resetForms()
+        }
+
+        catch (error) {
+            this.notifier.showMessage(error.message, 'error')
+        }
     }
 
     static changeTransactionType = event => {
@@ -242,6 +286,8 @@ userActionsBtnsArr.forEach(actionBtn => {
     })
 })
 
+// onload initialize the notifier
+document.addEventListener("DOMContentLoaded", BankingApp.notifier.initialize);
 
 // onsubmission of register form
 BankingApp.form_register.addEventListener('submit', BankingApp.submitRegisterForm)
@@ -372,4 +418,27 @@ function HTMLElementTransactionEmpty() {
     this.msg.textContent = `No results found for the query`
     this.div.appendChild(this.msg)
     this.div.appendChild(this.img)
+}
+
+// ELEMENT model for toast notifications
+function HTMLElementToaster() {
+    this.initialize = () => {
+        this.hideTimeout = null;
+        this.element = document.createElement("div");
+        this.element.className = "toast";
+        document.body.appendChild(this.element);
+    }
+    this.showMessage = (message, state) => {
+        clearTimeout(this.hideTimeout);
+        this.element.textContent = message;
+        this.element.className = "toast toast--visible";
+
+        if (state) {
+            this.element.classList.add(`toast--${state}`);
+        }
+
+        this.hideTimeout = setTimeout(() => {
+            this.element.classList.remove("toast--visible");
+        }, 3000);
+    }
 }
