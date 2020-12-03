@@ -15,6 +15,11 @@ body main {
   font-family: 'Arvo', serif;
   color: white; }
 
+.active-nav {
+  background-color: #80CEFF;
+  border-color: #80CEFF;
+  color: white; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -2282,10 +2287,6 @@ section#view_initial {
       section#view_initial .view_initial_nav ul.initial_nav_parent li:hover {
         background-color: white;
         color: #ff6200; }
-      section#view_initial .view_initial_nav ul.initial_nav_parent li.active-nav {
-        background-color: #80CEFF;
-        border-color: #80CEFF;
-        color: white; }
   section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_home,
   section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register,
   section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login {
@@ -2371,6 +2372,8 @@ section#view_loggedin {
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name {
         font-size: 1.5rem;
         margin-bottom: 7.5px; }
+        section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name #transactions {
+          cursor: pointer; }
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountcreation,
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountnumber {
         font-size: 0.75rem;
@@ -2408,3 +2411,51 @@ section#view_loggedin {
         color: white; }
       section#view_loggedin .view_usercard .user_actions li.user_actions_item i {
         font-size: 1.75rem; }
+  section#view_loggedin .view_useractions #dynamic_deposit,
+  section#view_loggedin .view_useractions #dynamic_withdraw,
+  section#view_loggedin .view_useractions #dynamic_send,
+  section#view_loggedin .view_useractions #dynamic_transactions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%; }
+  section#view_loggedin .view_useractions #dynamic_deposit form,
+  section#view_loggedin .view_useractions #dynamic_withdraw form,
+  section#view_loggedin .view_useractions #dynamic_send form {
+    width: 80%;
+    display: flex;
+    flex-direction: column; }
+    section#view_loggedin .view_useractions #dynamic_deposit form .input-group,
+    section#view_loggedin .view_useractions #dynamic_withdraw form .input-group,
+    section#view_loggedin .view_useractions #dynamic_send form .input-group {
+      display: flex;
+      flex-direction: column;
+      margin: 22px 0px; }
+      section#view_loggedin .view_useractions #dynamic_deposit form .input-group label,
+      section#view_loggedin .view_useractions #dynamic_withdraw form .input-group label,
+      section#view_loggedin .view_useractions #dynamic_send form .input-group label {
+        margin-bottom: 7.5px; }
+      section#view_loggedin .view_useractions #dynamic_deposit form .input-group input,
+      section#view_loggedin .view_useractions #dynamic_withdraw form .input-group input,
+      section#view_loggedin .view_useractions #dynamic_send form .input-group input {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid white;
+        font-size: 18px;
+        font-weight: 700;
+        color: white;
+        padding: 7.5px 0px;
+        background-color: transparent; }
+      section#view_loggedin .view_useractions #dynamic_deposit form .input-group button,
+      section#view_loggedin .view_useractions #dynamic_withdraw form .input-group button,
+      section#view_loggedin .view_useractions #dynamic_send form .input-group button {
+        cursor: pointer;
+        border: none;
+        color: white;
+        background-color: transparent;
+        width: max-content;
+        font-family: 'Arvo', serif;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 12px 0px; }

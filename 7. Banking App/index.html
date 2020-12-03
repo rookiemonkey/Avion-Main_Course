@@ -13,7 +13,7 @@
         <section id="view_initial">
             <article class="view_initial_img">
                 <img src="/assets/images/bank.svg" alt="InBank" />
-                <h1>InBank</h1>
+                <h1>InBank.</h1>
             </article>
             <article class="view_initial_nav">
                 <ul class="initial_nav_parent">
@@ -93,29 +93,32 @@
                 <div class="user_informations">
                     <img id="user_avatar" src="/assets/images/default.jpg" alt="user">
                     <div class="user_meta_container">
-                        <h1 id="user_name">Kevin Basina</h1>
-                        <p id="user_accountcreation">Member since: March 25, 2050</p>
+                        <h1 id="user_name">
+                            <span id="transactions" data-action="transactions" style='float: right;'><i
+                                    class="ion-android-time"></i></span>
+                        </h1>
+                        <p id="user_accountcreation"></p>
                         <p id="user_accountnumber">
-                            <span>Account Number: &nbsp; <i class="ion-card"></i></span> 9818249879
+                            <span>Account Number: &nbsp; <i class="ion-card"></i></span> 0
                         </p>
                         <p id="user_balance" style="float: right;">
                             <span><i class="ion-social-usd"></i> &nbsp;</span>
-                            5,000,500
+                            100
                         </p>
 
                     </div>
                 </div>
 
                 <ul class="user_actions">
-                    <li class="user_actions_item" data-view="deposit">
+                    <li class="user_actions_item active-nav" data-action="deposit">
                         <i class="ion-ios-download"></i> &nbsp;
                         <span>Deposit</span>
                     </li>
-                    <li class="user_actions_item" data-view="withdraw">
+                    <li class="user_actions_item" data-action="withdraw">
                         <i class="ion-cash"></i> &nbsp;
                         <span>Withdraw</span>
                     </li>
-                    <li class="user_actions_item" data-view="send">
+                    <li class="user_actions_item" data-action="send">
                         <i class="ion-paper-airplane"></i> &nbsp;
                         <span>Send</span>
                     </li>
@@ -126,7 +129,58 @@
                 </ul>
             </article>
             <article class="view_useractions">
-
+                <div id="dynamic_deposit" data-action="deposit">
+                    <form id="form_deposit">
+                        <div class="input-group">
+                            <label>Deposit Amount</label>
+                            <input type="num" min="1">
+                        </div>
+                        <div class="input-group">
+                            <button>
+                                <i class="ion-android-checkmark-circle"></i>
+                                &nbsp;
+                                Deposit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div id="dynamic_withdraw" data-action="withdraw" style="display: none">
+                    <form id="form_withdraw">
+                        <div class="input-group">
+                            <label>Withdraw Amount</label>
+                            <input type="num" min="1">
+                        </div>
+                        <div class="input-group">
+                            <button>
+                                <i class="ion-android-checkmark-circle"></i>
+                                &nbsp;
+                                Withdraw
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div id="dynamic_send" data-action="send" style="display: none">
+                    <form id="form_send">
+                        <div class="input-group">
+                            <label>Receiver Account Number <small>(10 digit)</small></label>
+                            <input type="num" min="1">
+                        </div>
+                        <div class="input-group">
+                            <label>Amount to send</label>
+                            <input type="num" min="1">
+                        </div>
+                        <div class="input-group">
+                            <button>
+                                <i class="ion-android-checkmark-circle"></i>
+                                &nbsp;
+                                Withdraw
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div id="dynamic_transactions" data-action="transactions" style="display: none">
+                    <h1>TRANSACTIONS</h1>
+                </div>
             </article>
         </section>
     </main>

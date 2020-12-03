@@ -1,7 +1,7 @@
 // model for each user
 class BankingAppUser {
     constructor(fullname, password) {
-        this.accountCreation = new Date();
+        this.accountCreation = new Date().toDateString();
         this.accountNumber = Math.random().toString().substr(2, 10);
         this.fullname = fullname;
         this.password = password;
@@ -51,6 +51,10 @@ class BankingApp {
     static currentUser = null;
     static initialPage = document.querySelector('#view_initial')
     static loggedInPage = document.querySelector('#view_loggedin')
+    static displayName = document.querySelector('#user_name').childNodes[0]
+    static displayAccCrt = document.querySelector('#user_accountcreation')
+    static displayAccNum = document.querySelector('#user_accountnumber').childNodes[2]
+    static displayBalance = document.querySelector('#user_balance').childNodes[2]
 
     static findUser = accountNumber => {
         return this.users.find(user => user.accountNumber === accountNumber)
@@ -67,6 +71,11 @@ class BankingApp {
             return null;
         }
 
+
+        this.displayName.textContent = foundUser.fullname
+        this.displayAccCrt.textContent = `Member since: ${foundUser.accountCreation}`
+        this.displayAccNum.textContent = ` ${foundUser.accountNumber}`
+        this.displayBalance.textContent = foundUser.balance
         this.currentUser = foundUser
         this.showInitialPage(false);
     }
@@ -138,12 +147,19 @@ class BankingApp {
 
 
 
-const form_register = document.querySelector('#form_register')
-const form_login = document.querySelector('#form_login')
+const form_register = document.querySelector('#form_register');
+const form_login = document.querySelector('#form_login');
+const form_deposit = document.querySelector('#form_deposit');
+const form_withdraw = document.querySelector('#form_withdraw');
+const form_send = document.querySelector('#form_send');
+const transactionsBtn = document.getElementById('transactions');
 const initNavItemsArr = [...document.querySelector('.initial_nav_parent').children];
 const initNavViewsArr = [...document.querySelector('.view_initial_nav_dynamic').children];
+const userActionsViewsArr = [...document.querySelector('.view_useractions').children];
+const userActionsBtnsArr = [...document.querySelector('.user_actions').children, transactionsBtn];
 
-// dynamic panels for each nav buttons
+
+// dynamic initial page panels for each nav buttons
 initNavItemsArr.forEach(navItem => {
     navItem.addEventListener('click', function () {
 
@@ -161,6 +177,33 @@ initNavItemsArr.forEach(navItem => {
 
     })
 })
+
+// dynamic user panels for each action buttons except logout
+userActionsBtnsArr.forEach(actionBtn => {
+    actionBtn.addEventListener('click', function () {
+        if (this.dataset.action) {
+
+            userActionsViewsArr.forEach(view => {
+                view.dataset.action === actionBtn.dataset.action
+                    ? view.style.display = 'flex'
+                    : view.style.display = 'none'
+            });
+
+            userActionsBtnsArr.forEach(actionBtn2 => {
+                if (actionBtn2.dataset.action && actionBtn2.dataset.action !== 'transactions') {
+                    this.dataset.action === actionBtn2.dataset.action
+                        ? this.classList.add('active-nav')
+                        : actionBtn2.classList.remove('active-nav')
+                }
+            })
+
+            return null;
+        }
+
+        BankingApp.logout();
+    })
+})
+
 
 // onsubmission of register form
 form_register.addEventListener('submit', event => {

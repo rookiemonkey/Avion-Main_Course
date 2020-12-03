@@ -25,6 +25,12 @@ body main {
     color: white;
 }
 
+.active-nav {
+    background-color: $color_accent2;
+    border-color: $color_accent2;
+    color: white;
+}
+
 @import '../sass/ionic.scss';
 @import '../sass/initial.scss';
 @import '../sass/loggedin.scss';

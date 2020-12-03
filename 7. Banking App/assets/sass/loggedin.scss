@@ -43,6 +43,10 @@ section#view_loggedin {
                 #user_name {
                     font-size: 1.5rem;
                     margin-bottom: $spacing_sm;
+
+                    #transactions {
+                        cursor: pointer;
+                    }
                 }
 
                 #user_accountcreation,
@@ -103,4 +107,60 @@ section#view_loggedin {
         }
     }
 
+    .view_useractions {
+
+        #dynamic_deposit,
+        #dynamic_withdraw,
+        #dynamic_send,
+        #dynamic_transactions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        #dynamic_deposit,
+        #dynamic_withdraw,
+        #dynamic_send {
+            form {
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+
+                .input-group {
+                    display: flex;
+                    flex-direction: column;
+                    margin: $spacing_md+10px 0px;
+
+                    label {
+                        margin-bottom: $spacing_sm;
+                    }
+
+                    input {
+                        width: 100%;
+                        border: none;
+                        border-bottom: 2px solid white;
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: white;
+                        padding: $spacing_sm 0px;
+                        background-color: transparent;
+                    }
+
+                    button {
+                        cursor: pointer;
+                        border: none;
+                        color: white;
+                        background-color: transparent;
+                        width: max-content;
+                        font-family: 'Arvo', serif;
+                        font-size: 18px;
+                        font-weight: 700;
+                        padding: $spacing_md 0px;
+                    }
+                }
+            }
+        }
+    }
 }
