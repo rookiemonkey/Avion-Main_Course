@@ -147,6 +147,10 @@ section#view_loggedin {
                         color: white;
                         padding: $spacing_sm 0px;
                         background-color: transparent;
+
+                        &:focus {
+                            outline: none;
+                        }
                     }
 
                     button {
@@ -191,7 +195,10 @@ section#view_loggedin {
                     font-family: 'Arvo';
                     font-weight: 700;
                     border: none;
-                    border-bottom: 2px solid white;
+
+                    &:focus {
+                        outline: none;
+                    }
                 }
             }
 

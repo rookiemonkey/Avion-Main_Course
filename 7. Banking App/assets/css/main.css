@@ -16,9 +16,9 @@ body main {
   color: white; }
 
 .active-nav {
-  background-color: #80CEFF;
-  border-color: #80CEFF;
-  color: white; }
+  background-color: #80CEFF !important;
+  border-color: #80CEFF !important;
+  color: #ff6200 !important; }
 
 /*!
   Ionicons, v2.0.1
@@ -2324,6 +2324,9 @@ section#view_initial {
         color: white;
         padding: 7.5px 0px;
         background-color: transparent; }
+        section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group input:focus,
+        section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group input:focus {
+          outline: none; }
       section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group button,
       section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group button {
         cursor: pointer;
@@ -2448,6 +2451,10 @@ section#view_loggedin {
         color: white;
         padding: 7.5px 0px;
         background-color: transparent; }
+        section#view_loggedin .view_useractions #dynamic_deposit form .input-group input:focus,
+        section#view_loggedin .view_useractions #dynamic_withdraw form .input-group input:focus,
+        section#view_loggedin .view_useractions #dynamic_send form .input-group input:focus {
+          outline: none; }
       section#view_loggedin .view_useractions #dynamic_deposit form .input-group button,
       section#view_loggedin .view_useractions #dynamic_withdraw form .input-group button,
       section#view_loggedin .view_useractions #dynamic_send form .input-group button {
@@ -2482,8 +2489,9 @@ section#view_loggedin {
         font-size: 18px;
         font-family: 'Arvo';
         font-weight: 700;
-        border: none;
-        border-bottom: 2px solid white; }
+        border: none; }
+        section#view_loggedin .view_useractions #dynamic_transactions #transactions_options select#transaction_type:focus {
+          outline: none; }
     section#view_loggedin .view_useractions #dynamic_transactions #transactions_list {
       width: 100%; }
       section#view_loggedin .view_useractions #dynamic_transactions #transactions_list div.transactions_list_empty {

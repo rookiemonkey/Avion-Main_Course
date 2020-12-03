@@ -26,9 +26,9 @@ body main {
 }
 
 .active-nav {
-    background-color: $color_accent2;
-    border-color: $color_accent2;
-    color: white;
+    background-color: $color_accent2 !important;
+    border-color: $color_accent2 !important;
+    color: $color_base !important;
 }
 
 @import '../sass/ionic.scss';
