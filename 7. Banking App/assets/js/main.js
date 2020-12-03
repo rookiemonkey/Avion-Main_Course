@@ -159,6 +159,7 @@ class BankingApp {
         const blob = URL.createObjectURL(event.target.files[0])
         this.currentUser.avatar = blob;
         this.displayAvatar.setAttribute('src', blob);
+        resetForms()
     }
 
     static changeTransactionType = event => {
@@ -167,43 +168,13 @@ class BankingApp {
         this.transactionsList.innerHTML = ''; // removes all child nodes
 
         if (transactions.length === 0) {
-            const div = document.createElement("DIV")
-            const img = document.createElement("IMG")
-            const msg = document.createElement("H3")
-            div.classList.add('transactions_list_empty')
-            img.setAttribute('src', '/assets/images/empty.svg')
-            msg.textContent = `No results found for the query`
-            div.appendChild(msg)
-            div.appendChild(img)
+            const { div } = new HTMLElementTransactionEmpty()
             this.transactionsList.appendChild(div)
             return null;
         }
 
         transactions.forEach(transaction => {
-            const li = document.createElement("LI");
-            const spanDate = document.createElement("SPAN");
-            const spanBalanceBefore = document.createElement("SPAN");
-            const mainContentType = document.createElement("SPAN");
-            const mainContentAmount = document.createElement("SPAN");
-            const mainContent = document.createElement("P");
-            li.classList.add('transactions_listitem');
-            spanDate.classList.add('transactions_listitem_date')
-            spanDate.textContent = transaction.transactionDate
-            spanBalanceBefore.classList.add('transactions_listitem_balanceBefore')
-            spanBalanceBefore.textContent = `Balance before this transaction: ${transaction.balanceBefore}`
-            mainContent.classList.add('transactions_listitem_main')
-            mainContentType.classList.add('transactions_listitem_type')
-            mainContentAmount.classList.add('transactions_listitem_amount')
-            mainContentType.textContent = transaction.type == 'SENT TO' ||
-                transaction.type == 'SENT FROM'
-                ? `${transaction.type} ${transaction.sentToOrFromAccountNumber}`
-                : transaction.type
-            mainContentAmount.textContent = transaction.amount
-            mainContent.appendChild(mainContentType)
-            mainContent.appendChild(mainContentAmount)
-            li.appendChild(spanDate)
-            li.appendChild(spanBalanceBefore)
-            li.appendChild(mainContent)
+            const { li } = new HTMLElementTransaction(transaction)
             this.transactionsList.appendChild(li)
         })
     }
@@ -349,6 +320,7 @@ function BankingAppUser(fullname, password) {
     this.avatar = `/assets/images/default.jpg`;
 }
 
+// model for deposit/withdraw transactions
 function Transact(type, accountNumber, before, amount) {
     this.type = type // 'DEPOSIT' or 'WITHDRAW'
     this.transactionDate = new Date().toDateString();
@@ -365,4 +337,44 @@ function TransactSend(accountNumber, before, amount, toAccountNumber, direction)
     this.balanceBefore = before
     this.amount = amount
     this.sentToOrFromAccountNumber = toAccountNumber
+}
+
+// ELEMENT model for a transaction item
+function HTMLElementTransaction(transaction) {
+    this.li = document.createElement("LI");
+    this.spanDate = document.createElement("SPAN");
+    this.spanBalanceBefore = document.createElement("SPAN");
+    this.mainContentType = document.createElement("SPAN");
+    this.mainContentAmount = document.createElement("SPAN");
+    this.mainContent = document.createElement("P");
+    this.li.classList.add('transactions_listitem');
+    this.spanDate.classList.add('transactions_listitem_date')
+    this.spanDate.textContent = transaction.transactionDate
+    this.spanBalanceBefore.classList.add('transactions_listitem_balanceBefore')
+    this.spanBalanceBefore.textContent = `Balance before this transaction: ${transaction.balanceBefore}`
+    this.mainContent.classList.add('transactions_listitem_main')
+    this.mainContentType.classList.add('transactions_listitem_type')
+    this.mainContentAmount.classList.add('transactions_listitem_amount')
+    this.mainContentType.textContent = transaction.type == 'SENT TO' ||
+        transaction.type == 'SENT FROM'
+        ? `${transaction.type} ${transaction.sentToOrFromAccountNumber}`
+        : transaction.type
+    this.mainContentAmount.textContent = transaction.amount
+    this.mainContent.appendChild(this.mainContentType)
+    this.mainContent.appendChild(this.mainContentAmount)
+    this.li.appendChild(this.spanDate)
+    this.li.appendChild(this.spanBalanceBefore)
+    this.li.appendChild(this.mainContent)
+}
+
+// ELEMENT model for empty transaction
+function HTMLElementTransactionEmpty() {
+    this.div = document.createElement("DIV")
+    this.img = document.createElement("IMG")
+    this.msg = document.createElement("H3")
+    this.div.classList.add('transactions_list_empty')
+    this.img.setAttribute('src', '/assets/images/empty.svg')
+    this.msg.textContent = `No results found for the query`
+    this.div.appendChild(this.msg)
+    this.div.appendChild(this.img)
 }
