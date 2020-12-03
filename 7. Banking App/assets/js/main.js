@@ -35,7 +35,7 @@ class TransactWithdraw {
 // model for send transaction
 class TransactSend {
     constructor(accountNumber, before, amount, toAccountNumber, direction) {
-        this.type = `SEND ${direction}`
+        this.type = `SENT ${direction}`
         this.transactionDate = new Date().toDateString();
         this.accountNumber = accountNumber;
         this.balanceBeforeSend = before
@@ -119,15 +119,16 @@ class BankingApp {
         const from = this.findUser(fromAccount)
         const to = this.findUser(toAccount)
         const newTransactionFrom = new TransactSend(
-            from.fullname, from.balance, amount, to.fullname, 'FROM'
+            from.fullname, from.balance, amount, to.fullname, 'TO'
         )
         const newTransactionTo = new TransactSend(
-            from.fullname, to.balance, amount, to.fullname, 'TO'
+            from.fullname, to.balance, amount, to.fullname, 'FROM'
         )
         from.balance -= parseInt(amount);
         from.transactions.unshift(newTransactionFrom)
         to.balance += parseInt(amount);
         to.transactions.unshift(newTransactionTo)
+        this.displayBalance.textContent = from.balance
     }
 
     static getBalance = () => {
@@ -248,9 +249,14 @@ form_withdraw.addEventListener('submit', event => {
     form_withdraw.reset();
 })
 
-
-
-
+// onsubmittions of send money form
+form_send.addEventListener('submit', event => {
+    event.preventDefault();
+    const formData = new FormData(form_send);
+    const { receiver_accnum, send_amount } = parseFormData(formData);
+    BankingApp.send(BankingApp.currentUser.accountNumber, receiver_accnum, parseInt(send_amount))
+    form_send.reset();
+})
 
 
 
