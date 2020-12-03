@@ -2364,7 +2364,7 @@ section#view_loggedin {
     border-radius: 15px; }
     section#view_loggedin .view_usercard .user_informations img#user_avatar {
       width: 178px;
-      height: auto;
+      height: 178px;
       border-radius: 50%; }
     section#view_loggedin .view_usercard .user_informations div.user_meta_container {
       margin-left: 20px;
@@ -2374,6 +2374,7 @@ section#view_loggedin {
         margin-bottom: 7.5px; }
         section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name #transactions {
           cursor: pointer; }
+      section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountAvatarChange,
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountcreation,
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountnumber {
         font-size: 0.75rem;
@@ -2381,7 +2382,7 @@ section#view_loggedin {
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountnumber {
         margin-bottom: 20px; }
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_balance {
-        margin-top: 52px;
+        margin-top: 40px;
         font-weight: 700;
         font-size: 1.75rem; }
   section#view_loggedin .view_usercard .user_actions {

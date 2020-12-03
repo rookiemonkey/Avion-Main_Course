@@ -7,6 +7,7 @@ class BankingAppUser {
         this.password = password;
         this.balance = 0;
         this.transactions = new Array();
+        this.avatar = `/assets/images/default.jpg`;
     }
 }
 
@@ -52,6 +53,7 @@ class BankingApp {
     static initialPage = document.querySelector('#view_initial')
     static loggedInPage = document.querySelector('#view_loggedin')
     static displayName = document.querySelector('#user_name').childNodes[0]
+    static displayAvatar = document.getElementById('user_avatar')
     static displayAccCrt = document.querySelector('#user_accountcreation')
     static displayAccNum = document.querySelector('#user_accountnumber').childNodes[2]
     static displayBalance = document.querySelector('#user_balance').childNodes[2]
@@ -71,11 +73,11 @@ class BankingApp {
             return null;
         }
 
-
         this.displayName.textContent = foundUser.fullname
         this.displayAccCrt.textContent = `Member since: ${foundUser.accountCreation}`
         this.displayAccNum.textContent = ` ${foundUser.accountNumber}`
         this.displayBalance.textContent = foundUser.balance
+        this.displayAvatar.setAttribute('src', foundUser.avatar)
         this.currentUser = foundUser
         this.showInitialPage(false);
         resetForms()
@@ -156,12 +158,13 @@ class BankingApp {
 
 
 
-const form_register = document.querySelector('#form_register');
-const form_login = document.querySelector('#form_login');
-const form_deposit = document.querySelector('#form_deposit');
-const form_withdraw = document.querySelector('#form_withdraw');
-const form_send = document.querySelector('#form_send');
-const form_transactionType = document.querySelector('#transaction_type')
+const form_register = document.getElementById('form_register');
+const form_login = document.getElementById('form_login');
+const form_deposit = document.getElementById('form_deposit');
+const form_withdraw = document.getElementById('form_withdraw');
+const form_send = document.getElementById('form_send');
+const form_transactionType = document.getElementById('transaction_type')
+const changeAvatarBtn = document.getElementById('user_accountAvatarChange');
 const transactionsBtn = document.getElementById('transactions');
 const transactionsList = document.getElementById('transactions_list');
 const initNavItemsArr = [...document.querySelector('.initial_nav_parent').children];
@@ -316,7 +319,12 @@ form_transactionType.addEventListener('change', event => {
     })
 })
 
-
+// onchange for file changing the avatar
+changeAvatarBtn.addEventListener('change', function (event) {
+    const blob = URL.createObjectURL(event.target.files[0])
+    BankingApp.currentUser.avatar = blob;
+    BankingApp.displayAvatar.setAttribute('src', blob);
+})
 
 
 
@@ -353,6 +361,7 @@ function resetForms() {
     form_deposit.reset();
     form_withdraw.reset();
     form_send.reset();
+    changeAvatarBtn.value = '';
     form_transactionType.value = 'All';
     transactionsList.innerHTML = '';
 }

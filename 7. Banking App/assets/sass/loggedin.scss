@@ -32,7 +32,7 @@ section#view_loggedin {
 
             img#user_avatar {
                 width: 178px;
-                height: auto;
+                height: 178px;
                 border-radius: 50%;
             }
 
@@ -49,6 +49,7 @@ section#view_loggedin {
                     }
                 }
 
+                #user_accountAvatarChange,
                 #user_accountcreation,
                 #user_accountnumber {
                     font-size: 0.75rem;
@@ -60,7 +61,7 @@ section#view_loggedin {
                 }
 
                 #user_balance {
-                    margin-top: $spacing_lg + $spacing_lg + $spacing_md;
+                    margin-top: $spacing_lg + $spacing_lg;
                     font-weight: 700;
                     font-size: 1.75rem;
                 }
