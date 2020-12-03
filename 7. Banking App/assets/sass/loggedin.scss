@@ -1,0 +1,107 @@
+section#view_loggedin {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .view_usercard,
+    .view_useractions {
+        height: 100%;
+        padding: $spacing_lg;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .view_usercard {width: 55%;}
+    .view_useractions {width: 45%;}
+
+    .view_usercard {
+
+        .user_informations {
+            width: 100%;
+            display: flex;
+            padding: $spacing_lg;
+            margin-bottom: $spacing_md;
+            border: 2px solid white;
+            border-radius: 15px;
+
+            img#user_avatar {
+                width: 30%;
+                height: auto;
+                border-radius: 50%;
+            }
+
+            div.user_meta_container {
+                margin-left: $spacing_lg;
+                width: 100%;
+
+                #user_name {
+                    font-size: 1.5rem;
+                    margin-bottom: $spacing_sm;
+                }
+
+                #user_accountcreation,
+                #user_accountnumber {
+                    font-size: 0.75rem;
+                    font-style: italic;
+                    margin-bottom: $spacing_sm;
+                }
+
+                #user_accountnumber {
+                    margin-bottom: $spacing_lg;
+                }
+
+                #user_balance {
+                    margin-top: $spacing_lg + $spacing_lg + $spacing_lg;
+                    font-weight: 700;
+                    font-size: 1.75rem;
+                }
+            }
+        }
+
+        .user_actions {
+            width: 100%;
+            // padding: $spacing_lg;
+            margin-top: $spacing_md;
+            display: flex;
+            justify-content: space-between;
+            list-style-type: none;
+
+             li.user_actions_item {
+                cursor: pointer;
+                border: 2px solid white;
+                border-radius: 15px;
+                display: flex;
+                flex-direction: column;
+                min-width: 141px;
+                padding: $spacing_md $spacing_lg;
+                // margin: 0px $spacing_md;
+                text-align: center;
+                font-weight: 700;
+                transition: background-color 500ms ease-in-out,
+                            color 500ms ease-in-out,
+                            border-color 500ms ease-in-out;
+
+                &:hover {
+                    background-color: white;
+                    color: $color_base;
+                }
+
+                &.active-nav {
+                    background-color: $color_accent2;
+                    border-color: $color_accent2;
+                    color: white;
+                }
+
+                i {
+                    font-size: 1.75rem;
+                }
+            }
+        }
+    }
+
+}

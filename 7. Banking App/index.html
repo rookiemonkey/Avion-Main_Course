@@ -10,7 +10,7 @@
 
 <body>
     <main>
-        <section id="view_initial">
+        <!-- <section id="view_initial">
             <article class="view_initial_img">
                 <img src="/assets/images/bank.svg" alt="InBank" />
                 <h1>InBank</h1>
@@ -87,9 +87,47 @@
                     </div>
                 </div>
             </article>
-        </section>
-        <section id="view_loggedin" style="display: none;">
-            <h1>LOGGED IN</h1>
+        </section> -->
+        <section id="view_loggedin">
+            <article class="view_usercard">
+                <div class="user_informations">
+                    <img id="user_avatar" src="/assets/images/default.jpg" alt="user">
+                    <div class="user_meta_container">
+                        <h1 id="user_name">Kevin Basina</h1>
+                        <p id="user_accountcreation">Member since: March 25, 2050</p>
+                        <p id="user_accountnumber">
+                            <span>Account Number: &nbsp; <i class="ion-card"></i></span> 9818249879
+                        </p>
+                        <p id="user_balance" style="float: right;">
+                            <span><i class="ion-social-usd"></i> &nbsp;</span>
+                            5,000,500
+                        </p>
+
+                    </div>
+                </div>
+
+                <ul class="user_actions">
+                    <li class="user_actions_item" data-view="deposit">
+                        <i class="ion-ios-download"></i> &nbsp;
+                        <span>Deposit</span>
+                    </li>
+                    <li class="user_actions_item" data-view="withdraw">
+                        <i class="ion-cash"></i> &nbsp;
+                        <span>Withdraw</span>
+                    </li>
+                    <li class="user_actions_item" data-view="send">
+                        <i class="ion-paper-airplane"></i> &nbsp;
+                        <span>Send</span>
+                    </li>
+                    <li class="user_actions_item" id="logout">
+                        <i class="ion-log-out"></i> &nbsp;
+                        <span>Logout</span>
+                    </li>
+                </ul>
+            </article>
+            <article class="view_useractions">
+
+            </article>
         </section>
     </main>
 </body>
