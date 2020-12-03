@@ -11,14 +11,14 @@
 body main {
   width: 100%;
   height: 100vh;
-  background-color: #ff6200;
+  background-color: #009DFF;
   font-family: 'Arvo', serif;
   color: white; }
 
 .active-nav {
-  background-color: #80CEFF !important;
-  border-color: #80CEFF !important;
-  color: #ff6200 !important; }
+  background-color: #ff6200 !important;
+  border-color: #ff6200 !important;
+  color: white !important; }
 
 .toast {
   position: fixed;
@@ -2306,22 +2306,25 @@ section#view_initial {
   section#view_initial .view_initial_img h1 {
     font-size: 50px;
     font-weight: 700; }
+    section#view_initial .view_initial_img h1 span {
+      color: #ff6200; }
   section#view_initial .view_initial_nav ul.initial_nav_parent {
     margin-bottom: 20px;
     display: flex;
     list-style-type: none; }
     section#view_initial .view_initial_nav ul.initial_nav_parent li {
-      border: 2px solid white;
+      border: none;
       border-radius: 35px;
       min-width: 115px;
       padding: 12px 20px;
       margin: 0px 12px;
       text-align: center;
       font-weight: 700;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
       transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; }
       section#view_initial .view_initial_nav ul.initial_nav_parent li:hover {
         background-color: white;
-        color: #ff6200; }
+        color: #009DFF; }
   section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_home,
   section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register,
   section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login {
@@ -2353,7 +2356,7 @@ section#view_initial {
       section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group input {
         width: 100%;
         border: none;
-        border-bottom: 2px solid white;
+        border-bottom: 2px solid #ff6200;
         font-size: 18px;
         font-weight: 700;
         color: white;
@@ -2372,7 +2375,8 @@ section#view_initial {
         font-family: 'Arvo', serif;
         font-size: 18px;
         font-weight: 700;
-        padding: 12px 0px; }
+        padding: 12px 0px;
+        text-transform: uppercase; }
 
 section#view_loggedin {
   width: 100%;
@@ -2398,14 +2402,16 @@ section#view_loggedin {
     padding: 20px;
     margin-left: 20px;
     margin-bottom: 12px;
-    border: 2px solid white;
-    border-radius: 15px; }
+    border: none;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); }
     section#view_loggedin .view_usercard .user_informations img#user_avatar {
       min-width: 178px;
       min-height: 178px;
       width: 178px;
       height: 178px;
-      border-radius: 50%; }
+      border-radius: 50%;
+      box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1); }
     section#view_loggedin .view_usercard .user_informations div.user_meta_container {
       margin-left: 20px;
       width: 100%; }
@@ -2434,7 +2440,8 @@ section#view_loggedin {
     list-style-type: none; }
     section#view_loggedin .view_usercard .user_actions li.user_actions_item {
       cursor: pointer;
-      border: 2px solid white;
+      border: none;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
       border-radius: 15px;
       display: flex;
       flex-direction: column;
@@ -2445,10 +2452,10 @@ section#view_loggedin {
       transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; }
       section#view_loggedin .view_usercard .user_actions li.user_actions_item:hover {
         background-color: white;
-        color: #ff6200; }
+        color: #009DFF; }
       section#view_loggedin .view_usercard .user_actions li.user_actions_item.active-nav {
-        background-color: #80CEFF;
-        border-color: #80CEFF;
+        background-color: #ff6200;
+        border-color: #ff6200;
         color: white; }
       section#view_loggedin .view_usercard .user_actions li.user_actions_item i {
         font-size: 1.75rem; }
@@ -2482,7 +2489,7 @@ section#view_loggedin {
       section#view_loggedin .view_useractions #dynamic_send form .input-group input {
         width: 100%;
         border: none;
-        border-bottom: 2px solid white;
+        border-bottom: 2px solid #ff6200;
         font-size: 18px;
         font-weight: 700;
         color: white;
@@ -2545,9 +2552,10 @@ section#view_loggedin {
       section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li {
         padding: 12px;
         list-style-type: none;
-        border: 2px solid white;
+        border: none;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
         border-radius: 15px;
-        margin: 7.5px; }
+        margin: 12px 7.5px; }
         section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_date,
         section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_balanceBefore {
           font-size: 0.75rem;
