@@ -31,6 +31,8 @@ section#view_loggedin {
             border-radius: 15px;
 
             img#user_avatar {
+                min-width: 178px;
+                min-height: 178px;
                 width: 178px;
                 height: 178px;
                 border-radius: 50%;
@@ -83,7 +85,7 @@ section#view_loggedin {
                 display: flex;
                 flex-direction: column;
                 min-width: 141px;
-                padding: $spacing_md $spacing_lg;
+                padding: ($spacing_lg + $spacing_md) $spacing_lg;
                 text-align: center;
                 font-weight: 700;
                 transition: background-color 500ms ease-in-out,

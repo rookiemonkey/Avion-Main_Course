@@ -57,6 +57,14 @@ class BankingApp {
     static displayAccCrt = document.querySelector('#user_accountcreation')
     static displayAccNum = document.querySelector('#user_accountnumber').childNodes[2]
     static displayBalance = document.querySelector('#user_balance').childNodes[2]
+    static changeAvatarBtn = document.getElementById('user_accountAvatarChange')
+    static transactionsList = document.getElementById('transactions_list')
+    static transactionSelect = document.getElementById('transaction_type')
+    static form_register = document.getElementById('form_register')
+    static form_login = document.getElementById('form_login')
+    static form_deposit = document.getElementById('form_deposit')
+    static form_withdraw = document.getElementById('form_withdraw')
+    static form_send = document.getElementById('form_send')
 
     static findUser = accountNumber => {
         return this.users.find(user => user.accountNumber === accountNumber)
@@ -149,6 +157,103 @@ class BankingApp {
         return transactions;
     }
 
+    static submitRegisterForm = event => {
+        event.preventDefault();
+        const formData = new FormData(this.form_register);
+        const { reg_fullname, reg_password, reg_password_confirm } = parseFormData(formData);
+
+        if (reg_password !== reg_password_confirm) return null;
+
+        this.createUser(reg_fullname, reg_password)
+        this.login(reg_fullname, reg_password)
+        resetForms()
+    }
+
+    static submitLoginForm = event => {
+        event.preventDefault();
+        const formData = new FormData(this.form_login);
+        const { log_fullname, log_password } = parseFormData(formData);
+        this.login(log_fullname, log_password)
+        resetForms()
+    }
+
+    static submitDepositForm = event => {
+        event.preventDefault();
+        const formData = new FormData(this.form_deposit);
+        const { deposit_amount } = parseFormData(formData);
+        this.deposit(this.currentUser.accountNumber, parseInt(deposit_amount))
+        resetForms()
+    }
+
+    static submitWithdrawForm = event => {
+        event.preventDefault();
+        const formData = new FormData(this.form_withdraw);
+        const { withdraw_amount } = parseFormData(formData);
+        this.withdraw(this.currentUser.accountNumber, parseInt(withdraw_amount))
+        resetForms()
+    }
+
+    static submitSendForm = event => {
+        event.preventDefault();
+        const formData = new FormData(form_send);
+        const { receiver_accnum, send_amount } = parseFormData(formData);
+        BankingApp.send(BankingApp.currentUser.accountNumber, receiver_accnum, parseInt(send_amount))
+        resetForms()
+    }
+
+    static changeAvatar = event => {
+        const blob = URL.createObjectURL(event.target.files[0])
+        this.currentUser.avatar = blob;
+        this.displayAvatar.setAttribute('src', blob);
+    }
+
+    static changeTransactionType = event => {
+        const transactions = BankingApp.getAllTransactions(event.target.value)
+
+        this.transactionsList.innerHTML = ''; // removes all child nodes
+
+        if (transactions.length === 0) {
+            const div = document.createElement("DIV")
+            const img = document.createElement("IMG")
+            const msg = document.createElement("H3")
+            div.classList.add('transactions_list_empty')
+            img.setAttribute('src', '/assets/images/empty.svg')
+            msg.textContent = `No results found for the query`
+            div.appendChild(msg)
+            div.appendChild(img)
+            this.transactionsList.appendChild(div)
+            return null;
+        }
+
+        transactions.forEach(transaction => {
+            const li = document.createElement("LI");
+            const spanDate = document.createElement("SPAN");
+            const spanBalanceBefore = document.createElement("SPAN");
+            const mainContentType = document.createElement("SPAN");
+            const mainContentAmount = document.createElement("SPAN");
+            const mainContent = document.createElement("P");
+            li.classList.add('transactions_listitem');
+            spanDate.classList.add('transactions_listitem_date')
+            spanDate.textContent = transaction.transactionDate
+            spanBalanceBefore.classList.add('transactions_listitem_balanceBefore')
+            spanBalanceBefore.textContent = `Balance before this transaction: ${transaction.balanceBefore}`
+            mainContent.classList.add('transactions_listitem_main')
+            mainContentType.classList.add('transactions_listitem_type')
+            mainContentAmount.classList.add('transactions_listitem_amount')
+            mainContentType.textContent = transaction.type == 'SENT TO' ||
+                transaction.type == 'SENT FROM'
+                ? `${transaction.type} ${transaction.sentToOrFromAccountNumber}`
+                : transaction.type
+            mainContentAmount.textContent = transaction.amount
+            mainContent.appendChild(mainContentType)
+            mainContent.appendChild(mainContentAmount)
+            li.appendChild(spanDate)
+            li.appendChild(spanBalanceBefore)
+            li.appendChild(mainContent)
+            this.transactionsList.appendChild(li)
+        })
+    }
+
 }
 
 
@@ -158,15 +263,11 @@ class BankingApp {
 
 
 
-const form_register = document.getElementById('form_register');
-const form_login = document.getElementById('form_login');
-const form_deposit = document.getElementById('form_deposit');
-const form_withdraw = document.getElementById('form_withdraw');
-const form_send = document.getElementById('form_send');
-const form_transactionType = document.getElementById('transaction_type')
-const changeAvatarBtn = document.getElementById('user_accountAvatarChange');
+// ====================================================== //
+// EVENT LISTENERS
+// ====================================================== //
+
 const transactionsBtn = document.getElementById('transactions');
-const transactionsList = document.getElementById('transactions_list');
 const initNavItemsArr = [...document.querySelector('.initial_nav_parent').children];
 const initNavViewsArr = [...document.querySelector('.view_initial_nav_dynamic').children];
 const userActionsViewsArr = [...document.querySelector('.view_useractions').children];
@@ -207,7 +308,8 @@ userActionsBtnsArr.forEach(actionBtn => {
             });
 
             userActionsBtnsArr.forEach(actionBtn2 => {
-                if (actionBtn2.dataset.action && actionBtn2.dataset.action !== 'transactions') {
+                if (actionBtn2.dataset.action &&
+                    actionBtn2.dataset.action !== 'transactions') {
                     this.dataset.action === actionBtn2.dataset.action
                         ? this.classList.add('active-nav')
                         : actionBtn2.classList.remove('active-nav')
@@ -223,120 +325,25 @@ userActionsBtnsArr.forEach(actionBtn => {
 
 
 // onsubmission of register form
-form_register.addEventListener('submit', event => {
-    event.preventDefault();
-    const formData = new FormData(form_register);
-    const { reg_fullname, reg_password, reg_password_confirm } = parseFormData(formData);
-
-    if (reg_password !== reg_password_confirm) return null;
-
-    BankingApp.createUser(reg_fullname, reg_password)
-    BankingApp.login(reg_fullname, reg_password)
-    resetForms()
-})
+BankingApp.form_register.addEventListener('submit', BankingApp.submitRegisterForm)
 
 // onsubmission of login form
-form_login.addEventListener('submit', event => {
-    event.preventDefault();
-    const formData = new FormData(form_login);
-    const { log_fullname, log_password } = parseFormData(formData);
-    BankingApp.login(log_fullname, log_password)
-    resetForms()
-})
+BankingApp.form_login.addEventListener('submit', BankingApp.submitLoginForm)
 
 // onsubmission fo deposit form
-form_deposit.addEventListener('submit', event => {
-    event.preventDefault();
-    const formData = new FormData(form_deposit);
-    const { deposit_amount } = parseFormData(formData);
-    BankingApp.deposit(BankingApp.currentUser.accountNumber, parseInt(deposit_amount))
-    resetForms()
-})
+BankingApp.form_deposit.addEventListener('submit', BankingApp.submitDepositForm)
 
 // onsubmission fo withdraw form
-form_withdraw.addEventListener('submit', event => {
-    event.preventDefault();
-    const formData = new FormData(form_withdraw);
-    const { withdraw_amount } = parseFormData(formData);
-    BankingApp.withdraw(BankingApp.currentUser.accountNumber, parseInt(withdraw_amount))
-    resetForms()
-})
+BankingApp.form_withdraw.addEventListener('submit', BankingApp.submitWithdrawForm)
 
-// onsubmittions of send money form
-form_send.addEventListener('submit', event => {
-    event.preventDefault();
-    const formData = new FormData(form_send);
-    const { receiver_accnum, send_amount } = parseFormData(formData);
-    BankingApp.send(BankingApp.currentUser.accountNumber, receiver_accnum, parseInt(send_amount))
-    resetForms()
-})
+// onsubmission of send money form
+BankingApp.form_send.addEventListener('submit', BankingApp.submitSendForm)
+
+// onchange of file to change the avatar
+BankingApp.changeAvatarBtn.addEventListener('change', BankingApp.changeAvatar)
 
 // onchange of transaction type select options
-form_transactionType.addEventListener('change', event => {
-    const transactions = BankingApp.getAllTransactions(event.target.value)
-
-    transactionsList.innerHTML = ''; // removes all child nodes
-
-    if (transactions.length === 0) {
-        const div = document.createElement("DIV")
-        const img = document.createElement("IMG")
-        const msg = document.createElement("H3")
-        div.classList.add('transactions_list_empty')
-        img.setAttribute('src', '/assets/images/empty.svg')
-        msg.textContent = `No results found for the query`
-        div.appendChild(msg)
-        div.appendChild(img)
-        transactionsList.appendChild(div)
-        return null;
-    }
-
-    transactions.forEach(transaction => {
-        const li = document.createElement("LI");
-        const spanDate = document.createElement("SPAN");
-        const spanBalanceBefore = document.createElement("SPAN");
-        const mainContentType = document.createElement("SPAN");
-        const mainContentAmount = document.createElement("SPAN");
-        const mainContent = document.createElement("P");
-        li.classList.add('transactions_listitem');
-        spanDate.classList.add('transactions_listitem_date')
-        spanDate.textContent = transaction.transactionDate
-        spanBalanceBefore.classList.add('transactions_listitem_balanceBefore')
-        spanBalanceBefore.textContent = `Balance before this transaction: ${transaction.balanceBefore}`
-        mainContent.classList.add('transactions_listitem_main')
-        mainContentType.classList.add('transactions_listitem_type')
-        mainContentAmount.classList.add('transactions_listitem_amount')
-        mainContentType.textContent = transaction.type == 'SENT TO' ||
-            transaction.type == 'SENT FROM'
-            ? `${transaction.type} ${transaction.sentToOrFromAccountNumber}`
-            : transaction.type
-        mainContentAmount.textContent = transaction.amount
-        mainContent.appendChild(mainContentType)
-        mainContent.appendChild(mainContentAmount)
-        li.appendChild(spanDate)
-        li.appendChild(spanBalanceBefore)
-        li.appendChild(mainContent)
-        transactionsList.appendChild(li)
-    })
-})
-
-// onchange for file changing the avatar
-changeAvatarBtn.addEventListener('change', function (event) {
-    const blob = URL.createObjectURL(event.target.files[0])
-    BankingApp.currentUser.avatar = blob;
-    BankingApp.displayAvatar.setAttribute('src', blob);
-})
-
-
-
-
-
-
-
-
-
-
-
-
+BankingApp.transactionSelect.addEventListener('change', BankingApp.changeTransactionType)
 
 
 
@@ -356,12 +363,12 @@ function parseFormData(formData) {
 }
 
 function resetForms() {
-    form_register.reset();
-    form_login.reset();
-    form_deposit.reset();
-    form_withdraw.reset();
-    form_send.reset();
-    changeAvatarBtn.value = '';
-    form_transactionType.value = 'All';
-    transactionsList.innerHTML = '';
+    BankingApp.form_register.reset();
+    BankingApp.form_login.reset();
+    BankingApp.form_deposit.reset();
+    BankingApp.form_withdraw.reset();
+    BankingApp.form_send.reset();
+    BankingApp.changeAvatarBtn.value = '';
+    BankingApp.transactionSelect.value = 'All';
+    BankingApp.transactionsList.innerHTML = '';
 }

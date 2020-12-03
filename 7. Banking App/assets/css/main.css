@@ -2366,6 +2366,8 @@ section#view_loggedin {
     border: 2px solid white;
     border-radius: 15px; }
     section#view_loggedin .view_usercard .user_informations img#user_avatar {
+      min-width: 178px;
+      min-height: 178px;
       width: 178px;
       height: 178px;
       border-radius: 50%; }
@@ -2402,7 +2404,7 @@ section#view_loggedin {
       display: flex;
       flex-direction: column;
       min-width: 141px;
-      padding: 12px 20px;
+      padding: 32px 20px;
       text-align: center;
       font-weight: 700;
       transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; }
