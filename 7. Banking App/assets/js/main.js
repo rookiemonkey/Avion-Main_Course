@@ -49,21 +49,39 @@ class BankingApp {
 
     static users = new Array()
     static currentUser = null;
+    static initialPage = document.querySelector('#view_initial')
+    static loggedInPage = document.querySelector('#view_loggedin')
 
     static findUser = accountNumber => {
         return this.users.find(user => user.accountNumber === accountNumber)
     }
 
     static login = (fullname, password) => {
-        this.currentUser = this.users.find(user => user.fullname === fullname && user.password === password)
+        const foundUser = this.users.find(user => {
+            return user.fullname === fullname &&
+                user.password === password
+        })
+
+        if (!foundUser) {
+            alert("User does'nt exists")
+            return null;
+        }
+
+        this.currentUser = foundUser
+        this.showInitialPage(false);
     }
 
     static logout = () => {
         this.currentUser = null
+        this.showInitialPage(true)
     };
 
-    static createUser = user => {
-        const { fullname, password } = user;
+    static showInitialPage = toShowInitPage => {
+        this.initialPage.style.display = toShowInitPage ? 'flex' : 'none';
+        this.loggedInPage.style.display = toShowInitPage ? 'none' : 'block';
+    }
+
+    static createUser = (fullname, password) => {
         const newUser = new BankingAppUser(fullname, password);
         this.users.push(newUser);
     }
@@ -113,11 +131,19 @@ class BankingApp {
 
 }
 
-const initNavItems = document.querySelector('.initial_nav_parent');
-const initNavViews = document.querySelector('.view_initial_nav_dynamic');
-const initNavItemsArr = [...initNavItems.children]
-const initNavViewsArr = [...initNavViews.children];
 
+
+
+
+
+
+
+const form_register = document.querySelector('#form_register')
+const form_login = document.querySelector('#form_login')
+const initNavItemsArr = [...document.querySelector('.initial_nav_parent').children];
+const initNavViewsArr = [...document.querySelector('.view_initial_nav_dynamic').children];
+
+// dynamic panels for each nav buttons
 initNavItemsArr.forEach(navItem => {
     navItem.addEventListener('click', function () {
 
@@ -135,3 +161,64 @@ initNavItemsArr.forEach(navItem => {
 
     })
 })
+
+// onsubmission of register form
+form_register.addEventListener('submit', event => {
+    event.preventDefault();
+    const formData = new FormData(form_register);
+    const formDataParsed = parseFormData(formData);
+    const { reg_fullname, reg_password, reg_password_confirm } = formDataParsed;
+
+    if (reg_password !== reg_password_confirm) return null;
+
+    BankingApp.createUser(reg_fullname, reg_password)
+    BankingApp.login(reg_fullname, reg_password)
+    form_register.reset();
+
+})
+
+// onsubmission of login form
+form_login.addEventListener('submit', event => {
+    event.preventDefault();
+    const formData = new FormData(form_login);
+    const formDataParsed = parseFormData(formData);
+    const { log_fullname, log_password } = formDataParsed;
+
+    BankingApp.login(log_fullname, log_password)
+    form_login.reset();
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ====================================================== //
+// HELPER FUNCTIONS 
+// ====================================================== //
+function parseFormData(formData) {
+    const formdataParsed = {};
+
+    [...formData].forEach(formitem => {
+        formdataParsed[formitem[0]] = formitem[1]
+    });
+
+    return formdataParsed;
+}

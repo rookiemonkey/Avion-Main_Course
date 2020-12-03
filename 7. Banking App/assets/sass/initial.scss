@@ -18,7 +18,7 @@ section#view_initial {
 
     .view_initial_img {
         img {
-            width: 75%;
+            width: 80%;
             height: auto;
         }
 
@@ -113,6 +113,7 @@ section#view_initial {
                             color: white;
                             background-color: transparent;
                             width: max-content;
+                            font-family: 'Arvo', serif;
                             font-size: 18px;
                             font-weight: 700;
                             padding: $spacing_md 0px;

@@ -24,7 +24,8 @@
                 <div class="view_initial_nav_dynamic">
                     <div id="dynamic_home" data-view="home">
                         <p>
-                            Your in-browser banking application! Store your money on right in your browser with high
+                            Your in-browser memory banking application! Store your money on right in your browser with
+                            high
                             security!
                         </p>
                         <p>
@@ -40,7 +41,7 @@
                         </p>
                     </div>
                     <div id="dynamic_register" data-view="register" style="display: none;">
-                        <form>
+                        <form id="form_register">
                             <div class="input-group">
                                 <label>Full Name</label>
                                 <input type='text' name="reg_fullname" id="reg_fullname" autocomplete="off" />
@@ -65,7 +66,7 @@
                         </form>
                     </div>
                     <div id="dynamic_login" data-view="login" style="display: none;">
-                        <form>
+                        <form id="form_login">
                             <div class="input-group">
                                 <label>Full Name</label>
                                 <input type='text' name="log_fullname" id="log_fullname" autocomplete="off" />
@@ -86,6 +87,9 @@
                     </div>
                 </div>
             </article>
+        </section>
+        <section id="view_loggedin" style="display: none;">
+            <h1>LOGGED IN</h1>
         </section>
     </main>
 </body>

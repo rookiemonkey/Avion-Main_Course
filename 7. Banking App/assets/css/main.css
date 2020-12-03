@@ -2261,7 +2261,7 @@ section#view_initial {
     justify-content: center;
     align-items: center; }
   section#view_initial .view_initial_img img {
-    width: 75%;
+    width: 80%;
     height: auto; }
   section#view_initial .view_initial_img h1 {
     font-size: 50px;
@@ -2330,6 +2330,7 @@ section#view_initial {
         color: white;
         background-color: transparent;
         width: max-content;
+        font-family: 'Arvo', serif;
         font-size: 18px;
         font-weight: 700;
         padding: 12px 0px; }
