@@ -101,16 +101,6 @@ class BankingApp {
         return this.currentUser.balance;
     }
 
-    static getAllTransactions = type => {
-        const transactions = new Array();
-
-        type === 'ALL'
-            ? transactions.push(...this.currentUser.transactions)
-            : transactions.push(...this.currentUser.transactions.filter(t => t.type === type))
-
-        return transactions;
-    }
-
     static submitRegisterForm = event => {
         event.preventDefault();
         const formData = new FormData(this.form_register);
@@ -163,7 +153,12 @@ class BankingApp {
     }
 
     static changeTransactionType = event => {
-        const transactions = BankingApp.getAllTransactions(event.target.value)
+        const transactions = new Array();
+        const { value } = event.target
+
+        value === 'ALL'
+            ? transactions.push(...this.currentUser.transactions)
+            : transactions.push(...this.currentUser.transactions.filter(t => t.type === value))
 
         this.transactionsList.innerHTML = ''; // removes all child nodes
 
