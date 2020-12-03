@@ -78,7 +78,7 @@ class BankingApp {
 
     static showInitialPage = toShowInitPage => {
         this.initialPage.style.display = toShowInitPage ? 'flex' : 'none';
-        this.loggedInPage.style.display = toShowInitPage ? 'none' : 'block';
+        this.loggedInPage.style.display = toShowInitPage ? 'none' : 'flex';
     }
 
     static createUser = (fullname, password) => {

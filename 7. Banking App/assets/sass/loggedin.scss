@@ -16,8 +16,8 @@ section#view_loggedin {
         align-items: center;
     }
 
-    .view_usercard {width: 55%;}
-    .view_useractions {width: 45%;}
+    .view_usercard {width: 50%;}
+    .view_useractions {width: 50%;}
 
     .view_usercard {
 
@@ -25,12 +25,13 @@ section#view_loggedin {
             width: 100%;
             display: flex;
             padding: $spacing_lg;
+            margin-left: $spacing_lg;
             margin-bottom: $spacing_md;
             border: 2px solid white;
             border-radius: 15px;
 
             img#user_avatar {
-                width: 30%;
+                width: 178px;
                 height: auto;
                 border-radius: 50%;
             }
@@ -48,7 +49,6 @@ section#view_loggedin {
                 #user_accountnumber {
                     font-size: 0.75rem;
                     font-style: italic;
-                    margin-bottom: $spacing_sm;
                 }
 
                 #user_accountnumber {
@@ -56,7 +56,7 @@ section#view_loggedin {
                 }
 
                 #user_balance {
-                    margin-top: $spacing_lg + $spacing_lg + $spacing_lg;
+                    margin-top: $spacing_lg + $spacing_lg + $spacing_md;
                     font-weight: 700;
                     font-size: 1.75rem;
                 }
@@ -65,7 +65,7 @@ section#view_loggedin {
 
         .user_actions {
             width: 100%;
-            // padding: $spacing_lg;
+            margin-left: $spacing_lg;
             margin-top: $spacing_md;
             display: flex;
             justify-content: space-between;
@@ -79,7 +79,6 @@ section#view_loggedin {
                 flex-direction: column;
                 min-width: 141px;
                 padding: $spacing_md $spacing_lg;
-                // margin: 0px $spacing_md;
                 text-align: center;
                 font-weight: 700;
                 transition: background-color 500ms ease-in-out,

@@ -2350,18 +2350,19 @@ section#view_loggedin {
     justify-content: center;
     align-items: center; }
   section#view_loggedin .view_usercard {
-    width: 55%; }
+    width: 50%; }
   section#view_loggedin .view_useractions {
-    width: 45%; }
+    width: 50%; }
   section#view_loggedin .view_usercard .user_informations {
     width: 100%;
     display: flex;
     padding: 20px;
+    margin-left: 20px;
     margin-bottom: 12px;
     border: 2px solid white;
     border-radius: 15px; }
     section#view_loggedin .view_usercard .user_informations img#user_avatar {
-      width: 30%;
+      width: 178px;
       height: auto;
       border-radius: 50%; }
     section#view_loggedin .view_usercard .user_informations div.user_meta_container {
@@ -2373,16 +2374,16 @@ section#view_loggedin {
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountcreation,
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountnumber {
         font-size: 0.75rem;
-        font-style: italic;
-        margin-bottom: 7.5px; }
+        font-style: italic; }
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountnumber {
         margin-bottom: 20px; }
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_balance {
-        margin-top: 60px;
+        margin-top: 52px;
         font-weight: 700;
         font-size: 1.75rem; }
   section#view_loggedin .view_usercard .user_actions {
     width: 100%;
+    margin-left: 20px;
     margin-top: 12px;
     display: flex;
     justify-content: space-between;
