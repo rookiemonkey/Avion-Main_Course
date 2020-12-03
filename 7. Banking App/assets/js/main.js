@@ -14,7 +14,7 @@ class BankingAppUser {
 class TransactDeposit {
     constructor(accountNumber, before, amount) {
         this.type = 'DEPOSIT'
-        this.transactionDate = new Date().toLocaleString();
+        this.transactionDate = new Date().toDateString();
         this.accountNumber = accountNumber;
         this.balanceBeforeDeposit = before
         this.depositAmount = amount
@@ -25,7 +25,7 @@ class TransactDeposit {
 class TransactWithdraw {
     constructor(accountNumber, before, amount) {
         this.type = 'WITHDRAW'
-        this.transactionDate = new Date().toLocaleString();
+        this.transactionDate = new Date().toDateString();
         this.accountNumber = accountNumber;
         this.balanceBeforeWithdraw = before
         this.withdrawAmount = amount
@@ -36,7 +36,7 @@ class TransactWithdraw {
 class TransactSend {
     constructor(accountNumber, before, amount, toAccountNumber, direction) {
         this.type = `SEND ${direction}`
-        this.transactionDate = new Date().toLocaleString();
+        this.transactionDate = new Date().toDateString();
         this.accountNumber = accountNumber;
         this.balanceBeforeSend = before
         this.sentAmount = amount
@@ -112,6 +112,7 @@ class BankingApp {
         )
         foundUser.balance -= parseInt(amount);
         foundUser.transactions.unshift(newTransaction)
+        this.displayBalance.textContent = foundUser.balance
     }
 
     static send = (fromAccount, toAccount, amount) => {
@@ -225,7 +226,6 @@ form_login.addEventListener('submit', event => {
     event.preventDefault();
     const formData = new FormData(form_login);
     const { log_fullname, log_password } = parseFormData(formData);
-
     BankingApp.login(log_fullname, log_password)
     form_login.reset();
 })
@@ -238,6 +238,16 @@ form_deposit.addEventListener('submit', event => {
     BankingApp.deposit(BankingApp.currentUser.accountNumber, parseInt(deposit_amount))
     form_deposit.reset();
 })
+
+// onsubmission fo withdraw form
+form_withdraw.addEventListener('submit', event => {
+    event.preventDefault();
+    const formData = new FormData(form_withdraw);
+    const { withdraw_amount } = parseFormData(formData);
+    BankingApp.withdraw(BankingApp.currentUser.accountNumber, parseInt(withdraw_amount))
+    form_withdraw.reset();
+})
+
 
 
 
