@@ -102,6 +102,7 @@ class BankingApp {
         )
         foundUser.balance += parseInt(amount)
         foundUser.transactions.unshift(newTransaction)
+        this.displayBalance.textContent = foundUser.balance
     }
 
     static withdraw = (accountNumber, amount) => {
@@ -209,8 +210,7 @@ userActionsBtnsArr.forEach(actionBtn => {
 form_register.addEventListener('submit', event => {
     event.preventDefault();
     const formData = new FormData(form_register);
-    const formDataParsed = parseFormData(formData);
-    const { reg_fullname, reg_password, reg_password_confirm } = formDataParsed;
+    const { reg_fullname, reg_password, reg_password_confirm } = parseFormData(formData);
 
     if (reg_password !== reg_password_confirm) return null;
 
@@ -224,11 +224,19 @@ form_register.addEventListener('submit', event => {
 form_login.addEventListener('submit', event => {
     event.preventDefault();
     const formData = new FormData(form_login);
-    const formDataParsed = parseFormData(formData);
-    const { log_fullname, log_password } = formDataParsed;
+    const { log_fullname, log_password } = parseFormData(formData);
 
     BankingApp.login(log_fullname, log_password)
     form_login.reset();
+})
+
+// onsubmission fo deposit form
+form_deposit.addEventListener('submit', event => {
+    event.preventDefault();
+    const formData = new FormData(form_deposit);
+    const { deposit_amount } = parseFormData(formData);
+    BankingApp.deposit(BankingApp.currentUser.accountNumber, parseInt(deposit_amount))
+    form_deposit.reset();
 })
 
 
