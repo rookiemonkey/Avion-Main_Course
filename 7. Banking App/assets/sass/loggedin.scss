@@ -179,10 +179,19 @@ section#view_loggedin {
         }
 
         #dynamic_transactions {
-        height: 511px;
-        max-height: 511px;
+        height: 570px;
+        max-height: 570px;
         justify-content: flex-start;
         flex-direction: column !important;
+
+            p.transaction_type_info {
+                justify-self: flex-end;
+                width: 100%;
+                text-align: right;
+                font-size: 0.75rem;
+                margin-bottom: $spacing_sm;
+                font-style: italic;
+            }
 
             #transactions_options {
                 width: 100%;

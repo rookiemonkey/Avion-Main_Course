@@ -226,13 +226,17 @@ class BankingApp {
 
         this.transactionsList.innerHTML = ''; // removes all child nodes
 
-        if (transactions.length === 0) {
+        // display only the last 5 transaction depending on the query
+        // hence first 5 instances of a type, unless 'ALL'
+        const first5Transaction = transactions.splice(0, 5)
+
+        if (first5Transaction.length === 0) {
             const { div } = new HTMLElementTransactionEmpty()
             this.transactionsList.appendChild(div)
             return null;
         }
 
-        transactions.forEach(transaction => {
+        first5Transaction.forEach(transaction => {
             const { li } = new HTMLElementTransaction(transaction)
             this.transactionsList.appendChild(li)
         })
