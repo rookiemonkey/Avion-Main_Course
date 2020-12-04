@@ -93,6 +93,10 @@ class BankingApp {
     static send = (fromAccount, toAccount, amount) => {
         const from = this.findUser(fromAccount)
         const to = this.findUser(toAccount)
+        const newFromBalance = from.balance - parseInt(amount)
+
+        if (newFromBalance < 0)
+            return this.notifier.showMessage("Not enough money to send the amount", 'error')
 
         if (!to)
             return this.notifier.showMessage("Receiver doesn't exists", 'error')
@@ -104,7 +108,7 @@ class BankingApp {
             from.accountNumber, to.balance, amount, to.accountNumber, 'FROM'
         )
 
-        from.balance -= parseInt(amount);
+        from.balance = newFromBalance;
         from.transactions.unshift(newTransactionFrom)
         to.balance += parseInt(amount);
         to.transactions.unshift(newTransactionTo)
