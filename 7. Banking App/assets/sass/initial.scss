@@ -42,7 +42,7 @@ section#view_initial {
 
 
             li {
-                border: none;
+                border: 2px solid $color_accent2;
                 border-radius: 35px;
                 min-width: 115px;
                 padding: $spacing_md $spacing_lg;
@@ -55,8 +55,9 @@ section#view_initial {
                             border-color 500ms ease-in-out;
 
                 &:hover {
+                    border: 2px solid white;
                     background-color: white;
-                    color: $color_base;
+                    color: $color_accent2;
                 }
             }
         }
@@ -103,7 +104,7 @@ section#view_initial {
                             border-bottom: 2px solid $color_accent2;
                             font-size: 18px;
                             font-weight: 700;
-                            color: white;
+                            color: $color_font;
                             padding: $spacing_sm 0px;
                             background-color: transparent;
 
@@ -115,7 +116,7 @@ section#view_initial {
                         button {
                             cursor: pointer;
                             border: none;
-                            color: white;
+                            color: $color_font;
                             background-color: transparent;
                             width: max-content;
                             font-family: 'Arvo', serif;

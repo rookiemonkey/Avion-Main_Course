@@ -1,10 +1,11 @@
-$color_base:  #009DFF;
+$color_base:  hsl(203, 100%, 90%);
 $color_accent1:#80CEFF;
 $color_accent2: #ff6200;
 $color_accent3: #ffb484;
 $spacing_sm: 7.5px;
 $spacing_md: 12px;
 $spacing_lg: 20px;
+$color_font: rgba(0,0,0,0.85);
 $shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
 
 /* latin */
@@ -31,6 +32,7 @@ $shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
+    color: $color_font;
 }
 
 :root {
@@ -49,6 +51,10 @@ body main {
     background-color: $color_accent2 !important;
     border-color: $color_accent2 !important;
     color: white !important;
+
+    i, span {
+      color: white;
+    }
 }
 
 .toast {

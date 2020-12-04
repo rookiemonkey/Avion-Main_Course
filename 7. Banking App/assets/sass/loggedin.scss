@@ -16,8 +16,10 @@ section#view_loggedin {
         align-items: center;
     }
 
-    .view_usercard {width: 50%;}
-    .view_useractions {width: 50%;}
+    .view_usercard,
+    .view_useractions  {
+        width: 50%;
+    }
 
     .view_usercard {
 
@@ -27,7 +29,7 @@ section#view_loggedin {
             padding: $spacing_lg;
             margin-left: $spacing_lg;
             margin-bottom: $spacing_md;
-            border: none;
+            border: 2px solid $color_accent2;
             border-radius: 15px;
             box-shadow: $shadow;
 
@@ -51,6 +53,10 @@ section#view_loggedin {
                     #transactions {
                         cursor: pointer;
                     }
+
+                    span#name {
+                        color: $color_accent2;
+                    }
                 }
 
                 #user_accountAvatarChange,
@@ -73,6 +79,10 @@ section#view_loggedin {
                     left: 405px;
                     text-align: right;
                     width: 250px;
+                    
+                    span#balance, span i {
+                        color: $color_accent2;
+                    }
                 }
             }
         }
@@ -87,7 +97,7 @@ section#view_loggedin {
 
              li.user_actions_item {
                 cursor: pointer;
-                border: none;
+                border: 2px solid $color_accent2;
                 box-shadow: $shadow;
                 border-radius: 15px;
                 display: flex;
@@ -102,13 +112,8 @@ section#view_loggedin {
 
                 &:hover {
                     background-color: white;
+                    border-color: white;
                     color: $color_base;
-                }
-
-                &.active-nav {
-                    background-color: $color_accent2;
-                    border-color: $color_accent2;
-                    color: white;
                 }
 
                 i {
@@ -154,7 +159,7 @@ section#view_loggedin {
                         border-bottom: 2px solid $color_accent2;
                         font-size: 18px;
                         font-weight: 700;
-                        color: white;
+                        color: $color_font;
                         padding: $spacing_sm 0px;
                         background-color: transparent;
 
@@ -166,7 +171,7 @@ section#view_loggedin {
                     button {
                         cursor: pointer;
                         border: none;
-                        color: white;
+                        color: $color_font;
                         background-color: transparent;
                         width: max-content;
                         font-family: 'Arvo', serif;
@@ -205,8 +210,12 @@ section#view_loggedin {
                         font-size: 0.75rem;
                         font-style: italic;
                         text-decoration: none;
-                        color: white;
+                        color: $color_accent2;
                         cursor: pointer;
+
+                        i {                        
+                            color: $color_accent2;
+                        }
                     }
                 }
 
@@ -217,7 +226,7 @@ section#view_loggedin {
 
                     select#transaction_type {
                         background-color: transparent;
-                        color: $color_accent3;
+                        color: $color_accent2;
                         padding: $spacing_sm 0px;
                         margin-left: $spacing_sm;
                         width: 150px;
@@ -275,11 +284,11 @@ section#view_loggedin {
                         margin: $spacing_sm 0px;
                         display: flex;
                         justify-content: space-between;
-                        color: $color_accent3;
 
                         .transactions_listitem_type,
                         .transactions_listitem_amount {
                             font-weight: 700;
+                            color: $color_accent2;
                         }
                     }
                 }

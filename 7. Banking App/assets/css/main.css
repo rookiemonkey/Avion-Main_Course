@@ -20,7 +20,8 @@
 * {
   padding: 0px;
   margin: 0px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85); }
 
 :root {
   font-size: 18px; }
@@ -28,7 +29,7 @@
 body main {
   width: 100%;
   height: 100vh;
-  background-color: #009DFF;
+  background-color: #ccebff;
   font-family: 'Arvo', serif;
   color: white; }
 
@@ -36,6 +37,8 @@ body main {
   background-color: #ff6200 !important;
   border-color: #ff6200 !important;
   color: white !important; }
+  .active-nav i, .active-nav span {
+    color: white; }
 
 .toast {
   position: fixed;
@@ -2331,7 +2334,7 @@ section#view_initial {
     display: flex;
     list-style-type: none; }
     section#view_initial .view_initial_nav ul.initial_nav_parent li {
-      border: none;
+      border: 2px solid #ff6200;
       border-radius: 35px;
       min-width: 115px;
       padding: 12px 20px;
@@ -2341,8 +2344,9 @@ section#view_initial {
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
       transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; }
       section#view_initial .view_initial_nav ul.initial_nav_parent li:hover {
+        border: 2px solid white;
         background-color: white;
-        color: #009DFF; }
+        color: #ff6200; }
   section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_home,
   section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register,
   section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login {
@@ -2377,7 +2381,7 @@ section#view_initial {
         border-bottom: 2px solid #ff6200;
         font-size: 18px;
         font-weight: 700;
-        color: white;
+        color: rgba(0, 0, 0, 0.85);
         padding: 7.5px 0px;
         background-color: transparent; }
         section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group input:focus,
@@ -2387,7 +2391,7 @@ section#view_initial {
       section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group button {
         cursor: pointer;
         border: none;
-        color: white;
+        color: rgba(0, 0, 0, 0.85);
         background-color: transparent;
         width: max-content;
         font-family: 'Arvo', serif;
@@ -2410,8 +2414,7 @@ section#view_loggedin {
     flex-direction: column;
     justify-content: center;
     align-items: center; }
-  section#view_loggedin .view_usercard {
-    width: 50%; }
+  section#view_loggedin .view_usercard,
   section#view_loggedin .view_useractions {
     width: 50%; }
   section#view_loggedin .view_usercard .user_informations {
@@ -2420,7 +2423,7 @@ section#view_loggedin {
     padding: 20px;
     margin-left: 20px;
     margin-bottom: 12px;
-    border: none;
+    border: 2px solid #ff6200;
     border-radius: 15px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); }
     section#view_loggedin .view_usercard .user_informations img#user_avatar {
@@ -2438,6 +2441,8 @@ section#view_loggedin {
         margin-bottom: 7.5px; }
         section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name #transactions {
           cursor: pointer; }
+        section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name span#name {
+          color: #ff6200; }
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountAvatarChange,
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountcreation,
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountnumber {
@@ -2454,6 +2459,8 @@ section#view_loggedin {
         left: 405px;
         text-align: right;
         width: 250px; }
+        section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_balance span#balance, section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_balance span i {
+          color: #ff6200; }
   section#view_loggedin .view_usercard .user_actions {
     width: 100%;
     margin-left: 20px;
@@ -2463,7 +2470,7 @@ section#view_loggedin {
     list-style-type: none; }
     section#view_loggedin .view_usercard .user_actions li.user_actions_item {
       cursor: pointer;
-      border: none;
+      border: 2px solid #ff6200;
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
       border-radius: 15px;
       display: flex;
@@ -2475,11 +2482,8 @@ section#view_loggedin {
       transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; }
       section#view_loggedin .view_usercard .user_actions li.user_actions_item:hover {
         background-color: white;
-        color: #009DFF; }
-      section#view_loggedin .view_usercard .user_actions li.user_actions_item.active-nav {
-        background-color: #ff6200;
-        border-color: #ff6200;
-        color: white; }
+        border-color: white;
+        color: #ccebff; }
       section#view_loggedin .view_usercard .user_actions li.user_actions_item i {
         font-size: 1.75rem; }
   section#view_loggedin .view_useractions #dynamic_deposit,
@@ -2515,7 +2519,7 @@ section#view_loggedin {
         border-bottom: 2px solid #ff6200;
         font-size: 18px;
         font-weight: 700;
-        color: white;
+        color: rgba(0, 0, 0, 0.85);
         padding: 7.5px 0px;
         background-color: transparent; }
         section#view_loggedin .view_useractions #dynamic_deposit form .input-group input:focus,
@@ -2527,7 +2531,7 @@ section#view_loggedin {
       section#view_loggedin .view_useractions #dynamic_send form .input-group button {
         cursor: pointer;
         border: none;
-        color: white;
+        color: rgba(0, 0, 0, 0.85);
         background-color: transparent;
         width: max-content;
         font-family: 'Arvo', serif;
@@ -2556,13 +2560,15 @@ section#view_loggedin {
         font-size: 0.75rem;
         font-style: italic;
         text-decoration: none;
-        color: white;
+        color: #ff6200;
         cursor: pointer; }
+        section#view_loggedin .view_useractions #dynamic_transactions #transactions_options .transactions_options_container1 a i {
+          color: #ff6200; }
       section#view_loggedin .view_useractions #dynamic_transactions #transactions_options .transactions_options_container2 label {
         font-style: italic; }
       section#view_loggedin .view_useractions #dynamic_transactions #transactions_options .transactions_options_container2 select#transaction_type {
         background-color: transparent;
-        color: #ffb484;
+        color: #ff6200;
         padding: 7.5px 0px;
         margin-left: 7.5px;
         width: 150px;
@@ -2601,8 +2607,8 @@ section#view_loggedin {
         section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_main {
           margin: 7.5px 0px;
           display: flex;
-          justify-content: space-between;
-          color: #ffb484; }
+          justify-content: space-between; }
           section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_main .transactions_listitem_type,
           section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_main .transactions_listitem_amount {
-            font-weight: 700; }
+            font-weight: 700;
+            color: #ff6200; }
