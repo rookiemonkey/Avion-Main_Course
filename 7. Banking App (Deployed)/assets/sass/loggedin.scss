@@ -194,6 +194,7 @@ section#view_loggedin {
                 width: 100%;
                 text-align: right;
                 font-size: 0.75rem;
+                padding-right: $spacing_sm + $spacing_sm;
                 margin-bottom: $spacing_sm;
                 font-style: italic;
             }
@@ -203,6 +204,8 @@ section#view_loggedin {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                padding-left: $spacing_sm + $spacing_sm;
+                margin-right: $spacing_sm + $spacing_sm;
                 margin-bottom: $spacing_sm;
 
                 .transactions_options_container1 {

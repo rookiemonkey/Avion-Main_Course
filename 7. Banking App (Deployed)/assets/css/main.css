@@ -2548,6 +2548,7 @@ section#view_loggedin {
       width: 100%;
       text-align: right;
       font-size: 0.75rem;
+      padding-right: 15px;
       margin-bottom: 7.5px;
       font-style: italic; }
     section#view_loggedin .view_useractions #dynamic_transactions #transactions_options {
@@ -2555,6 +2556,8 @@ section#view_loggedin {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding-left: 15px;
+      margin-right: 15px;
       margin-bottom: 7.5px; }
       section#view_loggedin .view_useractions #dynamic_transactions #transactions_options .transactions_options_container1 a {
         font-size: 0.75rem;
