@@ -7,11 +7,11 @@ class BankingApp {
     static currentUser = null;
     static initialPage = document.querySelector('#view_initial')
     static loggedInPage = document.querySelector('#view_loggedin')
-    static displayName = document.querySelector('#user_name').childNodes[0]
+    static displayName = document.querySelector('#name')
     static displayAvatar = document.getElementById('user_avatar')
     static displayAccCrt = document.querySelector('#user_accountcreation')
-    static displayAccNum = document.querySelector('#user_accountnumber').childNodes[2]
-    static displayBalance = document.querySelector('#user_balance').childNodes[2]
+    static displayAccNum = document.querySelector('#accountnumber')
+    static displayBalance = document.querySelector('#balance')
     static changeAvatarBtn = document.getElementById('user_accountAvatarChange')
     static getBankStatementBtn = document.getElementById('bankstatement')
     static transactionsList = document.getElementById('transactions_list')
@@ -21,10 +21,6 @@ class BankingApp {
     static form_deposit = document.getElementById('form_deposit')
     static form_withdraw = document.getElementById('form_withdraw')
     static form_send = document.getElementById('form_send')
-
-    static findUser = accountNumber => {
-        return this.users.find(user => user.accountNumber === accountNumber)
-    }
 
     static login = (fullname, password) => {
         const foundUser = this.users.find(user => {
@@ -67,39 +63,38 @@ class BankingApp {
         this.notifier.showMessage('Successfully created your bank account!', 'success')
     }
 
-    static deposit = (accountNumber, amount) => {
-        const foundUser = this.findUser(accountNumber)
+    static deposit = amount => {
         const newTransaction = new Transact(
-            'DEPOSIT', accountNumber, foundUser.balance, parseInt(amount)
+            'DEPOSIT', this.currentUser.accountNumber,
+            this.currentUser.balance, parseInt(amount)
         )
 
-        foundUser.balance += parseInt(amount)
-        foundUser.transactions.unshift(newTransaction)
-        this.displayBalance.textContent = withCommas(foundUser.balance)
+        this.currentUser.balance += parseInt(amount)
+        this.currentUser.transactions.unshift(newTransaction)
+        this.displayBalance.textContent = withCommas(this.currentUser.balance)
         this.notifier.showMessage(`Successfully deposited $${amount} to your account!`, 'success')
     }
 
-    static withdraw = (accountNumber, amount) => {
-        const foundUser = this.findUser(accountNumber)
-        const newBalance = foundUser.balance - parseInt(amount)
+    static withdraw = amount => {
+        const newBalance = this.currentUser.balance - parseInt(amount)
 
         if (newBalance < 0)
             return this.notifier.showMessage('Not enough money to withdraw the amount', 'error')
 
         const newTransaction = new Transact(
-            'WITHDRAW', accountNumber, foundUser.balance, amount
+            'WITHDRAW', this.currentUser.accountNumber,
+            this.currentUser.balance, amount
         )
 
-        foundUser.balance = newBalance;
-        foundUser.transactions.unshift(newTransaction)
-        this.displayBalance.textContent = withCommas(foundUser.balance)
+        this.currentUser.balance = newBalance;
+        this.currentUser.transactions.unshift(newTransaction)
+        this.displayBalance.textContent = withCommas(this.currentUser.balance)
         this.notifier.showMessage(`Successfully withdrawn $${amount} from your account!`, 'success')
     }
 
-    static send = (fromAccount, toAccount, amount) => {
-        const from = this.findUser(fromAccount)
-        const to = this.findUser(toAccount)
-        const newFromBalance = from.balance - parseInt(amount)
+    static send = (toAccount, amount) => {
+        const to = this.users.find(user => user.accountNumber === toAccount)
+        const newFromBalance = this.currentUser.balance - parseInt(amount)
 
         if (newFromBalance < 0)
             return this.notifier.showMessage("Not enough money to send the amount", 'error')
@@ -108,17 +103,18 @@ class BankingApp {
             return this.notifier.showMessage("Receiver doesn't exists", 'error')
 
         const newTransactionFrom = new TransactSend(
-            from.accountNumber, from.balance, amount, to.accountNumber, 'TO'
+            this.currentUser.accountNumber, this.currentUser.balance,
+            amount, to.accountNumber, 'TO'
         )
         const newTransactionTo = new TransactSend(
-            from.accountNumber, to.balance, amount, to.accountNumber, 'FROM'
+            this.currentUser.accountNumber, to.balance, amount, to.accountNumber, 'FROM'
         )
 
-        from.balance = newFromBalance;
-        from.transactions.unshift(newTransactionFrom)
+        this.currentUser.balance = newFromBalance;
+        this.currentUser.transactions.unshift(newTransactionFrom)
         to.balance += parseInt(amount);
         to.transactions.unshift(newTransactionTo)
-        this.displayBalance.textContent = withCommas(from.balance)
+        this.displayBalance.textContent = withCommas(this.currentUser.balance)
         this.notifier.showMessage(`Successfully sent $${amount} to ${to.accountNumber}`, 'success')
     }
 
@@ -186,7 +182,7 @@ class BankingApp {
         if (!deposit_amount)
             return this.notifier.showMessage('Please enter an amount', 'error')
 
-        this.deposit(this.currentUser.accountNumber, parseInt(deposit_amount))
+        this.deposit(parseInt(deposit_amount))
         resetForms()
     }
 
@@ -198,7 +194,7 @@ class BankingApp {
         if (!withdraw_amount)
             return this.notifier.showMessage('Please enter an amount', 'error')
 
-        this.withdraw(this.currentUser.accountNumber, parseInt(withdraw_amount))
+        this.withdraw(parseInt(withdraw_amount))
         resetForms()
     }
 
@@ -213,7 +209,10 @@ class BankingApp {
         if (!receiver_accnum)
             return this.notifier.showMessage('Please enter a recepient', 'error')
 
-        this.send(this.currentUser.accountNumber, receiver_accnum, parseInt(send_amount))
+        if (this.currentUser.accountNumber == receiver_accnum)
+            return this.notifier.showMessage("You can't send money to your self", 'error')
+
+        this.send(receiver_accnum, parseInt(send_amount))
         resetForms()
     }
 
@@ -450,7 +449,7 @@ function TransactSend(accountNumber, before, amount, toAccountNumber, direction)
     this.accountNumber = accountNumber;
     this.balanceBefore = before
     this.amount = amount
-    this.sentToOrFromAccountNumber = toAccountNumber
+    this.toAccountNumber = toAccountNumber
 }
 
 // ELEMENT model for a transaction item
@@ -471,7 +470,9 @@ function HTMLElementTransaction(transaction) {
     this.mainContentAmount.classList.add('transactions_listitem_amount')
     this.mainContentType.textContent = transaction.type == 'SENT TO' ||
         transaction.type == 'SENT FROM'
-        ? `${transaction.type} ${transaction.sentToOrFromAccountNumber}`
+        ? transaction.type == 'SENT FROM'
+            ? `${transaction.type} ${transaction.accountNumber}`
+            : `${transaction.type} ${transaction.toAccountNumber}`
         : transaction.type
     this.mainContentAmount.textContent = transaction.amount
     this.mainContent.appendChild(this.mainContentType)
