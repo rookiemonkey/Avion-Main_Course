@@ -81,7 +81,7 @@
 > This project is focused on the basics of implementing javascript on web applications which consists of manipulating styles and markup.
 
 >> ###### Features:
->> - [x] use of ES6 Classes and weakmaps
+>> - [x] use of ES6 Classes and weakmaps for private variables
 >> - [x] supports dark/light theme
 >> - [x] supports dynamic player names
 >> - [x] supports localization (10 languages)
@@ -89,6 +89,21 @@
 >> - [x] added background music and sprites
 
 ![Screenshot](_SCREENSHOTS/project6new2.png)
+
+
+
+### ✨ [7. Bank App (Click to see live version)](https://krrb-prod-bankapp.netlify.app)
+
+> This project is focused on the basics of implementing javascript on web applications which consists of manipulating styles and markup also, the use of objects in javascript.
+
+>> ###### Features:
+>> - [x] use of ES6 Classes
+>> - [x] supports deposit, withdraw, sending money
+>> - [x] supports access to transaction histories
+>> - [x] supports avatar change
+>> - [x] supports downloading bank statements
+
+![Screenshot](_SCREENSHOTS/project7.png)
 
 
 
