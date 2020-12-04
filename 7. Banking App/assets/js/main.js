@@ -26,26 +26,22 @@ class BankingApp {
     }
 
     static login = (fullname, password) => {
-        try {
-            const foundUser = this.users.find(user => {
-                return user.fullname === fullname &&
-                    user.password === password
-            })
+        const foundUser = this.users.find(user => {
+            return user.fullname === fullname &&
+                user.password === password
+        })
 
-            if (!foundUser) throw new Error("User doesn't exists")
-            this.displayName.textContent = foundUser.fullname
-            this.displayAccCrt.textContent = `Member since: ${foundUser.accountCreation}`
-            this.displayAccNum.textContent = ` ${foundUser.accountNumber}`
-            this.displayBalance.textContent = foundUser.balance
-            this.displayAvatar.setAttribute('src', foundUser.avatar)
-            this.currentUser = foundUser
-            this.showInitialPage(false);
-            resetForms()
-        }
+        if (!foundUser)
+            return this.notifier.showMessage("User doesn't exists", 'error')
 
-        catch (error) {
-            this.notifier.showMessage(error.message, 'error')
-        }
+        this.displayName.textContent = foundUser.fullname
+        this.displayAccCrt.textContent = `Member since: ${foundUser.accountCreation}`
+        this.displayAccNum.textContent = ` ${foundUser.accountNumber}`
+        this.displayBalance.textContent = withCommas(foundUser.balance)
+        this.displayAvatar.setAttribute('src', foundUser.avatar)
+        this.currentUser = foundUser
+        this.showInitialPage(false);
+        resetForms()
     }
 
     static logout = () => {
@@ -69,50 +65,47 @@ class BankingApp {
         const newTransaction = new Transact(
             'DEPOSIT', accountNumber, foundUser.balance, parseInt(amount)
         )
+
         foundUser.balance += parseInt(amount)
         foundUser.transactions.unshift(newTransaction)
-        this.displayBalance.textContent = foundUser.balance
+        this.displayBalance.textContent = withCommas(foundUser.balance)
     }
 
     static withdraw = (accountNumber, amount) => {
-        try {
-            const foundUser = this.findUser(accountNumber)
-            const newBalance = foundUser.balance - parseInt(amount)
-            if (newBalance < 0) throw new Error('Not enough money to withdraw the amount')
-            const newTransaction = new Transact(
-                'WITHDRAW', accountNumber, foundUser.balance, amount
-            )
-            foundUser.balance = newBalance;
-            foundUser.transactions.unshift(newTransaction)
-            this.displayBalance.textContent = foundUser.balance
-        }
+        const foundUser = this.findUser(accountNumber)
+        const newBalance = foundUser.balance - parseInt(amount)
 
-        catch (error) {
-            this.notifier.showMessage(error.message, 'error')
-        }
+        if (newBalance < 0)
+            return this.notifier.showMessage('Not enough money to withdraw the amount', 'error')
+
+        const newTransaction = new Transact(
+            'WITHDRAW', accountNumber, foundUser.balance, amount
+        )
+
+        foundUser.balance = newBalance;
+        foundUser.transactions.unshift(newTransaction)
+        this.displayBalance.textContent = withCommas(foundUser.balance)
     }
 
     static send = (fromAccount, toAccount, amount) => {
-        try {
-            const from = this.findUser(fromAccount)
-            const to = this.findUser(toAccount)
-            if (!to) throw new Error("Receiver doesn't exists")
-            const newTransactionFrom = new TransactSend(
-                from.accountNumber, from.balance, amount, to.accountNumber, 'TO'
-            )
-            const newTransactionTo = new TransactSend(
-                from.accountNumber, to.balance, amount, to.accountNumber, 'FROM'
-            )
-            from.balance -= parseInt(amount);
-            from.transactions.unshift(newTransactionFrom)
-            to.balance += parseInt(amount);
-            to.transactions.unshift(newTransactionTo)
-            this.displayBalance.textContent = from.balance
-        }
+        const from = this.findUser(fromAccount)
+        const to = this.findUser(toAccount)
 
-        catch (error) {
-            this.notifier.showMessage(error.message, 'error')
-        }
+        if (!to)
+            return this.notifier.showMessage("Receiver doesn't exists", 'error')
+
+        const newTransactionFrom = new TransactSend(
+            from.accountNumber, from.balance, amount, to.accountNumber, 'TO'
+        )
+        const newTransactionTo = new TransactSend(
+            from.accountNumber, to.balance, amount, to.accountNumber, 'FROM'
+        )
+
+        from.balance -= parseInt(amount);
+        from.transactions.unshift(newTransactionFrom)
+        to.balance += parseInt(amount);
+        to.transactions.unshift(newTransactionTo)
+        this.displayBalance.textContent = withCommas(from.balance)
     }
 
     static getBalance = () => {
@@ -162,6 +155,10 @@ class BankingApp {
         event.preventDefault();
         const formData = new FormData(this.form_deposit);
         const { deposit_amount } = parseFormData(formData);
+
+        if (!deposit_amount)
+            return this.notifier.showMessage('Please enter an amount', 'error')
+
         this.deposit(this.currentUser.accountNumber, parseInt(deposit_amount))
         resetForms()
     }
@@ -170,6 +167,10 @@ class BankingApp {
         event.preventDefault();
         const formData = new FormData(this.form_withdraw);
         const { withdraw_amount } = parseFormData(formData);
+
+        if (!withdraw_amount)
+            return this.notifier.showMessage('Please enter an amount', 'error')
+
         this.withdraw(this.currentUser.accountNumber, parseInt(withdraw_amount))
         resetForms()
     }
@@ -178,25 +179,29 @@ class BankingApp {
         event.preventDefault();
         const formData = new FormData(form_send);
         const { receiver_accnum, send_amount } = parseFormData(formData);
+
+        if (!send_amount)
+            return this.notifier.showMessage('Please enter an amount', 'error')
+
+        if (!receiver_accnum)
+            return this.notifier.showMessage('Please enter a recepient', 'error')
+
         this.send(this.currentUser.accountNumber, receiver_accnum, parseInt(send_amount))
         resetForms()
     }
 
     static changeAvatar = event => {
-        try {
-            const [image] = event.target.files
-            const regEx = new RegExp(/image\/(png|jpg|jpeg)/, 'g')
-            const isImage = regEx.test(image.type)
-            if (!isImage) throw new Error('We only accept images')
-            const blob = URL.createObjectURL(image)
-            this.currentUser.avatar = blob;
-            this.displayAvatar.setAttribute('src', blob);
-            resetForms()
-        }
+        const [image] = event.target.files
+        const regEx = new RegExp(/image\/(png|jpg|jpeg)/, 'g')
+        const isImage = regEx.test(image.type)
 
-        catch (error) {
-            this.notifier.showMessage(error.message, 'error')
-        }
+        if (!isImage)
+            return this.notifier.showMessage('We only accept images', 'error')
+
+        const blob = URL.createObjectURL(image)
+        this.currentUser.avatar = blob;
+        this.displayAvatar.setAttribute('src', blob);
+        resetForms()
     }
 
     static changeTransactionType = event => {
@@ -296,8 +301,14 @@ numberInputs.forEach(numberInput => {
         try {
             const { key } = event;
             const numInput = parseInt(key)
-            if (!numInput) throw new Error('Please enter numbers')
-            event.returnValue = true
+
+            if (key === 'Enter') {
+                event.returnValue = true
+                return true
+            }
+
+            if (!numInput && numInput !== 0)
+                throw new Error('Please enter numbers')
         }
 
         catch (error) {
@@ -357,6 +368,12 @@ function resetForms() {
     BankingApp.changeAvatarBtn.value = '';
     BankingApp.transactionSelect.value = 'All';
     BankingApp.transactionsList.innerHTML = '';
+}
+
+function withCommas(num) {
+    return num
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 

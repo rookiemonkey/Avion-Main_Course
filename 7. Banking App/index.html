@@ -162,8 +162,9 @@
                 <div id="dynamic_send" data-action="send" style="display: none">
                     <form id="form_send">
                         <div class="input-group">
-                            <label>Receiver Account Number <small>(10 digit)</small></label>
-                            <input type="num" name="receiver_accnum" min="1" autocomplete="off">
+                            <label>Recipient Account Number <small>(10 digit)</small></label>
+                            <input type="num" name="receiver_accnum" min="1" autocomplete="off" minlength="10"
+                                maxlength="10">
                         </div>
                         <div class="input-group">
                             <label>Amount to send</label>
