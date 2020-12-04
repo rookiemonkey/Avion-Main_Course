@@ -206,7 +206,7 @@ section#view_loggedin {
 
                 select#transaction_type {
                     background-color: transparent;
-                    color: white;
+                    color: $color_accent3;
                     padding: $spacing_sm 0px;
                     margin-left: $spacing_sm;
                     width: 150px;
@@ -263,6 +263,7 @@ section#view_loggedin {
                         margin: $spacing_sm 0px;
                         display: flex;
                         justify-content: space-between;
+                        color: $color_accent3;
 
                         .transactions_listitem_type,
                         .transactions_listitem_amount {

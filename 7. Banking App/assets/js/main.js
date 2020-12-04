@@ -47,6 +47,7 @@ class BankingApp {
     static logout = () => {
         this.currentUser = null
         this.showInitialPage(true)
+        this.notifier.showMessage('Successfully logged out', 'success')
         resetForms()
     };
 

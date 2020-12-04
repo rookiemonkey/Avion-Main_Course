@@ -2556,7 +2556,7 @@ section#view_loggedin {
         font-style: italic; }
       section#view_loggedin .view_useractions #dynamic_transactions #transactions_options select#transaction_type {
         background-color: transparent;
-        color: white;
+        color: #ffb484;
         padding: 7.5px 0px;
         margin-left: 7.5px;
         width: 150px;
@@ -2595,7 +2595,8 @@ section#view_loggedin {
         section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_main {
           margin: 7.5px 0px;
           display: flex;
-          justify-content: space-between; }
+          justify-content: space-between;
+          color: #ffb484; }
           section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_main .transactions_listitem_type,
           section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_main .transactions_listitem_amount {
             font-weight: 700; }
