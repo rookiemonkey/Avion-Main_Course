@@ -1,7 +1,7 @@
-
 // model for the banking application
 class BankingApp {
 
+    static secret = 'This application is not secure :D'; // #secret private not supported
     static users = new Array()
     static notifier = new HTMLElementToaster();
     static currentUser = null;
@@ -28,8 +28,11 @@ class BankingApp {
 
     static login = (fullname, password) => {
         const foundUser = this.users.find(user => {
+            const decryptedPassword = CryptoJS
+                .AES.decrypt(user.password, this.secret).toString(CryptoJS.enc.Utf8)
+
             return user.fullname === fullname &&
-                user.password === password
+                decryptedPassword === password
         })
 
         if (!foundUser)
@@ -58,7 +61,8 @@ class BankingApp {
     }
 
     static createUser = (fullname, password) => {
-        const newUser = new BankingAppUser(fullname, password);
+        const encryptedPassword = CryptoJS.AES.encrypt(password, this.secret).toString()
+        const newUser = new BankingAppUser(fullname, encryptedPassword);
         this.users.push(newUser);
         this.notifier.showMessage('Successfully created your bank account!', 'success')
     }
