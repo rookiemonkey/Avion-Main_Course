@@ -231,6 +231,7 @@ class BankingApp {
 // ====================================================== //
 
 const transactionsBtn = document.getElementById('transactions');
+const numberInputs = [...document.querySelectorAll('input[type=num]')]
 const initNavItemsArr = [...document.querySelector('.initial_nav_parent').children];
 const initNavViewsArr = [...document.querySelector('.view_initial_nav_dynamic').children];
 const userActionsViewsArr = [...document.querySelector('.view_useractions').children];
@@ -283,6 +284,23 @@ userActionsBtnsArr.forEach(actionBtn => {
         }
 
         BankingApp.logout();
+    })
+})
+
+// prevents num inputs to accept letters
+numberInputs.forEach(numberInput => {
+    numberInput.addEventListener('keypress', function (event) {
+        try {
+            const { key } = event;
+            const numInput = parseInt(key)
+            if (!numInput) throw new Error('Please enter numbers')
+            event.returnValue = true
+        }
+
+        catch (error) {
+            BankingApp.notifier.showMessage(error.message, 'error')
+            event.returnValue = false
+        }
     })
 })
 

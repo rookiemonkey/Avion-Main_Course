@@ -29,12 +29,13 @@ body main {
   max-width: 400px;
   padding: 6px;
   background: #cccccc;
+  font-family: 'Arvo', serif;
   color: #333333;
   font-family: sans-serif;
   text-align: center;
   border: 1px solid #aaaaaa;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
   visibility: hidden;
   opacity: 0;
   z-index: 9999;
@@ -46,13 +47,13 @@ body main {
   visibility: visible; }
 
 .toast--success {
-  background: #00c02b;
-  border-color: #009d23;
+  background: #28a745;
+  border-color: #28a745;
   color: #ffffff; }
 
 .toast--error {
-  background: #d50000;
-  border-color: #ba0000;
+  background: #dc3545;
+  border-color: #dc3545;
   color: #ffffff; }
 
 /*!
