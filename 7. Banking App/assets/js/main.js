@@ -128,6 +128,9 @@ class BankingApp {
 
             const isUserExisting = this.users.findIndex(({ fullname }) => fullname === reg_fullname)
 
+            if (reg_fullname.split(' ').length < 2)
+                throw new Error("Please provide your full name")
+
             if (!reg_fullname || !reg_password || !reg_password_confirm)
                 throw new Error("Please fill out the form")
 
