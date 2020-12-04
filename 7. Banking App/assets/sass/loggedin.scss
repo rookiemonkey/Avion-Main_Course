@@ -196,27 +196,39 @@ section#view_loggedin {
             #transactions_options {
                 width: 100%;
                 display: flex;
-                justify-content: flex-end;
+                justify-content: space-between;
                 align-items: center;
                 margin-bottom: $spacing_sm;
 
-                label {
-                    font-style: italic;
+                .transactions_options_container1 {
+                    a {
+                        font-size: 0.75rem;
+                        font-style: italic;
+                        text-decoration: none;
+                        color: white;
+                        cursor: pointer;
+                    }
                 }
 
-                select#transaction_type {
-                    background-color: transparent;
-                    color: $color_accent3;
-                    padding: $spacing_sm 0px;
-                    margin-left: $spacing_sm;
-                    width: 150px;
-                    font-size: 18px;
-                    font-family: 'Arvo';
-                    font-weight: 700;
-                    border: none;
+                .transactions_options_container2 {
+                    label {
+                        font-style: italic;
+                    }
 
-                    &:focus {
-                        outline: none;
+                    select#transaction_type {
+                        background-color: transparent;
+                        color: $color_accent3;
+                        padding: $spacing_sm 0px;
+                        margin-left: $spacing_sm;
+                        width: 150px;
+                        font-size: 18px;
+                        font-family: 'Arvo';
+                        font-weight: 700;
+                        border: none;
+
+                        &:focus {
+                            outline: none;
+                        }
                     }
                 }
             }

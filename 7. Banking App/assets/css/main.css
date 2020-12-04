@@ -2549,12 +2549,18 @@ section#view_loggedin {
     section#view_loggedin .view_useractions #dynamic_transactions #transactions_options {
       width: 100%;
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
       margin-bottom: 7.5px; }
-      section#view_loggedin .view_useractions #dynamic_transactions #transactions_options label {
+      section#view_loggedin .view_useractions #dynamic_transactions #transactions_options .transactions_options_container1 a {
+        font-size: 0.75rem;
+        font-style: italic;
+        text-decoration: none;
+        color: white;
+        cursor: pointer; }
+      section#view_loggedin .view_useractions #dynamic_transactions #transactions_options .transactions_options_container2 label {
         font-style: italic; }
-      section#view_loggedin .view_useractions #dynamic_transactions #transactions_options select#transaction_type {
+      section#view_loggedin .view_useractions #dynamic_transactions #transactions_options .transactions_options_container2 select#transaction_type {
         background-color: transparent;
         color: #ffb484;
         padding: 7.5px 0px;
@@ -2564,7 +2570,7 @@ section#view_loggedin {
         font-family: 'Arvo';
         font-weight: 700;
         border: none; }
-        section#view_loggedin .view_useractions #dynamic_transactions #transactions_options select#transaction_type:focus {
+        section#view_loggedin .view_useractions #dynamic_transactions #transactions_options .transactions_options_container2 select#transaction_type:focus {
           outline: none; }
     section#view_loggedin .view_useractions #dynamic_transactions #transactions_list {
       width: 100%; }

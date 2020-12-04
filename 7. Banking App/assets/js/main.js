@@ -13,6 +13,7 @@ class BankingApp {
     static displayAccNum = document.querySelector('#user_accountnumber').childNodes[2]
     static displayBalance = document.querySelector('#user_balance').childNodes[2]
     static changeAvatarBtn = document.getElementById('user_accountAvatarChange')
+    static getBankStatementBtn = document.getElementById('bankstatement')
     static transactionsList = document.getElementById('transactions_list')
     static transactionSelect = document.getElementById('transaction_type')
     static form_register = document.getElementById('form_register')
@@ -119,6 +120,16 @@ class BankingApp {
 
     static getBalance = () => {
         return this.currentUser.balance;
+    }
+
+    static getAccountStatement = () => {
+        const user = this.currentUser.fullname.toLowerCase().replace(/ /, "");
+        const stringified = JSON.stringify(this.currentUser)
+        const encodedString = encodeURIComponent(stringified)
+        const inMemoryATag = document.createElement('A');
+        inMemoryATag.setAttribute('href', `data:text/plain;charset=utf-8,${encodedString}`);
+        inMemoryATag.setAttribute('download', `inbank_statement_${user}.json`);
+        inMemoryATag.click();
     }
 
     static submitRegisterForm = event => {
@@ -355,6 +366,9 @@ BankingApp.form_send.addEventListener('submit', BankingApp.submitSendForm)
 
 // onchange of file to change the avatar
 BankingApp.changeAvatarBtn.addEventListener('change', BankingApp.changeAvatar)
+
+// click for downloading the bank statement
+BankingApp.getBankStatementBtn.addEventListener('click', BankingApp.getAccountStatement)
 
 // onchange of transaction type select options
 BankingApp.transactionSelect.addEventListener('change', BankingApp.changeTransactionType)
