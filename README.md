@@ -103,7 +103,7 @@
 >> - [x] supports avatar change
 >> - [x] supports downloading bank statements
 
-![Screenshot](_SCREENSHOTS/project7.png)
+![Screenshot](_SCREENSHOTS/project7new1.png)
 
 
 
