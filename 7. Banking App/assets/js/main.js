@@ -58,6 +58,7 @@ class BankingApp {
     static createUser = (fullname, password) => {
         const newUser = new BankingAppUser(fullname, password);
         this.users.push(newUser);
+        this.notifier.showMessage('Successfully created your bank account!', 'success')
     }
 
     static deposit = (accountNumber, amount) => {
@@ -69,6 +70,7 @@ class BankingApp {
         foundUser.balance += parseInt(amount)
         foundUser.transactions.unshift(newTransaction)
         this.displayBalance.textContent = withCommas(foundUser.balance)
+        this.notifier.showMessage(`Successfully deposited $${amount} to your account!`, 'success')
     }
 
     static withdraw = (accountNumber, amount) => {
@@ -85,6 +87,7 @@ class BankingApp {
         foundUser.balance = newBalance;
         foundUser.transactions.unshift(newTransaction)
         this.displayBalance.textContent = withCommas(foundUser.balance)
+        this.notifier.showMessage(`Successfully withdrawn $${amount} from your account!`, 'success')
     }
 
     static send = (fromAccount, toAccount, amount) => {
@@ -106,6 +109,7 @@ class BankingApp {
         to.balance += parseInt(amount);
         to.transactions.unshift(newTransactionTo)
         this.displayBalance.textContent = withCommas(from.balance)
+        this.notifier.showMessage(`Successfully sent $${amount} to ${to.accountNumber}`, 'success')
     }
 
     static getBalance = () => {
@@ -148,6 +152,9 @@ class BankingApp {
         const formData = new FormData(this.form_login);
         const { log_fullname, log_password } = parseFormData(formData);
         this.login(log_fullname, log_password)
+        this.currentUser
+            ? this.notifier.showMessage(`Welcome back! ${this.currentUser.fullname}`, 'success')
+            : null
         resetForms()
     }
 
@@ -201,6 +208,7 @@ class BankingApp {
         const blob = URL.createObjectURL(image)
         this.currentUser.avatar = blob;
         this.displayAvatar.setAttribute('src', blob);
+        this.notifier.showMessage(`Successfully changed your avatar`, 'success')
         resetForms()
     }
 
