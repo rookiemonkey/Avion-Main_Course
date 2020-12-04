@@ -2431,7 +2431,12 @@ section#view_loggedin {
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_balance {
         margin-top: 40px;
         font-weight: 700;
-        font-size: 1.75rem; }
+        font-size: 1.75rem;
+        position: absolute;
+        top: 250px;
+        left: 405px;
+        text-align: right;
+        width: 250px; }
   section#view_loggedin .view_usercard .user_actions {
     width: 100%;
     margin-left: 20px;
