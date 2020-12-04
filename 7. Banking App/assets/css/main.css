@@ -2334,7 +2334,7 @@ section#view_initial {
     display: flex;
     list-style-type: none; }
     section#view_initial .view_initial_nav ul.initial_nav_parent li {
-      border: 2px solid #ff6200;
+      border: 2px solid rgba(0, 0, 0, 0.1);
       border-radius: 35px;
       min-width: 115px;
       padding: 12px 20px;
@@ -2423,7 +2423,7 @@ section#view_loggedin {
     padding: 20px;
     margin-left: 20px;
     margin-bottom: 12px;
-    border: 2px solid #ff6200;
+    border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); }
     section#view_loggedin .view_usercard .user_informations img#user_avatar {
@@ -2470,7 +2470,7 @@ section#view_loggedin {
     list-style-type: none; }
     section#view_loggedin .view_usercard .user_actions li.user_actions_item {
       cursor: pointer;
-      border: 2px solid #ff6200;
+      border: 2px solid rgba(0, 0, 0, 0.1);
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
       border-radius: 15px;
       display: flex;
@@ -2594,7 +2594,7 @@ section#view_loggedin {
       section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li {
         padding: 12px;
         list-style-type: none;
-        border: none;
+        border: 2px solid rgba(0, 0, 0, 0.1);
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
         border-radius: 15px;
         margin: 12px 7.5px; }

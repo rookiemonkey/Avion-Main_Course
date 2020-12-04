@@ -29,7 +29,7 @@ section#view_loggedin {
             padding: $spacing_lg;
             margin-left: $spacing_lg;
             margin-bottom: $spacing_md;
-            border: 2px solid $color_accent2;
+            border: 2px solid $color_font_border;
             border-radius: 15px;
             box-shadow: $shadow;
 
@@ -97,7 +97,7 @@ section#view_loggedin {
 
              li.user_actions_item {
                 cursor: pointer;
-                border: 2px solid $color_accent2;
+                border: 2px solid $color_font_border;
                 box-shadow: $shadow;
                 border-radius: 15px;
                 display: flex;
@@ -265,7 +265,7 @@ section#view_loggedin {
                 li {
                     padding: $spacing_md;
                     list-style-type: none;
-                    border: none;
+                    border: 2px solid $color_font_border;
                     box-shadow: $shadow;
                     border-radius: 15px;
                     margin: $spacing_md $spacing_sm;
