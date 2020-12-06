@@ -2397,8 +2397,7 @@ section#view_initial {
         font-family: 'Arvo', serif;
         font-size: 18px;
         font-weight: 700;
-        padding: 12px 0px;
-        text-transform: uppercase; }
+        padding: 12px 0px; }
 
 section#view_loggedin {
   width: 100%;
