@@ -5,13 +5,16 @@
 // model for the banking application
 function Application() {
 
+    // #prop for classes is not yet supported to all browsers, 
+    // private vars are impelemented with local scoping instead
+    // though can be viewed when Application.toString() is invoked
+    const secret = 'This application is still not secure :D';
+    const users = new Array();
+    let currentUser = null;
 
     return class App {
 
-        static secret = 'This application is not secure :D'; // #secret private not supported
-        static users = new Array()
         static notifier = new HTMLElementToaster();
-        static currentUser = null;
         static initialPage = document.querySelector('#view_initial')
         static loggedInPage = document.querySelector('#view_loggedin')
         static displayName = document.querySelector('#name')
@@ -30,9 +33,9 @@ function Application() {
         static form_send = document.getElementById('form_send')
 
         static login = (fullname, password) => {
-            const foundUser = this.users.find(user => {
+            const foundUser = users.find(user => {
                 const decryptedPassword = CryptoJS
-                    .AES.decrypt(user.password, this.secret).toString(CryptoJS.enc.Utf8)
+                    .AES.decrypt(user.password, secret).toString(CryptoJS.enc.Utf8)
 
                 return user.fullname === fullname &&
                     decryptedPassword === password
@@ -46,13 +49,13 @@ function Application() {
             this.displayAccNum.textContent = ` ${foundUser.accountNumber}`
             this.displayBalance.textContent = withCommas(foundUser.balance)
             this.displayAvatar.setAttribute('src', foundUser.avatar)
-            this.currentUser = foundUser
+            currentUser = foundUser
             this.showInitialPage(false);
             resetForms()
         }
 
         static logout = () => {
-            this.currentUser = null
+            currentUser = null
             this.showInitialPage(true)
             this.notifier.showMessage('Successfully logged out', 'success')
             resetForms()
@@ -64,44 +67,44 @@ function Application() {
         }
 
         static createUser = (fullname, password) => {
-            const encryptedPassword = CryptoJS.AES.encrypt(password, this.secret).toString()
+            const encryptedPassword = CryptoJS.AES.encrypt(password, secret).toString()
             const newUser = new BankingAppUser(fullname, encryptedPassword);
-            this.users.push(newUser);
+            users.push(newUser);
             this.notifier.showMessage('Successfully created your bank account!', 'success')
         }
 
         static deposit = amount => {
             const newTransaction = new Transact(
-                'DEPOSIT', this.currentUser.accountNumber,
-                this.currentUser.balance, parseInt(amount)
+                'DEPOSIT', currentUser.accountNumber,
+                currentUser.balance, parseInt(amount)
             )
 
-            this.currentUser.balance += parseInt(amount)
-            this.currentUser.transactions.unshift(newTransaction)
-            this.displayBalance.textContent = withCommas(this.currentUser.balance)
+            currentUser.balance += parseInt(amount)
+            currentUser.transactions.unshift(newTransaction)
+            this.displayBalance.textContent = withCommas(currentUser.balance)
             this.notifier.showMessage(`Successfully deposited $${amount} to your account!`, 'success')
         }
 
         static withdraw = amount => {
-            const newBalance = this.currentUser.balance - parseInt(amount)
+            const newBalance = currentUser.balance - parseInt(amount)
 
             if (newBalance < 0)
                 return this.notifier.showMessage('Not enough money to withdraw the amount', 'error')
 
             const newTransaction = new Transact(
-                'WITHDRAW', this.currentUser.accountNumber,
-                this.currentUser.balance, amount
+                'WITHDRAW', currentUser.accountNumber,
+                currentUser.balance, amount
             )
 
-            this.currentUser.balance = newBalance;
-            this.currentUser.transactions.unshift(newTransaction)
-            this.displayBalance.textContent = withCommas(this.currentUser.balance)
+            currentUser.balance = newBalance;
+            currentUser.transactions.unshift(newTransaction)
+            this.displayBalance.textContent = withCommas(currentUser.balance)
             this.notifier.showMessage(`Successfully withdrawn $${amount} from your account!`, 'success')
         }
 
         static send = (toAccount, amount) => {
-            const to = this.users.find(user => user.accountNumber === toAccount)
-            const newFromBalance = this.currentUser.balance - parseInt(amount)
+            const to = users.find(user => user.accountNumber === toAccount)
+            const newFromBalance = currentUser.balance - parseInt(amount)
 
             if (newFromBalance < 0)
                 return this.notifier.showMessage("Not enough money to send the amount", 'error')
@@ -110,28 +113,28 @@ function Application() {
                 return this.notifier.showMessage("Receiver doesn't exists", 'error')
 
             const newTransactionFrom = new TransactSend(
-                this.currentUser.accountNumber, this.currentUser.balance,
+                currentUser.accountNumber, currentUser.balance,
                 amount, to.accountNumber, 'TO'
             )
             const newTransactionTo = new TransactSend(
-                this.currentUser.accountNumber, to.balance, amount, to.accountNumber, 'FROM'
+                currentUser.accountNumber, to.balance, amount, to.accountNumber, 'FROM'
             )
 
-            this.currentUser.balance = newFromBalance;
-            this.currentUser.transactions.unshift(newTransactionFrom)
+            currentUser.balance = newFromBalance;
+            currentUser.transactions.unshift(newTransactionFrom)
             to.balance += parseInt(amount);
             to.transactions.unshift(newTransactionTo)
-            this.displayBalance.textContent = withCommas(this.currentUser.balance)
+            this.displayBalance.textContent = withCommas(currentUser.balance)
             this.notifier.showMessage(`Successfully sent $${amount} to ${to.accountNumber}`, 'success')
         }
 
         static getBalance = () => {
-            return this.currentUser.balance;
+            return currentUser.balance;
         }
 
         static getAccountStatement = () => {
-            const user = this.currentUser.fullname.toLowerCase().replace(/ /, "");
-            const stringified = JSON.stringify(this.currentUser)
+            const user = currentUser.fullname.toLowerCase().replace(/ /, "");
+            const stringified = JSON.stringify(currentUser)
             const encodedString = encodeURIComponent(stringified)
             const inMemoryATag = document.createElement('A');
             inMemoryATag.setAttribute('href', `data:text/plain;charset=utf-8,${encodedString}`);
@@ -146,7 +149,7 @@ function Application() {
                 const inputs = parseFormData(formData);
                 const { reg_fullname, reg_password, reg_password_confirm } = inputs;
 
-                const isUserExisting = this.users.findIndex(({ fullname }) => fullname === reg_fullname)
+                const isUserExisting = users.findIndex(({ fullname }) => fullname === reg_fullname)
 
                 if (reg_fullname.split(' ').length < 2)
                     throw new Error("Please provide your full name")
@@ -175,8 +178,8 @@ function Application() {
             const formData = new FormData(this.form_login);
             const { log_fullname, log_password } = parseFormData(formData);
             this.login(log_fullname, log_password)
-            this.currentUser
-                ? this.notifier.showMessage(`Welcome back! ${this.currentUser.fullname}`, 'success')
+            currentUser
+                ? this.notifier.showMessage(`Welcome back! ${currentUser.fullname}`, 'success')
                 : null
             resetForms()
         }
@@ -216,7 +219,7 @@ function Application() {
             if (!receiver_accnum)
                 return this.notifier.showMessage('Please enter a recepient', 'error')
 
-            if (this.currentUser.accountNumber == receiver_accnum)
+            if (currentUser.accountNumber == receiver_accnum)
                 return this.notifier.showMessage("You can't send money to your self", 'error')
 
             this.send(receiver_accnum, parseInt(send_amount))
@@ -232,7 +235,7 @@ function Application() {
                 return this.notifier.showMessage('We only accept images', 'error')
 
             const blob = URL.createObjectURL(image)
-            this.currentUser.avatar = blob;
+            currentUser.avatar = blob;
             this.displayAvatar.setAttribute('src', blob);
             this.notifier.showMessage(`Successfully changed your avatar`, 'success')
             resetForms()
@@ -243,8 +246,8 @@ function Application() {
             const { value } = event.target
 
             value === 'ALL'
-                ? transactions.push(...this.currentUser.transactions)
-                : transactions.push(...this.currentUser.transactions.filter(t => t.type === value))
+                ? transactions.push(...currentUser.transactions)
+                : transactions.push(...currentUser.transactions.filter(t => t.type === value))
 
             this.transactionsList.innerHTML = ''; // removes all child nodes
 
