@@ -23,6 +23,18 @@ section#view_loggedin {
 
     .view_usercard {
 
+        h1.header {
+            width: 100%;
+            margin-left: $spacing_lg;
+            margin-bottom: $spacing_md;
+            font-size: 35px;
+            font-weight: 700;
+
+            span {
+                color: $color_accent2;
+            }
+        }
+
         .user_informations {
             width: 100%;
             display: flex;

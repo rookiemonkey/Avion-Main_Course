@@ -2417,6 +2417,14 @@ section#view_loggedin {
   section#view_loggedin .view_usercard,
   section#view_loggedin .view_useractions {
     width: 50%; }
+  section#view_loggedin .view_usercard h1.header {
+    width: 100%;
+    margin-left: 20px;
+    margin-bottom: 12px;
+    font-size: 35px;
+    font-weight: 700; }
+    section#view_loggedin .view_usercard h1.header span {
+      color: #ff6200; }
   section#view_loggedin .view_usercard .user_informations {
     width: 100%;
     display: flex;
