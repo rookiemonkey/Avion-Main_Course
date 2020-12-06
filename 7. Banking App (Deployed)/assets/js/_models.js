@@ -57,6 +57,7 @@ function Application() {
         static logout = () => {
             currentUser = null
             this.showInitialPage(true)
+            this.resetLoggedInPage()
             this.notifier.showMessage('Successfully logged out', 'success')
             resetForms()
         };
@@ -64,6 +65,26 @@ function Application() {
         static showInitialPage = toShowInitPage => {
             this.initialPage.style.display = toShowInitPage ? 'flex' : 'none';
             this.loggedInPage.style.display = toShowInitPage ? 'none' : 'flex';
+        }
+
+        static resetLoggedInPage = () => {
+            const transactionsBtn = document.getElementById('transactions');
+            const userActionsParent = document.querySelector('.user_actions');
+            const userActionsViewsParent = document.querySelector('.view_useractions');
+            const userActionsViewsArr = [...userActionsViewsParent.children];
+            const userActionsBtnsArr = [...userActionsParent.children, transactionsBtn];
+
+            userActionsBtnsArr.forEach(actionBtn2 => {
+                actionBtn2.dataset.action === 'deposit'
+                    ? actionBtn2.classList.add('active-nav')
+                    : actionBtn2.classList.remove('active-nav')
+            })
+
+            userActionsViewsArr.forEach(actionView => {
+                actionView.dataset.action === 'deposit'
+                    ? actionView.style.display = 'flex'
+                    : actionView.style.display = 'none'
+            })
         }
 
         static createUser = (fullname, password) => {
