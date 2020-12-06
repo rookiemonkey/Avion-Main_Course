@@ -61,27 +61,30 @@ body main {
 .toast {
   position: fixed;
   top: 0;
-  left: -67.5vw;
+  left: 0;
   right: 0;
   margin: auto;
   max-width: 400px;
-  padding: 6px;
+  padding: $spacing_lg;
   background: #cccccc;
   font-family: 'Arvo', serif;
   color: #333333;
-  font-family: sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
   text-align: center;
-  border: 1px solid #aaaaaa;
-  border-radius: 5px;
+  border: 2px solid #aaaaaa;
+  border-radius: 15px;
   box-shadow: $shadow;
   visibility: hidden;
   opacity: 0;
   z-index: 9999;
-  transition: opacity 0.2s, top 0.2s, visibility 0.2s;
+  transition: opacity 0.2s, 
+              top 0.2s, 
+              visibility 0.2s;
 }
 
 .toast--visible {
-  top: 20px;
+  top: 10px;
   opacity: 1;
   visibility: visible;
 }
