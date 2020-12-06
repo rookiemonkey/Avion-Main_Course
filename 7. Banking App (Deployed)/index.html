@@ -141,6 +141,14 @@
             <article class="view_useractions">
                 <div id="dynamic_deposit" data-action="deposit">
                     <form id="form_deposit">
+                        <div class="input-group-header">
+                            <img src="/assets/images/deposit.svg">
+                            <div class="input-group-header-info">
+                                <h2>Deposit</h2>
+                                <p>Store your money in your browser's memory but will disappear after refresh!
+                                    &#128540;</p>
+                            </div>
+                        </div>
                         <div class="input-group">
                             <label>Deposit Amount</label>
                             <input type="num" name="deposit_amount" min="1" autocomplete="off">
@@ -149,13 +157,22 @@
                             <button>
                                 <i class="ion-android-checkmark-circle"></i>
                                 &nbsp;
-                                Deposit
+                                Proceed
                             </button>
                         </div>
                     </form>
                 </div>
                 <div id="dynamic_withdraw" data-action="withdraw" style="display: none">
                     <form id="form_withdraw">
+                        <div class="input-group-header">
+                            <img src="/assets/images/withdraw.svg">
+                            <div class="input-group-header-info">
+                                <h2>Withdraw</h2>
+                                <p>Cash-out some money from your in-browser bank account but nothing will come out
+                                    ofcourse!
+                                    &#128540;</p>
+                            </div>
+                        </div>
                         <div class="input-group">
                             <label>Withdraw Amount</label>
                             <input type="num" name="withdraw_amount" min="1" autocomplete="off">
@@ -164,15 +181,23 @@
                             <button>
                                 <i class="ion-android-checkmark-circle"></i>
                                 &nbsp;
-                                Withdraw
+                                Proceed
                             </button>
                         </div>
                     </form>
                 </div>
                 <div id="dynamic_send" data-action="send" style="display: none">
                     <form id="form_send">
+                        <div class="input-group-header">
+                            <img src="/assets/images/send.svg">
+                            <div class="input-group-header-info">
+                                <h2>Send</h2>
+                                <p>Send some money to your friends who has access to your computer only!
+                                    &#128540;</p>
+                            </div>
+                        </div>
                         <div class="input-group">
-                            <label>Recipient Account Number <small>(10 digit)</small></label>
+                            <label>Recipient InBank Account Number <small>(10 digit)</small></label>
                             <input type="num" name="receiver_accnum" min="1" autocomplete="off" minlength="10"
                                 maxlength="10">
                         </div>
@@ -184,7 +209,7 @@
                             <button>
                                 <i class="ion-android-checkmark-circle"></i>
                                 &nbsp;
-                                Send
+                                Proceed
                             </button>
                         </div>
                     </form>
@@ -221,7 +246,7 @@
     </main>
 </body>
 
-<!-- <script src="/assets/js/_crypto.js"></script> -->
+<script src="/assets/js/_crypto.js"></script>
 <script src="/assets/js/main.js"></script>
 
 </html>

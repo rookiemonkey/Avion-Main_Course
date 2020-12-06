@@ -2509,6 +2509,30 @@ section#view_loggedin {
     width: 80%;
     display: flex;
     flex-direction: column; }
+    section#view_loggedin .view_useractions #dynamic_deposit form .input-group-header,
+    section#view_loggedin .view_useractions #dynamic_withdraw form .input-group-header,
+    section#view_loggedin .view_useractions #dynamic_send form .input-group-header {
+      display: flex;
+      align-items: center;
+      margin: 22px 0px; }
+      section#view_loggedin .view_useractions #dynamic_deposit form .input-group-header img,
+      section#view_loggedin .view_useractions #dynamic_withdraw form .input-group-header img,
+      section#view_loggedin .view_useractions #dynamic_send form .input-group-header img {
+        width: 150px;
+        height: 150px; }
+      section#view_loggedin .view_useractions #dynamic_deposit form .input-group-header .input-group-header-info,
+      section#view_loggedin .view_useractions #dynamic_withdraw form .input-group-header .input-group-header-info,
+      section#view_loggedin .view_useractions #dynamic_send form .input-group-header .input-group-header-info {
+        margin-left: 7.5px; }
+        section#view_loggedin .view_useractions #dynamic_deposit form .input-group-header .input-group-header-info h2,
+        section#view_loggedin .view_useractions #dynamic_withdraw form .input-group-header .input-group-header-info h2,
+        section#view_loggedin .view_useractions #dynamic_send form .input-group-header .input-group-header-info h2 {
+          color: #ff6200; }
+        section#view_loggedin .view_useractions #dynamic_deposit form .input-group-header .input-group-header-info p,
+        section#view_loggedin .view_useractions #dynamic_withdraw form .input-group-header .input-group-header-info p,
+        section#view_loggedin .view_useractions #dynamic_send form .input-group-header .input-group-header-info p {
+          margin-top: 7.5px;
+          font-size: 0.75rem; }
     section#view_loggedin .view_useractions #dynamic_deposit form .input-group,
     section#view_loggedin .view_useractions #dynamic_withdraw form .input-group,
     section#view_loggedin .view_useractions #dynamic_send form .input-group {

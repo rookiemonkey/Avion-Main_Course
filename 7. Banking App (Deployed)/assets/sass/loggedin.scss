@@ -156,6 +156,30 @@ section#view_loggedin {
                 display: flex;
                 flex-direction: column;
 
+                .input-group-header {
+                    display: flex;
+                    align-items: center;
+                    margin: $spacing_md+10px 0px;
+
+                    img {
+                        width: 150px;
+                        height: 150px;
+                    }
+
+                    .input-group-header-info {
+                        margin-left: $spacing_sm;
+
+                        h2 {
+                            color: $color_accent2;
+                        }
+
+                        p {
+                            margin-top: $spacing_sm;
+                            font-size: 0.75rem;
+                        }
+                    }
+                }
+
                 .input-group {
                     display: flex;
                     flex-direction: column;
