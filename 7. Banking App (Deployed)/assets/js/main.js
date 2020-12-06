@@ -490,8 +490,8 @@ function HTMLElementTransactionEmpty() {
     this.div.classList.add('transactions_list_empty')
     this.img.setAttribute('src', '/assets/images/empty.svg')
     this.msg.textContent = `No results found for the query`
-    this.div.appendChild(this.msg)
     this.div.appendChild(this.img)
+    this.div.appendChild(this.msg)
 }
 
 // ELEMENT model for toast notifications

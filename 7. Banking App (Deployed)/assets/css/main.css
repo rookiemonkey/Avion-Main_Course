@@ -2335,7 +2335,7 @@ section#view_initial {
     list-style-type: none; }
     section#view_initial .view_initial_nav ul.initial_nav_parent li {
       border: 2px solid rgba(0, 0, 0, 0.1);
-      border-radius: 35px;
+      border-radius: 15px;
       min-width: 115px;
       padding: 12px 20px;
       margin: 0px 12px;
@@ -2590,8 +2590,10 @@ section#view_loggedin {
         align-items: center;
         justify-content: center; }
         section#view_loggedin .view_useractions #dynamic_transactions #transactions_list div.transactions_list_empty h3 {
+          margin-top: 12px;
           font-size: 1.5rem; }
         section#view_loggedin .view_useractions #dynamic_transactions #transactions_list div.transactions_list_empty img {
+          margin-top: 12px;
           width: 50%;
           height: auto; }
       section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li {

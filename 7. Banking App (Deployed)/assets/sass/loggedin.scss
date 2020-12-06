@@ -256,10 +256,12 @@ section#view_loggedin {
                     justify-content: center;
 
                     h3 {
+                        margin-top: $spacing_md;
                         font-size: 1.5rem;
                     }
 
                     img {
+                        margin-top: $spacing_md;
                         width: 50%;
                         height: auto;
                     }

@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "sass": "node-sass assets/sass/_index.scss assets/css/main.css",
+    "sass": "clear && node-sass assets/sass/_index.scss assets/css/main.css",
     "build": "clear && yarn run sass && gulp -f build.js"
   },
   "devDependencies": {
