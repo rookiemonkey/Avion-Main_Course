@@ -77,6 +77,71 @@ body main {
   border-color: #dc3545;
   color: #ffffff; }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.75); }
+
+.modal-content {
+  background-color: #ccebff;
+  margin: 2.5% auto;
+  padding: 20px;
+  border: none;
+  width: 35%;
+  height: max-content; }
+  .modal-content .input-group-modal:last-child {
+    margin-bottom: 0px !important; }
+  .modal-content .input-group-modal {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0px !important; }
+    .modal-content .input-group-modal label {
+      font-weight: 700;
+      color: #ff6200; }
+    .modal-content .input-group-modal .input-group-modal-sub {
+      margin: 20px 0px; }
+    .modal-content .input-group-modal input {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #ff6200;
+      font-size: 18px;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.85);
+      padding: 7.5px 0px !important;
+      background-color: transparent; }
+      .modal-content .input-group-modal input:focus {
+        outline: none; }
+    .modal-content .input-group-modal button {
+      cursor: pointer;
+      border: none;
+      color: rgba(0, 0, 0, 0.85);
+      background-color: transparent;
+      width: max-content;
+      font-family: 'Arvo', serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 12px 0px; }
+
+.close {
+  color: #ff6200;
+  position: absolute;
+  left: 880px;
+  float: right;
+  font-size: 28px;
+  font-weight: bold; }
+
+.close:hover,
+.close:focus {
+  color: rgba(0, 0, 0, 0.85);
+  text-decoration: none;
+  cursor: pointer; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -2447,7 +2512,8 @@ section#view_loggedin {
       section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name {
         font-size: 1.5rem;
         margin-bottom: 7.5px; }
-        section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name #transactions {
+        section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name #transactions,
+        section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name #editaccount {
           cursor: pointer; }
         section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name span#name {
           color: #ff6200; }
@@ -2463,7 +2529,7 @@ section#view_loggedin {
         font-weight: 700;
         font-size: 1.75rem;
         position: absolute;
-        top: 250px;
+        top: 300px;
         left: 405px;
         text-align: right;
         width: 250px; }

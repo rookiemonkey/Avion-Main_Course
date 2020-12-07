@@ -101,6 +101,89 @@ body main {
   color: #ffffff;
 }
 
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.75);
+}
+
+.modal-content {
+  background-color: $color_base;
+  margin: 2.5% auto; 
+  padding: $spacing_lg;
+  border: none;
+  width: 35%; 
+  height: max-content;
+
+  .input-group-modal:last-child {
+    margin-bottom: 0px !important;
+  }
+
+  .input-group-modal {
+    display: flex;
+    flex-direction: column;
+    margin: $spacing_lg+30px 0px !important;
+
+    label {
+      font-weight: 700;
+      color: $color_accent2;
+    }
+
+    .input-group-modal-sub {
+      margin: $spacing_lg 0px;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid $color_accent2;
+      font-size: 18px;
+      font-weight: 700;
+      color: $color_font;
+      padding: $spacing_sm 0px !important;
+      background-color: transparent;
+
+      &:focus {
+          outline: none;
+      }
+    }
+
+    button {
+        cursor: pointer;
+        border: none;
+        color: $color_font;
+        background-color: transparent;
+        width: max-content;
+        font-family: 'Arvo', serif;
+        font-size: 18px;
+        font-weight: 700;
+        padding: $spacing_md 0px;
+    }
+  }
+}
+
+.close {
+  color: $color_accent2;
+  position: absolute;
+  left: 880px;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: $color_font;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @import '../sass/ionic.scss';
 @import '../sass/initial.scss';
 @import '../sass/loggedin.scss';

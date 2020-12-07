@@ -62,7 +62,8 @@ section#view_loggedin {
                     font-size: 1.5rem;
                     margin-bottom: $spacing_sm;
 
-                    #transactions {
+                    #transactions,
+                    #editaccount {
                         cursor: pointer;
                     }
 
@@ -87,7 +88,7 @@ section#view_loggedin {
                     font-weight: 700;
                     font-size: 1.75rem;
                     position: absolute;
-                    top: 250px;
+                    top: 300px;
                     left: 405px;
                     text-align: right;
                     width: 250px;

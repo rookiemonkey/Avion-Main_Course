@@ -99,11 +99,15 @@
                     InBank<span>.</span> Portal
                 </h1>
                 <div class="user_informations">
-                    <img id="user_avatar" src="/assets/images/default.jpg" alt="user">
+                    <img id="user_avatar" src="/assets/images/default.jpg" alt="user"
+                        onerror="this.setAttribute('src', '/assets/images/default.jpg')">
                     <div class="user_meta_container">
                         <h1 id="user_name">
-                            <span id="transactions" data-action="transactions" style='float: right;'><i
+                            <span id="transactions" data-action="transactions" style='float: right; margin: 5px;'><i
                                     class="ion-android-time"></i></span>
+                            <span id="editaccount" style='float: right; margin: 5px;'>
+                                <i class="ion-edit"></i>
+                            </span>
                             <span id="name"></span>
                         </h1>
                         <p id="user_accountcreation"></p>
@@ -111,7 +115,6 @@
                             <span>Account Number: &nbsp; <i class="ion-card"></i></span>
                             <span id="accountnumber">0</span>
                         </p>
-                        <input type="file" id="user_accountAvatarChange">
                         <p id="user_balance">
                             <span><i class="ion-social-usd"></i> &nbsp;</span>
                             <span id='balance'>100</span>
@@ -243,6 +246,45 @@
                 </div>
             </article>
         </section>
+
+        <!-- ACCOUNT EDIT MODAL -->
+        <div id="accountedit_modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeaccountedit_modal">&times;</span>
+                <div class="input-group-modal">
+                    <label for="user_accountAvatarChange">Change Avatar</label>
+                    <small style="font-size: 0.75rem;"><i>Upon choosing an image, changes will apply
+                            immediately</i></small>
+                    <input type="file" id="user_accountAvatarChange">
+                </div>
+                <div class="input-group-modal">
+                    <label>Change Password</label>
+                    <small style="font-size: 0.75rem;"><i>Changes
+                            will apply upon hitting 'Change Password' button</i></small>
+                    <form id="form_changepassword">
+                        <div class="input-group-modal-sub">
+                            <small>Current Password</small>
+                            <input type="password" name="password_current" minlength="8">
+                        </div>
+                        <div class="input-group-modal-sub">
+                            <small>New Password</small>
+                            <input type="password" name="password_new" minlength="8">
+                        </div>
+                        <div class="input-group-modal-sub">
+                            <small>New Password Confirm</small>
+                            <input type="password" name="password_newconfirm" minlength="8">
+                        </div>
+                        <div class="input-group-modal-sub">
+                            <button>
+                                <i class="ion-android-checkmark-circle"></i>
+                                &nbsp;
+                                Change Password
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 

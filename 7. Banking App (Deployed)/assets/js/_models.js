@@ -2,6 +2,8 @@
 // MODELS
 // ====================================================== //
 
+const { reset } = require("browser-sync");
+
 // model for the banking application
 function Application() {
 
@@ -19,14 +21,17 @@ function Application() {
     return class App {
 
         static notifier = new HTMLElementToaster();
-        static initialPage = document.querySelector('#view_initial')
-        static loggedInPage = document.querySelector('#view_loggedin')
-        static displayName = document.querySelector('#name')
+        static initialPage = document.getElementById('view_initial')
+        static loggedInPage = document.getElementById('view_loggedin')
+        static displayName = document.getElementById('name')
         static displayAvatar = document.getElementById('user_avatar')
-        static displayAccCrt = document.querySelector('#user_accountcreation')
-        static displayAccNum = document.querySelector('#accountnumber')
-        static displayBalance = document.querySelector('#balance')
+        static displayAccCrt = document.getElementById('user_accountcreation')
+        static displayAccNum = document.getElementById('accountnumber')
+        static displayBalance = document.getElementById('balance')
         static changeAvatarBtn = document.getElementById('user_accountAvatarChange')
+        static accountEditModal = document.getElementById("accountedit_modal")
+        static accountEditModalBtn = document.getElementById("editaccount")
+        static accountEditModalBtnClose = document.getElementById("closeaccountedit_modal")
         static getBankStatementBtn = document.getElementById('bankstatement')
         static transactionsList = document.getElementById('transactions_list')
         static transactionSelect = document.getElementById('transaction_type')
@@ -35,9 +40,16 @@ function Application() {
         static form_deposit = document.getElementById('form_deposit')
         static form_withdraw = document.getElementById('form_withdraw')
         static form_send = document.getElementById('form_send')
+        static form_changepassword = document.getElementById('form_changepassword')
 
         static updateLocalStorage = () => {
             localStorage.setItem('users', JSON.stringify(users))
+        }
+
+        static showAccountEditModal = () => {
+            this.accountEditModal.style.display === 'none'
+                ? this.accountEditModal.style.display = 'block'
+                : this.accountEditModal.style.display = 'none'
         }
 
         static login = (fullname, password) => {
@@ -267,6 +279,31 @@ function Application() {
             currentUser.avatar = blob;
             this.displayAvatar.setAttribute('src', blob);
             this.notifier.showMessage(`Successfully changed your avatar`, 'success')
+            resetForms()
+        }
+
+        static changePassword = event => {
+            event.preventDefault();
+            const formData = new FormData(this.form_changepassword);
+            const fields = parseFormData(formData);
+            const { password_current, password_new, password_newconfirm } = fields;
+
+            const decryptedPassword = CryptoJS.AES
+                .decrypt(currentUser.password, secret)
+                .toString(CryptoJS.enc.Utf8)
+
+            if (password_current !== decryptedPassword)
+                return this.notifier.showMessage(`Incorrect current password`, 'error')
+
+            if (password_new !== password_newconfirm)
+                return this.notifier.showMessage(`New password doesn't match`, 'error')
+
+            this.notifier.showMessage(`Successfully changed your password. You've been logout. Please login using your new password`, 'success')
+            currentUser.password = CryptoJS.AES.encrypt(password_new, secret).toString()
+            currentUser = null
+            this.showInitialPage(true)
+            this.resetLoggedInPage()
+            this.showAccountEditModal()
             resetForms()
         }
 

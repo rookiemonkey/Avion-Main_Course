@@ -107,6 +107,9 @@ BankingApp.form_withdraw.addEventListener('submit', BankingApp.submitWithdrawFor
 // onsubmission of send money form
 BankingApp.form_send.addEventListener('submit', BankingApp.submitSendForm)
 
+// onsubmission of change password
+BankingApp.form_changepassword.addEventListener('submit', BankingApp.changePassword)
+
 // onchange of file to change the avatar
 BankingApp.changeAvatarBtn.addEventListener('change', BankingApp.changeAvatar)
 
@@ -115,3 +118,8 @@ BankingApp.getBankStatementBtn.addEventListener('click', BankingApp.getAccountSt
 
 // onchange of transaction type select options
 BankingApp.transactionSelect.addEventListener('change', BankingApp.changeTransactionType)
+
+// toggling the account edit modal
+BankingApp.accountEditModalBtn.addEventListener('click', BankingApp.showAccountEditModal)
+
+BankingApp.accountEditModalBtnClose.addEventListener('click', BankingApp.showAccountEditModal)

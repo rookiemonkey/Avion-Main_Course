@@ -17,6 +17,7 @@ function resetForms() {
     BankingApp.form_deposit.reset();
     BankingApp.form_withdraw.reset();
     BankingApp.form_send.reset();
+    BankingApp.form_changepassword.reset();
     BankingApp.changeAvatarBtn.value = '';
     BankingApp.transactionSelect.value = 'All';
     BankingApp.transactionsList.innerHTML = '';
