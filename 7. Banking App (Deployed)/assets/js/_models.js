@@ -282,6 +282,9 @@ function Application() {
                 .decrypt(currentUser.password, secret)
                 .toString(CryptoJS.enc.Utf8)
 
+            if (!password_current || !password_new || !password_newconfirm)
+                return this.notifier.showMessage(`Please fill out the form`, 'error')
+
             if (password_current !== decryptedPassword)
                 return this.notifier.showMessage(`Incorrect current password`, 'error')
 
