@@ -2,8 +2,6 @@
 // MODELS
 // ====================================================== //
 
-const { reset } = require("browser-sync");
-
 // model for the banking application
 function Application() {
 
@@ -13,10 +11,6 @@ function Application() {
     const secret = 'This application is still not secure :D';
     const users = new Array();
     let currentUser = null;
-
-    localStorage.getItem('users')
-        ? users.push(...JSON.parse(localStorage.getItem('users')))
-        : null
 
     return class App {
 
@@ -41,10 +35,6 @@ function Application() {
         static form_withdraw = document.getElementById('form_withdraw')
         static form_send = document.getElementById('form_send')
         static form_changepassword = document.getElementById('form_changepassword')
-
-        static updateLocalStorage = () => {
-            localStorage.setItem('users', JSON.stringify(users))
-        }
 
         static showAccountEditModal = () => {
             this.accountEditModal.style.display === 'none'
