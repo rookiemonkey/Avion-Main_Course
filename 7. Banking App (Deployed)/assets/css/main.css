@@ -90,7 +90,7 @@ body main {
 
 .modal-content {
   background-color: #ccebff;
-  margin: 2.5% auto;
+  margin: 1.5% auto;
   padding: 20px;
   border: none;
   width: 35%;
@@ -2529,8 +2529,8 @@ section#view_loggedin {
         font-weight: 700;
         font-size: 1.75rem;
         position: absolute;
-        top: 300px;
-        left: 405px;
+        top: 275px;
+        left: 395px;
         text-align: right;
         width: 250px; }
         section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_balance span#balance, section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_balance span i {
