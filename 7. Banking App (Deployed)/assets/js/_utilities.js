@@ -20,6 +20,7 @@ function resetForms() {
     BankingApp.changeAvatarBtn.value = '';
     BankingApp.transactionSelect.value = 'All';
     BankingApp.transactionsList.innerHTML = '';
+    BankingApp.updateLocalStorage();
 }
 
 function withCommas(num) {

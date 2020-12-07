@@ -12,6 +12,10 @@ function Application() {
     const users = new Array();
     let currentUser = null;
 
+    localStorage.getItem('users')
+        ? users.push(...JSON.parse(localStorage.getItem('users')))
+        : null
+
     return class App {
 
         static notifier = new HTMLElementToaster();
@@ -31,6 +35,10 @@ function Application() {
         static form_deposit = document.getElementById('form_deposit')
         static form_withdraw = document.getElementById('form_withdraw')
         static form_send = document.getElementById('form_send')
+
+        static updateLocalStorage = () => {
+            localStorage.setItem('users', JSON.stringify(users))
+        }
 
         static login = (fullname, password) => {
             const foundUser = users.find(user => {
