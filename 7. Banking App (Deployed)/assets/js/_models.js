@@ -29,18 +29,13 @@ function Application() {
         static getBankStatementBtn = document.getElementById('bankstatement')
         static transactionsList = document.getElementById('transactions_list')
         static transactionSelect = document.getElementById('transaction_type')
+        static logoutBtn = document.getElementById('logout')
         static form_register = document.getElementById('form_register')
         static form_login = document.getElementById('form_login')
         static form_deposit = document.getElementById('form_deposit')
         static form_withdraw = document.getElementById('form_withdraw')
         static form_send = document.getElementById('form_send')
         static form_changepassword = document.getElementById('form_changepassword')
-
-        static showAccountEditModal = () => {
-            this.accountEditModal.style.display === 'none'
-                ? this.accountEditModal.style.display = 'block'
-                : this.accountEditModal.style.display = 'none'
-        }
 
         static login = (fullname, password) => {
             const foundUser = users.find(user => {
@@ -62,39 +57,26 @@ function Application() {
             currentUser = foundUser
             this.showInitialPage(false);
             resetForms()
+            resetInitViewToHome()
         }
 
         static logout = () => {
             currentUser = null
             this.showInitialPage(true)
-            this.resetLoggedInPage()
             this.notifier.showMessage('Successfully logged out', 'success')
             resetForms()
+            resetLoggedInPage()
         };
+
+        static showAccountEditModal = () => {
+            this.accountEditModal.style.display === 'none'
+                ? this.accountEditModal.style.display = 'block'
+                : this.accountEditModal.style.display = 'none'
+        }
 
         static showInitialPage = toShowInitPage => {
             this.initialPage.style.display = toShowInitPage ? 'flex' : 'none';
             this.loggedInPage.style.display = toShowInitPage ? 'none' : 'flex';
-        }
-
-        static resetLoggedInPage = () => {
-            const transactionsBtn = document.getElementById('transactions');
-            const userActionsParent = document.querySelector('.user_actions');
-            const userActionsViewsParent = document.querySelector('.view_useractions');
-            const userActionsViewsArr = [...userActionsViewsParent.children];
-            const userActionsBtnsArr = [...userActionsParent.children, transactionsBtn];
-
-            userActionsBtnsArr.forEach(actionBtn2 => {
-                actionBtn2.dataset.action === 'deposit'
-                    ? actionBtn2.classList.add('active-nav')
-                    : actionBtn2.classList.remove('active-nav')
-            })
-
-            userActionsViewsArr.forEach(actionView => {
-                actionView.dataset.action === 'deposit'
-                    ? actionView.style.display = 'flex'
-                    : actionView.style.display = 'none'
-            })
         }
 
         static createUser = (fullname, password) => {
@@ -197,6 +179,7 @@ function Application() {
                 this.createUser(reg_fullname, reg_password)
                 this.login(reg_fullname, reg_password)
                 resetForms()
+                resetInitViewToHome()
             }
 
             catch (error) {
@@ -295,9 +278,9 @@ function Application() {
             currentUser.password = CryptoJS.AES.encrypt(password_new, secret).toString()
             currentUser = null
             this.showInitialPage(true)
-            this.resetLoggedInPage()
             this.showAccountEditModal()
             resetForms()
+            resetLoggedInPage()
         }
 
         static changeTransactionType = event => {
@@ -311,8 +294,8 @@ function Application() {
             this.transactionsList.innerHTML = ''; // removes all child nodes
 
             // display only the last 5 transaction depending on the query
-            // hence first 5 instances of a type, unless 'ALL'
-            const first5Transaction = transactions.splice(0, 5)
+            // hence first 4 instances of a type, unless 'ALL'
+            const first5Transaction = transactions.splice(0, 4)
 
             if (first5Transaction.length === 0) {
                 const { div } = new HTMLElementTransactionEmpty()
@@ -341,8 +324,12 @@ function BankingAppUser(fullname, password) {
 
 // model for deposit/withdraw transactions
 function Transact(type, accountNumber, before, amount) {
+    const date = new Date()
+    const dateStr = date.toDateString();
+    const timeStr = date.toLocaleTimeString();
+
     this.type = type // 'DEPOSIT' or 'WITHDRAW'
-    this.transactionDate = new Date().toDateString();
+    this.transactionDate = `${dateStr} ${timeStr}`;
     this.accountNumber = accountNumber;
     this.balanceBefore = before
     this.amount = amount
@@ -350,8 +337,12 @@ function Transact(type, accountNumber, before, amount) {
 
 // model for send transaction
 function TransactSend(accountNumber, before, amount, toAccountNumber, direction) {
+    const date = new Date()
+    const dateStr = date.toDateString();
+    const timeStr = date.toLocaleTimeString();
+
     this.type = `SENT ${direction}`
-    this.transactionDate = new Date().toDateString();
+    this.transactionDate = `${dateStr} ${timeStr}`;
     this.accountNumber = accountNumber;
     this.balanceBefore = before
     this.amount = amount

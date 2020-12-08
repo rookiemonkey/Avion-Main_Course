@@ -12,239 +12,265 @@
 <body>
     <main>
         <section id="view_initial">
-            <article class="view_initial_img">
-                <img src="/assets/images/bank.svg" alt="InBank" />
-                <h1>
-                    <img src="/assets/images/bank-icon.svg" style="height: 40px; width: 40px; margin-right: 5px;">
-                    InBank<span>.</span>
-                </h1>
-            </article>
-            <article class="view_initial_nav">
-                <ul class="initial_nav_parent">
-                    <li class='initial_nav_item active-nav' data-view="home">Home</li>
-                    <li class='initial_nav_item' data-view="register">Register</li>
-                    <li class='initial_nav_item' data-view="login">Login</li>
+            <nav>
+                <img src="/assets/images/bank-icon.svg">
+                <ul class="nav-options">
+                    <li class="active-nav" data-view="home">Home</li>
+                    <li data-view="register">Register</li>
+                    <li data-view="login">Login</li>
                 </ul>
-                <div class="view_initial_nav_dynamic">
-                    <div id="dynamic_home" data-view="home">
-                        <p>
-                            Your in-browser memory banking application! Store your money on right in your browser with
-                            high
-                            security!
-                        </p>
-                        <p>
-                            InBank is a global bank with a strong European base. Our 53,000 employees serve around 38.4
-                            million customers, corporate
-                            clients and financial institutions in over 40 countries. Our purpose is to empower people to
-                            stay a step ahead in life
-                            and in business.
-                        </p>
+            </nav>
+            <div>
+                <article class="view_initial_img">
+                    <h1>
+                        InBank<span>.</span>
+                    </h1>
+                    <p>Your in-browser memory bank!</p>
+                    <img src="/assets/images/bank.svg" alt="InBank" />
+                </article>
+                <article class="view_initial_nav">
+                    <div class="view_initial_nav_dynamic">
+                        <div id="dynamic_home" data-view="home">
+                            <p>
+                                Store your money on right in your browser
+                                with
+                                high
+                                security!
+                            </p>
+                            <p>
+                                InBank is a global bank with a strong European base. Our 53,000 employees serve around
+                                38.4
+                                million customers, corporate
+                                clients and financial institutions in over 40 countries. Our purpose is to empower
+                                people to
+                                stay a step ahead in life
+                                and in business.
+                            </p>
 
-                        <p>
-                            Don't have an account? Register now!
-                        </p>
+                            <p>
+                                Don't have an account? <b>Register now!</b>
+                            </p>
+                        </div>
+                        <div id="dynamic_register" data-view="register" style="display: none;">
+                            <form id="form_register">
+                                <div class="input-group">
+                                    <label>Full Name</label>
+                                    <input type='text' name="reg_fullname" id="reg_fullname" autocomplete="off" />
+                                </div>
+                                <div class="input-group">
+                                    <label>Password</label>
+                                    <input type='password' name="reg_password" id="reg_password" autocomplete="off"
+                                        minlength="8" />
+                                </div>
+                                <div class="input-group">
+                                    <label>Confirm Password</label>
+                                    <input type='password' name="reg_password_confirm" id="reg_password_confirm"
+                                        autocomplete="off" minlength="8" />
+                                </div>
+                                <div class="input-group">
+                                    <button>
+                                        <i class="ion-android-checkmark-circle"></i>
+                                        &nbsp;
+                                        Register
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="dynamic_login" data-view="login" style="display: none;">
+                            <form id="form_login">
+                                <div class="input-group">
+                                    <label>Full Name</label>
+                                    <input type='text' name="log_fullname" id="log_fullname" autocomplete="off" />
+                                </div>
+                                <div class="input-group">
+                                    <label>Password</label>
+                                    <input type='password' name="log_password" id="log_password" autocomplete="off"
+                                        minlength="8" />
+                                </div>
+                                <div class="input-group">
+                                    <button>
+                                        <i class="ion-android-checkmark-circle"></i>
+                                        &nbsp;
+                                        Login
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div id="dynamic_register" data-view="register" style="display: none;">
-                        <form id="form_register">
-                            <div class="input-group">
-                                <label>Full Name</label>
-                                <input type='text' name="reg_fullname" id="reg_fullname" autocomplete="off" />
-                            </div>
-                            <div class="input-group">
-                                <label>Password</label>
-                                <input type='password' name="reg_password" id="reg_password" autocomplete="off"
-                                    minlength="8" />
-                            </div>
-                            <div class="input-group">
-                                <label>Confirm Password</label>
-                                <input type='password' name="reg_password_confirm" id="reg_password_confirm"
-                                    autocomplete="off" minlength="8" />
-                            </div>
-                            <div class="input-group">
-                                <button>
-                                    <i class="ion-android-checkmark-circle"></i>
-                                    &nbsp;
-                                    Register
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div id="dynamic_login" data-view="login" style="display: none;">
-                        <form id="form_login">
-                            <div class="input-group">
-                                <label>Full Name</label>
-                                <input type='text' name="log_fullname" id="log_fullname" autocomplete="off" />
-                            </div>
-                            <div class="input-group">
-                                <label>Password</label>
-                                <input type='password' name="log_password" id="log_password" autocomplete="off"
-                                    minlength="8" />
-                            </div>
-                            <div class="input-group">
-                                <button>
-                                    <i class="ion-android-checkmark-circle"></i>
-                                    &nbsp;
-                                    Login
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </article>
+                </article>
+            </div>
         </section>
         <section id="view_loggedin" style="display: none;">
-            <article class="view_usercard">
-                <h1 class="header">
-                    <img src="/assets/images/bank-icon.svg" style="height: 30px; width: 30px; margin-right: 5px;">
-                    InBank<span>.</span> Portal
-                </h1>
-                <div class="user_informations">
-                    <img id="user_avatar" src="/assets/images/default.jpg" alt="user"
-                        onerror="this.setAttribute('src', '/assets/images/default.jpg')">
-                    <div class="user_meta_container">
-                        <h1 id="user_name">
-                            <span id="transactions" data-action="transactions"
-                                style='float: right; margin: 0px 10px;'><i class="ion-android-time"></i></span>
-                            <span id="editaccount" style='float: right; margin: 0px 10px;'>
-                                <i class="ion-edit"></i>
-                            </span>
-                            <span id="name"></span>
-                        </h1>
-                        <p id="user_accountcreation"></p>
-                        <p id="user_accountnumber">
-                            <span>Account Number: &nbsp; <i class="ion-card"></i></span>
-                            <span id="accountnumber">0</span>
-                        </p>
-                        <p id="user_balance">
-                            <span><i class="ion-social-usd"></i> &nbsp;</span>
-                            <span id='balance'>100</span>
-                        </p>
-                    </div>
+            <nav>
+                <div class="nav-brand">
+                    <img src="/assets/images/bank-icon.svg">
+                    <h1>
+                        InBank<span>.</span>
+                    </h1>
                 </div>
-
-                <ul class="user_actions">
-                    <li class="user_actions_item active-nav" data-action="deposit">
-                        <i class="ion-ios-download"></i>
-                        <span>Deposit</span>
-                    </li>
-                    <li class="user_actions_item" data-action="withdraw">
-                        <i class="ion-cash"></i>
-                        <span>Withdraw</span>
-                    </li>
-                    <li class="user_actions_item" data-action="send">
-                        <i class="ion-paper-airplane"></i>
-                        <span>Send</span>
-                    </li>
-                    <li class="user_actions_item" id="logout">
-                        <i class="ion-log-out"></i>
-                        <span>Logout</span>
-                    </li>
+                <ul class="nav-options">
+                    <li id="editaccount"><img src="/assets/images/edit.svg" title="Edit Account"></li>
+                    <li id="logout">Logout</li>
                 </ul>
-            </article>
-            <article class="view_useractions">
-                <div id="dynamic_deposit" data-action="deposit">
-                    <form id="form_deposit">
-                        <div class="input-group-header">
-                            <img src="/assets/images/deposit.svg">
-                            <div class="input-group-header-info">
-                                <h2>Deposit</h2>
-                                <p>Store your money in your browser's memory but will disappear after refresh!
-                                    &#128540;</p>
+            </nav>
+            <div>
+                <article class="view_usercard">
+                    <div class="wrapper">
+                        <div class="user_informations">
+                            <img id="user_avatar" src="/assets/images/default.jpg" alt="user"
+                                onerror="this.setAttribute('src', '/assets/images/default.jpg')">
+                            <div class="user_meta_container">
+                                <h1 id="user_name">
+                                    <span id="name"></span>
+                                </h1>
+                                <p id="user_accountcreation"></p>
+                                <p id="user_accountnumber">
+                                    <span>Account Number: &nbsp; <i class="ion-card"></i></span>
+                                    <span id="accountnumber">0</span>
+                                </p>
+                                <p id="user_balance">
+                                    <span><i class="ion-social-usd"></i> &nbsp;</span>
+                                    <span id='balance'>100</span>
+                                </p>
                             </div>
                         </div>
-                        <div class="input-group">
-                            <label>Deposit Amount</label>
-                            <input type="num" name="deposit_amount" min="1" autocomplete="off">
-                        </div>
-                        <div class="input-group">
-                            <button>
-                                <i class="ion-android-checkmark-circle"></i>
-                                &nbsp;
-                                Proceed
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div id="dynamic_withdraw" data-action="withdraw" style="display: none">
-                    <form id="form_withdraw">
-                        <div class="input-group-header">
-                            <img src="/assets/images/withdraw.svg">
-                            <div class="input-group-header-info">
-                                <h2>Withdraw</h2>
-                                <p>Cash-out some money from your in-browser bank account but nothing will come out
-                                    ofcourse!
-                                    &#128540;</p>
+
+                        <ul class="user_actions">
+                            <li class="user_actions_item active-nav" data-action="deposit">
+                                <i class="ion-ios-download"></i>
+                                <span>Deposit</span>
+                            </li>
+                            <li class="user_actions_item" data-action="withdraw">
+                                <i class="ion-cash"></i>
+                                <span>Withdraw</span>
+                            </li>
+                            <li class="user_actions_item" data-action="send">
+                                <i class="ion-paper-airplane"></i>
+                                <span>Send</span>
+                            </li>
+                            <li class="user_actions_item" data-action="transactions">
+                                <i class="ion-android-time"></i>
+                                <span>History</span>
+                            </li>
+                        </ul>
+
+                        <div class="fact">
+                            <img src="/assets/images/fact.svg" />
+                            <div class="fact-information">
+                                <b>Fact!</b>
+                                <p>Did you know that InBank purges your deposited money and nothing else? Amazing!
+                                </p>
                             </div>
-                        </div>
-                        <div class="input-group">
-                            <label>Withdraw Amount</label>
-                            <input type="num" name="withdraw_amount" min="1" autocomplete="off">
-                        </div>
-                        <div class="input-group">
-                            <button>
-                                <i class="ion-android-checkmark-circle"></i>
-                                &nbsp;
-                                Proceed
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div id="dynamic_send" data-action="send" style="display: none">
-                    <form id="form_send">
-                        <div class="input-group-header">
-                            <img src="/assets/images/send.svg">
-                            <div class="input-group-header-info">
-                                <h2>Send</h2>
-                                <p>Send some money to your friends who has access to your computer only!
-                                    &#128540;</p>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label>Recipient InBank Account Number <small>(10 digit)</small></label>
-                            <input type="num" name="receiver_accnum" min="1" autocomplete="off" minlength="10"
-                                maxlength="10">
-                        </div>
-                        <div class="input-group">
-                            <label>Amount to send</label>
-                            <input type="num" name="send_amount" min="1" autocomplete="off">
-                        </div>
-                        <div class="input-group">
-                            <button>
-                                <i class="ion-android-checkmark-circle"></i>
-                                &nbsp;
-                                Proceed
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div id="dynamic_transactions" data-action="transactions" style="display: none">
-                    <p class="transaction_type_info">Shows the last 5 transaction of a type</p>
-                    <div id="transactions_options">
-                        <div class="transactions_options_container1">
-                            <a id="bankstatement">
-                                <i class="ion-document-text"></i> &nbsp;
-                                Bank Statement
-                            </a>
-                        </div>
-                        <div class="transactions_options_container2">
-                            <label for="transaction_type">Transaction Type</label>
-                            <select id="transaction_type" name="transaction_type">
-                                <option value="ALL">All</option>
-                                <option value="DEPOSIT">Deposits</option>
-                                <option value="WITHDRAW">Withdraws</option>
-                                <option value="SENT TO">Sent</option> <!-- SENT TO -->
-                                <option value="SENT FROM">Received</option> <!-- SENT FROM -->
-                            </select>
                         </div>
                     </div>
-                    <ul id="transactions_list">
-                        <div class="transactions_list_empty">
-                            <h3>No Transactions for DEPOSIT</h3>
-                            <img src="/assets/images/empty.svg" />
+                </article>
+                <article class="view_useractions">
+                    <div class="wrapper view_useractions_parent">
+                        <div id="dynamic_deposit" data-action="deposit">
+                            <form id="form_deposit">
+                                <div class="input-group-header">
+                                    <img src="/assets/images/deposit.svg">
+                                    <div class="input-group-header-info">
+                                        <h2>Deposit</h2>
+                                        <p>Store your money in your browser's memory but will disappear after refresh!
+                                            &#128540;</p>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label>Deposit Amount</label>
+                                    <input type="num" name="deposit_amount" min="1" autocomplete="off">
+                                </div>
+                                <div class="input-group">
+                                    <button>
+                                        <i class="ion-android-checkmark-circle"></i>
+                                        &nbsp;
+                                        Proceed
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                    </ul>
-                </div>
-            </article>
+                        <div id="dynamic_withdraw" data-action="withdraw" style="display: none">
+                            <form id="form_withdraw">
+                                <div class="input-group-header">
+                                    <img src="/assets/images/withdraw.svg">
+                                    <div class="input-group-header-info">
+                                        <h2>Withdraw</h2>
+                                        <p>Cash-out some money from your in-browser bank account but nothing will come
+                                            out
+                                            ofcourse!
+                                            &#128540;</p>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label>Withdraw Amount</label>
+                                    <input type="num" name="withdraw_amount" min="1" autocomplete="off">
+                                </div>
+                                <div class="input-group">
+                                    <button>
+                                        <i class="ion-android-checkmark-circle"></i>
+                                        &nbsp;
+                                        Proceed
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="dynamic_send" data-action="send" style="display: none">
+                            <form id="form_send">
+                                <div class="input-group-header">
+                                    <img src="/assets/images/send.svg">
+                                    <div class="input-group-header-info">
+                                        <h2>Send</h2>
+                                        <p>Send some money to your friends who has access to your computer only!
+                                            &#128540;</p>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label>Recipient InBank Account Number <small>(10 digit)</small></label>
+                                    <input type="num" name="receiver_accnum" min="1" autocomplete="off" minlength="10"
+                                        maxlength="10">
+                                </div>
+                                <div class="input-group">
+                                    <label>Amount to send</label>
+                                    <input type="num" name="send_amount" min="1" autocomplete="off">
+                                </div>
+                                <div class="input-group">
+                                    <button>
+                                        <i class="ion-android-checkmark-circle"></i>
+                                        &nbsp;
+                                        Proceed
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="dynamic_transactions" data-action="transactions" style="display: none">
+                            <div class="dynamic_transactions_container">
+                                <div id="transactions_options">
+                                    <a id="bankstatement">
+                                        <i class="ion-document-text"></i> &nbsp;
+                                        Bank Statement
+                                    </a>
+                                    <div class="transactions_options_container2">
+                                        <label for="transaction_type">Transaction Type</label>
+                                        <select id="transaction_type" name="transaction_type">
+                                            <option value="ALL">All</option>
+                                            <option value="DEPOSIT">Deposits</option>
+                                            <option value="WITHDRAW">Withdraws</option>
+                                            <option value="SENT TO">Sent</option> <!-- SENT TO -->
+                                            <option value="SENT FROM">Received</option> <!-- SENT FROM -->
+                                        </select>
+                                    </div>
+                                </div>
+                                <ul id="transactions_list">
+                                    <div class="transactions_list_empty">
+                                        <h3>No Transactions for DEPOSIT</h3>
+                                        <img src="/assets/images/empty.svg" />
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </section>
 
         <!-- ACCOUNT EDIT MODAL -->
@@ -288,9 +314,9 @@
     </main>
 </body>
 
-<!-- <script src="/assets/js/_crypto.js"></script>
+<script src="/assets/js/_crypto.js"></script>
 <script src="/assets/js/_models.js"></script>
-<script src="/assets/js/_utilities.js"></script> -->
+<script src="/assets/js/_utilities.js"></script>
 <script src="/assets/js/main.js"></script>
 
 </html>

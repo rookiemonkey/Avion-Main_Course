@@ -2,54 +2,41 @@ section#view_initial {
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    background-image: url('/assets/images/wave1.svg');
+    background-repeat: no-repeat;
+    background-position: bottom;
 
-    .view_initial_img,
-    .view_initial_nav {
-        width: 50%;
-        height: 100%;
-        padding: $spacing_lg;
+    nav {
+        height: 40px;
+        margin: 35px $spacing_lg 0px $spacing_lg;
+        padding: 0px ($spacing_lg + $spacing_lg + $spacing_lg);
         display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
-    }
 
-    .view_initial_img {
         img {
-            width: 70%;
-            height: auto;
+            height: 40px;
+            width: 40px;
         }
 
-        h1 {
-            font-size: 50px;
-            font-weight: 700;
-
-            span {
-                color: $color_accent2;
-            }
-        }
-    }
-
-    .view_initial_nav {
-
-        ul.initial_nav_parent {
-            margin-bottom: $spacing_lg;
+        ul.nav-options {
             display: flex;
-            list-style-type: none;
-
-
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+            width: 100%;
 
             li {
-                border: 2px solid $color_font_border;
-                border-radius: 15px;
+                cursor: pointer;
+                list-style-type: none;
+                border: 2px solid $color_accent2;
+                border-radius: 35px;
                 min-width: 115px;
                 padding: $spacing_md $spacing_lg;
                 margin: 0px $spacing_md;
                 text-align: center;
                 font-weight: 700;
-                box-shadow: $shadow;
+                color: $color_accent2;
                 transition: background-color 500ms ease-in-out,
                             color 500ms ease-in-out,
                             border-color 500ms ease-in-out;
@@ -61,75 +48,115 @@ section#view_initial {
                 }
             }
         }
+    }
 
-        .view_initial_nav_dynamic {
-            #dynamic_home,
-            #dynamic_register,
-            #dynamic_login {
-                height: 500px;
-                width: 500px;
-                padding: $spacing_lg;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+    div {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .view_initial_img,
+        .view_initial_nav {
+            // border: 2px solid red;
+            width: 45%;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .view_initial_img {
+            img {
+                width: 70%;
+                height: auto;
             }
 
-            #dynamic_home {
-                flex-direction: column;
-                align-items: flex-start !important;
-                p {
-                    margin: $spacing_md 0px;
+            h1 {
+                font-size: 50px;
+                font-weight: 700;
+
+                span {
+                    color: $color_accent2;
                 }
             }
+        }
 
-            #dynamic_register,
-            #dynamic_login {
-                form {
-                    width: 100%;
+        .view_initial_nav {
+
+            .view_initial_nav_dynamic {
+                #dynamic_home,
+                #dynamic_register,
+                #dynamic_login {
+                    height: 500px;
+                    width: 500px;
+                    padding: $spacing_lg;
                     display: flex;
-                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
 
-                    .input-group {
+                #dynamic_home {
+                    flex-direction: column;
+                    align-items: flex-start !important;
+                    p {
+                        line-height: 30px;
+                        margin: $spacing_md 0px;
+                        text-align: justify;
+                    }
+                }
+
+                #dynamic_register,
+                #dynamic_login {
+                    form {
+                        height: 100%;
+                        width: 100%;
                         display: flex;
                         flex-direction: column;
-                        margin: $spacing_md+10px 0px;
 
-                        label {
-                            margin-bottom: $spacing_sm;
-                        }
+                        .input-group {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            margin: $spacing_md+10px 0px;
 
-                        input {
-                            width: 100%;
-                            border: none;
-                            border-bottom: 2px solid $color_accent2;
-                            font-size: 18px;
-                            font-weight: 700;
-                            color: $color_font;
-                            padding: $spacing_sm 0px;
-                            background-color: transparent;
-
-                            &:focus {
-                                outline: none;
+                            label {
+                                margin-bottom: $spacing_sm;
                             }
-                        }
 
-                        button {
-                            cursor: pointer;
-                            border: none;
-                            color: $color_font;
-                            background-color: transparent;
-                            width: max-content;
-                            font-family: 'Arvo', serif;
-                            font-size: 18px;
-                            font-weight: 700;
-                            padding: $spacing_md 0px;
+                            input {
+                                width: 100%;
+                                border: none;
+                                border-radius: 15px;
+                                border-bottom: 2px solid $color_accent2;
+                                font-size: 18px;
+                                font-weight: 700;
+                                color: $color_font;
+                                padding: $spacing_sm;
+                                background-color: hsla(203°, 100%, 85%, 0.5);
+
+                                &:focus {
+                                    outline: none;
+                                }
+                            }
+
+                            button {
+                                cursor: pointer;
+                                border: none;
+                                color: $color_font;
+                                background-color: transparent;
+                                width: max-content;
+                                font-family: 'Arvo', serif;
+                                font-size: 18px;
+                                font-weight: 700;
+                                padding: $spacing_md 0px;
+                            }
                         }
                     }
                 }
             }
         }
     }
-
-
-
 }

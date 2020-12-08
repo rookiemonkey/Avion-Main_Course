@@ -109,12 +109,13 @@ body main {
     .modal-content .input-group-modal input {
       width: 100%;
       border: none;
+      border-radius: 15px;
       border-bottom: 2px solid #ff6200;
       font-size: 18px;
       font-weight: 700;
       color: rgba(0, 0, 0, 0.85);
-      padding: 7.5px 0px !important;
-      background-color: transparent; }
+      padding: 7.5px;
+      background-color: rgba(179, 226, 255, 0.5); }
       .modal-content .input-group-modal input:focus {
         outline: none; }
     .modal-content .input-group-modal button {
@@ -2376,342 +2377,460 @@ section#view_initial {
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center; }
-  section#view_initial .view_initial_img,
-  section#view_initial .view_initial_nav {
-    width: 50%;
-    height: 100%;
-    padding: 20px;
+  flex-direction: column;
+  background-image: url("/assets/images/wave1.svg");
+  background-repeat: no-repeat;
+  background-position: bottom; }
+  section#view_initial nav {
+    height: 40px;
+    margin: 35px 20px 0px 20px;
+    padding: 0px 60px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center; }
-  section#view_initial .view_initial_img img {
-    width: 70%;
-    height: auto; }
-  section#view_initial .view_initial_img h1 {
-    font-size: 50px;
-    font-weight: 700; }
-    section#view_initial .view_initial_img h1 span {
-      color: #ff6200; }
-  section#view_initial .view_initial_nav ul.initial_nav_parent {
-    margin-bottom: 20px;
-    display: flex;
-    list-style-type: none; }
-    section#view_initial .view_initial_nav ul.initial_nav_parent li {
-      border: 2px solid rgba(0, 0, 0, 0.1);
-      border-radius: 15px;
-      min-width: 115px;
-      padding: 12px 20px;
-      margin: 0px 12px;
-      text-align: center;
-      font-weight: 700;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-      transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; }
-      section#view_initial .view_initial_nav ul.initial_nav_parent li:hover {
-        border: 2px solid white;
-        background-color: white;
-        color: #ff6200; }
-  section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_home,
-  section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register,
-  section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login {
-    height: 500px;
-    width: 500px;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-  section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_home {
-    flex-direction: column;
-    align-items: flex-start !important; }
-    section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_home p {
-      margin: 12px 0px; }
-  section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form,
-  section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form {
+    section#view_initial nav img {
+      height: 40px;
+      width: 40px; }
+    section#view_initial nav ul.nav-options {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      width: 100%; }
+      section#view_initial nav ul.nav-options li {
+        cursor: pointer;
+        list-style-type: none;
+        border: 2px solid #ff6200;
+        border-radius: 35px;
+        min-width: 115px;
+        padding: 12px 20px;
+        margin: 0px 12px;
+        text-align: center;
+        font-weight: 700;
+        color: #ff6200;
+        transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; }
+        section#view_initial nav ul.nav-options li:hover {
+          border: 2px solid white;
+          background-color: white;
+          color: #ff6200; }
+  section#view_initial div {
     width: 100%;
+    height: 100vh;
     display: flex;
-    flex-direction: column; }
-    section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group,
-    section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group {
+    justify-content: center;
+    align-items: center; }
+    section#view_initial div .view_initial_img,
+    section#view_initial div .view_initial_nav {
+      width: 45%;
+      height: 80vh;
       display: flex;
       flex-direction: column;
-      margin: 22px 0px; }
-      section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group label,
-      section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group label {
-        margin-bottom: 7.5px; }
-      section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group input,
-      section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group input {
-        width: 100%;
-        border: none;
-        border-bottom: 2px solid #ff6200;
-        font-size: 18px;
-        font-weight: 700;
-        color: rgba(0, 0, 0, 0.85);
-        padding: 7.5px 0px;
-        background-color: transparent; }
-        section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group input:focus,
-        section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group input:focus {
-          outline: none; }
-      section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group button,
-      section#view_initial .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group button {
-        cursor: pointer;
-        border: none;
-        color: rgba(0, 0, 0, 0.85);
-        background-color: transparent;
-        width: max-content;
-        font-family: 'Arvo', serif;
-        font-size: 18px;
-        font-weight: 700;
-        padding: 12px 0px; }
+      justify-content: center;
+      align-items: center; }
+    section#view_initial div .view_initial_img img {
+      width: 70%;
+      height: auto; }
+    section#view_initial div .view_initial_img h1 {
+      font-size: 50px;
+      font-weight: 700; }
+      section#view_initial div .view_initial_img h1 span {
+        color: #ff6200; }
+    section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_home,
+    section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_register,
+    section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_login {
+      height: 500px;
+      width: 500px;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_home {
+      flex-direction: column;
+      align-items: flex-start !important; }
+      section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_home p {
+        line-height: 30px;
+        margin: 12px 0px;
+        text-align: justify; }
+    section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_register form,
+    section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_login form {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column; }
+      section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group,
+      section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 22px 0px; }
+        section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group label,
+        section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group label {
+          margin-bottom: 7.5px; }
+        section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group input,
+        section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group input {
+          width: 100%;
+          border: none;
+          border-radius: 15px;
+          border-bottom: 2px solid #ff6200;
+          font-size: 18px;
+          font-weight: 700;
+          color: rgba(0, 0, 0, 0.85);
+          padding: 7.5px;
+          background-color: rgba(179, 226, 255, 0.5); }
+          section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group input:focus,
+          section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group input:focus {
+            outline: none; }
+        section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_register form .input-group button,
+        section#view_initial div .view_initial_nav .view_initial_nav_dynamic #dynamic_login form .input-group button {
+          cursor: pointer;
+          border: none;
+          color: rgba(0, 0, 0, 0.85);
+          background-color: transparent;
+          width: max-content;
+          font-family: 'Arvo', serif;
+          font-size: 18px;
+          font-weight: 700;
+          padding: 12px 0px; }
 
 section#view_loggedin {
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center; }
-  section#view_loggedin .view_usercard,
-  section#view_loggedin .view_useractions {
-    height: 100%;
-    padding: 20px;
+  flex-direction: column;
+  background-image: url("/assets/images/wave2.svg");
+  background-repeat: no-repeat;
+  background-position: bottom; }
+  section#view_loggedin nav {
+    height: 40px;
+    margin: 35px 20px 0px 20px;
+    padding: 0px 60px;
     display: flex;
-    flex-direction: column;
+    align-items: center; }
+    section#view_loggedin nav ul.nav-options,
+    section#view_loggedin nav div.nav-brand {
+      height: 100%; }
+    section#view_loggedin nav img, section#view_loggedin nav ul.nav-options > img {
+      height: 40px;
+      width: 40px; }
+    section#view_loggedin nav div.nav-brand {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center; }
+      section#view_loggedin nav div.nav-brand h1 {
+        margin-left: 12px;
+        font-size: 40px;
+        font-weight: 700; }
+        section#view_loggedin nav div.nav-brand h1 span {
+          color: #ff6200; }
+    section#view_loggedin nav ul.nav-options {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      width: 100%; }
+      section#view_loggedin nav ul.nav-options li {
+        cursor: pointer;
+        list-style-type: none;
+        border-radius: 35px;
+        padding: 12px 20px;
+        margin: 0px 12px;
+        text-align: center;
+        font-weight: 700;
+        color: #ff6200;
+        transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; }
+        section#view_loggedin nav ul.nav-options li:last-child {
+          border: 2px solid #ff6200;
+          min-width: 115px; }
+          section#view_loggedin nav ul.nav-options li:last-child:hover {
+            border: 2px solid white;
+            background-color: white;
+            color: #ff6200; }
+  section#view_loggedin div {
+    width: 100%;
+    height: 100vh;
+    display: flex;
     justify-content: center;
     align-items: center; }
-  section#view_loggedin .view_usercard,
-  section#view_loggedin .view_useractions {
-    width: 50%; }
-  section#view_loggedin .view_usercard h1.header {
-    width: 100%;
-    margin-left: 20px;
-    margin-bottom: 12px;
-    font-size: 35px;
-    font-weight: 700; }
-    section#view_loggedin .view_usercard h1.header span {
-      color: #ff6200; }
-  section#view_loggedin .view_usercard .user_informations {
-    width: 100%;
-    display: flex;
-    padding: 20px;
-    margin-left: 20px;
-    margin-bottom: 12px;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); }
-    section#view_loggedin .view_usercard .user_informations img#user_avatar {
-      min-width: 178px;
-      min-height: 178px;
-      width: 178px;
-      height: 178px;
-      border-radius: 50%;
-      box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1); }
-    section#view_loggedin .view_usercard .user_informations div.user_meta_container {
-      margin-left: 20px;
-      width: 100%; }
-      section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name {
-        font-size: 1.5rem;
-        margin-bottom: 7.5px; }
-        section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name #transactions,
-        section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name #editaccount {
-          cursor: pointer; }
-        section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_name span#name {
-          color: #ff6200; }
-      section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountAvatarChange,
-      section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountcreation,
-      section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountnumber {
-        font-size: 0.75rem;
-        font-style: italic; }
-      section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_accountnumber {
-        margin-bottom: 20px; }
-      section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_balance {
-        margin-top: 40px;
-        font-weight: 700;
-        font-size: 1.75rem;
-        position: absolute;
-        top: 275px;
-        left: 395px;
-        text-align: right;
-        width: 250px; }
-        section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_balance span#balance, section#view_loggedin .view_usercard .user_informations div.user_meta_container #user_balance span i {
-          color: #ff6200; }
-  section#view_loggedin .view_usercard .user_actions {
-    width: 100%;
-    margin-left: 20px;
-    margin-top: 12px;
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none; }
-    section#view_loggedin .view_usercard .user_actions li.user_actions_item {
-      cursor: pointer;
-      border: 2px solid rgba(0, 0, 0, 0.1);
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-      border-radius: 15px;
+    section#view_loggedin div .view_usercard,
+    section#view_loggedin div .view_useractions {
+      width: 45%;
+      height: 80vh;
       display: flex;
       flex-direction: column;
-      min-width: 141px;
-      padding: 32px 20px;
-      text-align: center;
-      font-weight: 700;
-      transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; }
-      section#view_loggedin .view_usercard .user_actions li.user_actions_item:hover {
-        background-color: white;
-        border-color: white;
-        color: #ccebff; }
-      section#view_loggedin .view_usercard .user_actions li.user_actions_item i {
-        font-size: 1.75rem; }
-  section#view_loggedin .view_useractions #dynamic_deposit,
-  section#view_loggedin .view_useractions #dynamic_withdraw,
-  section#view_loggedin .view_useractions #dynamic_send,
-  section#view_loggedin .view_useractions #dynamic_transactions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%; }
-  section#view_loggedin .view_useractions #dynamic_deposit form,
-  section#view_loggedin .view_useractions #dynamic_withdraw form,
-  section#view_loggedin .view_useractions #dynamic_send form {
-    width: 80%;
-    display: flex;
-    flex-direction: column; }
-    section#view_loggedin .view_useractions #dynamic_deposit form .input-group-header,
-    section#view_loggedin .view_useractions #dynamic_withdraw form .input-group-header,
-    section#view_loggedin .view_useractions #dynamic_send form .input-group-header {
-      display: flex;
-      align-items: center;
-      margin: 22px 0px; }
-      section#view_loggedin .view_useractions #dynamic_deposit form .input-group-header img,
-      section#view_loggedin .view_useractions #dynamic_withdraw form .input-group-header img,
-      section#view_loggedin .view_useractions #dynamic_send form .input-group-header img {
-        width: 150px;
-        height: 150px; }
-      section#view_loggedin .view_useractions #dynamic_deposit form .input-group-header .input-group-header-info,
-      section#view_loggedin .view_useractions #dynamic_withdraw form .input-group-header .input-group-header-info,
-      section#view_loggedin .view_useractions #dynamic_send form .input-group-header .input-group-header-info {
-        margin-left: 7.5px; }
-        section#view_loggedin .view_useractions #dynamic_deposit form .input-group-header .input-group-header-info h2,
-        section#view_loggedin .view_useractions #dynamic_withdraw form .input-group-header .input-group-header-info h2,
-        section#view_loggedin .view_useractions #dynamic_send form .input-group-header .input-group-header-info h2 {
-          color: #ff6200; }
-        section#view_loggedin .view_useractions #dynamic_deposit form .input-group-header .input-group-header-info p,
-        section#view_loggedin .view_useractions #dynamic_withdraw form .input-group-header .input-group-header-info p,
-        section#view_loggedin .view_useractions #dynamic_send form .input-group-header .input-group-header-info p {
-          margin-top: 7.5px;
-          font-size: 0.75rem; }
-    section#view_loggedin .view_useractions #dynamic_deposit form .input-group,
-    section#view_loggedin .view_useractions #dynamic_withdraw form .input-group,
-    section#view_loggedin .view_useractions #dynamic_send form .input-group {
-      display: flex;
-      flex-direction: column;
-      margin: 22px 0px; }
-      section#view_loggedin .view_useractions #dynamic_deposit form .input-group label,
-      section#view_loggedin .view_useractions #dynamic_withdraw form .input-group label,
-      section#view_loggedin .view_useractions #dynamic_send form .input-group label {
-        margin-bottom: 7.5px; }
-      section#view_loggedin .view_useractions #dynamic_deposit form .input-group input,
-      section#view_loggedin .view_useractions #dynamic_withdraw form .input-group input,
-      section#view_loggedin .view_useractions #dynamic_send form .input-group input {
-        width: 100%;
-        border: none;
-        border-bottom: 2px solid #ff6200;
-        font-size: 18px;
-        font-weight: 700;
-        color: rgba(0, 0, 0, 0.85);
-        padding: 7.5px 0px;
-        background-color: transparent; }
-        section#view_loggedin .view_useractions #dynamic_deposit form .input-group input:focus,
-        section#view_loggedin .view_useractions #dynamic_withdraw form .input-group input:focus,
-        section#view_loggedin .view_useractions #dynamic_send form .input-group input:focus {
-          outline: none; }
-      section#view_loggedin .view_useractions #dynamic_deposit form .input-group button,
-      section#view_loggedin .view_useractions #dynamic_withdraw form .input-group button,
-      section#view_loggedin .view_useractions #dynamic_send form .input-group button {
-        cursor: pointer;
-        border: none;
-        color: rgba(0, 0, 0, 0.85);
-        background-color: transparent;
-        width: max-content;
-        font-family: 'Arvo', serif;
-        font-size: 18px;
-        font-weight: 700;
-        padding: 12px 0px; }
-  section#view_loggedin .view_useractions #dynamic_transactions {
-    height: 570px;
-    max-height: 570px;
-    justify-content: flex-start;
-    flex-direction: column !important; }
-    section#view_loggedin .view_useractions #dynamic_transactions p.transaction_type_info {
-      justify-self: flex-end;
+      justify-content: center;
+      align-items: center; }
+    section#view_loggedin div .view_usercard,
+    section#view_loggedin div .view_useractions {
+      width: 45%; }
+    section#view_loggedin div .view_usercard .wrapper {
       width: 100%;
-      text-align: right;
-      font-size: 0.75rem;
-      padding-right: 15px;
-      margin-bottom: 7.5px;
-      font-style: italic; }
-    section#view_loggedin .view_useractions #dynamic_transactions #transactions_options {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-left: 15px;
-      margin-right: 15px;
-      margin-bottom: 7.5px; }
-      section#view_loggedin .view_useractions #dynamic_transactions #transactions_options .transactions_options_container1 a {
-        font-size: 0.75rem;
-        font-style: italic;
-        text-decoration: none;
-        color: #ff6200;
-        cursor: pointer; }
-        section#view_loggedin .view_useractions #dynamic_transactions #transactions_options .transactions_options_container1 a i {
-          color: #ff6200; }
-      section#view_loggedin .view_useractions #dynamic_transactions #transactions_options .transactions_options_container2 label {
-        font-style: italic; }
-      section#view_loggedin .view_useractions #dynamic_transactions #transactions_options .transactions_options_container2 select#transaction_type {
-        background-color: transparent;
-        color: #ff6200;
-        padding: 7.5px 0px;
-        margin-left: 7.5px;
-        width: 150px;
-        font-size: 18px;
-        font-family: 'Arvo';
-        font-weight: 700;
-        border: none; }
-        section#view_loggedin .view_useractions #dynamic_transactions #transactions_options .transactions_options_container2 select#transaction_type:focus {
-          outline: none; }
-    section#view_loggedin .view_useractions #dynamic_transactions #transactions_list {
-      width: 100%; }
-      section#view_loggedin .view_useractions #dynamic_transactions #transactions_list div.transactions_list_empty {
-        margin-top: 40px;
+      height: 100%;
+      flex-direction: column; }
+      section#view_loggedin div .view_usercard .wrapper .user_informations {
+        width: 95%;
+        height: 50%;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center; }
-        section#view_loggedin .view_useractions #dynamic_transactions #transactions_list div.transactions_list_empty h3 {
-          margin-top: 12px;
-          font-size: 1.5rem; }
-        section#view_loggedin .view_useractions #dynamic_transactions #transactions_list div.transactions_list_empty img {
-          margin-top: 12px;
-          width: 50%;
-          height: auto; }
-      section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li {
-        padding: 12px;
-        list-style-type: none;
+        padding: 20px;
+        margin-bottom: 20px;
         border: 2px solid rgba(0, 0, 0, 0.1);
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
         border-radius: 15px;
-        margin: 12px 7.5px; }
-        section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_date,
-        section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_balanceBefore {
-          font-size: 0.75rem;
-          font-style: italic; }
-        section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_balanceBefore {
-          float: right; }
-        section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_main {
-          margin: 7.5px 0px;
-          display: flex;
-          justify-content: space-between; }
-          section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_main .transactions_listitem_type,
-          section#view_loggedin .view_useractions #dynamic_transactions #transactions_list li .transactions_listitem_main .transactions_listitem_amount {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); }
+        section#view_loggedin div .view_usercard .wrapper .user_informations img#user_avatar {
+          min-width: 178px;
+          min-height: 178px;
+          width: 178px;
+          height: 178px;
+          border-radius: 50%;
+          box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1); }
+        section#view_loggedin div .view_usercard .wrapper .user_informations div.user_meta_container {
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          margin-left: 20px;
+          width: 100%;
+          height: 100%; }
+          section#view_loggedin div .view_usercard .wrapper .user_informations div.user_meta_container #user_name {
+            font-size: 1.5rem;
+            margin-bottom: 7.5px; }
+            section#view_loggedin div .view_usercard .wrapper .user_informations div.user_meta_container #user_name #transactions,
+            section#view_loggedin div .view_usercard .wrapper .user_informations div.user_meta_container #user_name #editaccount {
+              cursor: pointer; }
+            section#view_loggedin div .view_usercard .wrapper .user_informations div.user_meta_container #user_name span#name {
+              color: #ff6200; }
+          section#view_loggedin div .view_usercard .wrapper .user_informations div.user_meta_container #user_accountAvatarChange,
+          section#view_loggedin div .view_usercard .wrapper .user_informations div.user_meta_container #user_accountcreation,
+          section#view_loggedin div .view_usercard .wrapper .user_informations div.user_meta_container #user_accountnumber {
+            font-size: 0.75rem;
+            font-style: italic; }
+          section#view_loggedin div .view_usercard .wrapper .user_informations div.user_meta_container #user_accountnumber {
+            margin-bottom: 20px; }
+          section#view_loggedin div .view_usercard .wrapper .user_informations div.user_meta_container #user_balance {
+            margin-top: 40px;
             font-weight: 700;
-            color: #ff6200; }
+            font-size: 1.75rem;
+            position: absolute;
+            top: 230px;
+            left: 390px;
+            text-align: right;
+            width: 250px; }
+            section#view_loggedin div .view_usercard .wrapper .user_informations div.user_meta_container #user_balance span#balance, section#view_loggedin div .view_usercard .wrapper .user_informations div.user_meta_container #user_balance span i {
+              color: #ff6200; }
+      section#view_loggedin div .view_usercard .wrapper .user_actions {
+        width: 95%;
+        height: 25%;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none; }
+        section#view_loggedin div .view_usercard .wrapper .user_actions li.user_actions_item {
+          cursor: pointer;
+          border: 2px solid rgba(0, 0, 0, 0.1);
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+          border-radius: 15px;
+          display: flex;
+          flex-direction: column;
+          min-width: 141px;
+          padding: 32px 20px;
+          text-align: center;
+          font-weight: 700;
+          transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; }
+          section#view_loggedin div .view_usercard .wrapper .user_actions li.user_actions_item:hover {
+            background-color: white;
+            border-color: white;
+            color: #ccebff; }
+          section#view_loggedin div .view_usercard .wrapper .user_actions li.user_actions_item i {
+            font-size: 1.75rem; }
+      section#view_loggedin div .view_usercard .wrapper .fact {
+        display: flex;
+        align-items: center;
+        width: 95%;
+        height: 25%; }
+        section#view_loggedin div .view_usercard .wrapper .fact img, section#view_loggedin div .view_usercard .wrapper .fact .fact-information {
+          margin: 0px 20px; }
+        section#view_loggedin div .view_usercard .wrapper .fact img {
+          width: 50px;
+          height: auto; }
+        section#view_loggedin div .view_usercard .wrapper .fact .fact-information {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center; }
+          section#view_loggedin div .view_usercard .wrapper .fact .fact-information b {
+            margin-bottom: 12px; }
+    section#view_loggedin div .view_useractions .wrapper {
+      width: 100%;
+      height: 100%; }
+      section#view_loggedin div .view_useractions .wrapper #dynamic_deposit,
+      section#view_loggedin div .view_useractions .wrapper #dynamic_withdraw,
+      section#view_loggedin div .view_useractions .wrapper #dynamic_send,
+      section#view_loggedin div .view_useractions .wrapper #dynamic_transactions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%; }
+      section#view_loggedin div .view_useractions .wrapper #dynamic_deposit form,
+      section#view_loggedin div .view_useractions .wrapper #dynamic_withdraw form,
+      section#view_loggedin div .view_useractions .wrapper #dynamic_send form {
+        height: 100%;
+        width: 80%;
+        display: flex;
+        flex-direction: column; }
+        section#view_loggedin div .view_useractions .wrapper #dynamic_deposit form .input-group-header,
+        section#view_loggedin div .view_useractions .wrapper #dynamic_withdraw form .input-group-header,
+        section#view_loggedin div .view_useractions .wrapper #dynamic_send form .input-group-header {
+          height: 150px;
+          max-height: 150px;
+          display: flex;
+          align-items: center;
+          margin: 0px 0px 20px 0px; }
+          section#view_loggedin div .view_useractions .wrapper #dynamic_deposit form .input-group-header img,
+          section#view_loggedin div .view_useractions .wrapper #dynamic_withdraw form .input-group-header img,
+          section#view_loggedin div .view_useractions .wrapper #dynamic_send form .input-group-header img {
+            width: 150px;
+            height: 150px; }
+          section#view_loggedin div .view_useractions .wrapper #dynamic_deposit form .input-group-header .input-group-header-info,
+          section#view_loggedin div .view_useractions .wrapper #dynamic_withdraw form .input-group-header .input-group-header-info,
+          section#view_loggedin div .view_useractions .wrapper #dynamic_send form .input-group-header .input-group-header-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-left: 7.5px;
+            height: 100%; }
+            section#view_loggedin div .view_useractions .wrapper #dynamic_deposit form .input-group-header .input-group-header-info h2,
+            section#view_loggedin div .view_useractions .wrapper #dynamic_withdraw form .input-group-header .input-group-header-info h2,
+            section#view_loggedin div .view_useractions .wrapper #dynamic_send form .input-group-header .input-group-header-info h2 {
+              color: #ff6200; }
+            section#view_loggedin div .view_useractions .wrapper #dynamic_deposit form .input-group-header .input-group-header-info p,
+            section#view_loggedin div .view_useractions .wrapper #dynamic_withdraw form .input-group-header .input-group-header-info p,
+            section#view_loggedin div .view_useractions .wrapper #dynamic_send form .input-group-header .input-group-header-info p {
+              margin-top: 7.5px;
+              font-size: 0.75rem; }
+        section#view_loggedin div .view_useractions .wrapper #dynamic_deposit form .input-group,
+        section#view_loggedin div .view_useractions .wrapper #dynamic_withdraw form .input-group,
+        section#view_loggedin div .view_useractions .wrapper #dynamic_send form .input-group {
+          height: max-content;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin: 20px 0px; }
+          section#view_loggedin div .view_useractions .wrapper #dynamic_deposit form .input-group label,
+          section#view_loggedin div .view_useractions .wrapper #dynamic_withdraw form .input-group label,
+          section#view_loggedin div .view_useractions .wrapper #dynamic_send form .input-group label {
+            margin-bottom: 7.5px; }
+          section#view_loggedin div .view_useractions .wrapper #dynamic_deposit form .input-group input,
+          section#view_loggedin div .view_useractions .wrapper #dynamic_withdraw form .input-group input,
+          section#view_loggedin div .view_useractions .wrapper #dynamic_send form .input-group input {
+            width: 100%;
+            border: none;
+            border-radius: 15px;
+            border-bottom: 2px solid #ff6200;
+            font-size: 18px;
+            font-weight: 700;
+            color: rgba(0, 0, 0, 0.85);
+            padding: 7.5px;
+            background-color: rgba(179, 226, 255, 0.5); }
+            section#view_loggedin div .view_useractions .wrapper #dynamic_deposit form .input-group input:focus,
+            section#view_loggedin div .view_useractions .wrapper #dynamic_withdraw form .input-group input:focus,
+            section#view_loggedin div .view_useractions .wrapper #dynamic_send form .input-group input:focus {
+              outline: none; }
+          section#view_loggedin div .view_useractions .wrapper #dynamic_deposit form .input-group button,
+          section#view_loggedin div .view_useractions .wrapper #dynamic_withdraw form .input-group button,
+          section#view_loggedin div .view_useractions .wrapper #dynamic_send form .input-group button {
+            cursor: pointer;
+            border: none;
+            color: rgba(0, 0, 0, 0.85);
+            background-color: transparent;
+            width: max-content;
+            font-family: 'Arvo', serif;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 12px 0px; }
+      section#view_loggedin div .view_useractions .wrapper #dynamic_transactions {
+        height: 509px;
+        max-height: 509px;
+        padding-left: 12px;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column !important; }
+        section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container {
+          width: 95%;
+          height: 100%;
+          max-height: 100%;
+          display: flex;
+          justify-content: flex-start;
+          flex-direction: column; }
+          section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_options {
+            height: max-content;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 7.5px; }
+            section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_options a {
+              font-size: 0.75rem;
+              font-style: italic;
+              text-decoration: none;
+              color: #ff6200;
+              cursor: pointer; }
+              section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_options a i {
+                color: #ff6200; }
+            section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_options .transactions_options_container2 {
+              display: flex;
+              justify-content: flex-end;
+              height: max-content;
+              width: 390px; }
+              section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_options .transactions_options_container2 label {
+                font-style: italic; }
+              section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_options .transactions_options_container2 select#transaction_type {
+                background-color: transparent;
+                color: #ff6200;
+                padding: 7.5px 0px;
+                margin-left: 7.5px;
+                width: 150px;
+                font-size: 18px;
+                font-family: 'Arvo';
+                font-weight: 700;
+                border: none; }
+                section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_options .transactions_options_container2 select#transaction_type:focus {
+                  outline: none; }
+          section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_list {
+            width: 100%;
+            height: 100%; }
+            section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_list div.transactions_list_empty {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center; }
+              section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_list div.transactions_list_empty h3 {
+                margin-top: 12px;
+                font-size: 1.5rem; }
+              section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_list div.transactions_list_empty img {
+                margin-top: 12px;
+                width: 50%;
+                height: auto; }
+            section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_list li {
+              background-color: #ccebff;
+              padding: 12px;
+              list-style-type: none;
+              border: 2px solid rgba(0, 0, 0, 0.1);
+              margin: 20px 0px;
+              box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+              border-radius: 15px; }
+              section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_list li .transactions_listitem_date,
+              section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_list li .transactions_listitem_balanceBefore {
+                font-size: 0.75rem;
+                font-style: italic; }
+              section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_list li .transactions_listitem_balanceBefore {
+                float: right; }
+              section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_list li .transactions_listitem_main {
+                margin: 7.5px 0px;
+                display: flex;
+                justify-content: space-between; }
+                section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_list li .transactions_listitem_main .transactions_listitem_type,
+                section#view_loggedin div .view_useractions .wrapper #dynamic_transactions .dynamic_transactions_container #transactions_list li .transactions_listitem_main .transactions_listitem_amount {
+                  font-weight: 700;
+                  color: #ff6200; }

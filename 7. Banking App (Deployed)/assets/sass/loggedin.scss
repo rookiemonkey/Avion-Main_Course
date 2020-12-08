@@ -2,341 +2,465 @@ section#view_loggedin {
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    background-image: url('/assets/images/wave2.svg');
+    background-repeat: no-repeat;
+    background-position: bottom;
 
-
-    .view_usercard,
-    .view_useractions {
-        height: 100%;
-        padding: $spacing_lg;
+    nav {
+        height: 40px;
+        margin: 35px $spacing_lg 0px $spacing_lg;
+        padding: 0px ($spacing_lg + $spacing_lg + $spacing_lg);
         display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
-    }
 
-    .view_usercard,
-    .view_useractions  {
-        width: 50%;
-    }
-
-    .view_usercard {
-
-        h1.header {
-            width: 100%;
-            margin-left: $spacing_lg;
-            margin-bottom: $spacing_md;
-            font-size: 35px;
-            font-weight: 700;
-
-            span {
-                color: $color_accent2;
-            }
-        }
-
-        .user_informations {
-            width: 100%;
-            display: flex;
-            padding: $spacing_lg;
-            margin-left: $spacing_lg;
-            margin-bottom: $spacing_md;
-            border: 2px solid $color_font_border;
-            border-radius: 15px;
-            box-shadow: $shadow;
-
-            img#user_avatar {
-                min-width: 178px;
-                min-height: 178px;
-                width: 178px;
-                height: 178px;
-                border-radius: 50%;
-                box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
-            }
-
-            div.user_meta_container {
-                margin-left: $spacing_lg;
-                width: 100%;
-
-                #user_name {
-                    font-size: 1.5rem;
-                    margin-bottom: $spacing_sm;
-
-                    #transactions,
-                    #editaccount {
-                        cursor: pointer;
-                    }
-
-                    span#name {
-                        color: $color_accent2;
-                    }
-                }
-
-                #user_accountAvatarChange,
-                #user_accountcreation,
-                #user_accountnumber {
-                    font-size: 0.75rem;
-                    font-style: italic;
-                }
-
-                #user_accountnumber {
-                    margin-bottom: $spacing_lg;
-                }
-
-                #user_balance {
-                    margin-top: $spacing_lg + $spacing_lg;
-                    font-weight: 700;
-                    font-size: 1.75rem;
-                    position: absolute;
-                    top: 275px;
-                    left: 395px;
-                    text-align: right;
-                    width: 250px;
-                    
-                    span#balance, span i {
-                        color: $color_accent2;
-                    }
-                }
-            }
-        }
-
-        .user_actions {
-            width: 100%;
-            margin-left: $spacing_lg;
-            margin-top: $spacing_md;
-            display: flex;
-            justify-content: space-between;
-            list-style-type: none;
-
-             li.user_actions_item {
-                cursor: pointer;
-                border: 2px solid $color_font_border;
-                box-shadow: $shadow;
-                border-radius: 15px;
-                display: flex;
-                flex-direction: column;
-                min-width: 141px;
-                padding: ($spacing_lg + $spacing_md) $spacing_lg;
-                text-align: center;
-                font-weight: 700;
-                transition: background-color 500ms ease-in-out,
-                            color 500ms ease-in-out,
-                            border-color 500ms ease-in-out;
-
-                &:hover {
-                    background-color: white;
-                    border-color: white;
-                    color: $color_base;
-                }
-
-                i {
-                    font-size: 1.75rem;
-                }
-            }
-        }
-    }
-
-    .view_useractions {
-
-        #dynamic_deposit,
-        #dynamic_withdraw,
-        #dynamic_send,
-        #dynamic_transactions {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
+        ul.nav-options,
+        div.nav-brand {
             height: 100%;
         }
 
-        #dynamic_deposit,
-        #dynamic_withdraw,
-        #dynamic_send {
-            form {
-                width: 80%;
-                display: flex;
-                flex-direction: column;
+        img, ul.nav-options > img {
+            height: 40px;
+            width: 40px;
+        }
 
-                .input-group-header {
-                    display: flex;
-                    align-items: center;
-                    margin: $spacing_md+10px 0px;
+        div.nav-brand {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
 
-                    img {
-                        width: 150px;
-                        height: 150px;
-                    }
+            h1 {
+                margin-left: $spacing_md;
+                font-size: 40px;
+                font-weight: 700;
 
-                    .input-group-header-info {
-                        margin-left: $spacing_sm;
-
-                        h2 {
-                            color: $color_accent2;
-                        }
-
-                        p {
-                            margin-top: $spacing_sm;
-                            font-size: 0.75rem;
-                        }
-                    }
-                }
-
-                .input-group {
-                    display: flex;
-                    flex-direction: column;
-                    margin: $spacing_md+10px 0px;
-
-                    label {
-                        margin-bottom: $spacing_sm;
-                    }
-
-                    input {
-                        width: 100%;
-                        border: none;
-                        border-bottom: 2px solid $color_accent2;
-                        font-size: 18px;
-                        font-weight: 700;
-                        color: $color_font;
-                        padding: $spacing_sm 0px;
-                        background-color: transparent;
-
-                        &:focus {
-                            outline: none;
-                        }
-                    }
-
-                    button {
-                        cursor: pointer;
-                        border: none;
-                        color: $color_font;
-                        background-color: transparent;
-                        width: max-content;
-                        font-family: 'Arvo', serif;
-                        font-size: 18px;
-                        font-weight: 700;
-                        padding: $spacing_md 0px;
-                    }
+                span {
+                    color: $color_accent2;
                 }
             }
         }
 
-        #dynamic_transactions {
-        height: 570px;
-        max-height: 570px;
-        justify-content: flex-start;
-        flex-direction: column !important;
+        ul.nav-options {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+            width: 100%;
 
-            p.transaction_type_info {
-                justify-self: flex-end;
-                width: 100%;
-                text-align: right;
-                font-size: 0.75rem;
-                padding-right: $spacing_sm + $spacing_sm;
-                margin-bottom: $spacing_sm;
-                font-style: italic;
-            }
+            li {
+                cursor: pointer;
+                list-style-type: none;
+                border-radius: 35px;
+                padding: $spacing_md $spacing_lg;
+                margin: 0px $spacing_md;
+                text-align: center;
+                font-weight: 700;
+                color: $color_accent2;
+                transition: background-color 500ms ease-in-out,
+                            color 500ms ease-in-out,
+                            border-color 500ms ease-in-out;
+                
+                &:last-child{
+                    border: 2px solid $color_accent2;
+                    min-width: 115px;
 
-            #transactions_options {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding-left: $spacing_sm + $spacing_sm;
-                margin-right: $spacing_sm + $spacing_sm;
-                margin-bottom: $spacing_sm;
-
-                .transactions_options_container1 {
-                    a {
-                        font-size: 0.75rem;
-                        font-style: italic;
-                        text-decoration: none;
+                    &:hover {
+                        border: 2px solid white;
+                        background-color: white;
                         color: $color_accent2;
-                        cursor: pointer;
-
-                        i {                        
-                            color: $color_accent2;
-                        }
-                    }
-                }
-
-                .transactions_options_container2 {
-                    label {
-                        font-style: italic;
-                    }
-
-                    select#transaction_type {
-                        background-color: transparent;
-                        color: $color_accent2;
-                        padding: $spacing_sm 0px;
-                        margin-left: $spacing_sm;
-                        width: 150px;
-                        font-size: 18px;
-                        font-family: 'Arvo';
-                        font-weight: 700;
-                        border: none;
-
-                        &:focus {
-                            outline: none;
-                        }
-                    }
-                }
-            }
-
-            #transactions_list {
-                width: 100%;
-
-                div.transactions_list_empty {
-                    margin-top: $spacing_lg +  $spacing_lg;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-
-                    h3 {
-                        margin-top: $spacing_md;
-                        font-size: 1.5rem;
-                    }
-
-                    img {
-                        margin-top: $spacing_md;
-                        width: 50%;
-                        height: auto;
-                    }
-                }
-
-                li {
-                    padding: $spacing_md;
-                    list-style-type: none;
-                    border: 2px solid $color_font_border;
-                    box-shadow: $shadow;
-                    border-radius: 15px;
-                    margin: $spacing_md $spacing_sm;
-                    
-                    .transactions_listitem_date,
-                    .transactions_listitem_balanceBefore {
-                        font-size: 0.75rem;
-                        font-style: italic;
-                    }
-
-                    .transactions_listitem_balanceBefore {
-                        float: right;
-                    }
-
-                    .transactions_listitem_main {
-                        margin: $spacing_sm 0px;
-                        display: flex;
-                        justify-content: space-between;
-
-                        .transactions_listitem_type,
-                        .transactions_listitem_amount {
-                            font-weight: 700;
-                            color: $color_accent2;
-                        }
                     }
                 }
             }
         }
     }
 
+    div{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
+        .view_usercard,
+        .view_useractions {
+            width: 45%;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .view_usercard,
+        .view_useractions  {
+            width: 45%;
+        }
+
+        .view_usercard {
+
+            .wrapper {
+                width: 100%; 
+                height: 100%;
+                flex-direction: column;
+
+                .user_informations {
+                    width: 95%;
+                    height: 50%;
+                    display: flex;
+                    padding: $spacing_lg;
+                    margin-bottom: $spacing_lg;
+                    border: 2px solid $color_font_border;
+                    border-radius: 15px;
+                    box-shadow: $shadow;
+
+                    img#user_avatar {
+                        min-width: 178px;
+                        min-height: 178px;
+                        width: 178px;
+                        height: 178px;
+                        border-radius: 50%;
+                        box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+                    }
+
+                    div.user_meta_container {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        margin-left: $spacing_lg;
+                        width: 100%;
+                        height: 100%;
+
+                        #user_name {
+                            font-size: 1.5rem;
+                            margin-bottom: $spacing_sm;
+
+                            #transactions,
+                            #editaccount {
+                                cursor: pointer;
+                            }
+
+                            span#name {
+                                color: $color_accent2;
+                            }
+                        }
+
+                        #user_accountAvatarChange,
+                        #user_accountcreation,
+                        #user_accountnumber {
+                            font-size: 0.75rem;
+                            font-style: italic;
+                        }
+
+                        #user_accountnumber {
+                            margin-bottom: $spacing_lg;
+                        }
+
+                        #user_balance {
+                            margin-top: $spacing_lg + $spacing_lg;
+                            font-weight: 700;
+                            font-size: 1.75rem;
+                            position: absolute;
+                            top: 230px;
+                            left: 390px;
+                            text-align: right;
+                            width: 250px;
+                            
+                            span#balance, span i {
+                                color: $color_accent2;
+                            }
+                        }
+                    }
+                }
+
+                .user_actions {
+                    width: 95%;
+                    height: 25%;
+                    margin-bottom: $spacing_lg;
+                    display: flex;
+                    justify-content: space-between;
+                    list-style-type: none;
+
+                    li.user_actions_item {
+                        cursor: pointer;
+                        border: 2px solid $color_font_border;
+                        box-shadow: $shadow;
+                        border-radius: 15px;
+                        display: flex;
+                        flex-direction: column;
+                        min-width: 141px;
+                        padding: ($spacing_lg + $spacing_md) $spacing_lg;
+                        text-align: center;
+                        font-weight: 700;
+                        transition: background-color 500ms ease-in-out,
+                                    color 500ms ease-in-out,
+                                    border-color 500ms ease-in-out;
+
+                        &:hover {
+                            background-color: white;
+                            border-color: white;
+                            color: $color_base;
+                        }
+
+                        i {
+                            font-size: 1.75rem;
+                        }
+                    }
+                }
+
+                .fact {
+                    display: flex;
+                    align-items: center;
+                    width: 95%;
+                    height: 25%;
+
+                    img, .fact-information {
+                        margin: 0px $spacing_lg;
+                    }
+                    
+                    img {
+                        width: 50px;
+                        height: auto;
+                    }
+
+                    .fact-information {
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: center;
+
+                        b {
+                            margin-bottom: $spacing_md;
+                        }
+                    }
+                }
+            }
+        }
+
+        .view_useractions {
+
+            .wrapper {
+                width: 100%;
+                height: 100%;   
+
+                #dynamic_deposit,
+                #dynamic_withdraw,
+                #dynamic_send,
+                #dynamic_transactions {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                #dynamic_deposit,
+                #dynamic_withdraw,
+                #dynamic_send {
+                    form {
+                        height: 100%;
+                        width: 80%;
+                        display: flex;
+                        flex-direction: column;
+
+                        .input-group-header {
+                            height: 150px;
+                            max-height: 150px;
+                            display: flex;
+                            align-items: center;
+                            margin: 0px 0px $spacing_lg 0px;
+
+                            img {
+                                width: 150px;
+                                height: 150px;
+                            }
+
+                            .input-group-header-info {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: flex-start;
+                                margin-left: $spacing_sm;
+                                height: 100%;
+
+                                h2 {
+                                    color: $color_accent2;
+                                }
+
+                                p {
+                                    margin-top: $spacing_sm;
+                                    font-size: 0.75rem;
+                                }
+                            }
+                        }
+
+                        .input-group {
+                            height: max-content;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            margin: $spacing_lg 0px;
+
+                            label {
+                                margin-bottom: $spacing_sm;
+                            }
+
+                            input {
+                                width: 100%;
+                                border: none;
+                                border-radius: 15px;
+                                border-bottom: 2px solid $color_accent2;
+                                font-size: 18px;
+                                font-weight: 700;
+                                color: $color_font;
+                                padding: $spacing_sm;
+                                background-color: hsla(203°, 100%, 85%, 0.5);
+
+                                &:focus {
+                                    outline: none;
+                                }
+                            }
+
+                            button {
+                                cursor: pointer;
+                                border: none;
+                                color: $color_font;
+                                background-color: transparent;
+                                width: max-content;
+                                font-family: 'Arvo', serif;
+                                font-size: 18px;
+                                font-weight: 700;
+                                padding: $spacing_md 0px;
+                            }
+                        }
+                    }
+                }
+
+                #dynamic_transactions {
+                    height: 509px;
+                    max-height: 509px;
+                    padding-left: $spacing_md;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-direction: column !important;
+
+                        .dynamic_transactions_container {
+                            width: 95%;
+                            height: 100%;
+                            max-height: 100%;
+                            display: flex;
+                            justify-content: flex-start;
+                            flex-direction: column;          
+                            
+                            
+                        #transactions_options {
+                            height: max-content;
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: $spacing_sm;
+
+                            a {
+                                font-size: 0.75rem;
+                                font-style: italic;
+                                text-decoration: none;
+                                color: $color_accent2;
+                                cursor: pointer;
+
+                                i {                        
+                                    color: $color_accent2;
+                                }
+                            }
+
+                            .transactions_options_container2 {
+                                display: flex;
+                                justify-content: flex-end;
+                                height: max-content;
+                                width: 390px;
+
+                                label {
+                                    font-style: italic;
+                                }
+
+                                select#transaction_type {
+                                    background-color: transparent;
+                                    color: $color_accent2;
+                                    padding: $spacing_sm 0px;
+                                    margin-left: $spacing_sm;
+                                    width: 150px;
+                                    font-size: 18px;
+                                    font-family: 'Arvo';
+                                    font-weight: 700;
+                                    border: none;
+
+                                    &:focus {
+                                        outline: none;
+                                    }
+                                }
+                            }
+
+                        }
+
+                        #transactions_list {
+                            width: 100%;
+                            height: 100%;
+
+                            div.transactions_list_empty {
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+
+                                h3 {
+                                    margin-top: $spacing_md;
+                                    font-size: 1.5rem;
+                                }
+
+                                img {
+                                    margin-top: $spacing_md;
+                                    width: 50%;
+                                    height: auto;
+                                }
+                            }
+
+                            li {
+                                background-color: $color_base;
+                                padding: $spacing_md;
+                                list-style-type: none;
+                                border: 2px solid $color_font_border;
+                                margin: $spacing_lg 0px;
+                                box-shadow: $shadow;
+                                border-radius: 15px;
+                                
+                                .transactions_listitem_date,
+                                .transactions_listitem_balanceBefore {
+                                    font-size: 0.75rem;
+                                    font-style: italic;
+                                }
+
+                                .transactions_listitem_balanceBefore {
+                                    float: right;
+                                }
+
+                                .transactions_listitem_main {
+                                    margin: $spacing_sm 0px;
+                                    display: flex;
+                                    justify-content: space-between;
+
+                                    .transactions_listitem_type,
+                                    .transactions_listitem_amount {
+                                        font-weight: 700;
+                                        color: $color_accent2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

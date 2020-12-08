@@ -9,12 +9,11 @@ const BankingApp = Application();
 // EVENT LISTENERS
 // ====================================================== //
 
-const transactionsBtn = document.getElementById('transactions');
 const numberInputs = [...document.querySelectorAll('input[type=num]')]
-const initNavItemsArr = [...document.querySelector('.initial_nav_parent').children];
+const initNavItemsArr = [...document.querySelector('.nav-options').children];
 const initNavViewsArr = [...document.querySelector('.view_initial_nav_dynamic').children];
-const userActionsViewsArr = [...document.querySelector('.view_useractions').children];
-const userActionsBtnsArr = [...document.querySelector('.user_actions').children, transactionsBtn];
+const userActionsViewsArr = [...document.querySelector('.view_useractions_parent').children];
+const userActionsBtnsArr = [...document.querySelector('.user_actions').children];
 
 
 // dynamic initial page panels for each nav buttons
@@ -37,7 +36,7 @@ initNavItemsArr.forEach(navItem => {
     })
 })
 
-// dynamic user panels for each action buttons except logout
+// dynamic user panels for each action buttons
 userActionsBtnsArr.forEach(actionBtn => {
     actionBtn.addEventListener('click', function () {
         resetForms();
@@ -51,8 +50,7 @@ userActionsBtnsArr.forEach(actionBtn => {
             });
 
             userActionsBtnsArr.forEach(actionBtn2 => {
-                if (actionBtn2.dataset.action &&
-                    actionBtn2.dataset.action !== 'transactions') {
+                if (actionBtn2.dataset.action) {
                     this.dataset.action === actionBtn2.dataset.action
                         ? this.classList.add('active-nav')
                         : actionBtn2.classList.remove('active-nav')
@@ -61,8 +59,6 @@ userActionsBtnsArr.forEach(actionBtn => {
 
             return null;
         }
-
-        BankingApp.logout();
     })
 })
 
@@ -91,6 +87,9 @@ numberInputs.forEach(numberInput => {
 
 // onload initialize the notifier
 document.addEventListener("DOMContentLoaded", BankingApp.notifier.initialize);
+
+// logout button
+BankingApp.logoutBtn.addEventListener('click', BankingApp.logout)
 
 // onsubmission of register form
 BankingApp.form_register.addEventListener('submit', BankingApp.submitRegisterForm)

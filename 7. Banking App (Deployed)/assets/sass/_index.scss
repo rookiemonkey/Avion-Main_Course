@@ -1,7 +1,7 @@
 $color_base:  hsl(203, 100%, 90%);
 $color_accent1:#80CEFF;
 $color_accent2: #ff6200;
-$color_accent3: #ffb484;
+$color_accent3: #ff9f64;
 $spacing_sm: 7.5px;
 $spacing_md: 12px;
 $spacing_lg: 20px;
@@ -140,18 +140,19 @@ body main {
     }
 
     input {
-      width: 100%;
-      border: none;
-      border-bottom: 2px solid $color_accent2;
-      font-size: 18px;
-      font-weight: 700;
-      color: $color_font;
-      padding: $spacing_sm 0px !important;
-      background-color: transparent;
+        width: 100%;
+        border: none;
+        border-radius: 15px;
+        border-bottom: 2px solid $color_accent2;
+        font-size: 18px;
+        font-weight: 700;
+        color: $color_font;
+        padding: $spacing_sm;
+        background-color: hsla(203°, 100%, 85%, 0.5);
 
-      &:focus {
-          outline: none;
-      }
+        &:focus {
+            outline: none;
+        }
     }
 
     button {
