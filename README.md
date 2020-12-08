@@ -98,12 +98,14 @@
 
 >> ###### Features:
 >> - [x] use of ES6 Classes
+>> - [x] passwords encrypted (not recommended doing on frontend)
 >> - [x] supports deposit, withdraw, sending money
 >> - [x] supports access to transaction histories
 >> - [x] supports avatar change
+>> - [x] supports change password
 >> - [x] supports downloading bank statements
 
-![Screenshot](_SCREENSHOTS/project7new1.png)
+![Screenshot](_SCREENSHOTS/project7new2.png)
 
 
 
