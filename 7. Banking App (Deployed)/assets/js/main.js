@@ -47,6 +47,14 @@ userActionsBtnsArr.forEach(actionBtn => {
                 view.dataset.action === actionBtn.dataset.action
                     ? view.style.display = 'flex'
                     : view.style.display = 'none'
+
+                if (actionBtn.dataset.action === 'transactions') {
+                    // trigger an event programatically against a certain element
+                    BankingApp.transactionSelect.value = 'ALL'
+                    const event = document.createEvent("HTMLEvents");
+                    event.initEvent("change", false, true);
+                    BankingApp.transactionSelect.dispatchEvent(event);
+                }
             });
 
             userActionsBtnsArr.forEach(actionBtn2 => {
