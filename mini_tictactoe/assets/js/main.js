@@ -42,7 +42,10 @@ const App = new function Application() {
         applause.play();
         state.started = false;
         display.textContent = `Winner is ${state.player}!`
-        grids.forEach(grid => grid.classList.add('cell-occupied'))
+        grids.forEach(grid => {
+            grid.classList.add('cell-occupied')
+            grid.classList.remove('hoverable')
+        })
     }
 
 
@@ -50,7 +53,10 @@ const App = new function Application() {
     function tie() {
         state.started = false;
         display.textContent = `Tie Game!`
-        grids.forEach(grid => grid.classList.add('cell-occupied'))
+        grids.forEach(grid => {
+            grid.classList.add('cell-occupied')
+            grid.classList.remove('hoverable')
+        })
     }
 
 
@@ -63,7 +69,7 @@ const App = new function Application() {
         display.textContent = 'X is Playing';
         grids.forEach(grid => {
             grid.textContent = ''
-            grid.className = 'cell'
+            grid.className = 'cell hoverable'
         })
     }
 
@@ -133,6 +139,7 @@ const App = new function Application() {
             state[`${state.player}Coors`].push(`${row}-${col}`);
 
             grid.textContent = state.player;
+            grid.classList.remove('hoverable');
             grid.classList.add('cell-occupied');
             grid.classList.add(`${state.player}`);
 
