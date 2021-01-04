@@ -113,7 +113,8 @@ function HTMLTaskElement(task, done) {
 
     // mount to DOM
     li.appendChild(rmvIcon)
-    document.getElementById('tasklist').appendChild(li);
+    document.getElementById('tasklist').insertAdjacentElement('afterbegin', li)
+    // document.getElementById('tasklist').appendChild(li);
 
 }
 
