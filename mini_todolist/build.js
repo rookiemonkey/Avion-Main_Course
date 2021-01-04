@@ -34,6 +34,10 @@ const paths = {
         src: './assets/images/*.jpg',
         dest: './build/assets/images'
     },
+    svg: {
+        src: './assets/images/*.svg',
+        dest: './build/assets/images'
+    },
     fonts: {
         src: './assets/fonts/*',
         dest: './build/assets/fonts'
@@ -107,6 +111,15 @@ const images = () =>
         .pipe(imagemin())
         .pipe(gulp.dest(paths.images.dest));
 
+
+// Copy the IMAGES folder/contents minified
+const svg = () =>
+    gulp
+        .src(paths.svg.src)
+        .pipe(plumber())
+        .pipe(gulp.dest(paths.svg.dest));
+
+
 // Copy the FONTS folder/contents
 const fonts = () =>
     gulp
@@ -119,12 +132,13 @@ const fonts = () =>
 // Define the series of tasks needed to accomplished by gulp
 const build = gulp.series(
     clean,
-    gulp.parallel(html, styles, scripts, images, fonts)
+    gulp.parallel(html, styles, scripts, images, svg, fonts)
 );
 
 exports.clean = clean;
 exports.styles = styles;
 exports.scripts = scripts;
+exports.svg = svg;
 exports.images = images;
 exports.fonts = fonts;
 exports.build = build;
