@@ -5,11 +5,10 @@ const ToDoApp = (function Application() {
         todos: new Array()
     }
 
+    const input = document.getElementById('input');
+    const submit = document.getElementById('submit');
+
     return class App {
-
-        static input = document.getElementById('input');
-        static submit = document.getElementById('submit');
-
 
         static onload() {
             // initialize the current date
@@ -22,19 +21,23 @@ const ToDoApp = (function Application() {
                 STATE.todos.push(...JSON.parse(localStorage.getItem('todos')))
                 STATE.todos.forEach(todo => new HTMLTaskElement(todo.task, todo.done))
             }
+
+            // initialize event listeners
+            submit.onclick = () => ToDoApp.addTodo();
+            input.onkeypress = e => e.key === 'Enter' ? ToDoApp.addTodo() : null
         }
 
 
         static addTodo = () => {
             // create/append task element
-            new HTMLTaskElement(this.input.value, false);
+            new HTMLTaskElement(input.value, false);
 
             // update the state/local data
-            STATE.todos.push({ task: this.input.value, done: false });
+            STATE.todos.push({ task: input.value, done: false });
             localStorage.setItem('todos', JSON.stringify(STATE.todos));
 
             // reset the inputs
-            this.input.value = '';
+            input.value = '';
         }
 
 
@@ -109,12 +112,3 @@ function HTMLTaskElement(task, done) {
 
 // onload of the document
 window.onload = ToDoApp.onload;
-
-// onclick of submit button
-ToDoApp.submit.onclick = ToDoApp.addTodo;
-
-// onkeypress of input, listens for 'enter' key
-ToDoApp.input.onkeypress = event =>
-    event.key === 'Enter'
-        ? ToDoApp.addTodo()
-        : null
