@@ -73,7 +73,7 @@ main {
   border: none;
   font-size: 1.1rem;
   font-weight: 700;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
   border-radius: 35px;
   cursor: pointer;
   transition: background-color 250ms ease-in-out,
@@ -180,6 +180,48 @@ main {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+.toast {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-family: 'Garamond';
+  margin: auto;
+  max-width: 400px;
+  padding: 20px;
+  background: #cccccc;
+  color: #333333;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  border: 2px solid #aaaaaa;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 9999;
+  transition: opacity 0.2s,  top 0.2s,  visibility 0.2s; }
+
+.toast--visible {
+  top: 10px;
+  opacity: 1;
+  visibility: visible; }
+
+.toast--success {
+  background: #28a745;
+  border-color: #28a745;
+  color: #ffffff; }
+
+.toast--error {
+  background: #dc3545;
+  border-color: #dc3545;
+  color: #ffffff; }
+
+.toast--warning {
+  background: #ffc107;
+  border-color: #ffc107;
+  color: black; }
 
 @keyframes zoomIn {
   from {

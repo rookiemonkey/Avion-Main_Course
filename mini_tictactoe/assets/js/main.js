@@ -23,7 +23,7 @@ const App = new function Application() {
     const grids = [...document.getElementById('container-grid').children];
     const applause = new Audio('./assets/audios/applause.mp3');
     const background = new Audio('./assets/audios/background.mp3');
-
+    const notify = new HTMLElementToaster();
 
 
     function nextPlayer() {
@@ -42,6 +42,7 @@ const App = new function Application() {
         applause.play();
         state.started = false;
         display.textContent = `Winner is ${state.player}!`
+        notify.showMessage(`Hooray! ${state.player} is the winner`, 'success')
         grids.forEach(grid => {
             grid.classList.add('cell-occupied')
             grid.classList.remove('hoverable')
@@ -53,6 +54,7 @@ const App = new function Application() {
     function tie() {
         state.started = false;
         display.textContent = `Tie Game!`
+        notify.showMessage(`Owwww! It's a tie game!`, 'warning')
         grids.forEach(grid => {
             grid.classList.add('cell-occupied')
             grid.classList.remove('hoverable')
@@ -151,7 +153,7 @@ const App = new function Application() {
         }
 
         if (!state.started)
-            alert('Please restart the game')
+            notify.showMessage('Please restart the game', 'error')
 
     }
 
@@ -176,7 +178,33 @@ const App = new function Application() {
     }
 
 
-    //! PUBLIC METHODS
+
+    function HTMLElementToaster() {
+
+        this.initialize = () => {
+            this.hideTimeout = null;
+            this.element = document.createElement("div");
+            this.element.className = "toast";
+            document.body.appendChild(this.element);
+        }
+
+        this.showMessage = (message, state) => {
+            clearTimeout(this.hideTimeout);
+            this.element.textContent = message;
+            this.element.className = "toast toast--visible";
+
+            if (state) {
+                this.element.classList.add(`toast--${state}`);
+            }
+
+            this.hideTimeout = setTimeout(() => {
+                this.element.classList.remove("toast--visible");
+            }, 3000);
+        }
+    }
+
+
+    //! PUBLIC METHOD/S
 
     this.onloadApp = () => {
 
@@ -185,6 +213,9 @@ const App = new function Application() {
         background.loop = true;
         background.volume = 0.075;
         applause.volume = 0.08;
+
+        // initiate toaster element
+        notify.initialize();
 
         // attach event listener for restart
         restart_btn.onclick = restart;
