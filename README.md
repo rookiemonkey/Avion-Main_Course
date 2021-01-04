@@ -109,6 +109,61 @@
 
 
 
+### ✨ [8. Budget Calculator (Click to see live version)](https://krrb-prod-budgetcalculator.netlify.app)
+
+> This project is focused on the usage of basic HTML, CSS and JS as instructed by Avion School instructors
+
+>> ###### Features:
+>> - [x] Best on desktop and ipad
+>> - [x] Uses Object Oriented Programming style
+>> - [x] Uses localstorage for data persistence
+
+![Screenshot](_SCREENSHOTS/project8.png)
+
+
+
+
+
+### ✨ [Mini Project - SayHello App (Click to see live version)](https://krrb-prod-sayhello.netlify.app/)
+
+> This project is focused on the usage of basic HTML, CSS and JS as instructed by Avion School instructors
+
+>> ###### Features:
+>> - [x] Best on desktop and ipad
+>> - [x] Responsive voice enabled, litterally says hello!
+>> - [x] Pre-selected names to choose from
+>> - [x] Able to enter custom name
+
+![Screenshot](_SCREENSHOTS/sayhelloapp.png)
+
+
+
+### ✨ [Mini Project - TicTacToe App (Click to see live version)](https://krrb-prod-tictactoe.netlify.app/)
+
+> This project is focused on the usage of basic HTML, CSS and JS as instructed by Avion School instructors
+
+>> ###### Features:
+>> - [x] Best on desktop and ipad
+>> - [x] Highlights the winning line
+>> - [x] Follows the usual TicTacToe rules
+>> - [x] Uses Object Oriented Programming style
+
+
+![Screenshot](_SCREENSHOTS/tictactoeapp.png)
+
+
+
+### ✨ [Mini Project - Todo-List App (Click to see live version)](https://krrb-prod-todolistv2.netlify.app/)
+
+> This project is focused on the usage of basic HTML, CSS and JS as instructed by Avion School instructors
+
+>> ###### Features:
+>> - [x] Best on desktop and ipad
+>> - [x] Uses Object Oriented Programming style
+>> - [x] Uses localstorage for data persistence
+
+![Screenshot](_SCREENSHOTS/todolistapp.png)
+
 
 ## Author: <i>Kevin Roi R. Basina</i>
 <a href="https://github.com/rookiemonkey">

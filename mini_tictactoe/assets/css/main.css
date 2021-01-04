@@ -1,0 +1,191 @@
+:root {
+  --color-base: #D7CEC7;
+  --color-accent1: white;
+  --color-accent2: #C09F80;
+  --color-accent3: #565656;
+  --color-x: lightgreen;
+  --color-o: rgb(255, 255, 163);
+  --spacing-sm: 8px;
+  --spacing-md: 15px;
+  --spacing-lg: 25px;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Poppins Regular'), local('Poppins-Regular'), url('../fonts/poppins-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Poppins Bold'), local('Poppins-Bold'), url('../fonts/poppins-700.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face{
+  font-family:"Ionicons";
+  src: url("../fonts/ioniconsv2.0.1.ttf");
+  src: url("../fonts/ioniconsv2.0.1.ttf") format("embedded-opentype"),
+    url("../fonts/ioniconsv2.0.1.ttf") format("truetype"),
+    url("../fonts/ioniconsv2.0.1.ttf") format("woff"),
+    url("../fonts/fonts/ionicons.svg?v=2.0.1#Ionicons") format("svg");
+    font-weight:normal;
+    font-style:normal
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins';
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-accent3);
+}
+
+main {
+  height: 100%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+}
+
+#display {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+}
+
+#restart {
+  background-color: var(--color-accent1);
+  color: black;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 35px;
+  cursor: pointer;
+  transition: background-color 250ms ease-in-out,
+              color 250ms ease-in-out
+              box-shadow 250ms ease-in-out;
+}
+
+#restart:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, 
+              rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+#container-grid {
+    height: auto;
+    display: grid;  
+    border: none;
+    margin: var(--spacing-lg) 0px;
+    grid-template-columns: auto auto auto;
+}
+
+.cell {
+    border: 2px solid var(--color-accent1);
+    width: 151px;
+    height: 130px;
+    font-size: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 500ms ease-in-out,
+                font-size 500ms ease-in-out,
+                box-shadow 500ms ease-in-out;
+}
+
+.cell:nth-child(1), 
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(9), 
+.cell:nth-child(8),
+.cell:nth-child(7) {
+  border-bottom: none;
+}
+
+.cell:nth-child(1), 
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-left: none;
+}
+
+.cell:nth-child(3), 
+.cell:nth-child(6),
+.cell:nth-child(9) {
+  border-right: none;
+}
+
+.cell:hover {
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+                rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.shadow {
+  color: var(--color-accent3);
+  animation-name: zoomIn;
+  animation-duration: 250ms;
+}
+
+.cell-occupied {
+  cursor: not-allowed;
+}
+
+.X {
+  color: var(--color-x);
+}
+
+.O {
+  color: var(--color-o);
+}
+
+.winningrid {
+  background-color: var(--color-accent1);
+  color: black;
+  font-size: 6rem;
+}
+
+/* ionic icon */
+.ion-refresh::before {
+  content: "\f21c";
+  display: inline-block;
+	font-family: "Ionicons";
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	text-rendering: auto;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

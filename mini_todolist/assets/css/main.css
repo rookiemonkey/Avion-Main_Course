@@ -1,0 +1,205 @@
+:root {
+    --color-base: #E8CEBF;
+    --color-accent1: #DDAF94;
+    --color-accent2: #266150;
+    --color-accent3: #4F4846;
+    --radius: 35px;
+    --spacing-sm: 8px;
+    --spacing-md: 15px;
+    --spacing-lg: 24px;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Poppins Regular'), 
+        local('Poppins-Regular'), 
+        url('../fonts/poppins-400.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Poppins Bold'), 
+        local('Poppins-Bold'), 
+        url('../fonts/poppins-700.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face{
+    font-family:"Ionicons";
+    src: url("../fonts/ioniconsv2.0.1.ttf");
+    src: url("../fonts/ioniconsv2.0.1.ttf") format("embedded-opentype"),
+    url("../fonts/ioniconsv2.0.1.ttf") format("truetype"),
+    url("../fonts/ioniconsv2.0.1.ttf") format("woff"),
+    url("../fonts/fonts/ionicons.svg?v=2.0.1#Ionicons") format("svg");
+    font-weight:normal;
+    font-style:normal
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+body {
+    background-color: var(--color-accent3);
+}
+
+main {
+    /* border: 2px solid red; */
+    width: 40%;
+    min-height: 50%;
+    margin: 5% auto;
+}
+
+#top {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/banner.jpg);
+    background-color: rgba(0, 0, 0, 0.85);
+    background-blend-mode: overlay;
+    color: var(--color-base);
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: var(--radius);
+    margin-bottom: var(--spacing-md);
+}
+
+div#inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+}
+
+input#input {
+    width: 75%;
+    background-color: transparent;
+    padding: var(--spacing-sm) 0px;
+    color: var(--color-accent1);
+    border: none;
+    border-bottom: 2px solid var(--color-accent1);
+}
+
+input#input:active,
+input#input:focus,
+button#submit {
+    outline: none;
+}
+
+button#submit {
+    width: 19%;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-accent3);
+    border: none;
+    background-color: var(--color-accent1);
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.taskitem {
+    list-style-type: none;
+    color: var(--color-accent3);
+    font-weight: 700;
+    background-color: var(--color-accent1);
+    margin-bottom: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 500ms ease-in-out;
+    -webkit-animation-name: fadeInUp;
+    -webkit-animation-duration: 500ms;
+    animation-name: fadeInUp;
+    animation-duration: 500ms;
+}
+
+.taskitem-remove {
+    float: right;
+    cursor: pointer;
+}
+
+.taskitem-done {
+    background-color: #706e6e;
+}
+
+.fadeOutRight {
+    -webkit-animation-name: fadeOutRight;
+    animation-name: fadeOutRight;
+    -webkit-animation-duration: 500ms;
+    animation-duration: 500ms;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes fadeOutRight {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(25%, 0, 0);
+    transform: translate3d(25%, 0, 0);
+  }
+}
+
+@keyframes fadeOutRight {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(25%, 0, 0);
+    transform: translate3d(25%, 0, 0);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  main {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  main {
+    width: 95%;
+  }
+}
