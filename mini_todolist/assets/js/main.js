@@ -7,6 +7,7 @@ const ToDoApp = (function Application() {
 
     const input = document.getElementById('input');
     const submit = document.getElementById('submit');
+    const notify = new HTMLElementToaster();
 
     return class App {
 
@@ -25,10 +26,16 @@ const ToDoApp = (function Application() {
             // initialize event listeners
             submit.onclick = () => ToDoApp.addTodo();
             input.onkeypress = e => e.key === 'Enter' ? ToDoApp.addTodo() : null
+
+            // initialize notifier
+            notify.initialize();
         }
 
 
         static addTodo = () => {
+            if (!input.value)
+                return notify.showMessage('Please write down what do you need to do', 'error')
+
             // create/append task element
             new HTMLTaskElement(input.value, false);
 
@@ -108,6 +115,31 @@ function HTMLTaskElement(task, done) {
     li.appendChild(rmvIcon)
     document.getElementById('tasklist').appendChild(li);
 
+}
+
+// model for toast notification
+function HTMLElementToaster() {
+
+    this.initialize = () => {
+        this.hideTimeout = null;
+        this.element = document.createElement("div");
+        this.element.className = "toast";
+        document.body.appendChild(this.element);
+    }
+
+    this.showMessage = (message, state) => {
+        clearTimeout(this.hideTimeout);
+        this.element.textContent = message;
+        this.element.className = "toast toast--visible";
+
+        if (state) {
+            this.element.classList.add(`toast--${state}`);
+        }
+
+        this.hideTimeout = setTimeout(() => {
+            this.element.classList.remove("toast--visible");
+        }, 3000);
+    }
 }
 
 // onload of the document
