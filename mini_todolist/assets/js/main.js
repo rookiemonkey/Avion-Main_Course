@@ -36,6 +36,9 @@ const ToDoApp = (function Application() {
             if (!input.value)
                 return notify.showMessage('Please write down what do you need to do', 'error')
 
+            if (input.value && input.value.length > 59)
+                return notify.showMessage('Please make your todo a bit shorter', 'error')
+
             // create/append task element
             new HTMLTaskElement(input.value, false);
 
