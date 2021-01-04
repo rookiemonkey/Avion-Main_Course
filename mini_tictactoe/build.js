@@ -33,6 +33,10 @@ const paths = {
         src: './assets/audios/*.mp3',
         dest: './build/assets/audios'
     },
+    svg: {
+        src: './assets/images/*.svg',
+        dest: './build/assets/images'
+    },
     fonts: {
         src: './assets/fonts/*',
         dest: './build/assets/fonts'
@@ -97,6 +101,13 @@ const scripts = () =>
         .pipe(gulp.dest(paths.scripts.dest));
 
 
+// Copy the SVGs folder/contents minified
+const svg = () =>
+    gulp
+        .src(paths.svg.src)
+        .pipe(plumber())
+        .pipe(gulp.dest(paths.svg.dest));
+
 
 // Copy the FONTS folder/contents
 const fonts = () =>
@@ -119,12 +130,13 @@ const audios = () =>
 // Define the series of tasks needed to accomplished by gulp
 const build = gulp.series(
     clean,
-    gulp.parallel(html, styles, scripts, fonts, audios)
+    gulp.parallel(html, styles, scripts, svg, fonts, audios)
 );
 
 exports.clean = clean;
 exports.styles = styles;
 exports.scripts = scripts;
+exports.svg = svg;
 exports.fonts = fonts;
 exports.audios = audios;
 exports.build = build;

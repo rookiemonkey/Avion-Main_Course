@@ -11,21 +11,10 @@
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: 'Arcade';
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
-  src: local('Poppins Regular'), local('Poppins-Regular'), url('../fonts/poppins-400.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local('Poppins Bold'), local('Poppins-Bold'), url('../fonts/poppins-700.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('../fonts/arcade.ttf');
 }
 
 @font-face{
@@ -43,7 +32,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: 'Poppins';
+  font-family: 'Arcade';
 }
 
 body {
@@ -61,15 +50,26 @@ main {
   align-items: center;
 }
 
+#title,
 #display {
-  font-size: 1.5rem;
-  font-weight: 800;
   color: white;
 }
 
+#title {
+  margin-bottom: var(--spacing-md);
+}
+
+#title h1 {
+  font-size: 2.5rem;
+}
+
+#display {
+  font-size: 1.5rem;
+}
+
 #restart {
-  background-color: var(--color-accent1);
-  color: black;
+  background-color: transparent;
+  color: white;
   border: none;
   font-size: 1.1rem;
   font-weight: 700;
@@ -77,7 +77,7 @@ main {
   border-radius: 35px;
   cursor: pointer;
   transition: background-color 250ms ease-in-out,
-              color 250ms ease-in-out
+              color 250ms ease-in-out,
               box-shadow 250ms ease-in-out;
 }
 
@@ -95,9 +95,10 @@ main {
 }
 
 .cell {
+    font-family: "Permanent Marker", cursive;
     border: 2px solid var(--color-accent1);
-    width: 151px;
-    height: 130px;
+    width: 130px;
+    height: 110px;
     font-size: 5rem;
     display: flex;
     justify-content: center;
@@ -140,6 +141,7 @@ main {
 }
 
 .shadow {
+  font-family: "Permanent Marker", cursive;
   color: var(--color-accent3);
   animation-name: zoomIn;
   animation-duration: 250ms;
@@ -159,7 +161,7 @@ main {
 
 .winningrid {
   background-color: var(--color-accent1);
-  color: black;
+  color: var(--color-accent3);
   font-size: 6rem;
 }
 
