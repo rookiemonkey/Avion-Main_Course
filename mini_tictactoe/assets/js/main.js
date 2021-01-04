@@ -145,7 +145,7 @@ const App = new function Application() {
 
             const hasWon = checkGrids();
 
-            if (hasWon === 'TIE') tie();
+            if (hasWon === 'TIE') return tie();
             if (hasWon) return winner();
             if (!hasWon) return nextPlayer();
         }
