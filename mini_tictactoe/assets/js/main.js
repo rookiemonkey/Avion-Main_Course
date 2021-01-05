@@ -69,6 +69,7 @@ const App = new function Application() {
         state.XCoors = new Array();
         state.OCoors = new Array();
         display.textContent = 'X is Playing';
+        notify.clearMessage();
         grids.forEach(grid => {
             grid.textContent = ''
             grid.className = 'cell hoverable'
@@ -200,6 +201,11 @@ const App = new function Application() {
             this.hideTimeout = setTimeout(() => {
                 this.element.classList.remove("toast--visible");
             }, 3000);
+        }
+
+        this.clearMessage = () => {
+            clearTimeout(this.hideTimeout)
+            this.element.classList.remove("toast--visible");
         }
     }
 
