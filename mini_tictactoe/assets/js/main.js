@@ -1,4 +1,4 @@
-const App = new function Application() {
+(function Application() {
 
     const winningCombinations = {
         1: ['1-1', '1-2', '1-3'],
@@ -210,9 +210,8 @@ const App = new function Application() {
     }
 
 
-    //! PUBLIC METHOD/S
 
-    this.onloadApp = () => {
+    window.onload = () => {
 
         // initiate audio elements
         background.play();
@@ -242,10 +241,4 @@ const App = new function Application() {
 
     }
 
-}()
-
-
-
-
-// onload of the application
-window.onload = App.onloadApp;
+})()
