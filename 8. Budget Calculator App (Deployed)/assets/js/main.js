@@ -111,11 +111,15 @@ const BudgetApp = new function () {
         if (event.target.value === 'exp') {
             inputAmount.style.border = '1px solid red';
             inputDesc.style.border = '1px solid red';
+            selectType.style.border = '1px solid red';
+            inputSubmit.style.color = 'red';
             return null
         }
 
-        inputAmount.style.border = 'initial';
-        inputDesc.style.border = 'initial';
+        inputSubmit.style.color = 'green';
+        selectType.style.border = '1px solid green';
+        inputAmount.style.border = '1px solid green';
+        inputDesc.style.border = '1px solid green';
     }
 
 

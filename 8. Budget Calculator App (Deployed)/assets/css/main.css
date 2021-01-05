@@ -126,7 +126,7 @@ body {
 
 .add__type {
     width: 55px;
-    border: 1px solid #e7e7e7;
+    border: 1px solid green;
     height: 44px;
     font-size: 18px;
     color: inherit;
@@ -138,7 +138,7 @@ body {
 
 .add__description,
 .add__value {
-    border: 1px solid #e7e7e7;
+    border: 1px solid green;
     background-color: #fff;
     color: inherit;
     font-family: inherit;
@@ -156,7 +156,7 @@ body {
     font-size: 35px;
     background: none;
     border: none;
-    color: #28B9B5;
+    color: green;
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
@@ -170,7 +170,7 @@ body {
 .add__description:focus,
 .add__value:focus {
     outline: none;
-    border: 1px solid #28B9B5;
+    /* border: 1px solid #28B9B5; */
 }
 
 .add__btn:focus { outline: none; }
