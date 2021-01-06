@@ -144,20 +144,19 @@ const BudgetApp = new function () {
     const addBudget = () => {
         const type = selectType.value;
         const desc = inputDesc.value;
-        const amount = parseFloat(inputAmount.value);
-        const parsedAmount = Number((amount / 100).toFixed(2)) * 100
+        const amount = inputAmount.valueAsNumber;
 
         if (!desc || !amount)
             return notify.showMessage('Please complete the information for your budget', 'error')
 
         switch (true) {
             case type === 'exp':
-                const newExpBudget = new Budget(parsedAmount, desc, 'exp')
+                const newExpBudget = new Budget(amount, desc, 'exp')
                 new HTMLBudgetTag(newExpBudget.id, 'exp', desc, amount, getTotal(STATE.income));
                 STATE.expenses.push(newExpBudget);
                 break;
             case type === 'inc':
-                const newIncBudget = new Budget(parsedAmount, desc, 'inc')
+                const newIncBudget = new Budget(amount, desc, 'inc')
                 new HTMLBudgetTag(newIncBudget.id, 'inc', desc, amount, getTotal(STATE.income));
                 STATE.income.push(newIncBudget)
                 break;
