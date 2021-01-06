@@ -56,7 +56,7 @@ body {
 main {
     width: 40%;
     min-height: 50%;
-    margin: 5% auto;
+    margin: 2.5% auto;
 }
 
 #top {
@@ -181,6 +181,20 @@ button#submit {
     animation-name: fadeOutRight;
     -webkit-animation-duration: 500ms;
     animation-duration: 500ms;
+}
+
+#tasklist_empty {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#tasklist_empty > img{
+  width: 50%;
+  margin-bottom: var(--spacing-lg);
 }
 
 @-webkit-keyframes fadeInLeft {

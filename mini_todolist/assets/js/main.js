@@ -7,11 +7,15 @@ const ToDoApp = (function Application() {
 
     const input = document.getElementById('input');
     const submit = document.getElementById('submit');
+    const tasklist = document.getElementById('tasklist');
+
     const notify = new HTMLElementToaster();
 
     return class App {
 
         static onload() {
+
+
             // initialize the current date
             document.getElementById('top').innerHTML = `
                 <h2>To-Do List</h2><span>${new Date().toDateString()}</span>
@@ -22,6 +26,10 @@ const ToDoApp = (function Application() {
                 STATE.todos.push(...JSON.parse(localStorage.getItem('todos')))
                 STATE.todos.forEach(todo => new HTMLTaskElement(todo.task, todo.done))
             }
+
+            // initialize illustration for empty todo list
+            if (![...tasklist.children].length)
+                new HTMLTaskEmptyElement();
 
             // initialize event listeners
             submit.onclick = () => ToDoApp.addTodo();
@@ -38,6 +46,9 @@ const ToDoApp = (function Application() {
 
             if (input.value && input.value.length > 59)
                 return notify.showMessage('Please make your todo a bit shorter', 'error')
+
+            if (!STATE.todos.length)
+                document.getElementById('tasklist_empty').remove();
 
             // create/append task element
             new HTMLTaskElement(input.value, false);
@@ -73,9 +84,16 @@ const ToDoApp = (function Application() {
             // update the local date
             localStorage.setItem('todos', JSON.stringify(STATE.todos));
 
-            // transition out the removed todo
+
+            // transition out the removed todo &&  initialize illustration for empty todo list
             el.parentNode.classList.add('fadeOutRight');
-            setTimeout(() => { el.parentNode.remove(); }, 500);
+            setTimeout(() => {
+                el.parentNode.remove();
+
+                if (!STATE.todos.length)
+                    new HTMLTaskEmptyElement();
+
+            }, 500);
         }
 
 
@@ -116,9 +134,23 @@ function HTMLTaskElement(task, done) {
 
     // mount to DOM
     li.appendChild(rmvIcon)
-    document.getElementById('tasklist').insertAdjacentElement('afterbegin', li)
-    // document.getElementById('tasklist').appendChild(li);
+    document.getElementById('tasklist')
+        .insertAdjacentElement('afterbegin', li)
 
+}
+
+// model for empty tasklist
+function HTMLTaskEmptyElement() {
+    const container = document.createElement('div');
+    container.id = 'tasklist_empty';
+
+    container.innerHTML = `
+        <img src="./assets/images/celebrate.svg" />
+        <h2>Hooray! You are all done!</h2>
+    `
+
+    document.getElementById('tasklist')
+        .insertAdjacentElement('afterbegin', container)
 }
 
 // model for toast notification
