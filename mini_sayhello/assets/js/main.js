@@ -11,8 +11,11 @@ const names = document.querySelectorAll('.preselected-name-btn');
 hello.onclick = function () {
     if (input.value) {
         display.textContent = `Hello, ${input.value}`;
-        responsiveVoice.speak(display.textContent);
+        return responsiveVoice.speak(display.textContent);
     }
+
+    display.textContent = `Hello World`;
+    responsiveVoice.speak(display.textContent);
 };
 
 // onclick of the saygoodbye button
