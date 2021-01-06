@@ -82,7 +82,7 @@ div#inputs {
 }
 
 input#input {
-    width: 75%;
+    width: 90%;
     background-color: transparent;
     padding: var(--spacing-sm) 0px;
     color: var(--color-accent1);
@@ -97,7 +97,7 @@ button#submit {
 }
 
 button#submit {
-    width: 19%;
+    width: 7.5%;
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--color-accent3);
