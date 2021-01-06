@@ -1,8 +1,8 @@
 :root {
-    --color-base: #E8CEBF;
-    --color-accent1: #DDAF94;
+    --color-base: white;
+    --color-accent1: #266150;
     --color-accent2: #266150;
-    --color-accent3: #4F4846;
+    --color-accent3: white;
     --radius: 35px;
     --spacing-sm: 8px;
     --spacing-md: 15px;
@@ -50,11 +50,10 @@
 }
 
 body {
-    background-color: var(--color-accent3);
+    background-color: #cecece;
 }
 
 main {
-    /* border: 2px solid red; */
     width: 40%;
     min-height: 50%;
     margin: 5% auto;
@@ -159,7 +158,8 @@ button#submit {
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--radius);
     cursor: pointer;
-    transition: background-color 500ms ease-in-out;
+    transition: background-color 500ms ease-in-out,
+                text-decoration 500ms ease-in-out;
     -webkit-animation-name: fadeInLeft;
     -webkit-animation-duration: 500ms;
     animation-name: fadeInLeft;
@@ -172,7 +172,8 @@ button#submit {
 }
 
 .taskitem-done {
-    background-color: #706e6e;
+    background-color: #979797;
+    text-decoration: line-through;
 }
 
 .fadeOutRight {
