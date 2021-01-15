@@ -1,7 +1,5 @@
 ### ✨ [1. Tribute Page (Click to see live version)](https://krrb-prod-tribute-page.netlify.app/)
 
-> This project is focused on the usage of basic HTML & CSS structure as instructed by Avion School instructors
-
 >> ###### Features:
 >> - [x] Responsive design
 >> - [x] Timeline
@@ -12,8 +10,6 @@
 
 
 ### ✨ [2. Survey Form (Click to see live version)](https://krrb-prod-survey-form.netlify.app/)
-
-> This project is focused on the usage of basic HTML & CSS structure as instructed by Avion School instructors
 
 >> ###### Features:
 >> - [x] Responsive design
@@ -28,8 +24,6 @@
 
 ### ✨ [3. Product Landing Page (Click to see live version)](https://krrb-prod-product-landing-page.netlify.app/)
 
-> This project is focused on the usage of CSS flexbox and other concepts taught prior this project as instructed by Avion School instructors
-
 >> ###### Features:
 >> - [x] Responsive design
 >> - [x] Sidebar for mobile view
@@ -42,8 +36,6 @@
 
 
 ### ✨ [4. Avion School Page (Click to see live version)](https://krrb-prod-avionschool.netlify.app/)
-
-> This project is focused on the usage of CSS flexbox and other concepts taught prior this project as instructed by Avion School instructors. Final project before moving into javascript.
 
 >> ###### Features:
 >> - [x] Responsive design
@@ -61,8 +53,6 @@
 
 ### ✨ [5. Calculator (Click to see live version)](https://krrb-prod-calculator-avion.netlify.app/)
 
-> This project is focused on the basics of implementing javascript on web applications which consists of manipulating styles and markup
-
 >> ###### Features:
 >> - [x] consecutive calculations
 >> - [x] assets are minified using gulp
@@ -78,8 +68,6 @@
 
 ### ✨ [6. Pig Game (Click to see live version)](https://krrb-prod-piggame.netlify.app)
 
-> This project is focused on the basics of implementing javascript on web applications which consists of manipulating styles and markup.
-
 >> ###### Features:
 >> - [x] use of ES6 Classes and weakmaps for private variables
 >> - [x] supports dark/light theme
@@ -93,8 +81,6 @@
 
 
 ### ✨ [7. Bank App (Click to see live version)](https://krrb-prod-bankapp.netlify.app)
-
-> This project is focused on the basics of implementing javascript on web applications which consists of manipulating styles and markup also, the use of objects in javascript.
 
 >> ###### Features:
 >> - [x] use of ES6 Classes
@@ -111,8 +97,6 @@
 
 ### ✨ [8. Budget Calculator (Click to see live version)](https://krrb-prod-budgetcalculator.netlify.app)
 
-> This project is focused on the usage of basic HTML, CSS and JS as instructed by Avion School instructors
-
 >> ###### Features:
 >> - [x] Best on desktop and ipad
 >> - [x] Uses Object Oriented Programming style
@@ -122,11 +106,22 @@
 
 
 
+### ✨ [9. Recipe App (Click to see live version)](https://krrb-prod-forkify.netlify.app/)
+
+>> ###### Features:
+>> - [x] Best on desktop and ipad
+>> - [x] Uses webpack to package the application
+>> - [x] Uses Object Oriented Programming style
+>> - [x] Uses localstorage for data persistence
+>> - [x] Able to clear the shopping list with a click of a button
+>> - [x] Able to see num of liked recipes using a badge icon
+>> - [x] Able to see suggestions on text input
+
+![Screenshot](_SCREENSHOTS/recipeapp.png)
+
 
 
 ### ✨ [Mini Project - SayHello App (Click to see live version)](https://krrb-prod-sayhello.netlify.app/)
-
-> This project is focused on the usage of basic HTML, CSS and JS as instructed by Avion School instructors
 
 >> ###### Features:
 >> - [x] Best on desktop and ipad
@@ -140,8 +135,6 @@
 
 ### ✨ [Mini Project - TicTacToe App (Click to see live version)](https://krrb-prod-tictactoe.netlify.app/)
 
-> This project is focused on the usage of basic HTML, CSS and JS as instructed by Avion School instructors
-
 >> ###### Features:
 >> - [x] Best on desktop and ipad
 >> - [x] Highlights the winning line
@@ -154,8 +147,6 @@
 
 
 ### ✨ [Mini Project - Todo-List App (Click to see live version)](https://krrb-prod-todolistv2.netlify.app/)
-
-> This project is focused on the usage of basic HTML, CSS and JS as instructed by Avion School instructors
 
 >> ###### Features:
 >> - [x] Best on desktop and ipad
