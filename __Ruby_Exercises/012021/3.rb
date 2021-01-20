@@ -5,17 +5,21 @@ contact_data = [
     ["avion@email.com", "404 Not Found Dr.", "123-234-3454"]
 ]
                 
-contacts = {"Analyn Cajocson" => {}, "Avion School" => {}}
+contacts = {
+    "Analyn Cajocson" => {}, 
+    "Avion School" => {}
+}
 
 keys = ["email", "address", "phone"]
 
-# loop to contacts
-contacts.each do |_,hash|
-    contact_data.each do |group|
-        group.each_with_index do |data, ind|
-            hash[keys[ind]] = data
-        end
+# loop to contacts and destructure the array [key, value]
+contacts.each_with_index do |(_, hash), index|
+
+    # loop to data intended for the current contact
+    contact_data[index].each_with_index do |data, key_index|
+        hash[keys[key_index]] = data
     end
+
 end
 
 puts contacts
