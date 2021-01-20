@@ -60,6 +60,9 @@ const UIController = new class UIController {
                 break;
         }
 
+        // for results with only one page
+        if (Object.keys(this.results).length == 1) return null
+
         // render pagination buttons
         new BtnPrev().render(this.resultPage, Object.keys(this.results).length);
         new BtnNext().render(this.resultPage, Object.keys(this.results).length);
