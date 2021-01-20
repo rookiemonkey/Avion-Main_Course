@@ -11,8 +11,8 @@ keys = ["email", "address", "phone"]
 
 # loop to contacts
 contacts.each do |_,hash|
-    contact_data.each_with_index do |group, ind|
-        group.each do |data|
+    contact_data.each do |group|
+        group.each_with_index do |data, ind|
             hash[keys[ind]] = data
         end
     end
