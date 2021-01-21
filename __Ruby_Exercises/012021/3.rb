@@ -10,7 +10,7 @@ contacts = {
     "Avion School" => {}
 }
 
-keys = ["email", "address", "phone"]
+keys = [:email, :address, :phone]
 
 # loop to contacts and destructure the array [key, value]
 contacts.each_with_index do |(_, hash), index|
