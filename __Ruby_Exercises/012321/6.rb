@@ -1,3 +1,4 @@
+# DUCK TYPING
 
 class Gadget 
     def type(gadget)
