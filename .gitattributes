@@ -1,1 +1,1 @@
-*.css, *.scss linguist-language=Ruby
+*.css *.scss linguist-language=Ruby
