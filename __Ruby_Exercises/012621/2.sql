@@ -1,0 +1,18 @@
+
+-- DISPLAY THE COUNT OF ALL STUDENTS
+SELECT COUNT(*) AS 'num_of_students' FROM students
+
+
+
+-- SELECT ALL STUDENTS WITH LOCATION is MANILA
+SELECT * FROM students WHERE location='Manila'
+
+
+
+-- SELECT ALL STUDENTS WITH LOCATION is MANILA
+SELECT AVG(age) AS 'average_age' FROM students;
+
+
+
+-- SELECT ALL STUDENTS BY AGE DESC
+SELECT * FROM students ORDER BY age DESC
